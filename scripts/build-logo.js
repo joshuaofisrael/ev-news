@@ -14,8 +14,8 @@ const BOLT = [
   [96, 84],
   [120, 18],
 ];
-const INK = [20, 33, 28, 255];
-const GOLD = [243, 212, 138, 255];
+const INK = [7, 19, 31, 255];
+const GOLD = [210, 243, 74, 255];
 
 function makeCrcTable() {
   const table = new Uint32Array(256);

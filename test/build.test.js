@@ -61,6 +61,9 @@ test("production build omits drafts and the sources gate fails closed", { timeou
 
   assert.match(home, new RegExp(copyright.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   assert.match(home, /No story has been published yet/);
+  assert.match(home, /class="masthead"/);
+  assert.match(home, /class="charge-fill"/);
+  assert.match(home, /class="road-line"/);
   assert.match(home, /lang="en"/);
   assert.match(home, /Skip to content/);
   assert.match(home, new RegExp(`rel="canonical" href="${esc(site.url)}/"`));

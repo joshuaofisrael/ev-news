@@ -5,6 +5,10 @@
       {% include "partials/mark.njk" %}
       <span class="brand-name">{{ site.name }}</span>
     </a>
+    <p class="header-charge">
+      <span class="battery" aria-hidden="true"><span class="battery-fill"></span></span>
+      <span>On the beat</span>
+    </p>
     <nav class="company-nav" aria-label="Company">
       <ul>
         <li><a href="{{ '/about/' | url }}"{% if page.url == ("/about/" | url) %} aria-current="page"{% endif %}>About</a></li>
@@ -21,4 +25,5 @@
       {% endfor %}
     </ul>
   </nav>
+  <div class="road-line" aria-hidden="true"></div>
 </header>

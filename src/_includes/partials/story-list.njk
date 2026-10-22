@@ -1,7 +1,7 @@
 {% if stories and stories.length %}
 <ul class="story-list">
   {% for post in stories %}
-  <li>
+  <li class="story-card">
     <article>
       <p class="story-kicker">
         {% if post.data.draft %}<span class="badge">Unpublished draft</span>{% endif %}

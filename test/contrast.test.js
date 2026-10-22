@@ -45,3 +45,11 @@ test("text colors in the stylesheet meet WCAG AA", () => {
     assert.ok(ratio >= 4.5, `${foreground} on ${background} is ${ratio.toFixed(2)}`);
   }
 });
+
+test("motion and the charge shimmer respect reduced motion", () => {
+  const css = fs.readFileSync("src/assets/css/site.css", "utf8");
+  assert.match(css, /@keyframes\s+charge-shimmer/);
+  assert.match(css, /@media\s*\(\s*prefers-reduced-motion:\s*reduce\s*\)/);
+  assert.match(css, /animation:\s*none\s*!important/);
+  assert.match(css, /transition:\s*none\s*!important/);
+});
