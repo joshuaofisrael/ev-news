@@ -1,0 +1,39 @@
+import assert from "node:assert/strict";
+import { test } from "node:test";
+import site from "../src/_data/site.js";
+import { buildGraph, renderBreadcrumbNav } from "../lib/structured-data.js";
+
+test("NewsArticle publisher is the Florida LLC and breadcrumbs escape text", () => {
+  const graph = buildGraph(
+    {
+      kind: "article",
+      title: "A sourced headline",
+      summary: "A dek.",
+      category: "Cars",
+      tags: ["range"],
+      page: { url: "/articles/example/", date: new Date("2026-10-22T00:00:00Z") },
+    },
+    site,
+  );
+  const article = graph["@graph"].find((node) => node["@type"] === "NewsArticle");
+  const crumbs = graph["@graph"].find((node) => node["@type"] === "BreadcrumbList");
+  assert.equal(article.publisher["@type"], "Organization");
+  assert.equal(article.publisher.name, "Joshua Israel Ventures LLC");
+  assert.equal(article.author.name, "EV News Desk");
+  assert.equal(crumbs.itemListElement[0].name, "Home");
+  assert.equal(crumbs.itemListElement[1].name, "Cars");
+
+  const home = buildGraph({ title: site.name, page: { url: "/" } }, site);
+  assert.equal(
+    home["@graph"].some((node) => node["@type"] === "NewsArticle"),
+    false,
+  );
+  assert.ok(home["@graph"].some((node) => node["@type"] === "BreadcrumbList"));
+
+  const html = renderBreadcrumbNav([
+    { name: "Home", url: "https://example.com/" },
+    { name: "<script>", url: "https://example.com/x/" },
+  ]);
+  assert.match(html, /&lt;script&gt;/);
+  assert.doesNotMatch(html, /<script>/);
+});

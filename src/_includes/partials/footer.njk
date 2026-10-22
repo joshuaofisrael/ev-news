@@ -1,0 +1,34 @@
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <nav aria-label="Coverage">
+      <h2>Coverage</h2>
+      <ul>
+        {% for item in site.categories %}
+        <li><a href="{{ ('/category/' ~ item.slug ~ '/') | url }}">{{ item.name }}</a></li>
+        {% endfor %}
+        <li><a href="{{ '/archive/' | url }}">Archive</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Company links">
+      <h2>Company</h2>
+      <ul>
+        <li><a href="{{ '/about/' | url }}">About</a></li>
+        <li><a href="{{ '/contact/' | url }}">Contact</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Legal and feeds">
+      <h2>Legal and feeds</h2>
+      <ul>
+        <li><a href="{{ '/terms/' | url }}">Terms</a></li>
+        <li><a href="{{ '/privacy/' | url }}">Privacy</a></li>
+        <li><a href="{{ '/disclaimer/' | url }}">Disclaimer</a></li>
+        <li><a href="{{ '/feed.xml' | url }}">RSS</a></li>
+        <li><a href="{{ '/atom.xml' | url }}">Atom</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap footer-legal">
+    <p>{{ site.operator }}, {{ site.entityDescription }}.</p>
+    <p class="copyright">© {{ site.year }} {{ site.operator }}. All rights reserved. {{ site.name }} is owned and operated by {{ site.operator }}.</p>
+  </div>
+</footer>

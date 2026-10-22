@@ -1,0 +1,17 @@
+---
+layout: layouts/page.njk
+title: Contact
+summary: Write to EV News Desk. No street address is published.
+permalink: /contact/
+---
+<p>Email the {{ site.author }} at <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>.</p>
+{% if site.contactEmail | isPlaceholderEmail %}
+<p class="note">This address is a placeholder in the site configuration. Change <code>contactEmail</code> in <code>src/_data/site.js</code> before launch.</p>
+{% endif %}
+<p>{{ site.name }} is owned and operated by {{ site.operator }}, {{ site.entityDescription }}. We do not publish a street address.</p>
+<h2>What to send</h2>
+<ul>
+  <li>Corrections: the article URL, the passage, and a link to a public source.</li>
+  <li>Tips: documents or pages a reader can open, not a claim with nowhere to check it.</li>
+  <li>Replies go to the address you used. There is no account and no mailing list on this site.</li>
+</ul>

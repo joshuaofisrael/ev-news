@@ -1,0 +1,5 @@
+node_modules/
+_site/
+_site-preview/
+_site-invalid/
+.DS_Store

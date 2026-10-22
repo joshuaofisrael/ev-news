@@ -1,0 +1,9 @@
+---
+layout: layouts/section.njk
+title: Archive
+summary: Every published story, newest first.
+permalink: /archive/
+---
+{% set stories = collections.publishedPosts %}
+{% set emptyNote = "No story has been published yet." %}
+{% include "partials/story-list.njk" %}
