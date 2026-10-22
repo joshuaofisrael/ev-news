@@ -117,6 +117,19 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(contact, /do not publish a street address/i);
   assert.doesNotMatch(contact, /Suite|P\.O\. Box|streetAddress/);
 
+  const beacon = `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${site.cloudflareAnalyticsToken}"}'></script>`;
+  for (const page of [home, about, privacy]) {
+    assert.match(page, new RegExp(`${esc(beacon)}\\s*</body>`));
+    assert.match(
+      page,
+      /script-src 'unsafe-inline' https:\/\/static\.cloudflareinsights\.com/,
+    );
+    assert.match(page, /connect-src https:\/\/cloudflareinsights\.com/);
+  }
+  assert.match(privacy, /cookieless Cloudflare Web Analytics/);
+
+  // Advertising hosts and font CDNs stay banned. The one allowed analytics
+  // script is the cookieless Cloudflare Web Analytics beacon above.
   const banned = [
     "googletagmanager",
     "google-analytics",
