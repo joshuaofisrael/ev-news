@@ -1,0 +1,61 @@
+---
+layout: layouts/base.njk
+---
+<article class="story-page">
+  <header class="article-head">
+    <p class="story-kicker">
+      <a href="{{ ('/category/' ~ (category | categorySlug) ~ '/') | url }}">{{ category }}</a>
+      <time datetime="{{ page.date | isoDate }}">{{ page.date | displayDate }}</time>
+    </p>
+    <h1>{{ title }}</h1>
+    <p class="byline">By <a href="{{ '/about/' | url }}">{{ author or site.author }}</a></p>
+    {% if summary %}
+    <p class="dek">{{ summary }}</p>
+    {% endif %}
+  </header>
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+  {% if tags and tags.length %}
+  <section class="tag-block" aria-labelledby="tags-heading">
+    <h2 id="tags-heading">Tags</h2>
+    <ul class="tag-list">
+      {% for tag in tags %}
+      {% if tag != "post" %}
+      <li>
+        {% if collections.publicTagList and (tag in collections.publicTagList) %}
+        <a href="{{ ('/tags/' ~ (tag | slugify) ~ '/') | url }}">{{ tag }}</a>
+        {% else %}
+        <span>{{ tag }}</span>
+        {% endif %}
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+  <section class="sources" aria-labelledby="sources-heading">
+    <h2 id="sources-heading">Sources</h2>
+    {% if sources and sources.length %}
+    <ol>
+      {% for source in sources %}
+      {% set href = source.url | safeHttpUrl %}
+      <li>
+        {% if href %}
+        <a href="{{ href }}">{{ source.title }}<span class="visually-hidden"> (external source)</span></a>
+        {% else %}
+        {{ source.title }}
+        {% endif %}
+        <span class="source-meta">
+          <span class="source-publisher">{{ source.publisher }}</span>
+          <span aria-hidden="true"> · </span>
+          <time datetime="{{ source.date | isoDate }}">{{ source.date | displayDate }}</time>
+        </span>
+      </li>
+      {% endfor %}
+    </ol>
+    {% else %}
+    <p>This draft has no sources yet. Add a non-empty sources list before publishing. The production build fails without one.</p>
+    {% endif %}
+  </section>
+</article>

@@ -1,0 +1,24 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-bar">
+    <a class="brand" href="{{ '/' | url }}" {% if page.url == ("/" | url) %}aria-current="page"{% endif %}>
+      {% include "partials/mark.njk" %}
+      <span class="brand-name">{{ site.name }}</span>
+    </a>
+    <nav class="company-nav" aria-label="Company">
+      <ul>
+        <li><a href="{{ '/about/' | url }}"{% if page.url == ("/about/" | url) %} aria-current="page"{% endif %}>About</a></li>
+        <li><a href="{{ '/contact/' | url }}"{% if page.url == ("/contact/" | url) %} aria-current="page"{% endif %}>Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <nav class="topics" aria-label="Topics">
+    <ul class="topic-list wrap">
+      {% for item in site.categories %}
+      <li>
+        <a href="{{ ('/category/' ~ item.slug ~ '/') | url }}"{% if (desk and desk.slug == item.slug) or category == item.name %} aria-current="page"{% endif %}>{{ item.name }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>

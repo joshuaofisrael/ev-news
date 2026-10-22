@@ -1,0 +1,20 @@
+{
+  "name": "ev-news",
+  "private": true,
+  "description": "EV News Desk, a static electric-vehicle desk owned by Joshua Israel Ventures LLC.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "ELEVENTY_ENV=development eleventy --serve --port=8080",
+    "build": "eleventy",
+    "build:preview": "ELEVENTY_ENV=development eleventy --output=_site-preview",
+    "indexnow": "node scripts/ping-indexnow.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.7",
+    "gray-matter": "^4.0.3"
+  }
+}

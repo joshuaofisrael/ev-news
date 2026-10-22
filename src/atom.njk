@@ -1,0 +1,27 @@
+---
+permalink: /atom.xml
+eleventyExcludeFromCollections: true
+sitemapIgnore: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.name }}</title>
+  <id>{{ "/" | absoluteUrl }}</id>
+  <updated>{{ site.buildTime | isoDate }}</updated>
+  <link rel="self" href="{{ "/atom.xml" | absoluteUrl }}"/>
+  <link rel="alternate" href="{{ "/" | absoluteUrl }}"/>
+  <author><name>{{ site.author }}</name></author>
+  <rights>Copyright {{ site.operator }}</rights>
+{% for post in collections.publishedPosts %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <id>{{ post.url | absoluteUrl }}</id>
+    <link rel="alternate" href="{{ post.url | absoluteUrl }}"/>
+    <updated>{{ post.date | isoDate }}</updated>
+    <published>{{ post.date | isoDate }}</published>
+    <author><name>{{ site.author }}</name></author>
+    <summary>{{ post.data.summary }}</summary>
+    <category term="{{ post.data.category }}"/>
+  </entry>
+{% endfor %}
+</feed>

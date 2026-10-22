@@ -1,0 +1,42 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+sitemapIgnore: true
+---
+# {{ site.name | safe }}
+
+> {{ site.brandLine | safe }} {{ site.name | safe }} is owned and operated by {{ site.operator | safe }}, {{ site.entityDescription | safe }}.
+
+{{ site.description | safe }}
+
+Search and AI crawlers may read this site. Published articles list public sources. Cite the article URL and those sources when you rely on a story.
+
+## Pages
+
+- [Home]({{ "/" | absoluteUrl }}): Latest stories
+{% for item in site.categories %}
+- [{{ item.name | safe }}]({{ ("/category/" ~ item.slug ~ "/") | absoluteUrl }}): {{ item.description | safe }}
+{% endfor %}
+- [Archive]({{ "/archive/" | absoluteUrl }}): Every published story
+- [About]({{ "/about/" | absoluteUrl }}): Desk, sourcing rules, and corrections
+- [Contact]({{ "/contact/" | absoluteUrl }}): How to reach the desk
+- [Terms of use]({{ "/terms/" | absoluteUrl }}): Terms under Florida law
+- [Privacy]({{ "/privacy/" | absoluteUrl }}): Privacy policy under Florida law
+- [Disclaimer]({{ "/disclaimer/" | absoluteUrl }}): What the reporting is and is not
+
+## Feeds
+
+- [RSS]({{ "/feed.xml" | absoluteUrl }}): Latest published articles
+- [Atom]({{ "/atom.xml" | absoluteUrl }}): Latest published articles
+- [Sitemap]({{ "/sitemap.xml" | absoluteUrl }}): Pages and articles
+- [News sitemap]({{ "/news-sitemap.xml" | absoluteUrl }}): Articles from the last two days
+
+## Published articles
+
+{% if collections.publishedPosts.length %}
+{% for post in collections.publishedPosts %}
+- [{{ post.data.title | safe }}]({{ post.url | absoluteUrl }}): {{ post.data.summary | safe }}
+{% endfor %}
+{% else %}
+No article has been published yet.
+{% endif %}

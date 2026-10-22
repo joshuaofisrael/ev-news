@@ -1,0 +1,12 @@
+---
+pagination:
+  data: collections.publicTagList
+  size: 1
+  alias: tag
+  addAllPagesToCollections: true
+permalink: "/tags/{{ tag | slugify }}/"
+layout: layouts/section.njk
+---
+{% set stories = collections.publishedPosts | whereTag(tag) %}
+{% set emptyNote = "No published story uses this tag." %}
+{% include "partials/story-list.njk" %}

@@ -1,0 +1,16 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+sitemapIgnore: true
+---
+# Search and AI crawlers may access the whole site.
+User-agent: *
+Allow: /
+
+{% for name in site.crawlers %}
+User-agent: {{ name }}
+Allow: /
+
+{% endfor %}
+Sitemap: {{ "/sitemap.xml" | absoluteUrl }}
+Sitemap: {{ "/news-sitemap.xml" | absoluteUrl }}

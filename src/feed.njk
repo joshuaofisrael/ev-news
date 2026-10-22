@@ -1,0 +1,26 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+sitemapIgnore: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>{{ site.name }}</title>
+    <link>{{ "/" | absoluteUrl }}</link>
+    <description>{{ site.description }}</description>
+    <language>en-us</language>
+    <lastBuildDate>{{ site.buildTime | rfc822 }}</lastBuildDate>
+    <copyright>Copyright {{ site.operator }}</copyright>
+{% for post in collections.publishedPosts %}
+    <item>
+      <title>{{ post.data.title }}</title>
+      <link>{{ post.url | absoluteUrl }}</link>
+      <guid isPermaLink="true">{{ post.url | absoluteUrl }}</guid>
+      <pubDate>{{ post.date | rfc822 }}</pubDate>
+      <category>{{ post.data.category }}</category>
+      <description>{{ post.data.summary }}</description>
+    </item>
+{% endfor %}
+  </channel>
+</rss>

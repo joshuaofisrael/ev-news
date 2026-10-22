@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "partials/head.njk" %}
+</head>
+<body class="{{ kind or 'page' }}">
+  {% include "partials/header.njk" %}
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      {% if draft %}
+      <p class="draft-banner" role="note">Unpublished draft. This page is left out of the production site. It is not a published news report.</p>
+      {% endif %}
+      {% breadcrumbNav %}
+      {{ content | safe }}
+    </div>
+  </main>
+  {% include "partials/footer.njk" %}
+</body>
+</html>

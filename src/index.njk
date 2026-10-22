@@ -1,0 +1,44 @@
+---
+layout: layouts/base.njk
+kind: home
+permalink: /
+---
+<header class="masthead">
+  <h1>{{ site.name }}</h1>
+  <p class="tagline">{{ site.tagline }}</p>
+  <p class="brand-line">{{ site.brandLine }}</p>
+</header>
+<div class="home-grid">
+  <section aria-labelledby="latest-heading">
+    <h2 id="latest-heading" class="section-heading">Latest</h2>
+    {% set stories = collections.posts | limit(20) %}
+    {% set storyHeading = "h3" %}
+    {% set emptyNote = "No story has been published yet. The desk files one sourced article a day. A story appears here after it leaves draft status with a public source list." %}
+    {% include "partials/story-list.njk" %}
+    {% if collections.posts.length > 20 %}
+    <p><a href="{{ '/archive/' | url }}">All stories</a></p>
+    {% endif %}
+  </section>
+  <aside class="home-rail">
+    <section aria-labelledby="desks-heading">
+    <h2 id="desks-heading">Desks</h2>
+    <div class="desk-list">
+      {% for item in site.categories %}
+      <a class="desk-card" href="{{ ('/category/' ~ item.slug ~ '/') | url }}">
+        <strong>{{ item.name }}</strong>
+        <span>{{ item.description }}</span>
+      </a>
+      {% endfor %}
+    </div>
+    </section>
+    <section aria-labelledby="publishing-heading">
+    <h2 id="publishing-heading">How a story gets published</h2>
+    <ol class="process">
+      <li>Write it in Markdown under the content folder.</li>
+      <li>Link each claim to a public source in the sentence it supports.</li>
+      <li>Add a sources list with title, URL, publisher, and date.</li>
+      <li>Remove draft status. The build stops if that list is missing.</li>
+    </ol>
+    </section>
+  </aside>
+</div>
