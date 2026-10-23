@@ -154,6 +154,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     `${site.url}/corrections/`,
     `${site.url}/sources-ethics/`,
     `${site.url}/archive/`,
+    `${site.url}/data/`,
     `${site.url}/category/cars/`,
     `${site.url}/category/batteries/`,
     `${site.url}/category/charging/`,
@@ -232,6 +233,13 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.doesNotMatch(ethics, /legally compliant|in compliance with the law/i);
   assert.match(home, /href="\/sources-ethics\/"/);
   assert.match(home, /href="\/corrections\/"/);
+  const topics = home.match(/<nav class="topics"[\s\S]*?<\/nav>/)[0];
+  const coverage = home.match(/<nav aria-label="Coverage"[\s\S]*?<\/nav>/)[0];
+  assert.ok(topics.indexOf("/category/industry/") < topics.lastIndexOf('href="/data/"'));
+  assert.match(topics, /aria-label="Topics"[\s\S]*Data/);
+  assert.ok(coverage.indexOf("/category/industry/") < coverage.indexOf('href="/data/"'));
+  assert.ok(coverage.indexOf('href="/data/"') < coverage.indexOf('href="/archive/"'));
+  assert.match(llms, /\/data\//);
 
   const beacon = `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${site.cloudflareAnalyticsToken}"}'></script>`;
   for (const page of [home, about, privacy, contact, thanks]) {
@@ -319,6 +327,36 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     assert.equal(texts.length, 3, file);
     for (const text of texts) assert.ok(text.length <= 155, `${file} description is ${text.length} characters`);
   }
+
+  const dash = read("_site", "data/index.html");
+  const dashTitle = decodeAttr(dash.match(/<title>([^<]*)<\/title>/)[1]);
+  const dashSummary =
+    "Sourced figures from the 23 October 2026 stories. Each number names its publisher and date. Not real-time, and not advice.";
+  assert.ok(dashTitle.length <= 60, dashTitle);
+  assert.equal(dashTitle, "EV data dashboard — EV News Desk");
+  assert.deepEqual(metaDescriptions(dash), [dashSummary, dashSummary, dashSummary]);
+  assert.match(dash, /rel="canonical" href="https:\/\/evnewsdesk\.com\/data\/"/);
+  assert.match(dash, /property="og:url" content="https:\/\/evnewsdesk\.com\/data\/"/);
+  assert.match(dash, /property="og:title" content="EV data dashboard — EV News Desk"/);
+  assert.match(dash, /property="og:site_name" content="EV News Desk"/);
+  assert.match(dash, /"@type":"Dataset"/);
+  assert.match(dash, /Last updated/);
+  assert.match(dash, /datetime="2026-10-23"/);
+  assert.match(dash, /They are not real-time, and they are not advice/);
+  assert.match(dash, /Company statement/);
+  assert.match(dash, /Independent source/);
+  assert.match(dash, /Sum of company figures/);
+  assert.match(dash, /486,532/);
+  assert.match(dash, /23,029/);
+  assert.match(dash, /98\.8/);
+  assert.match(dash, /34\.5/);
+  assert.match(dash, /https:\/\/www\.kba\.de\/DE\/Presse\/Pressemitteilungen\/Fahrzeugzulassungen\/2026\/pm41_2026_n_09_26_pm_komplett\.html/);
+  assert.match(dash, /<table/);
+  assert.match(dash, /aria-hidden="true"/);
+  assert.doesNotMatch(dash, /\sstyle="/);
+  const dashMain = dash.match(/<main\b[^>]*>([\s\S]*)<\/main>/)[1];
+  assert.doesNotMatch(dashMain, /Joshua/);
+  assert.match(dash, /<nav class="topics"[\s\S]*href="\/data\/" aria-current="page"/);
 
   const preview = runEleventy(["--output=_site-preview"], { ELEVENTY_ENV: "development" });
   assert.equal(preview.status, 0, preview.stdout + preview.stderr);

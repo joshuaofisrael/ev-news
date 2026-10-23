@@ -29,7 +29,8 @@ Publish one article a day. Topics can be news, models, batteries, charging, poli
 5. Run `npm run dev` and open `/articles/YYYY-MM-DD-short-slug/`.
 6. When the source list is complete and the copy is checked, remove the `draft` line (or set `draft: false`).
 7. Run `npm test`. The production build fails if a published article has no sources, a source is missing `title`, `url`, `publisher`, or `date`, `updatedAt` is missing, or the story is missing a hero, two body images, or alt text. Do not put a visible AI caption on a picture. The disclosure lives on `/disclaimer/`.
-8. Commit and push to `main`. GitHub Actions runs the tests, builds the site, and deploys `_site` to GitHub Pages.
+8. Optional: if the story carries a sourced statistic, add that figure to [`src/_data/dashboard.js`](src/_data/dashboard.js) with its label, value, unit, as-of date, source name, source URL, and article slug. The build fails a dashboard figure that has no source URL. Skip this when the story has no figure to add.
+9. Commit and push to `main`. GitHub Actions runs the tests, builds the site, and deploys `_site` to GitHub Pages.
 
 Required front matter:
 

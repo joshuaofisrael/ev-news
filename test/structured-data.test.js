@@ -34,6 +34,23 @@ test("NewsArticle publisher is the Florida LLC and breadcrumbs escape text", () 
     home["@graph"].some((node) => node["@type"] === "NewsArticle"),
     false,
   );
+
+  const dash = buildGraph(
+    {
+      kind: "dashboard",
+      title: "EV data dashboard",
+      summary: "Sourced figures from the 23 October 2026 stories.",
+      page: { url: "/data/" },
+    },
+    site,
+  );
+  const dataset = dash["@graph"].find((node) => node["@type"] === "Dataset");
+  const newsroom = dash["@graph"].find((node) => node["@type"] === "NewsMediaOrganization");
+  assert.equal(dataset.creator.name, "EV News Desk");
+  assert.equal(dataset.publisher["@id"], newsroom["@id"]);
+  assert.equal(newsroom.name, "EV News Desk");
+  assert.equal(dataset.name, "EV data dashboard");
+  assert.doesNotMatch(dataset.creator.name, /Joshua/);
   assert.ok(home["@graph"].some((node) => node["@type"] === "BreadcrumbList"));
 
   const html = renderBreadcrumbNav([
