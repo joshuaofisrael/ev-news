@@ -13,20 +13,19 @@
       <ul>
         <li><a href="{{ '/about/' | url }}"{% if page.url == ("/about/" | url) %} aria-current="page"{% endif %}>About</a></li>
         <li><a href="{{ '/contact/' | url }}"{% if page.url == ("/contact/" | url) %} aria-current="page"{% endif %}>Contact</a></li>
-        <li><a class="nav-dashboard" href="{{ '/dashboard/' | url }}"{% if page.url == ("/dashboard/" | url) %} aria-current="page"{% endif %}>Dashboard</a></li>
       </ul>
     </nav>
   </div>
   <nav class="topics" aria-label="Topics">
     <ul class="topic-list wrap">
+      <li>
+        <a class="nav-dashboard" href="{{ '/dashboard/' | url }}"{% if page.url == ("/dashboard/" | url) %} aria-current="page"{% endif %}>{% set iconName = "bolt" %}{% include "partials/section-icon.njk" %}Dashboard</a>
+      </li>
       {% for item in site.categories %}
       <li>
         <a href="{{ ('/category/' ~ item.slug ~ '/') | url }}"{% if (desk and desk.slug == item.slug) or category == item.name %} aria-current="page"{% endif %}>{% set iconName = item.slug %}{% include "partials/section-icon.njk" %}{{ item.name }}</a>
       </li>
       {% endfor %}
-      <li>
-        <a href="{{ '/dashboard/' | url }}"{% if page.url == ("/dashboard/" | url) %} aria-current="page"{% endif %}>{% set iconName = "bolt" %}{% include "partials/section-icon.njk" %}Dashboard</a>
-      </li>
       <li>
         <a href="{{ '/data/' | url }}"{% if page.url == ("/data/" | url) %} aria-current="page"{% endif %}>{% set iconName = "gauge" %}{% include "partials/section-icon.njk" %}EV data</a>
       </li>
