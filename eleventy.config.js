@@ -5,6 +5,7 @@ import { freshNewsPosts, renderNewsSitemap } from "./lib/news-sitemap.js";
 import { absoluteUrl, pathPrefixFromSiteUrl, prefixRootUrls } from "./lib/site-url.js";
 import { buildCrumbs, renderBreadcrumbNav, renderJsonLd } from "./lib/structured-data.js";
 import { figureCaption, imageFilesReady, insertBodyImages } from "./lib/article-images.js";
+import { metaDescription } from "./lib/meta-description.js";
 import { formatValidationErrors, validatePostsDir } from "./lib/validate-posts.js";
 
 const pathPrefix = pathPrefixFromSiteUrl(site.url);
@@ -60,9 +61,7 @@ export default function (eleventyConfig) {
     if (pageUrl === pathPrefix) return `${site.name} — ${site.tagline}`;
     return `${title || site.name} — ${site.name}`;
   });
-  eleventyConfig.addFilter("metaDescription", (summary) =>
-    String(summary || site.description).replace(/\s+/g, " ").trim(),
-  );
+  eleventyConfig.addFilter("metaDescription", (summary) => metaDescription(summary, site.description));
 
   eleventyConfig.addShortcode("structuredData", function () {
     return renderJsonLd(pageContext(this), site);
