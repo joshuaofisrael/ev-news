@@ -1,6 +1,7 @@
 ---
 title: "Sample draft: how a Charging post cites its sources"
 date: 2026-10-21
+updatedAt: 2026-10-21
 category: Charging
 summary: "Unpublished template for the Charging desk. It shows the byline, tags, inline links, and required sources list. It is not a news report."
 tags:

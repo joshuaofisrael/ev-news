@@ -1,6 +1,7 @@
 ---
 title: "Sample draft: how a Cars post cites its sources"
 date: 2026-10-22
+updatedAt: 2026-10-22
 category: Cars
 summary: "Unpublished template for the Cars desk. It shows the byline, tags, inline links, and required sources list. It is not a news report."
 tags:

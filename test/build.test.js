@@ -87,6 +87,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     `${site.url}/terms/`,
     `${site.url}/privacy/`,
     `${site.url}/disclaimer/`,
+    `${site.url}/corrections/`,
+    `${site.url}/sources-ethics/`,
     `${site.url}/archive/`,
     `${site.url}/category/cars/`,
     `${site.url}/category/batteries/`,
@@ -116,6 +118,15 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(about, /One sourced story a day on the electric-vehicle beat/);
   assert.match(contact, /do not publish a street address/i);
   assert.doesNotMatch(contact, /Suite|P\.O\. Box|streetAddress/);
+  const corrections = read("_site", "corrections/index.html");
+  const ethics = read("_site", "sources-ethics/index.html");
+  assert.match(corrections, /Corrections/);
+  assert.match(corrections, /Joshua Israel Ventures LLC/);
+  assert.match(ethics, /Sources &amp; Ethics|Sources & Ethics/);
+  assert.match(ethics, /AI-generated image/);
+  assert.match(ethics, /according to/);
+  assert.match(home, /href="\/sources-ethics\/"/);
+  assert.match(home, /href="\/corrections\/"/);
 
   const beacon = `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${site.cloudflareAnalyticsToken}"}'></script>`;
   for (const page of [home, about, privacy]) {
@@ -168,4 +179,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(draft, /NewsArticle/);
   assert.match(draft, /"name":"Joshua Israel Ventures LLC"/);
   assert.match(draft, />sample</);
+  assert.match(draft, /Last updated/);
+  assert.match(draft, /datetime="2026-10-22/);
+  assert.match(draft, /"dateModified":"2026-10-22T00:00:00\.000Z"/);
 });
