@@ -4,7 +4,7 @@ layout: layouts/base.njk
 <article class="story-page">
   <header class="article-head">
     <p class="story-kicker">
-      <a href="{{ ('/category/' ~ (category | categorySlug) ~ '/') | url }}">{{ category }}</a>
+      <a class="chip" href="{{ ('/category/' ~ (category | categorySlug) ~ '/') | url }}">{% set iconName = category | categorySlug %}{% include "partials/section-icon.njk" %}{{ category }}</a>
       <time datetime="{{ page.date | isoDate }}">{{ page.date | displayDate }}</time>
     </p>
     <h1>{{ title }}</h1>
@@ -29,27 +29,20 @@ layout: layouts/base.njk
   <p class="article-disclaimer" role="note">This is not financial, tax, or investment advice. It is a report. Confirm the figures with the cited source and a qualified adviser.</p>
   {% endif %}
   {% if hero and hero.src %}
-  <figure class="story-figure">
-    <img src="{{ ('/assets/images/' ~ hero.src ~ '.webp') | url }}" alt="{{ hero.alt }}" width="{{ hero.width or 1200 }}" height="{{ hero.height or 675 }}">
-    <figcaption>{{ hero.caption }}</figcaption>
+  <figure class="story-figure story-hero{% if not (hero.src | imageFilesReady) %} is-slot{% endif %}">
+    {% set srcBase = hero.src %}
+    {% set imageAlt = hero.alt %}
+    {% set imageWidth = hero.width %}
+    {% set imageHeight = hero.height %}
+    {% set imageLoading = "eager" %}
+    {% set imagePriority = "high" %}
+    {% include "partials/picture.njk" %}
+    <figcaption><span class="figure-caption">{{ hero.caption or "AI-generated photograph" }}</span></figcaption>
   </figure>
   {% endif %}
-  {% for item in images %}
-  {% if item.src %}
-  <figure class="story-figure">
-    <img src="{{ ('/assets/images/' ~ item.src ~ '.webp') | url }}" alt="{{ item.alt }}" width="{{ item.width or 1200 }}" height="{{ item.height or 675 }}" loading="lazy">
-    <figcaption>{{ item.caption }}</figcaption>
-  </figure>
-  {% endif %}
-  {% endfor %}
-  {% if image %}
-  <figure class="story-figure">
-    <img src="{{ ('/assets/images/' ~ image ~ '.webp') | url }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}">
-    <figcaption>{{ imageCaption }} <span>{{ imageCredit }}</span> <span>{{ imageLicense }}</span></figcaption>
-  </figure>
-  {% endif %}
+  {% include "partials/story-figure.njk" %}
   <div class="prose">
-    {{ content | safe }}
+    {{ content | insertBodyImages(images) | safe }}
   </div>
   {% if tags and tags.length %}
   <section class="tag-block" aria-labelledby="tags-heading">

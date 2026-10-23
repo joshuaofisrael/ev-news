@@ -3,42 +3,83 @@ layout: layouts/base.njk
 kind: home
 permalink: /
 ---
-<header class="masthead">
-  <h1>{{ site.name }}</h1>
-  <p class="tagline">{{ site.tagline }}</p>
-  <p class="brand-line">{{ site.brandLine }}</p>
-</header>
-<div class="home-grid">
-  <section aria-labelledby="latest-heading">
-    <h2 id="latest-heading" class="section-heading">Latest</h2>
-    {% set stories = collections.posts | limit(20) %}
-    {% set storyHeading = "h3" %}
-    {% set emptyNote = "No story has been published yet. The desk files one sourced article a day. A story appears here after it leaves draft status with a public source list." %}
-    {% include "partials/story-list.njk" %}
-    {% if collections.posts.length > 20 %}
-    <p><a href="{{ '/archive/' | url }}">All stories</a></p>
-    {% endif %}
-  </section>
-  <aside class="home-rail">
-    <section aria-labelledby="desks-heading">
-    <h2 id="desks-heading">Desks</h2>
-    <div class="desk-list">
-      {% for item in site.categories %}
-      <a class="desk-card" href="{{ ('/category/' ~ item.slug ~ '/') | url }}">
-        <strong>{{ item.name }}</strong>
-        <span>{{ item.description }}</span>
-      </a>
-      {% endfor %}
+<header class="masthead photo-hero">
+  <div class="photo-hero-media">
+    {% set photo = site.homePhoto.src %}
+    {% set imageAlt = site.homePhoto.alt %}
+    {% set imageLoading = "eager" %}
+    {% set imagePriority = "high" %}
+    {% include "partials/photo.njk" %}
+  </div>
+  <div class="photo-hero-shade" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">{% include "partials/bolt.njk" %} Sourced electric-vehicle reporting</p>
+      <h1>{{ site.name }}</h1>
+      <p class="tagline">{{ site.tagline }}</p>
+      <p class="brand-line">{{ site.brandLine }}</p>
     </div>
+    <div class="hero-panel">
+      <p class="panel-kicker">{% include "partials/bolt.njk" %} Daily charge</p>
+      <div class="charge-track" aria-hidden="true"><span class="charge-fill"></span></div>
+      <p class="panel-note">Five desks, one sourced story a day.</p>
+    </div>
+  </div>
+  <p class="photo-caption wrap"><span>AI-generated photograph</span></p>
+  {% include "partials/hero-scene.njk" %}
+</header>
+{% include "partials/energy-divider.njk" %}
+<section class="desk-board wrap" aria-labelledby="desks-heading">
+  <h2 id="desks-heading" class="section-heading">{% set iconName = "batteries" %}{% include "partials/section-icon.njk" %} Desks</h2>
+  <div class="desk-list desk-photo-list">
+    {% for item in site.categories %}
+    <a class="desk-card desk-photo-card" href="{{ ('/category/' ~ item.slug ~ '/') | url }}">
+      <figure class="desk-photo">
+        {% set photo = item.photo %}
+        {% set imageAlt = item.photoAlt %}
+        {% set imageLoading = "lazy" %}
+        {% set imagePriority = false %}
+        {% include "partials/photo.njk" %}
+        <figcaption>AI-generated photograph</figcaption>
+      </figure>
+      <span class="desk-card-top">{% set iconName = item.slug %}{% include "partials/section-icon.njk" %}<strong>{{ item.name }}</strong></span>
+      <span class="desk-photo-copy">{{ item.description }}</span>
+      <span class="mini-charge" aria-hidden="true"><span class="mini-charge-fill"></span></span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+<div class="wrap">
+  <div class="home-grid">
+    <section aria-labelledby="latest-heading">
+      <h2 id="latest-heading" class="section-heading">{% set iconName = "bolt" %}{% include "partials/section-icon.njk" %} Latest</h2>
+      {% set stories = collections.posts | limit(20) %}
+      {% if stories and stories.length %}
+      {% set storyHeading = "h3" %}
+      {% include "partials/story-list.njk" %}
+      {% else %}
+      <div class="arrival-panel">
+        <p class="arrival-kicker">{% include "partials/bolt.njk" %} The wire</p>
+        <h3>First stories land daily</h3>
+        <div class="charge-track" aria-hidden="true"><span class="charge-fill"></span></div>
+        <p class="empty">No story has been published yet. The desk files one sourced article a day. A story appears here after it leaves draft status with a public source list.</p>
+      </div>
+      {% endif %}
+      {% if collections.posts.length > 20 %}
+      <p><a href="{{ '/archive/' | url }}">All stories</a></p>
+      {% endif %}
     </section>
-    <section aria-labelledby="publishing-heading">
-    <h2 id="publishing-heading">How a story gets published</h2>
-    <ol class="process">
-      <li>Write it in Markdown under the content folder.</li>
-      <li>Link each claim to a public source in the sentence it supports.</li>
-      <li>Add a sources list with title, URL, publisher, and date.</li>
-      <li>Remove draft status. The build stops if that list is missing.</li>
-    </ol>
-    </section>
-  </aside>
+    <aside class="home-rail">
+      {% include "partials/energy-divider.njk" %}
+      <section aria-labelledby="publishing-heading">
+      <h2 id="publishing-heading">{% set iconName = "policy" %}{% include "partials/section-icon.njk" %} How a story gets published</h2>
+      <ol class="process">
+        <li>Write it in Markdown under the content folder.</li>
+        <li>Link each claim to a public source in the sentence it supports.</li>
+        <li>Add a sources list with title, URL, publisher, and date.</li>
+        <li>Remove draft status. The build stops if that list is missing.</li>
+      </ol>
+      </section>
+    </aside>
+  </div>
 </div>

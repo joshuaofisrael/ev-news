@@ -1,0 +1,13 @@
+{% if srcBase | imageFilesReady %}
+<picture>
+  <source srcset="{{ ('/assets/images/' ~ srcBase ~ '.avif') | url }}" type="image/avif">
+  <source srcset="{{ ('/assets/images/' ~ srcBase ~ '.webp') | url }}" type="image/webp">
+  <img src="{{ ('/assets/images/' ~ srcBase ~ '.webp') | url }}" alt="{{ imageAlt }}" width="{{ imageWidth or 1200 }}" height="{{ imageHeight or 675 }}" loading="{{ imageLoading or 'lazy' }}" decoding="async"{% if imagePriority %} fetchpriority="{{ imagePriority }}"{% endif %}>
+</picture>
+{% else %}
+<div class="image-slot">
+  <p class="image-slot-kicker">Photoreal image slot</p>
+  <p class="image-slot-alt">{{ imageAlt }}</p>
+  <p class="image-slot-path">Add <code>src/assets/images/{{ srcBase }}.webp</code> and <code>src/assets/images/{{ srcBase }}.avif</code>.</p>
+</div>
+{% endif %}

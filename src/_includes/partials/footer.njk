@@ -1,7 +1,12 @@
 <footer class="site-footer">
+  <div class="footer-charge" aria-hidden="true">
+    <span class="battery"><span class="battery-fill"></span></span>
+    <span class="charge-track"><span class="charge-fill"></span></span>
+  </div>
+  <div class="road-line" aria-hidden="true"></div>
   <div class="wrap footer-grid">
     <nav aria-label="Coverage">
-      <h2>Coverage</h2>
+      <h2>{% set iconName = "cars" %}{% include "partials/section-icon.njk" %} Coverage</h2>
       <ul>
         {% for item in site.categories %}
         <li><a href="{{ ('/category/' ~ item.slug ~ '/') | url }}">{{ item.name }}</a></li>
@@ -10,14 +15,14 @@
       </ul>
     </nav>
     <nav aria-label="Company links">
-      <h2>Company</h2>
+      <h2>{% set iconName = "company" %}{% include "partials/section-icon.njk" %} Company</h2>
       <ul>
         <li><a href="{{ '/about/' | url }}">About</a></li>
         <li><a href="{{ '/contact/' | url }}">Contact Us</a></li>
       </ul>
     </nav>
     <nav aria-label="Legal and feeds">
-      <h2>Legal and feeds</h2>
+      <h2>{% set iconName = "legal" %}{% include "partials/section-icon.njk" %} Legal and feeds</h2>
       <ul>
         <li><a href="{{ '/sources-ethics/' | url }}">Sources &amp; Ethics</a></li>
         <li><a href="{{ '/corrections/' | url }}">Corrections</a></li>

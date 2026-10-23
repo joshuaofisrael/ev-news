@@ -9,6 +9,26 @@ tags:
   - template
 draft: true
 sample: true
+# Photoreal slot. Add src/assets/images/sample-cars-hero.webp and .avif. Do not use a drawing.
+hero:
+  src: sample-cars-hero
+  alt: "Unbranded electric hatchback parked on a quiet residential street, with no people and no readable badges"
+  caption: "AI-generated photograph"
+  width: 1200
+  height: 675
+images:
+  - src: sample-cars-port
+    alt: "Close view of an empty charging port on a generic electric car, with no brand marks"
+    caption: "AI-generated photograph"
+    after: 2
+    width: 1200
+    height: 675
+  - src: sample-cars-cabin
+    alt: "Empty front seats and a blank dashboard inside a generic electric car"
+    caption: "AI-generated photograph"
+    after: 4
+    width: 1200
+    height: 675
 sources:
   - title: "All-Electric Vehicles"
     url: "https://www.fueleconomy.gov/feg/evtech.shtml"
