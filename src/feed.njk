@@ -11,7 +11,7 @@ sitemapIgnore: true
     <description>{{ site.description }}</description>
     <language>en-us</language>
     <lastBuildDate>{{ site.buildTime | rfc822 }}</lastBuildDate>
-    <copyright>Copyright {{ site.operator }}</copyright>
+    <copyright>Copyright {{ site.name }}</copyright>
 {% for post in collections.publishedPosts %}
     <item>
       <title>{{ post.data.title }}</title>

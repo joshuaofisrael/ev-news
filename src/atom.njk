@@ -11,7 +11,7 @@ sitemapIgnore: true
   <link rel="self" href="{{ "/atom.xml" | absoluteUrl }}"/>
   <link rel="alternate" href="{{ "/" | absoluteUrl }}"/>
   <author><name>{{ site.author }}</name></author>
-  <rights>Copyright {{ site.operator }}</rights>
+  <rights>Copyright {{ site.name }}</rights>
 {% for post in collections.publishedPosts %}
   <entry>
     <title>{{ post.data.title }}</title>

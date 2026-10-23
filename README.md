@@ -1,6 +1,6 @@
 # EV News Desk
 
-EV News Desk is a fast static site for a daily electric-vehicle desk. It is owned and operated by Joshua Israel Ventures LLC, a Florida limited liability company. The public site name and the canonical URL each live in one place: [`src/_data/site.js`](src/_data/site.js).
+EV News Desk is a fast static site for a daily electric-vehicle desk. The public site name and the canonical URL each live in one place: [`src/_data/site.js`](src/_data/site.js). Ownership and governing law are stated on the Terms page.
 
 The site URL is `https://evnewsdesk.com`. [`CNAME`](CNAME) contains `evnewsdesk.com`, and the build copies that file into the Pages output. The build fails if `CNAME` does not match the hostname of `url`. If `url` ever includes a path, the build uses that path as the prefix.
 

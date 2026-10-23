@@ -5,7 +5,7 @@ const site = {
   tagline: "Sourced reporting on electric vehicles.",
   brandLine: "One sourced story a day on the electric-vehicle beat.",
   description:
-    "EV News Desk is a daily electric-vehicle desk covering cars, batteries, charging, policy, and industry. It is owned and operated by Joshua Israel Ventures LLC, a Florida limited liability company.",
+    "EV News Desk is a daily electric-vehicle desk covering cars, batteries, charging, policy, and industry.",
   // Public origin, no trailing slash. The CNAME file must use this hostname.
   url: normalizeSiteUrl("https://evnewsdesk.com"),
   locale: "en_US",

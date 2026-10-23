@@ -3,7 +3,7 @@ import { test } from "node:test";
 import site from "../src/_data/site.js";
 import { buildGraph, renderBreadcrumbNav } from "../lib/structured-data.js";
 
-test("NewsArticle publisher is the Florida LLC and breadcrumbs escape text", () => {
+test("NewsArticle publisher is EV News Desk and breadcrumbs escape text", () => {
   const graph = buildGraph(
     {
       kind: "article",
@@ -18,9 +18,13 @@ test("NewsArticle publisher is the Florida LLC and breadcrumbs escape text", () 
   );
   const article = graph["@graph"].find((node) => node["@type"] === "NewsArticle");
   const crumbs = graph["@graph"].find((node) => node["@type"] === "BreadcrumbList");
-  assert.equal(article.publisher["@type"], "Organization");
-  assert.equal(article.publisher.name, "Joshua Israel Ventures LLC");
+  const articleNewsroom = graph["@graph"].find((node) => node["@type"] === "NewsMediaOrganization");
+  assert.equal(article.publisher["@id"], articleNewsroom["@id"]);
+  assert.equal(articleNewsroom.name, "EV News Desk");
   assert.equal(article.author.name, "EV News Desk");
+  assert.equal(article.copyrightHolder.name, "EV News Desk");
+  assert.equal(JSON.stringify(graph).includes("Joshua"), false);
+  assert.equal(JSON.stringify(graph).includes("PostalAddress"), false);
   assert.equal(article.dateModified, "2026-10-23T00:00:00.000Z");
   assert.match(
     graph["@graph"].find((node) => node["@type"] === "NewsMediaOrganization").publishingPrinciples,

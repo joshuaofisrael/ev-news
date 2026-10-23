@@ -59,6 +59,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.notEqual(failed.status, 0, failed.stdout + failed.stderr);
   assert.match(`${failed.stdout}\n${failed.stderr}`, /sources/i);
 
+  fs.rmSync(path.join(root, "_site"), { recursive: true, force: true });
   const prod = runEleventy(["--output=_site"], { ELEVENTY_ENV: "production" });
   assert.equal(prod.status, 0, prod.stdout + prod.stderr);
 
@@ -74,9 +75,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const terms = read("_site", "terms/index.html");
   const privacy = read("_site", "privacy/index.html");
   const disclaimer = read("_site", "disclaimer/index.html");
-  const copyright = `© ${site.year} ${site.operator}. All rights reserved. ${site.name} is owned and operated by ${site.operator}.`;
-
-  assert.match(home, new RegExp(copyright.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  assert.match(home, new RegExp(`<a href="/terms/">© ${site.year} ${esc(site.name)}</a>`));
+  assert.doesNotMatch(home, /Joshua|Ventures/);
   assert.match(home, /\/articles\/2026-10-23-tesla-q3-results\//);
   assert.doesNotMatch(home, /No story has been published yet/);
   assert.match(home, /class="masthead[\s"]/);
@@ -122,7 +122,6 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     assert.match(page, /application\/ld\+json/);
   }
   assert.match(home, /BreadcrumbList/);
-  assert.match(home, /Joshua Israel Ventures LLC/);
   assert.doesNotMatch(home, /NewsArticle/);
   assert.doesNotMatch(home, /noindex|noai|noimageai/i);
   assert.doesNotMatch(home, /Sample draft/);
@@ -173,14 +172,17 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(atom, /<feed xmlns="http:\/\/www.w3.org\/2005\/Atom">/);
   assert.doesNotMatch(feed + atom, /Sample draft/);
   assert.match(llms, new RegExp(`^# ${esc(site.name)}`, "m"));
-  assert.match(llms, /Joshua Israel Ventures LLC/);
+  assert.doesNotMatch(llms, /Joshua|Ventures|Florida/);
   assert.match(llms, /https:\/\/evnewsdesk\.com\//);
   assert.match(llms, /\/articles\/2026-10-23-tesla-q3-results\//);
   assert.doesNotMatch(llms, /No article has been published yet/);
   assert.doesNotMatch(llms, /EV News(?! Desk)/);
   assert.equal(read("_site", `${site.indexNowKey}.txt`), site.indexNowKey);
 
-  for (const page of [about, contact, terms, privacy, disclaimer]) {
+  for (const page of [about, contact]) {
+    assert.doesNotMatch(page, /Joshua|Ventures|Florida/);
+  }
+  for (const page of [terms, privacy, disclaimer]) {
     assert.match(page, /Joshua Israel Ventures LLC/);
     assert.match(page, /Florida/);
   }
@@ -213,7 +215,22 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const corrections = read("_site", "corrections/index.html");
   const ethics = read("_site", "sources-ethics/index.html");
   assert.match(corrections, /Corrections/);
-  assert.match(corrections, /Joshua Israel Ventures LLC/);
+  assert.doesNotMatch(corrections, /Joshua|Ventures|Florida/);
+  const legalPages = new Set([
+    path.normalize(path.join(root, "_site/terms/index.html")),
+    path.normalize(path.join(root, "_site/privacy/index.html")),
+    path.normalize(path.join(root, "_site/disclaimer/index.html")),
+  ]);
+  const identityHits = [];
+  for (const file of walk(path.join(root, "_site"))) {
+    if (!/\.(html|xml|txt)$/.test(file)) continue;
+    const text = fs.readFileSync(file, "utf8");
+    if (/Joshua|Ventures/.test(text) && !legalPages.has(path.normalize(file))) identityHits.push(file);
+  }
+  assert.deepEqual(identityHits, []);
+  for (const file of legalPages) {
+    assert.match(fs.readFileSync(file, "utf8"), /Joshua Israel Ventures LLC/);
+  }
   assert.match(ethics, /Sources &amp; Ethics|Sources & Ethics/);
   assert.match(ethics, /AI-generated imagery/);
   assert.match(ethics, /href="\/disclaimer\/"/);
@@ -434,7 +451,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(draft, /Unpublished draft/);
   assert.match(draft, /noindex, nofollow/);
   assert.match(draft, /NewsArticle/);
-  assert.match(draft, /"name":"Joshua Israel Ventures LLC"/);
+  assert.doesNotMatch(draft, /Joshua|Ventures|PostalAddress/);
+  assert.match(draft, /"name":"EV News Desk"/);
   assert.match(draft, />sample</);
   assert.match(draft, /Last updated/);
   assert.match(draft, /datetime="2026-10-22/);
