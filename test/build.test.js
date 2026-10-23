@@ -3,6 +3,7 @@ import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
+import { metaDescription } from "../lib/meta-description.js";
 import site from "../src/_data/site.js";
 import { isFreshNews } from "../lib/dates.js";
 
@@ -23,6 +24,21 @@ function read(outputDir, file) {
 
 function esc(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function decodeAttr(value) {
+  return value
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">");
+}
+
+function metaDescriptions(html) {
+  return [...html.matchAll(/<meta\s+(?:name="description"|property="og:description"|name="twitter:description")\s+content="([^"]*)"/g)].map(
+    (match) => decodeAttr(match[1]),
+  );
 }
 
 function walk(dir) {
@@ -208,6 +224,12 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.doesNotMatch(disclaimer, /AI-generated photograph/);
   assert.match(home, /href="\/disclaimer\/"/);
   assert.match(ethics, /according to/);
+  assert.match(ethics, /Company announcements and press releases are reported as the company’s own statements/);
+  assert.match(ethics, /“X says,” “according to X”/);
+  assert.match(ethics, /independently verified only when a source other than the company confirms it/);
+  assert.match(ethics, /Articles say which is which/);
+  assert.match(ethics, /Nothing on the site is a guarantee of an outcome/);
+  assert.doesNotMatch(ethics, /legally compliant|in compliance with the law/i);
   assert.match(home, /href="\/sources-ethics\/"/);
   assert.match(home, /href="\/corrections\/"/);
 
@@ -275,6 +297,28 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(revealJs, /IntersectionObserver/);
   assert.match(revealJs, /prefers-reduced-motion/);
   assert.match(read("_site", "404.html"), /noindex/);
+
+  const europeSummary = fs
+    .readFileSync(path.join(root, "src/content/posts/2026-10-23-europe-september-ev-shares.md"), "utf8")
+    .match(/^summary:\s+"([^"]+)"/m)[1];
+  assert.ok(europeSummary.length > 155);
+  const europeMeta = metaDescription(europeSummary);
+  assert.ok(europeMeta.length <= 155);
+  assert.ok(europeMeta.endsWith("…"));
+  assert.equal(europeSummary[europeMeta.length - 1], " ");
+  const europe = read("_site", "articles/2026-10-23-europe-september-ev-shares/index.html");
+  assert.deepEqual(metaDescriptions(europe), [europeMeta, europeMeta, europeMeta]);
+  assert.match(europe, /"description":"France's September electric-car share/);
+  assert.match(europe, /it is not law\./);
+  assert.doesNotMatch(europeMeta, /it is not law/);
+  const homeMeta = metaDescription("", site.description);
+  assert.deepEqual(metaDescriptions(home), [homeMeta, homeMeta, homeMeta]);
+  assert.match(home, new RegExp(`"description":"${esc(site.description)}"`));
+  for (const file of walk(path.join(root, "_site")).filter((name) => name.endsWith(".html"))) {
+    const texts = metaDescriptions(fs.readFileSync(file, "utf8"));
+    assert.equal(texts.length, 3, file);
+    for (const text of texts) assert.ok(text.length <= 155, `${file} description is ${text.length} characters`);
+  }
 
   const preview = runEleventy(["--output=_site-preview"], { ELEVENTY_ENV: "development" });
   assert.equal(preview.status, 0, preview.stdout + preview.stderr);
