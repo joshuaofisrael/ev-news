@@ -835,7 +835,9 @@ main:focus { outline: none; }
     transition: none !important;
   }
   .desk-card:hover,
-  .story-card:hover { transform: none; }
+  .story-card:hover,
+  .story-figure:hover,
+  .category-art:hover { transform: none; }
   .ticker-viewport { overflow: visible; }
   .ticker-track { width: auto; flex-wrap: wrap; transform: none; }
   .ticker-track ul[aria-hidden="true"] { display: none; }
