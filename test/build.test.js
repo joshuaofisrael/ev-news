@@ -76,7 +76,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
 
   for (const name of site.crawlers) assert.match(robots, new RegExp(`User-agent: ${name}`));
   assert.match(robots, /User-agent: \*\s+Allow: \//);
-  assert.doesNotMatch(robots, /disallow|noai|noimageai/i);
+  assert.doesNotMatch(robots, /disallow|noai|noimageai|ads\.txt/i);
   assert.match(robots, new RegExp(`Sitemap: ${esc(site.url)}/sitemap\\.xml`));
   assert.doesNotMatch(robots, /news-sitemap/);
   assert.doesNotMatch(llms, /news-sitemap/);
@@ -96,6 +96,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     `${site.url}/category/charging/`,
     `${site.url}/category/policy/`,
     `${site.url}/category/industry/`,
+    `${site.url}/ads.txt`,
   ]) {
     assert.match(sitemap, new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
@@ -166,13 +167,25 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     assert.match(page, /connect-src https:\/\/cloudflareinsights\.com/);
   }
   assert.match(privacy, /cookieless Cloudflare Web Analytics/);
+  assert.match(privacy, /https:\/\/policies\.google\.com\/technologies\/ads/);
+  assert.match(privacy, /Visitors in the EU and the UK see a consent choice/);
+  const adsenseScript = `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${site.adsenseClient}" crossorigin="anonymous"></script>`;
+  const adsenseMeta = `<meta name="google-adsense-account" content="${site.adsenseClient}">`;
+  for (const page of [home, about, privacy, contact, thanks]) {
+    assert.match(page, new RegExp(esc(adsenseScript)));
+    assert.match(page, new RegExp(esc(adsenseMeta)));
+  }
+  assert.equal(
+    read("_site", "ads.txt").trim(),
+    "google.com, pub-5681559774142917, DIRECT, f08c47fec0942fa0",
+  );
+  assert.equal(read("_site", "ads.txt").trim().split("\n").length, 1);
 
-  // Advertising hosts and font CDNs stay banned. The one allowed analytics
-  // script is the cookieless Cloudflare Web Analytics beacon above.
+  // Other advertising hosts and font CDNs stay banned. The AdSense loader above
+  // is the only advertising script, and pages do not include ad units.
   const banned = [
     "googletagmanager",
     "google-analytics",
-    "googlesyndication",
     "doubleclick",
     "facebook.net",
     "hotjar",
@@ -189,6 +202,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     .join("\n");
   for (const host of banned) assert.equal(built.toLowerCase().includes(host), false, host);
   assert.doesNotMatch(built, /joshuaofisrael@gmail\.com/);
+  assert.doesNotMatch(built, /data-ad-slot|class="adsbygoogle"|fundingchoices|cookieconsent/i);
   assert.doesNotMatch(built, /noai|noimageai/i);
   assert.equal(fs.readFileSync(path.join(root, "CNAME"), "utf8").trim(), "evnewsdesk.com");
   assert.equal(read("_site", "CNAME").trim(), "evnewsdesk.com");

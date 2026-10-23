@@ -20,6 +20,8 @@ const site = {
   indexNowKey: "e636da750714fc9967b0f4946b707533",
   // Cookieless Cloudflare Web Analytics. The base layout prints the beacon.
   cloudflareAnalyticsToken: "72a6ea1974794ada98ce78efa935c214",
+  // Google AdSense publisher id. The head prints the loader and account meta. No ad units.
+  adsenseClient: "ca-pub-5681559774142917",
   year: new Date().getUTCFullYear(),
   buildTime: new Date().toISOString(),
   crawlers: [
