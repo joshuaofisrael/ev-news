@@ -19,7 +19,8 @@ test("body images land after the requested paragraphs and stay lazy", () => {
   assert.match(out, /src\/assets\/images\/sample-cars-port\.webp/);
   assert.match(out, /src\/assets\/images\/sample-cars-cabin\.avif/);
   assert.match(out, /Photoreal image slot/);
-  assert.match(out, /AI-generated photograph/);
+  assert.doesNotMatch(out, /AI-generated photograph/);
+  assert.doesNotMatch(out, /<figcaption>/);
   assert.doesNotMatch(out, /<img /);
   const port = out.indexOf("sample-cars-port");
   const three = out.indexOf("<p>Three</p>");
@@ -31,8 +32,22 @@ test("body images land after the requested paragraphs and stay lazy", () => {
   assert.match(ready, /width="1200"/);
   assert.match(ready, /height="675"/);
   assert.match(ready, /loading="lazy"/);
-  assert.match(ready, /AI-generated photograph/);
+  assert.doesNotMatch(ready, /AI-generated photograph/);
+  assert.doesNotMatch(ready, /<figcaption>/);
   assert.doesNotMatch(ready, /fetchpriority/);
+
+  const captioned = renderAiFigure(
+    { ...picture("fixture-hero"), caption: "Quiet street, no people in frame" },
+    "/",
+    { ready: true },
+  );
+  assert.match(captioned, /Quiet street, no people in frame/);
+  const hidden = renderAiFigure(
+    { ...picture("fixture-hero"), caption: "AI-generated photograph" },
+    "/",
+    { ready: true },
+  );
+  assert.doesNotMatch(hidden, /AI-generated photograph|<figcaption>/);
 });
 
 test("an image without after is spread through the paragraphs", () => {

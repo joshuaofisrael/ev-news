@@ -25,7 +25,6 @@ permalink: /
       <p class="panel-note">Five desks, one sourced story a day.</p>
     </div>
   </div>
-  <p class="photo-caption wrap"><span>AI-generated photograph</span></p>
   {% include "partials/hero-scene.njk" %}
 </header>
 {% include "partials/energy-divider.njk" %}
@@ -40,7 +39,6 @@ permalink: /
         {% set imageLoading = "lazy" %}
         {% set imagePriority = false %}
         {% include "partials/photo.njk" %}
-        <figcaption>AI-generated photograph</figcaption>
       </figure>
       <span class="desk-card-top">{% set iconName = item.slug %}{% include "partials/section-icon.njk" %}<strong>{{ item.name }}</strong></span>
       <span class="desk-photo-copy">{{ item.description }}</span>

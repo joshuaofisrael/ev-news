@@ -81,10 +81,20 @@ test("a published story needs a hero and two described body images", () => {
   assert.match(validateArticleImages({ images: [body, second] }).join(" "), /hero is required/);
   assert.match(validateArticleImages({ hero, images: [body] }).join(" "), /at least two/);
   assert.match(validateArticleImages({ hero, images: [{ ...body, alt: "car" }, second] }).join(" "), /meaningful/);
-  assert.match(
-    validateArticleImages({ hero: { ...hero, caption: "A real photo" }, images: [body, second] }).join(" "),
-    /AI-generated photograph/,
+  assert.deepEqual(
+    validateArticleImages({ hero: { ...hero, caption: "A real photo" }, images: [body, second] }),
+    [],
   );
+  const { caption: ignoredHeroCaption, ...heroWithoutCaption } = hero;
+  const { caption: ignoredBodyCaption, ...bodyWithoutCaption } = body;
+  assert.deepEqual(
+    validateArticleImages({
+      hero: heroWithoutCaption,
+      images: [bodyWithoutCaption, { ...second, caption: undefined }],
+    }),
+    [],
+  );
+  assert.equal(ignoredHeroCaption && ignoredBodyCaption, "AI-generated photograph");
   assert.match(
     validateArticleImages({
       hero: { ...hero, alt: "An illustration of an electric car on a street" },
@@ -152,7 +162,7 @@ test("published posts need a known category and an inline citation warning is se
   assert.equal(inlineCitationWarning("See the [EPA page](https://www.epa.gov/)."), null);
 });
 
-test("AI images need a disclosure caption and press images stay small and credited", () => {
+test("AI image captions are optional and press images stay small and credited", () => {
   const base = {
     title: "Fixture",
     date: "2026-10-22",
@@ -175,14 +185,11 @@ test("AI images need a disclosure caption and press images stay small and credit
     width: 1200,
     height: 675,
   };
-  assert.match(validateImages({ hero }).join(" "), /AI-generated photograph/);
-  assert.deepEqual(
-    validateImages({
-      hero: { ...hero, caption: "AI-generated photograph" },
-    }),
-    [],
-  );
-  assert.match(validateImages({ hero: { ...hero, caption: "AI-generated photograph", alt: "car" } }).join(" "), /describe/);
+  assert.deepEqual(validateImages({ hero }), []);
+  const { caption: ignoredCaption, ...heroWithoutCaption } = hero;
+  assert.deepEqual(validateImages({ hero: heroWithoutCaption }), []);
+  assert.equal(ignoredCaption, "A picture");
+  assert.match(validateImages({ hero: { ...hero, alt: "car" } }).join(" "), /describe/);
   assert.match(validatePublishedPost({ ...base, label: "rumor" }).join(" "), /label/);
   assert.match(validatePublishedPost({ ...base, disclaimer: "medical" }).join(" "), /disclaimer/);
   assert.match(
