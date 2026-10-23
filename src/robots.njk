@@ -13,4 +13,7 @@ Allow: /
 
 {% endfor %}
 Sitemap: {{ "/sitemap.xml" | absoluteUrl }}
+{% set freshNews = collections.publishedPosts | freshNewsPosts %}
+{% if freshNews.length -%}
 Sitemap: {{ "/news-sitemap.xml" | absoluteUrl }}
+{% endif %}

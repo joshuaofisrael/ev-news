@@ -31,7 +31,10 @@ Search and AI crawlers may read this site. Published articles list public source
 - [RSS]({{ "/feed.xml" | absoluteUrl }}): Latest published articles
 - [Atom]({{ "/atom.xml" | absoluteUrl }}): Latest published articles
 - [Sitemap]({{ "/sitemap.xml" | absoluteUrl }}): Pages and articles
+{% set freshNews = collections.publishedPosts | freshNewsPosts %}
+{% if freshNews.length -%}
 - [News sitemap]({{ "/news-sitemap.xml" | absoluteUrl }}): Articles from the last two days
+{% endif %}
 
 ## Published articles
 

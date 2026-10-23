@@ -105,7 +105,7 @@ Both are `draft: true` and `sample: true`. They show the template. They are not 
 The production build writes:
 
 - `/sitemap.xml` for pages and published articles
-- `/news-sitemap.xml` for published articles from the last two days
+- `/news-sitemap.xml` for published articles from the last two days. Each entry has an absolute URL, the publication name and language, a W3C publication date, and the headline. `robots.txt` and `llms.txt` list that file only when it has articles. With none in the window, the file stays valid XML and contains a comment instead of URL entries.
 - `/feed.xml` (RSS) and `/atom.xml` (Atom)
 - `/robots.txt`, which allows all crawlers, including Googlebot, Bingbot, OAI-SearchBot, GPTBot, PerplexityBot, ClaudeBot, CCBot, Google-Extended, Applebot-Extended, and Bytespider
 - `/llms.txt`

@@ -3,24 +3,4 @@ permalink: /news-sitemap.xml
 eleventyExcludeFromCollections: true
 sitemapIgnore: true
 ---
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
-{% for post in collections.publishedPosts %}
-{% if post.date | isFreshNews %}
-  <url>
-    <loc>{{ post.url | absoluteUrl }}</loc>
-    <news:news>
-      <news:publication>
-        <news:name>{{ site.name }}</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>{{ post.date | isoDate }}</news:publication_date>
-      <news:title>{{ post.data.title }}</news:title>
-      {% if post.data.tags and post.data.tags.length %}
-      <news:keywords>{{ post.data.tags | join(", ") }}</news:keywords>
-      {% endif %}
-    </news:news>
-  </url>
-{% endif %}
-{% endfor %}
-</urlset>
+{% newsSitemap collections.publishedPosts %}
