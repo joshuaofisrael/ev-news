@@ -78,7 +78,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(robots, /User-agent: \*\s+Allow: \//);
   assert.doesNotMatch(robots, /disallow|noai|noimageai/i);
   assert.match(robots, new RegExp(`Sitemap: ${esc(site.url)}/sitemap\\.xml`));
-  assert.match(robots, new RegExp(`Sitemap: ${esc(site.url)}/news-sitemap\\.xml`));
+  assert.doesNotMatch(robots, /news-sitemap/);
+  assert.doesNotMatch(llms, /news-sitemap/);
 
   for (const url of [
     `${site.url}/`,
@@ -87,6 +88,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     `${site.url}/terms/`,
     `${site.url}/privacy/`,
     `${site.url}/disclaimer/`,
+    `${site.url}/corrections/`,
+    `${site.url}/sources-ethics/`,
     `${site.url}/archive/`,
     `${site.url}/category/cars/`,
     `${site.url}/category/batteries/`,
@@ -97,7 +100,11 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     assert.match(sitemap, new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
   assert.doesNotMatch(sitemap, /Sample draft|404\.html/);
-  assert.match(news, /<urlset/);
+  assert.match(news, /^<\?xml version="1.0" encoding="UTF-8"\?>/);
+  assert.match(news, /xmlns="http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9"/);
+  assert.match(news, /xmlns:news="http:\/\/www.google.com\/schemas\/sitemap-news\/0.9"/);
+  assert.match(news, /<!-- No articles were published in the last two days. -->/);
+  assert.doesNotMatch(news, /<url>/);
   assert.doesNotMatch(news, /<news:title>/);
   assert.match(feed, /<rss version="2.0">/);
   assert.match(atom, /<feed xmlns="http:\/\/www.w3.org\/2005\/Atom">/);
@@ -116,9 +123,41 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(about, /One sourced story a day on the electric-vehicle beat/);
   assert.match(contact, /do not publish a street address/i);
   assert.doesNotMatch(contact, /Suite|P\.O\. Box|streetAddress/);
+  assert.match(home, /href="\/contact\/"/);
+  assert.match(home, />Contact Us</);
+  assert.match(contact, new RegExp(`<form id="contact-form"[^>]*action="${esc(site.contactFormEndpoint)}"[^>]*method="post"`));
+  assert.match(contact, /<label for="contact-name">Name<\/label>/);
+  assert.match(contact, /<label for="contact-email">Email<\/label>/);
+  assert.match(contact, /<label for="contact-message">Message<\/label>/);
+  assert.match(contact, /name="_honey"/);
+  assert.match(contact, /name="_captcha" value="false"/);
+  assert.match(contact, /name="_next" value="https:\/\/evnewsdesk\.com\/contact\/thanks\/"/);
+  assert.match(contact, /name="_ready"/);
+  assert.match(contact, /emailed to the site owner only to respond and are not sold/i);
+  assert.match(contact, /href="\/privacy\/"/);
+  assert.match(contact, /form-action https:\/\/formsubmit\.co/);
+  assert.match(home, /form-action 'none'/);
+  assert.doesNotMatch(contact, /<button[^>]*disabled/);
+  assert.doesNotMatch(contact, /mailto:joshuaofisrael@gmail\.com/);
+  assert.equal((contact.match(/joshuaofisrael@gmail\.com/g) || []).length, 1);
+  const thanks = read("_site", "contact/thanks/index.html");
+  assert.match(thanks, /noindex, nofollow/);
+  assert.match(thanks, /Thank you/);
+  assert.match(thanks, />Contact Us</);
+  assert.doesNotMatch(thanks, /joshuaofisrael@gmail\.com/);
+  assert.doesNotMatch(sitemap, /contact\/thanks/);
+  const corrections = read("_site", "corrections/index.html");
+  const ethics = read("_site", "sources-ethics/index.html");
+  assert.match(corrections, /Corrections/);
+  assert.match(corrections, /Joshua Israel Ventures LLC/);
+  assert.match(ethics, /Sources &amp; Ethics|Sources & Ethics/);
+  assert.match(ethics, /AI-generated image/);
+  assert.match(ethics, /according to/);
+  assert.match(home, /href="\/sources-ethics\/"/);
+  assert.match(home, /href="\/corrections\/"/);
 
   const beacon = `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${site.cloudflareAnalyticsToken}"}'></script>`;
-  for (const page of [home, about, privacy]) {
+  for (const page of [home, about, privacy, contact, thanks]) {
     assert.match(page, new RegExp(`${esc(beacon)}\\s*</body>`));
     assert.match(
       page,
@@ -168,4 +207,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(draft, /NewsArticle/);
   assert.match(draft, /"name":"Joshua Israel Ventures LLC"/);
   assert.match(draft, />sample</);
+  assert.match(draft, /Last updated/);
+  assert.match(draft, /datetime="2026-10-22/);
+  assert.match(draft, /"dateModified":"2026-10-22T00:00:00\.000Z"/);
 });

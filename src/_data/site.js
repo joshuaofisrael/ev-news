@@ -15,6 +15,14 @@ const site = {
   jurisdiction: "Florida",
   entityDescription: "a Florida limited liability company",
   contactEmail: "desk@example.com",
+  // SWAP THIS WHOLE VALUE after FormSubmit activation.
+  // It is the plain email endpoint so the first submission can activate the inbox:
+  //   https://formsubmit.co/joshuaofisrael@gmail.com
+  // FormSubmit then emails that inbox a confirmation link. After you activate,
+  // replace this string with the random alias from that email, which looks like:
+  //   https://formsubmit.co/<alias>
+  // The alias is what removes the inbox address from the built page source.
+  contactFormEndpoint: "https://formsubmit.co/joshuaofisrael@gmail.com",
   indexNowKey: "e636da750714fc9967b0f4946b707533",
   // Cookieless Cloudflare Web Analytics. The base layout prints the beacon.
   cloudflareAnalyticsToken: "72a6ea1974794ada98ce78efa935c214",

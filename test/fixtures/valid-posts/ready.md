@@ -1,6 +1,7 @@
 ---
 title: Validator fixture with sources
 date: 2026-10-22
+updatedAt: 2026-10-22
 category: Policy
 summary: Fixture used by the test suite. Not a news article and not part of the site.
 tags:

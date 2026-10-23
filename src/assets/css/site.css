@@ -266,6 +266,39 @@ main:focus { outline: none; }
   padding: 1rem 1.1rem;
 }
 
+.piece-label {
+  display: inline-block;
+  margin: 0.35rem 0;
+  padding: 0.15rem 0.5rem;
+  background: var(--banner);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.last-updated {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+
+.article-disclaimer {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--ink);
+  padding: 0.85rem 1rem;
+  margin: 0 0 1.1rem;
+}
+
+.story-figure { margin: 0 0 1.1rem; max-width: 40rem; }
+.story-figure img { display: block; width: 100%; height: auto; }
+.story-figure figcaption { color: var(--muted); font-family: var(--sans); font-size: 0.95rem; margin-top: 0.35rem; }
+
 .desk-list { display: grid; gap: 0.75rem; }
 
 .desk-card {
@@ -405,6 +438,61 @@ main:focus { outline: none; }
 
 .footer-legal p { margin: 0.35rem 0; }
 .copyright { color: var(--header-text); }
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 36rem;
+  margin: 0 0 1.25rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--sans);
+  font-weight: 700;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--ink);
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+}
+
+.contact-form button {
+  min-height: 44px;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid var(--header);
+  background: var(--header);
+  color: var(--header-text);
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.contact-honey {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.form-status {
+  margin: 0;
+  min-height: 1.4em;
+  color: var(--ink);
+  font-family: var(--sans);
+}
 
 .visually-hidden {
   position: absolute;

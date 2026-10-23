@@ -9,10 +9,45 @@ layout: layouts/base.njk
     </p>
     <h1>{{ title }}</h1>
     <p class="byline">By <a href="{{ '/about/' | url }}">{{ author or site.author }}</a></p>
+    {% if label == "analysis" %}
+    <p class="piece-label">Analysis</p>
+    {% elif label == "speculation" %}
+    <p class="piece-label">Speculation</p>
+    {% elif label == "opinion" or opinion %}
+    <p class="piece-label">Opinion</p>
+    {% endif %}
     {% if summary %}
     <p class="dek">{{ summary }}</p>
     {% endif %}
+    <p class="last-updated">Last updated <time datetime="{{ (updatedAt or page.date) | isoDate }}">{{ (updatedAt or page.date) | displayDate }}</time></p>
   </header>
+  {% if disclaimer == "health" %}
+  <p class="article-disclaimer" role="note">This is not health or medical advice. It is a report. A decision about your own health belongs with a qualified clinician.</p>
+  {% elif disclaimer == "legal" %}
+  <p class="article-disclaimer" role="note">This is not legal advice. It is a report. A decision about your own situation belongs with a lawyer licensed where you live.</p>
+  {% elif disclaimer == "financial" %}
+  <p class="article-disclaimer" role="note">This is not financial, tax, or investment advice. It is a report. Confirm the figures with the cited source and a qualified adviser.</p>
+  {% endif %}
+  {% if hero and hero.src %}
+  <figure class="story-figure">
+    <img src="{{ ('/assets/images/' ~ hero.src ~ '.webp') | url }}" alt="{{ hero.alt }}" width="{{ hero.width or 1200 }}" height="{{ hero.height or 675 }}">
+    <figcaption>{{ hero.caption }}</figcaption>
+  </figure>
+  {% endif %}
+  {% for item in images %}
+  {% if item.src %}
+  <figure class="story-figure">
+    <img src="{{ ('/assets/images/' ~ item.src ~ '.webp') | url }}" alt="{{ item.alt }}" width="{{ item.width or 1200 }}" height="{{ item.height or 675 }}" loading="lazy">
+    <figcaption>{{ item.caption }}</figcaption>
+  </figure>
+  {% endif %}
+  {% endfor %}
+  {% if image %}
+  <figure class="story-figure">
+    <img src="{{ ('/assets/images/' ~ image ~ '.webp') | url }}" alt="{{ imageAlt }}" width="{{ imageWidth }}" height="{{ imageHeight }}">
+    <figcaption>{{ imageCaption }} <span>{{ imageCredit }}</span> <span>{{ imageLicense }}</span></figcaption>
+  </figure>
+  {% endif %}
   <div class="prose">
     {{ content | safe }}
   </div>

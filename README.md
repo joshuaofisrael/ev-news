@@ -27,7 +27,7 @@ Publish one article a day. Topics can be news, models, batteries, charging, poli
 3. Write the story in Markdown. Link claims inline, as described in the next section.
 4. Run `npm run dev` and open `/articles/YYYY-MM-DD-short-slug/`.
 5. When the source list is complete and the copy is checked, remove the `draft` line (or set `draft: false`).
-6. Run `npm test`. The production build fails if a published article has no sources, or if a source is missing `title`, `url`, `publisher`, or `date`.
+6. Run `npm test`. The production build fails if a published article has no sources, a source is missing `title`, `url`, `publisher`, or `date`, `updatedAt` is missing, or an image is missing its alt text or the caption `AI-generated image`.
 7. Commit and push to `main`. GitHub Actions runs the tests, builds the site, and deploys `_site` to GitHub Pages.
 
 Required front matter:
@@ -36,6 +36,7 @@ Required front matter:
 ---
 title: "Headline"
 date: 2026-10-23
+updatedAt: 2026-10-23
 category: Batteries
 summary: "One or two sentences. This is the dek and the meta description."
 tags:
@@ -60,7 +61,13 @@ sources:
 | `publisher` | Who published it |
 | `date` | The publisher’s publication or update date (`YYYY-MM-DD`). If the page shows no date, use the date you recorded the URL and say that in the story |
 
-The byline is **EV News Desk**, from `author` in `src/_data/site.js`. The article template prints the date, that byline, the tags, and a Sources section. Each source title is an outbound link, with the publisher and date beside it.
+The byline is **EV News Desk**, from `author` in `src/_data/site.js`. The article template prints the date, a **Last updated** line from `updatedAt`, that byline, the tags, and a Sources section. Each source title is an outbound link, with the publisher and date beside it. `updatedAt` is also `dateModified` in the article’s JSON-LD.
+
+`opinion: true` or `label: opinion`, `label: analysis`, or `label: speculation` prints that label at the top. `disclaimer: health`, `disclaimer: legal`, or `disclaimer: financial` prints a short notice that the piece is not advice.
+
+An AI-generated picture uses `hero` or an `images` entry with `src`, `alt`, `caption`, `width`, and `height`. The caption is exactly `AI-generated image`. The alt text describes the picture and does not name a real person or stage an event that did not happen. A third-party press image uses `image`, `imageAlt`, `imageCaption`, `imageCredit`, `imageSource`, `imageLicense: Fair use`, and width and height at most 640 by 480.
+
+The rules are also on the [Sources & Ethics](src/sources-ethics.njk) page. Corrections go through the [Corrections](src/corrections.njk) page. When a claim is in doubt, leave it out.
 
 A published article also needs `title`, `date`, `category`, and `summary`. Those checks fail the build together with the sources check so a public page is not missing its dek or desk.
 
@@ -98,7 +105,7 @@ Both are `draft: true` and `sample: true`. They show the template. They are not 
 The production build writes:
 
 - `/sitemap.xml` for pages and published articles
-- `/news-sitemap.xml` for published articles from the last two days
+- `/news-sitemap.xml` for published articles from the last two days. Each entry has an absolute URL, the publication name and language, a W3C publication date, and the headline. `robots.txt` and `llms.txt` list that file only when it has articles. With none in the window, the file stays valid XML and contains a comment instead of URL entries.
 - `/feed.xml` (RSS) and `/atom.xml` (Atom)
 - `/robots.txt`, which allows all crawlers, including Googlebot, Bingbot, OAI-SearchBot, GPTBot, PerplexityBot, ClaudeBot, CCBot, Google-Extended, Applebot-Extended, and Bytespider
 - `/llms.txt`
@@ -119,7 +126,9 @@ npm run indexnow
 
 [`.github/workflows/pages.yml`](.github/workflows/pages.yml) runs the tests and production build on pull requests and on pushes to `main`. Pushes to `main` upload `_site`, including `CNAME`, and deploy it to GitHub Pages.
 
-`name` is EV News Desk and `url` is `https://evnewsdesk.com`. `contactEmail` is still `desk@example.com` until you change it. The contact page says so, and it does not list a street address.
+`name` is EV News Desk and `url` is `https://evnewsdesk.com`. `contactEmail` is still `desk@example.com` until you change it. The contact page does not list a street address.
+
+The contact form posts to `contactFormEndpoint` in `src/_data/site.js`. That value is currently the plain FormSubmit email endpoint so the first submission can activate the inbox. After you click the activation link FormSubmit emails you, replace the whole `contactFormEndpoint` string with the random alias from that email (`https://formsubmit.co/<alias>`). The form works without JavaScript. The honeypot is `_honey`. A short script also ignores a submit in the first three seconds when JavaScript is on. `/contact/thanks/` is `noindex` and is left out of the sitemap.
 
 ## Layout
 

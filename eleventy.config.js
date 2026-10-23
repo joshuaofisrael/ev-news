@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import site from "./src/_data/site.js";
 import { formatDisplayDate, isFreshNews, toIso, toRfc822 } from "./lib/dates.js";
+import { freshNewsPosts, renderNewsSitemap } from "./lib/news-sitemap.js";
 import { absoluteUrl, pathPrefixFromSiteUrl, prefixRootUrls } from "./lib/site-url.js";
 import { buildCrumbs, renderBreadcrumbNav, renderJsonLd } from "./lib/structured-data.js";
 import { formatValidationErrors, validatePostsDir } from "./lib/validate-posts.js";
@@ -22,6 +23,10 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("isoDate", toIso);
   eleventyConfig.addFilter("rfc822", toRfc822);
   eleventyConfig.addFilter("isFreshNews", (value) => isFreshNews(value));
+  eleventyConfig.addFilter("freshNewsPosts", (posts) => freshNewsPosts(posts));
+  eleventyConfig.addShortcode("newsSitemap", function (posts) {
+    return renderNewsSitemap({ posts, site });
+  });
   eleventyConfig.addFilter("absoluteUrl", (pageUrl) => absoluteUrl(site.url, pageUrl || "/"));
   eleventyConfig.addFilter("limit", (items, count) => (items || []).slice(0, count));
   eleventyConfig.addFilter("whereCategory", (posts, name) =>

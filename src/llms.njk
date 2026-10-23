@@ -19,7 +19,9 @@ Search and AI crawlers may read this site. Published articles list public source
 {% endfor %}
 - [Archive]({{ "/archive/" | absoluteUrl }}): Every published story
 - [About]({{ "/about/" | absoluteUrl }}): Desk, sourcing rules, and corrections
-- [Contact]({{ "/contact/" | absoluteUrl }}): How to reach the desk
+- [Sources & Ethics]({{ "/sources-ethics/" | absoluteUrl }}): Editorial standards
+- [Corrections]({{ "/corrections/" | absoluteUrl }}): How a factual error is corrected
+- [Contact Us]({{ "/contact/" | absoluteUrl }}): Message the desk. The thank-you page is not indexed.
 - [Terms of use]({{ "/terms/" | absoluteUrl }}): Terms under Florida law
 - [Privacy]({{ "/privacy/" | absoluteUrl }}): Privacy policy under Florida law
 - [Disclaimer]({{ "/disclaimer/" | absoluteUrl }}): What the reporting is and is not
@@ -29,7 +31,10 @@ Search and AI crawlers may read this site. Published articles list public source
 - [RSS]({{ "/feed.xml" | absoluteUrl }}): Latest published articles
 - [Atom]({{ "/atom.xml" | absoluteUrl }}): Latest published articles
 - [Sitemap]({{ "/sitemap.xml" | absoluteUrl }}): Pages and articles
+{% set freshNews = collections.publishedPosts | freshNewsPosts %}
+{% if freshNews.length -%}
 - [News sitemap]({{ "/news-sitemap.xml" | absoluteUrl }}): Articles from the last two days
+{% endif %}
 
 ## Published articles
 

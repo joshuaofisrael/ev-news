@@ -11,6 +11,7 @@ test("NewsArticle publisher is the Florida LLC and breadcrumbs escape text", () 
       summary: "A dek.",
       category: "Cars",
       tags: ["range"],
+      updatedAt: "2026-10-23",
       page: { url: "/articles/example/", date: new Date("2026-10-22T00:00:00Z") },
     },
     site,
@@ -20,6 +21,11 @@ test("NewsArticle publisher is the Florida LLC and breadcrumbs escape text", () 
   assert.equal(article.publisher["@type"], "Organization");
   assert.equal(article.publisher.name, "Joshua Israel Ventures LLC");
   assert.equal(article.author.name, "EV News Desk");
+  assert.equal(article.dateModified, "2026-10-23T00:00:00.000Z");
+  assert.match(
+    graph["@graph"].find((node) => node["@type"] === "NewsMediaOrganization").publishingPrinciples,
+    /\/sources-ethics\/$/,
+  );
   assert.equal(crumbs.itemListElement[0].name, "Home");
   assert.equal(crumbs.itemListElement[1].name, "Cars");
 
