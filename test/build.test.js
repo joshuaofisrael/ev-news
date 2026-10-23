@@ -138,8 +138,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(contact, /form-action https:\/\/formsubmit\.co/);
   assert.match(home, /form-action 'none'/);
   assert.doesNotMatch(contact, /<button[^>]*disabled/);
-  assert.doesNotMatch(contact, /mailto:joshuaofisrael@gmail\.com/);
-  assert.equal((contact.match(/joshuaofisrael@gmail\.com/g) || []).length, 1);
+  assert.match(contact, /action="https:\/\/formsubmit\.co\/4497ee41a1200e746e967998473d21da"/);
+  assert.doesNotMatch(contact, /joshuaofisrael@gmail\.com/);
   const thanks = read("_site", "contact/thanks/index.html");
   assert.match(thanks, /noindex, nofollow/);
   assert.match(thanks, /Thank you/);
@@ -188,6 +188,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     .map((file) => fs.readFileSync(file, "utf8"))
     .join("\n");
   for (const host of banned) assert.equal(built.toLowerCase().includes(host), false, host);
+  assert.doesNotMatch(built, /joshuaofisrael@gmail\.com/);
   assert.doesNotMatch(built, /noai|noimageai/i);
   assert.equal(fs.readFileSync(path.join(root, "CNAME"), "utf8").trim(), "evnewsdesk.com");
   assert.equal(read("_site", "CNAME").trim(), "evnewsdesk.com");
