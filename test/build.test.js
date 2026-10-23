@@ -61,6 +61,33 @@ test("production build omits drafts and the sources gate fails closed", { timeou
 
   assert.match(home, new RegExp(copyright.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   assert.match(home, /No story has been published yet/);
+  assert.match(home, /class="masthead[\s"]/);
+  assert.match(home, /class="charge-fill"/);
+  assert.doesNotMatch(home, /assets\/images\/hero\.(avif|webp)/);
+  assert.doesNotMatch(home, /Original illustration|AI-generated illustration/);
+  const charging = read("_site", "category/charging/index.html");
+  assert.doesNotMatch(charging, /assets\/images\/charging\.(avif|webp|svg)/);
+  assert.doesNotMatch(charging, /Original illustration/);
+  assert.match(home, /assets\/photos\/home-hero\.avif/);
+  assert.match(home, /assets\/photos\/home-hero\.webp/);
+  assert.match(home, /width="1280" height="720"/);
+  assert.match(home, /fetchpriority="high"/);
+  assert.match(home, /loading="lazy"/);
+  assert.match(home, /assets\/photos\/cat-industry\.avif/);
+  assert.match(home, /First stories land daily/);
+  assert.ok((home.match(/AI-generated photograph/g) || []).length >= 6);
+  assert.match(charging, /assets\/photos\/cat-charging\.avif/);
+  assert.match(charging, /loading="eager"/);
+  assert.match(charging, /fetchpriority="high"/);
+  assert.match(charging, /AI-generated photograph/);
+  assert.match(home, /class="road-line"/);
+  assert.match(home, /class="hero-scene"/);
+  assert.match(home, /class="scene-car"/);
+  assert.match(home, /class="ticker"/);
+  assert.match(home, /id="wire-pause"/);
+  assert.match(home, /No headline yet/);
+  assert.match(home, /class="section-icon"/);
+  assert.match(home, /class="energy-divider"/);
   assert.match(home, /lang="en"/);
   assert.match(home, /Skip to content/);
   assert.match(home, new RegExp(`rel="canonical" href="${esc(site.url)}/"`));
@@ -68,6 +95,11 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(home, new RegExp(`"name":"${esc(site.name)}"`));
   assert.doesNotMatch(home, /EV News(?! Desk)/);
   assert.match(home, /name="robots" content="index, follow"/);
+  for (const page of [home, about, contact, terms, privacy, disclaimer, charging]) {
+    assert.match(page, /name="robots" content="index, follow"/);
+    assert.match(page, /rel="canonical" href="https:\/\/evnewsdesk\.com\//);
+    assert.match(page, /application\/ld\+json/);
+  }
   assert.match(home, /BreadcrumbList/);
   assert.match(home, /Joshua Israel Ventures LLC/);
   assert.doesNotMatch(home, /NewsArticle/);
@@ -152,7 +184,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(corrections, /Corrections/);
   assert.match(corrections, /Joshua Israel Ventures LLC/);
   assert.match(ethics, /Sources &amp; Ethics|Sources & Ethics/);
-  assert.match(ethics, /AI-generated image/);
+  assert.match(ethics, /AI-generated photograph/);
   assert.match(ethics, /according to/);
   assert.match(home, /href="\/sources-ethics\/"/);
   assert.match(home, /href="\/corrections\/"/);
@@ -162,8 +194,12 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     assert.match(page, new RegExp(`${esc(beacon)}\\s*</body>`));
     assert.match(
       page,
-      /script-src 'unsafe-inline' https:\/\/static\.cloudflareinsights\.com/,
+      /script-src 'self' 'unsafe-inline' https:\/\/static\.cloudflareinsights\.com/,
     );
+    const revealAt = page.lastIndexOf("/assets/js/reveal.js");
+    const beaconAt = page.lastIndexOf("beacon.min.js");
+    assert.ok(revealAt > 0 && revealAt < beaconAt);
+    assert.match(page, /beacon.min.js" data-cf-beacon/);
     assert.match(page, /connect-src https:\/\/cloudflareinsights\.com/);
   }
   assert.match(privacy, /cookieless Cloudflare Web Analytics/);
@@ -195,6 +231,11 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     "fonts.gstatic",
     "cdn.jsdelivr",
     "unpkg.com",
+    "shutterstock",
+    "gettyimages",
+    "istockphoto",
+    "adobestock",
+    "depositphotos",
   ];
   const built = walk(path.join(root, "_site"))
     .filter((file) => /\.(html|css|xml|txt|svg)$/.test(file))
@@ -207,6 +248,10 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.equal(fs.readFileSync(path.join(root, "CNAME"), "utf8").trim(), "evnewsdesk.com");
   assert.equal(read("_site", "CNAME").trim(), "evnewsdesk.com");
   assert.equal(new URL(site.url).hostname, "evnewsdesk.com");
+  const revealJs = read("_site", "assets/js/reveal.js");
+  assert.match(revealJs, /IntersectionObserver/);
+  assert.match(revealJs, /prefers-reduced-motion/);
+  assert.match(read("_site", "404.html"), /noindex/);
 
   const preview = runEleventy(["--output=_site-preview"], { ELEVENTY_ENV: "development" });
   assert.equal(preview.status, 0, preview.stdout + preview.stderr);
@@ -225,4 +270,25 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(draft, /Last updated/);
   assert.match(draft, /datetime="2026-10-22/);
   assert.match(draft, /"dateModified":"2026-10-22T00:00:00\.000Z"/);
+  assert.match(draft, /class="image-slot"/);
+  assert.match(draft, /src\/assets\/images\/sample-cars-hero\.webp/);
+  assert.match(draft, /src\/assets\/images\/sample-cars-hero\.avif/);
+  assert.match(draft, /src\/assets\/images\/sample-cars-port\.webp/);
+  assert.match(draft, /src\/assets\/images\/sample-cars-cabin\.webp/);
+  assert.doesNotMatch(draft, /<img /);
+  assert.equal((draft.match(/AI-generated photograph/g) || []).length, 3);
+  assert.doesNotMatch(draft, /AI-generated illustration|Original illustration/);
+  const portAt = draft.indexOf("sample-cars-port.webp");
+  const citationAt = draft.indexOf("How an inline citation is written");
+  assert.ok(portAt > 0 && citationAt > portAt);
+  const chargingDraft = read(
+    "_site-preview",
+    "articles/2026-10-21-sample-charging-template/index.html",
+  );
+  assert.match(chargingDraft, /class="image-slot"/);
+  assert.match(chargingDraft, /src\/assets\/images\/sample-charging-hero\.webp/);
+  assert.match(chargingDraft, /src\/assets\/images\/sample-charging-stall\.webp/);
+  assert.match(chargingDraft, /src\/assets\/images\/sample-charging-plug\.webp/);
+  assert.equal((chargingDraft.match(/AI-generated photograph/g) || []).length, 3);
+  assert.doesNotMatch(chargingDraft, /<img /);
 });

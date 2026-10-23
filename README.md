@@ -25,10 +25,11 @@ Publish one article a day. Topics can be news, models, batteries, charging, poli
 1. Add `src/content/posts/YYYY-MM-DD-short-slug.md`. The date in the filename and the `date` field should match the publication date, written as `YYYY-MM-DD`.
 2. Copy the front matter below. Keep `draft: true` while you check the sources.
 3. Write the story in Markdown. Link claims inline, as described in the next section.
-4. Run `npm run dev` and open `/articles/YYYY-MM-DD-short-slug/`.
-5. When the source list is complete and the copy is checked, remove the `draft` line (or set `draft: false`).
-6. Run `npm test`. The production build fails if a published article has no sources, a source is missing `title`, `url`, `publisher`, or `date`, `updatedAt` is missing, or an image is missing its alt text or the caption `AI-generated image`.
-7. Commit and push to `main`. GitHub Actions runs the tests, builds the site, and deploys `_site` to GitHub Pages.
+4. Add a hero and about one picture every few paragraphs. The pictures are photoreal, as described under Images. Save each as WebP and AVIF under `src/assets/images/`, then fill `hero` and `images`. Homepage and category banners live in `src/assets/photos/` and are not article images.
+5. Run `npm run dev` and open `/articles/YYYY-MM-DD-short-slug/`.
+6. When the source list is complete and the copy is checked, remove the `draft` line (or set `draft: false`).
+7. Run `npm test`. The production build fails if a published article has no sources, a source is missing `title`, `url`, `publisher`, or `date`, `updatedAt` is missing, or the story is missing a hero, two body images, alt text, or the caption `AI-generated photograph`.
+8. Commit and push to `main`. GitHub Actions runs the tests, builds the site, and deploys `_site` to GitHub Pages.
 
 Required front matter:
 
@@ -65,11 +66,52 @@ The byline is **EV News Desk**, from `author` in `src/_data/site.js`. The articl
 
 `opinion: true` or `label: opinion`, `label: analysis`, or `label: speculation` prints that label at the top. `disclaimer: health`, `disclaimer: legal`, or `disclaimer: financial` prints a short notice that the piece is not advice.
 
-An AI-generated picture uses `hero` or an `images` entry with `src`, `alt`, `caption`, `width`, and `height`. The caption is exactly `AI-generated image`. The alt text describes the picture and does not name a real person or stage an event that did not happen. A third-party press image uses `image`, `imageAlt`, `imageCaption`, `imageCredit`, `imageSource`, `imageLicense: Fair use`, and width and height at most 640 by 480.
+An AI-generated picture uses `hero` or an `images` entry with `src`, `alt`, `caption`, `width`, and `height`. The caption is exactly `AI-generated photograph`. The alt text describes the picture and does not name a real person or stage an event that did not happen. A third-party press image uses `image`, `imageAlt`, `imageCaption`, `imageCredit`, `imageSource`, and `imageLicense`. Fair use images stay at most 640 by 480. Homepage and category photos in `src/assets/photos/` are site art, not story images, so the publish check does not look for them there.
 
 The rules are also on the [Sources & Ethics](src/sources-ethics.njk) page. Corrections go through the [Corrections](src/corrections.njk) page. When a claim is in doubt, leave it out.
 
 A published article also needs `title`, `date`, `category`, and `summary`. Those checks fail the build together with the sources check so a public page is not missing its dek or desk.
+
+## Images
+
+Every published article has a hero and at least two body images, about one picture every few paragraphs. Each one is a hyper-realistic photograph of the subject the article is actually about.
+
+Use a photograph, not a drawing. Cartoons, illustrations, anime, flat vector art, and stylised drawings are not article or hero images. Icons, the charge bolt, dividers, and the circuit pattern stay in CSS and SVG. They are interface decoration, not substitutes for those photographs.
+
+Do not depict a real person. Do not stage a fabricated news event, crash, launch, or quote. Leave logos and readable brand names out of the picture. The alt text describes the photograph. The caption is exactly `AI-generated photograph`.
+
+1. Generate or photograph the hero and the body pictures. A 16:9 frame works with the template. Keep each picture tied to that article’s subject.
+2. Export each file twice into `src/assets/images/`: `name.webp` and `name.avif`, about 1200 by 675.
+3. `src` is the basename (`sample-cars-hero`), never a URL. Until both files are there, the article shows an empty slot naming those two paths.
+4. Set `after` to the paragraph number the picture should follow. Paragraphs are the `<p>` blocks, starting at 1. Omit `after` and the template spreads the pictures through the story.
+
+```yaml
+hero:
+  src: sample-cars-hero
+  alt: "Unbranded electric hatchback parked on a quiet residential street, with no people and no readable badges"
+  caption: "AI-generated photograph"
+  width: 1200
+  height: 675
+images:
+  - src: sample-cars-port
+    alt: "Close view of an empty charging port on a generic electric car, with no brand marks"
+    caption: "AI-generated photograph"
+    after: 2
+    width: 1200
+    height: 675
+  - src: sample-cars-cabin
+    alt: "Empty front seats and a blank dashboard inside a generic electric car"
+    caption: "AI-generated photograph"
+    after: 4
+    width: 1200
+    height: 675
+```
+
+The hero loads immediately once its files are in place. Body images use `loading="lazy"`. Both set width and height.
+
+A genuine press photo is separate. Keep it small, low resolution, and credited. Do not use a stock-agency image. The fields are `image`, `imageAlt`, `imageCaption`, `imageCredit`, `imageSource`, `imageLicense`, `imageWidth`, and `imageHeight`. `imageLicense` is `Original`, `CC0`, `CC-BY`, `CC-BY-SA`, or `Fair use`. Anything except `Original` needs `imageSource`. Fair use stays at most 640 by 480. The template prints the caption, credit, source link, and licence.
+
+The build fails a published story that has no hero, fewer than two body images, a missing or thin alt text, alt text that calls the picture an illustration or drawing, a caption other than `AI-generated photograph`, a missing WebP or AVIF file, or a press photo that is incomplete or points at a stock agency. A draft with the front matter filled in and the files not yet added shows the empty slot instead of a drawing.
 
 ## Inline citations
 
@@ -97,6 +139,8 @@ Two sample posts ship with the repository:
 - `src/content/posts/2026-10-21-sample-charging-template.md`
 
 Both are `draft: true` and `sample: true`. They show the template. They are not news reports, and they are omitted from the production site, the sitemap, and the feeds. Do not remove those flags. The build fails if a post marked `sample: true` is not a draft. Write a new file for a real story.
+
+Each sample keeps a hero and two body slots in the front matter. The photograph files are not in the repository. Drop `src/assets/images/<src>.webp` and `<src>.avif` in place and the slot becomes the picture. Use photoreal files of that desk’s subject. Do not drop in a drawing.
 
 `npm run dev` shows them with an unpublished-draft banner so you can check the article layout.
 

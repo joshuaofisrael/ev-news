@@ -1,0 +1,18 @@
+{% if image %}
+<figure class="story-figure">
+  {% set srcBase = image %}
+  {% set imageLoading = "lazy" %}
+  {% include "partials/picture.njk" %}
+  <figcaption>
+    <span class="figure-caption">{{ imageCaption }}</span>
+    <span class="figure-meta">
+      <span>{{ imageCredit }}</span>
+      {% set sourceHref = imageSource | safeHttpUrl %}
+      {% if sourceHref %}
+      <a href="{{ sourceHref }}">Source<span class="visually-hidden"> for this image</span></a>
+      {% endif %}
+      <span class="figure-licence">{{ imageLicense }}</span>
+    </span>
+  </figcaption>
+</figure>
+{% endif %}

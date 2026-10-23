@@ -3,8 +3,10 @@ layout: layouts/base.njk
 ---
 <article class="page">
   <header class="page-head">
+    <p class="page-kicker">{% set iconName = "bolt" %}{% include "partials/section-icon.njk" %} The desk</p>
     <h1>{{ title }}</h1>
   </header>
+  {% include "partials/energy-divider.njk" %}
   <div class="prose">
     {{ content | safe }}
   </div>

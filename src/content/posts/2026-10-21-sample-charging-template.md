@@ -9,6 +9,26 @@ tags:
   - template
 draft: true
 sample: true
+# Photoreal slot. Add src/assets/images/sample-charging-hero.webp and .avif. Do not use a drawing.
+hero:
+  src: sample-charging-hero
+  alt: "Unbranded home wall charger and a coiled cable on a garage wall, with no people and no readable brand names"
+  caption: "AI-generated photograph"
+  width: 1200
+  height: 675
+images:
+  - src: sample-charging-stall
+    alt: "One empty public charging stall in a small parking lot, with no brand names and no vehicles"
+    caption: "AI-generated photograph"
+    after: 2
+    width: 1200
+    height: 675
+  - src: sample-charging-plug
+    alt: "Generic charging connector seated in a car port, with the cable leaving the frame and no hands visible"
+    caption: "AI-generated photograph"
+    after: 4
+    width: 1200
+    height: 675
 sources:
   - title: "Alternative Fuels Data Center: Electricity"
     url: "https://afdc.energy.gov/fuels/electricity"

@@ -1,11 +1,11 @@
 {% if stories and stories.length %}
 <ul class="story-list">
   {% for post in stories %}
-  <li>
+  <li class="story-card">
     <article>
       <p class="story-kicker">
         {% if post.data.draft %}<span class="badge">Unpublished draft</span>{% endif %}
-        <a href="{{ ('/category/' ~ (post.data.category | categorySlug) ~ '/') | url }}">{{ post.data.category }}</a>
+        <a class="chip" href="{{ ('/category/' ~ (post.data.category | categorySlug) ~ '/') | url }}">{% set iconName = post.data.category | categorySlug %}{% include "partials/section-icon.njk" %}{{ post.data.category }}</a>
         <time datetime="{{ post.date | isoDate }}">{{ post.date | displayDate }}</time>
       </p>
       {% if storyHeading == "h3" %}

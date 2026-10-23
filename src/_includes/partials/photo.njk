@@ -1,0 +1,5 @@
+<picture>
+  <source srcset="{{ ('/assets/photos/' ~ photo ~ '.avif') | url }}" type="image/avif">
+  <source srcset="{{ ('/assets/photos/' ~ photo ~ '.webp') | url }}" type="image/webp">
+  <img src="{{ ('/assets/photos/' ~ photo ~ '.webp') | url }}" alt="{{ imageAlt }}" width="1280" height="720" loading="{{ imageLoading or 'lazy' }}" decoding="async"{% if imagePriority %} fetchpriority="{{ imagePriority }}"{% endif %}>
+</picture>
