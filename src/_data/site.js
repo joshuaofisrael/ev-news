@@ -16,6 +16,8 @@ const site = {
   entityDescription: "a Florida limited liability company",
   contactEmail: "desk@example.com",
   indexNowKey: "e636da750714fc9967b0f4946b707533",
+  // Cookieless Cloudflare Web Analytics. The base layout prints the beacon.
+  cloudflareAnalyticsToken: "72a6ea1974794ada98ce78efa935c214",
   year: new Date().getUTCFullYear(),
   buildTime: new Date().toISOString(),
   crawlers: [

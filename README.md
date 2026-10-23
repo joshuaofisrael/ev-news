@@ -4,7 +4,7 @@ EV News Desk is a fast static site for a daily electric-vehicle desk. It is owne
 
 The site URL is `https://evnewsdesk.com`. [`CNAME`](CNAME) contains `evnewsdesk.com`, and the build copies that file into the Pages output. The build fails if `CNAME` does not match the hostname of `url`. If `url` ever includes a path, the build uses that path as the prefix.
 
-There is no third-party tracker, font host, or analytics script.
+There is no third-party font host and no advertising tracker. The base layout loads one cookieless Cloudflare Web Analytics beacon (first-party analytics). Its token lives in `src/_data/site.js`.
 
 ## Develop
 
