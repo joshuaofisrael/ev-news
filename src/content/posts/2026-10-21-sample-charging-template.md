@@ -8,6 +8,25 @@ tags:
   - template
 draft: true
 sample: true
+hero:
+  src: sample-charging-hero
+  alt: "Unbranded home wall charger and a coiled cable on a garage wall, an illustration of charging equipment rather than a news photograph"
+  caption: "AI-generated illustration"
+  width: 1200
+  height: 675
+images:
+  - src: sample-charging-stall
+    alt: "One empty public charging stall in a small parking lot, with no brand names and no vehicles"
+    caption: "AI-generated illustration"
+    after: 2
+    width: 1200
+    height: 675
+  - src: sample-charging-plug
+    alt: "Generic charging connector seated in a car port, with the cable leaving the frame and no hands visible"
+    caption: "AI-generated illustration"
+    after: 4
+    width: 1200
+    height: 675
 sources:
   - title: "Alternative Fuels Data Center: Electricity"
     url: "https://afdc.energy.gov/fuels/electricity"

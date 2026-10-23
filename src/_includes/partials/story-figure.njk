@@ -15,7 +15,7 @@
     </span>
   </figcaption>
 </figure>
-{% else %}
+{% elif not (hero and hero.src) %}
 <figure class="story-figure is-fallback">
   {% set srcBase = (category | categorySlug) or "fallback" %}
   {% set imageAlt = "Original illustration for the " ~ (category or "news") ~ " desk" %}

@@ -25,10 +25,11 @@ Publish one article a day. Topics can be news, models, batteries, charging, poli
 1. Add `src/content/posts/YYYY-MM-DD-short-slug.md`. The date in the filename and the `date` field should match the publication date, written as `YYYY-MM-DD`.
 2. Copy the front matter below. Keep `draft: true` while you check the sources.
 3. Write the story in Markdown. Link claims inline, as described in the next section.
-4. Run `npm run dev` and open `/articles/YYYY-MM-DD-short-slug/`.
-5. When the source list is complete and the copy is checked, remove the `draft` line (or set `draft: false`).
-6. Run `npm test`. The production build fails if a published article has no sources, or if a source is missing `title`, `url`, `publisher`, or `date`.
-7. Commit and push to `main`. GitHub Actions runs the tests, builds the site, and deploys `_site` to GitHub Pages.
+4. Generate a hero and about one picture every few paragraphs. Save each as WebP and AVIF, then add `hero` and `images` as described under Images.
+5. Run `npm run dev` and open `/articles/YYYY-MM-DD-short-slug/`.
+6. When the source list is complete and the copy is checked, remove the `draft` line (or set `draft: false`).
+7. Run `npm test`. The production build fails if a published article has no sources, a source is missing `title`, `url`, `publisher`, or `date`, or the story is missing a hero or two body images.
+8. Commit and push to `main`. GitHub Actions runs the tests, builds the site, and deploys `_site` to GitHub Pages.
 
 Required front matter:
 
@@ -66,24 +67,42 @@ A published article also needs `title`, `date`, `category`, and `summary`. Those
 
 ## Images
 
-Stories can carry one image. It has to be original art, a CC0 or CC-BY picture with credit, or a small low-resolution press image used under fair use. Do not use stock-agency photos.
+Every published article has a hero and at least two body images. The pictures are AI-generated illustrations of a concept, placed about one every few paragraphs. They are not photographs of a news event.
 
-Put a `.webp` and an `.avif` of the same picture in `src/assets/images/`. The filename is the `image` basename (`cars`, not a URL). Original illustrations in this repo were drawn for the desk. Raster files are 1200 by 675.
+Do not depict a real person. Do not stage a fabricated news event, crash, launch, or quote. Leave logos and readable brand names out of the picture. The alt text says what the concept is. The caption is exactly `AI-generated illustration`.
+
+1. Generate the hero and the body pictures. A 16:9 frame works with the template.
+2. Export each file twice into `src/assets/images/`: `name.webp` and `name.avif`, about 1200 by 675. `node scripts/rasterize-images.js` does that for the desk SVG set. For a generated photograph, resize and compress the same way and keep both formats.
+3. `src` is the basename (`sample-cars-hero`), never a URL.
+4. Set `after` to the paragraph number the picture should follow. Paragraphs are the `<p>` blocks, starting at 1. Omit `after` and the template spreads the pictures through the story.
 
 ```yaml
-image: cars
-imageAlt: "Original illustration of a simplified electric car and a charge bolt"
-imageCaption: "Original illustration for the Cars desk. Not a photograph."
-imageCredit: "EV News Desk"
-imageSource: "https://evnewsdesk.com/about/"
-imageLicense: Original
-imageWidth: 1200
-imageHeight: 675
+hero:
+  src: sample-cars-hero
+  alt: "Unbranded electric hatchback parked on a quiet residential street, an illustration of the cars beat rather than a news photograph"
+  caption: "AI-generated illustration"
+  width: 1200
+  height: 675
+images:
+  - src: sample-cars-port
+    alt: "Close view of an empty charging port on a generic electric car, with no brand marks"
+    caption: "AI-generated illustration"
+    after: 2
+    width: 1200
+    height: 675
+  - src: sample-cars-cabin
+    alt: "Empty front seats and a blank dashboard inside a generic electric car"
+    caption: "AI-generated illustration"
+    after: 4
+    width: 1200
+    height: 675
 ```
 
-`imageLicense` is one of `Original`, `CC0`, `CC-BY`, `CC-BY-SA`, or `Fair use`. Anything except `Original` needs an `imageSource` URL. Fair use also has to stay small: width at most 640 and height at most 480. The article template prints the caption, credit, source link, and licence. A story with no `image` gets the desk’s original illustration as a fallback, labeled Original.
+The hero loads immediately. Body images use `loading="lazy"`. Both set width and height.
 
-The build fails a published story that sets `image` without those fields, points `image` at a missing file, or uses a stock-agency URL.
+A genuine press photo is separate. Keep it small, low resolution, and credited. Do not use a stock-agency image. The fields are `image`, `imageAlt`, `imageCaption`, `imageCredit`, `imageSource`, `imageLicense`, `imageWidth`, and `imageHeight`. `imageLicense` is `Original`, `CC0`, `CC-BY`, `CC-BY-SA`, or `Fair use`. Anything except `Original` needs `imageSource`. Fair use stays at most 640 by 480. The template prints the caption, credit, source link, and licence.
+
+The build fails a published story that has no hero, fewer than two body images, a missing or thin alt text, a concept caption other than `AI-generated illustration`, a missing WebP or AVIF file, or a press photo that is incomplete or points at a stock agency. A draft with no hero still shows the desk’s original geometric illustration so the page is not empty while you write.
 
 ## Inline citations
 

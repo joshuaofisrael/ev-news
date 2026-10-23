@@ -13,9 +13,21 @@ layout: layouts/base.njk
     <p class="dek">{{ summary }}</p>
     {% endif %}
   </header>
+  {% if hero and hero.src %}
+  <figure class="story-figure story-hero">
+    {% set srcBase = hero.src %}
+    {% set imageAlt = hero.alt %}
+    {% set imageWidth = hero.width %}
+    {% set imageHeight = hero.height %}
+    {% set imageLoading = "eager" %}
+    {% set imagePriority = "high" %}
+    {% include "partials/picture.njk" %}
+    <figcaption><span class="figure-caption">{{ hero.caption or "AI-generated illustration" }}</span></figcaption>
+  </figure>
+  {% endif %}
   {% include "partials/story-figure.njk" %}
   <div class="prose">
-    {{ content | safe }}
+    {{ content | insertBodyImages(images) | safe }}
   </div>
   {% if tags and tags.length %}
   <section class="tag-block" aria-labelledby="tags-heading">

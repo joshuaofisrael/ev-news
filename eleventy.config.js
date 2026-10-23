@@ -3,6 +3,7 @@ import site from "./src/_data/site.js";
 import { formatDisplayDate, isFreshNews, toIso, toRfc822 } from "./lib/dates.js";
 import { absoluteUrl, pathPrefixFromSiteUrl, prefixRootUrls } from "./lib/site-url.js";
 import { buildCrumbs, renderBreadcrumbNav, renderJsonLd } from "./lib/structured-data.js";
+import { insertBodyImages } from "./lib/article-images.js";
 import { formatValidationErrors, validatePostsDir } from "./lib/validate-posts.js";
 
 const pathPrefix = pathPrefixFromSiteUrl(site.url);
@@ -34,6 +35,9 @@ export default function (eleventyConfig) {
     const desk = site.categories.find((category) => category.name === name);
     return desk?.slug || "";
   });
+  eleventyConfig.addFilter("insertBodyImages", (html, images) =>
+    insertBodyImages(html, images, pathPrefix),
+  );
   eleventyConfig.addFilter("safeHttpUrl", (value) => {
     const url = String(value ?? "").trim();
     return /^https?:\/\/\S+$/i.test(url) ? url : "";

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import {
   inlineCitationWarning,
+  validateArticleImages,
   validateImageCredit,
   validatePostsDir,
   validatePublishedPost,
@@ -51,6 +52,38 @@ test("drafts and complete posts follow the publish gate", () => {
   const posts = validatePostsDir("src/content/posts");
   assert.equal(posts.ok, true, JSON.stringify(posts.errors));
   assert.deepEqual(posts.warnings, []);
+});
+
+test("a published story needs a hero and two described body images", () => {
+  const hero = {
+    src: "sample-cars-hero",
+    alt: "Unbranded electric hatchback parked on a quiet residential street, an illustration rather than a news photograph",
+    caption: "AI-generated illustration",
+    width: 1200,
+    height: 675,
+  };
+  const body = {
+    src: "sample-cars-port",
+    alt: "Close view of an empty charging port on a generic electric car, with no brand marks",
+    caption: "AI-generated illustration",
+    after: 2,
+    width: 1200,
+    height: 675,
+  };
+  const second = {
+    ...body,
+    src: "sample-cars-cabin",
+    alt: "Empty front seats and a blank dashboard inside a generic electric car",
+    after: 4,
+  };
+  assert.deepEqual(validateArticleImages({ hero, images: [body, second] }), []);
+  assert.match(validateArticleImages({ images: [body, second] }).join(" "), /hero is required/);
+  assert.match(validateArticleImages({ hero, images: [body] }).join(" "), /at least two/);
+  assert.match(validateArticleImages({ hero, images: [{ ...body, alt: "car" }, second] }).join(" "), /meaningful/);
+  assert.match(
+    validateArticleImages({ hero: { ...hero, caption: "A real photo" }, images: [body, second] }).join(" "),
+    /AI-generated illustration/,
+  );
 });
 
 test("a published image needs credit and cannot be a stock-agency file", () => {

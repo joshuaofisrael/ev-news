@@ -8,14 +8,25 @@ tags:
   - template
 draft: true
 sample: true
-image: cars
-imageAlt: "Original illustration of a simplified electric car and a charge bolt"
-imageCaption: "Original illustration for the Cars desk. Not a photograph of a production vehicle."
-imageCredit: "EV News Desk"
-imageSource: "https://evnewsdesk.com/about/"
-imageLicense: Original
-imageWidth: 1200
-imageHeight: 675
+hero:
+  src: sample-cars-hero
+  alt: "Unbranded electric hatchback parked on a quiet residential street, an illustration of the cars beat rather than a news photograph"
+  caption: "AI-generated illustration"
+  width: 1200
+  height: 675
+images:
+  - src: sample-cars-port
+    alt: "Close view of an empty charging port on a generic electric car, with no brand marks"
+    caption: "AI-generated illustration"
+    after: 2
+    width: 1200
+    height: 675
+  - src: sample-cars-cabin
+    alt: "Empty front seats and a blank dashboard inside a generic electric car"
+    caption: "AI-generated illustration"
+    after: 4
+    width: 1200
+    height: 675
 sources:
   - title: "All-Electric Vehicles"
     url: "https://www.fueleconomy.gov/feg/evtech.shtml"

@@ -193,14 +193,23 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(draft, /NewsArticle/);
   assert.match(draft, /"name":"Joshua Israel Ventures LLC"/);
   assert.match(draft, />sample</);
-  assert.match(draft, /Original illustration for the Cars desk/);
-  assert.match(draft, /class="figure-licence">Original</);
-  assert.match(draft, /https:\/\/evnewsdesk\.com\/about\//);
+  assert.match(draft, /sample-cars-hero\.webp/);
+  assert.match(draft, /loading="eager"/);
+  assert.match(draft, /fetchpriority="high"/);
+  assert.match(draft, /sample-cars-port\.webp/);
+  assert.match(draft, /sample-cars-cabin\.webp/);
   assert.match(draft, /loading="lazy"/);
+  assert.equal((draft.match(/AI-generated illustration/g) || []).length, 3);
+  const portAt = draft.indexOf("sample-cars-port.webp");
+  const citationAt = draft.indexOf("How an inline citation is written");
+  assert.ok(portAt > 0 && citationAt > portAt);
   const chargingDraft = read(
     "_site-preview",
     "articles/2026-10-21-sample-charging-template/index.html",
   );
-  assert.match(chargingDraft, /assets\/images\/charging\.webp/);
-  assert.match(chargingDraft, /Original illustration for the Charging desk/);
+  assert.match(chargingDraft, /sample-charging-hero\.webp/);
+  assert.match(chargingDraft, /loading="eager"/);
+  assert.match(chargingDraft, /sample-charging-stall\.webp/);
+  assert.match(chargingDraft, /sample-charging-plug\.webp/);
+  assert.equal((chargingDraft.match(/AI-generated illustration/g) || []).length, 3);
 });
