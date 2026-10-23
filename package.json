@@ -1,7 +1,7 @@
 {
   "name": "ev-news",
   "private": true,
-  "description": "EV News Desk, a static electric-vehicle desk owned by Joshua Israel Ventures LLC.",
+  "description": "EV News Desk, a static electric-vehicle desk.",
   "type": "module",
   "engines": {
     "node": ">=20"
