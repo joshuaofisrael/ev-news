@@ -801,6 +801,17 @@ main:focus { outline: none; }
   border: 0;
 }
 
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  transition: opacity 420ms ease, transform 420ms ease;
+}
+
 @media (hover: hover) {
   .desk-card:hover,
   .story-card:hover {
@@ -837,7 +848,9 @@ main:focus { outline: none; }
   .desk-card:hover,
   .story-card:hover,
   .story-figure:hover,
-  .category-art:hover { transform: none; }
+  .category-art:hover,
+  .reveal,
+  .reveal.is-visible { transform: none; opacity: 1; }
   .ticker-viewport { overflow: visible; }
   .ticker-track { width: auto; flex-wrap: wrap; transform: none; }
   .ticker-track ul[aria-hidden="true"] { display: none; }

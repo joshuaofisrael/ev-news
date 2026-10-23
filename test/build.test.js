@@ -83,6 +83,11 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(home, new RegExp(`"name":"${esc(site.name)}"`));
   assert.doesNotMatch(home, /EV News(?! Desk)/);
   assert.match(home, /name="robots" content="index, follow"/);
+  for (const page of [home, about, contact, terms, privacy, disclaimer, charging]) {
+    assert.match(page, /name="robots" content="index, follow"/);
+    assert.match(page, /rel="canonical" href="https:\/\/evnewsdesk\.com\//);
+    assert.match(page, /application\/ld\+json/);
+  }
   assert.match(home, /BreadcrumbList/);
   assert.match(home, /Joshua Israel Ventures LLC/);
   assert.doesNotMatch(home, /NewsArticle/);
@@ -137,8 +142,12 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     assert.match(page, new RegExp(`${esc(beacon)}\\s*</body>`));
     assert.match(
       page,
-      /script-src 'unsafe-inline' https:\/\/static\.cloudflareinsights\.com/,
+      /script-src 'self' 'unsafe-inline' https:\/\/static\.cloudflareinsights\.com/,
     );
+    const revealAt = page.lastIndexOf("/assets/js/reveal.js");
+    const beaconAt = page.lastIndexOf("beacon.min.js");
+    assert.ok(revealAt > 0 && revealAt < beaconAt);
+    assert.match(page, /beacon.min.js" data-cf-beacon/);
     assert.match(page, /connect-src https:\/\/cloudflareinsights\.com/);
   }
   assert.match(privacy, /cookieless Cloudflare Web Analytics/);
@@ -173,6 +182,10 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.equal(fs.readFileSync(path.join(root, "CNAME"), "utf8").trim(), "evnewsdesk.com");
   assert.equal(read("_site", "CNAME").trim(), "evnewsdesk.com");
   assert.equal(new URL(site.url).hostname, "evnewsdesk.com");
+  const revealJs = read("_site", "assets/js/reveal.js");
+  assert.match(revealJs, /IntersectionObserver/);
+  assert.match(revealJs, /prefers-reduced-motion/);
+  assert.match(read("_site", "404.html"), /noindex/);
 
   const preview = runEleventy(["--output=_site-preview"], { ELEVENTY_ENV: "development" });
   assert.equal(preview.status, 0, preview.stdout + preview.stderr);
