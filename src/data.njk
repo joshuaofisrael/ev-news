@@ -74,6 +74,7 @@ date: 2026-10-23
       Source: <a href="{{ chart.sourceUrl }}">{{ chart.sourceName }}</a>,
       as of <time datetime="{{ chart.asOf }}">{{ chart.asOf | displayDate }}</time>.
       <a href="{{ ('/articles/' ~ chart.articleSlug ~ '/') | url }}">Source article</a>.
+      {% if chart.sourceNote %}<span class="dash-source-note">{{ chart.sourceNote }}</span>{% endif %}
     </figcaption>
   </figure>
 </section>

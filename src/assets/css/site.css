@@ -1655,6 +1655,7 @@ main:focus { outline: none; }
   font-size: 0.95rem;
 }
 .dash-figure figcaption .dash-basis { margin-right: 0.35rem; }
+.dash-source-note { display: block; margin-top: 0.35rem; }
 
 @media (min-width: 720px) {
   .dash-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }

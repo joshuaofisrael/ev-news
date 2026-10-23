@@ -365,6 +365,9 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.doesNotMatch(dashMain, /Joshua/);
   assert.match(dash, /<nav class="topics"[\s\S]*href="\/data\/" aria-current="page"/);
   assert.match(dash, /EV data<\/a>/);
+  assert.match(dash, /2027 Mustang Mach-E starting price/);
+  assert.doesNotMatch(dash, /with destination/);
+  assert.match(dash, /The PDF prints no publication day\. October 23, 2026 is the day the story recorded the file\./);
 
   const room = read("_site", "dashboard/index.html");
   const roomTitle = decodeAttr(room.match(/<title>([^<]*)<\/title>/)[1]);
@@ -386,7 +389,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(room, /loading="lazy"/);
   assert.match(room, /class="story-title"><a href="\/articles\/2026-10-23-tesla-q3-results\/">/);
   assert.match(room, /3 sources/);
-  assert.match(room, /Most recent updates/);
+  assert.match(room, /Recently updated/);
   assert.match(room, /Updated October 23, 2026/);
   assert.match(room, /41\.7/);
   assert.match(room, /href="\/data\/"/);

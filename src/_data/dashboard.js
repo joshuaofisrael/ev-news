@@ -34,7 +34,7 @@ const figures = [
     sourceUrl: "https://www.emobilityeurope.org/wp-content/uploads/2026/10/EV-Bulletin-September-2026.pdf",
     articleSlug: "2026-10-23-europe-september-ev-shares",
     basis: "independent",
-    note: "The bulletin prints no publication day. This is the date the story recorded the file.",
+    note: "The PDF prints no publication day. October 23, 2026 is the day the story recorded the file.",
   },
   {
     id: "eu-no",
@@ -46,6 +46,7 @@ const figures = [
     sourceUrl: "https://www.emobilityeurope.org/wp-content/uploads/2026/10/EV-Bulletin-September-2026.pdf",
     articleSlug: "2026-10-23-europe-september-ev-shares",
     basis: "independent",
+    note: "The PDF prints no publication day. October 23, 2026 is the day the story recorded the file.",
   },
   {
     id: "eu-dk",
@@ -57,6 +58,7 @@ const figures = [
     sourceUrl: "https://www.emobilityeurope.org/wp-content/uploads/2026/10/EV-Bulletin-September-2026.pdf",
     articleSlug: "2026-10-23-europe-september-ev-shares",
     basis: "independent",
+    note: "The PDF prints no publication day. October 23, 2026 is the day the story recorded the file.",
   },
   {
     id: "eu-fr",
@@ -68,6 +70,7 @@ const figures = [
     sourceUrl: "https://www.emobilityeurope.org/wp-content/uploads/2026/10/EV-Bulletin-September-2026.pdf",
     articleSlug: "2026-10-23-europe-september-ev-shares",
     basis: "independent",
+    note: "The PDF prints no publication day. October 23, 2026 is the day the story recorded the file.",
   },
   {
     id: "eu-de",
@@ -79,6 +82,7 @@ const figures = [
     sourceUrl: "https://www.emobilityeurope.org/wp-content/uploads/2026/10/EV-Bulletin-September-2026.pdf",
     articleSlug: "2026-10-23-europe-september-ev-shares",
     basis: "independent",
+    note: "The PDF prints no publication day. October 23, 2026 is the day the story recorded the file.",
   },
   {
     id: "eu-it",
@@ -90,6 +94,7 @@ const figures = [
     sourceUrl: "https://www.emobilityeurope.org/wp-content/uploads/2026/10/EV-Bulletin-September-2026.pdf",
     articleSlug: "2026-10-23-europe-september-ev-shares",
     basis: "independent",
+    note: "The PDF prints no publication day. October 23, 2026 is the day the story recorded the file.",
   },
   {
     id: "eu-pl",
@@ -101,6 +106,7 @@ const figures = [
     sourceUrl: "https://www.emobilityeurope.org/wp-content/uploads/2026/10/EV-Bulletin-September-2026.pdf",
     articleSlug: "2026-10-23-europe-september-ev-shares",
     basis: "independent",
+    note: "The PDF prints no publication day. October 23, 2026 is the day the story recorded the file.",
   },
   {
     id: "tesla-deliveries",
@@ -275,7 +281,7 @@ const figures = [
   },
   {
     id: "mach-e-price",
-    label: "2027 Mustang Mach-E starting price, with destination",
+    label: "2027 Mustang Mach-E starting price",
     value: 42040,
     unit: "USD",
     asOf: "2026-10-22",
@@ -291,6 +297,7 @@ const charts = [
     id: "europe-share",
     title: "September battery-electric share by country",
     lede: "Shares in the September bulletin for the countries that story lists. France here matches the AAA DATA table. Germany here is the bulletin’s figure; the registrar’s figure is a separate tile.",
+    sourceNote: "The PDF prints no publication day. October 23, 2026 is the day the story recorded the file.",
     scale: "share",
     figureIds: ["eu-no", "eu-dk", "eu-fr", "eu-de", "eu-it", "eu-pl"],
   },
