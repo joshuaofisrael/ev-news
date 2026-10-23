@@ -9,19 +9,16 @@ tags:
 hero:
   src: fixture-hero
   alt: "Unbranded electric hatchback parked on a quiet residential street, used only as a validator fixture"
-  caption: "AI-generated photograph"
   width: 1200
   height: 675
 images:
   - src: fixture-body-a
     alt: "Close view of an empty charging port on a generic electric car, used only as a validator fixture"
-    caption: "AI-generated photograph"
     after: 1
     width: 1200
     height: 675
   - src: fixture-body-b
     alt: "Empty front seats and a blank dashboard inside a generic electric car, used only as a validator fixture"
-    caption: "AI-generated photograph"
     width: 1200
     height: 675
 sources:

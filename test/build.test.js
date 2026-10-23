@@ -75,11 +75,13 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(home, /loading="lazy"/);
   assert.match(home, /assets\/photos\/cat-industry\.avif/);
   assert.match(home, /First stories land daily/);
-  assert.ok((home.match(/AI-generated photograph/g) || []).length >= 6);
+  assert.match(home, /White electric crossover in a bright showroom/);
+  assert.doesNotMatch(home, /AI-generated photograph/);
   assert.match(charging, /assets\/photos\/cat-charging\.avif/);
   assert.match(charging, /loading="eager"/);
   assert.match(charging, /fetchpriority="high"/);
-  assert.match(charging, /AI-generated photograph/);
+  assert.match(charging, /White electric crossover plugged into a curbside charger/);
+  assert.doesNotMatch(charging, /AI-generated photograph/);
   assert.match(home, /class="road-line"/);
   assert.match(home, /class="hero-scene"/);
   assert.match(home, /class="scene-car"/);
@@ -184,7 +186,16 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(corrections, /Corrections/);
   assert.match(corrections, /Joshua Israel Ventures LLC/);
   assert.match(ethics, /Sources &amp; Ethics|Sources & Ethics/);
-  assert.match(ethics, /AI-generated photograph/);
+  assert.match(ethics, /AI-generated imagery/);
+  assert.match(ethics, /href="\/disclaimer\/"/);
+  assert.match(ethics, /do not carry a visible AI caption/);
+  assert.doesNotMatch(ethics, /AI-generated photograph/);
+  assert.match(disclaimer, /<h2>AI-generated imagery<\/h2>/);
+  assert.match(disclaimer, /AI-generated photorealistic illustrations of the subject/);
+  assert.match(disclaimer, /do not depict real identifiable people or actual news events/);
+  assert.match(disclaimer, /third-party press photo is separately credited/);
+  assert.doesNotMatch(disclaimer, /AI-generated photograph/);
+  assert.match(home, /href="\/disclaimer\/"/);
   assert.match(ethics, /according to/);
   assert.match(home, /href="\/sources-ethics\/"/);
   assert.match(home, /href="\/corrections\/"/);
@@ -244,6 +255,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   for (const host of banned) assert.equal(built.toLowerCase().includes(host), false, host);
   assert.doesNotMatch(built, /joshuaofisrael@gmail\.com/);
   assert.doesNotMatch(built, /data-ad-slot|class="adsbygoogle"|fundingchoices|cookieconsent/i);
+  assert.doesNotMatch(built, /AI-generated photograph/);
   assert.doesNotMatch(built, /noai|noimageai/i);
   assert.equal(fs.readFileSync(path.join(root, "CNAME"), "utf8").trim(), "evnewsdesk.com");
   assert.equal(read("_site", "CNAME").trim(), "evnewsdesk.com");
@@ -276,7 +288,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(draft, /src\/assets\/images\/sample-cars-port\.webp/);
   assert.match(draft, /src\/assets\/images\/sample-cars-cabin\.webp/);
   assert.doesNotMatch(draft, /<img /);
-  assert.equal((draft.match(/AI-generated photograph/g) || []).length, 3);
+  assert.doesNotMatch(draft, /AI-generated photograph/);
   assert.doesNotMatch(draft, /AI-generated illustration|Original illustration/);
   const portAt = draft.indexOf("sample-cars-port.webp");
   const citationAt = draft.indexOf("How an inline citation is written");
@@ -289,6 +301,6 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(chargingDraft, /src\/assets\/images\/sample-charging-hero\.webp/);
   assert.match(chargingDraft, /src\/assets\/images\/sample-charging-stall\.webp/);
   assert.match(chargingDraft, /src\/assets\/images\/sample-charging-plug\.webp/);
-  assert.equal((chargingDraft.match(/AI-generated photograph/g) || []).length, 3);
+  assert.doesNotMatch(chargingDraft, /AI-generated photograph/);
   assert.doesNotMatch(chargingDraft, /<img /);
 });

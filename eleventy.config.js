@@ -4,7 +4,7 @@ import { formatDisplayDate, isFreshNews, toIso, toRfc822 } from "./lib/dates.js"
 import { freshNewsPosts, renderNewsSitemap } from "./lib/news-sitemap.js";
 import { absoluteUrl, pathPrefixFromSiteUrl, prefixRootUrls } from "./lib/site-url.js";
 import { buildCrumbs, renderBreadcrumbNav, renderJsonLd } from "./lib/structured-data.js";
-import { imageFilesReady, insertBodyImages } from "./lib/article-images.js";
+import { figureCaption, imageFilesReady, insertBodyImages } from "./lib/article-images.js";
 import { formatValidationErrors, validatePostsDir } from "./lib/validate-posts.js";
 
 const pathPrefix = pathPrefixFromSiteUrl(site.url);
@@ -46,6 +46,7 @@ export default function (eleventyConfig) {
     insertBodyImages(html, images, pathPrefix),
   );
   eleventyConfig.addFilter("imageFilesReady", imageFilesReady);
+  eleventyConfig.addFilter("figureCaption", figureCaption);
   eleventyConfig.addFilter("safeHttpUrl", (value) => {
     const url = String(value ?? "").trim();
     return /^https?:\/\/\S+$/i.test(url) ? url : "";

@@ -37,7 +37,10 @@ layout: layouts/base.njk
     {% set imageLoading = "eager" %}
     {% set imagePriority = "high" %}
     {% include "partials/picture.njk" %}
-    <figcaption><span class="figure-caption">{{ hero.caption or "AI-generated photograph" }}</span></figcaption>
+    {% set heroCaption = hero.caption | figureCaption %}
+    {% if heroCaption %}
+    <figcaption><span class="figure-caption">{{ heroCaption }}</span></figcaption>
+    {% endif %}
   </figure>
   {% endif %}
   {% include "partials/story-figure.njk" %}

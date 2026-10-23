@@ -28,7 +28,7 @@ Publish one article a day. Topics can be news, models, batteries, charging, poli
 4. Add a hero and about one picture every few paragraphs. The pictures are photoreal, as described under Images. Save each as WebP and AVIF under `src/assets/images/`, then fill `hero` and `images`. Homepage and category banners live in `src/assets/photos/` and are not article images.
 5. Run `npm run dev` and open `/articles/YYYY-MM-DD-short-slug/`.
 6. When the source list is complete and the copy is checked, remove the `draft` line (or set `draft: false`).
-7. Run `npm test`. The production build fails if a published article has no sources, a source is missing `title`, `url`, `publisher`, or `date`, `updatedAt` is missing, or the story is missing a hero, two body images, alt text, or the caption `AI-generated photograph`.
+7. Run `npm test`. The production build fails if a published article has no sources, a source is missing `title`, `url`, `publisher`, or `date`, `updatedAt` is missing, or the story is missing a hero, two body images, or alt text. Do not put a visible AI caption on a picture. The disclosure lives on `/disclaimer/`.
 8. Commit and push to `main`. GitHub Actions runs the tests, builds the site, and deploys `_site` to GitHub Pages.
 
 Required front matter:
@@ -66,7 +66,7 @@ The byline is **EV News Desk**, from `author` in `src/_data/site.js`. The articl
 
 `opinion: true` or `label: opinion`, `label: analysis`, or `label: speculation` prints that label at the top. `disclaimer: health`, `disclaimer: legal`, or `disclaimer: financial` prints a short notice that the piece is not advice.
 
-An AI-generated picture uses `hero` or an `images` entry with `src`, `alt`, `caption`, `width`, and `height`. The caption is exactly `AI-generated photograph`. The alt text describes the picture and does not name a real person or stage an event that did not happen. A third-party press image uses `image`, `imageAlt`, `imageCaption`, `imageCredit`, `imageSource`, and `imageLicense`. Fair use images stay at most 640 by 480. Homepage and category photos in `src/assets/photos/` are site art, not story images, so the publish check does not look for them there.
+An AI-generated picture uses `hero` or an `images` entry with `src`, `alt`, `width`, and `height`. `caption` is optional and is not an AI label. Do not put a visible AI caption on the picture. The disclosure lives on `/disclaimer/`. The alt text describes the picture and does not name a real person or stage an event that did not happen. A third-party press image uses `image`, `imageAlt`, `imageCaption`, `imageCredit`, `imageSource`, and `imageLicense`. Credit, source, and licence stay mandatory for a real press photo. Fair use images stay at most 640 by 480. Homepage and category photos in `src/assets/photos/` are site art, not story images, so the publish check does not look for them there.
 
 The rules are also on the [Sources & Ethics](src/sources-ethics.njk) page. Corrections go through the [Corrections](src/corrections.njk) page. When a claim is in doubt, leave it out.
 
@@ -78,7 +78,7 @@ Every published article has a hero and at least two body images, about one pictu
 
 Use a photograph, not a drawing. Cartoons, illustrations, anime, flat vector art, and stylised drawings are not article or hero images. Icons, the charge bolt, dividers, and the circuit pattern stay in CSS and SVG. They are interface decoration, not substitutes for those photographs.
 
-Do not depict a real person. Do not stage a fabricated news event, crash, launch, or quote. Leave logos and readable brand names out of the picture. The alt text describes the photograph. The caption is exactly `AI-generated photograph`.
+Do not depict a real person. Do not stage a fabricated news event, crash, launch, or quote. Leave logos and readable brand names out of the picture. The alt text describes the photograph. There is no visible AI caption. The disclosure lives on `/disclaimer/`, in the “AI-generated imagery” section.
 
 1. Generate or photograph the hero and the body pictures. A 16:9 frame works with the template. Keep each picture tied to that article’s subject.
 2. Export each file twice into `src/assets/images/`: `name.webp` and `name.avif`, about 1200 by 675.
@@ -89,19 +89,16 @@ Do not depict a real person. Do not stage a fabricated news event, crash, launch
 hero:
   src: sample-cars-hero
   alt: "Unbranded electric hatchback parked on a quiet residential street, with no people and no readable badges"
-  caption: "AI-generated photograph"
   width: 1200
   height: 675
 images:
   - src: sample-cars-port
     alt: "Close view of an empty charging port on a generic electric car, with no brand marks"
-    caption: "AI-generated photograph"
     after: 2
     width: 1200
     height: 675
   - src: sample-cars-cabin
     alt: "Empty front seats and a blank dashboard inside a generic electric car"
-    caption: "AI-generated photograph"
     after: 4
     width: 1200
     height: 675
@@ -111,7 +108,7 @@ The hero loads immediately once its files are in place. Body images use `loading
 
 A genuine press photo is separate. Keep it small, low resolution, and credited. Do not use a stock-agency image. The fields are `image`, `imageAlt`, `imageCaption`, `imageCredit`, `imageSource`, `imageLicense`, `imageWidth`, and `imageHeight`. `imageLicense` is `Original`, `CC0`, `CC-BY`, `CC-BY-SA`, or `Fair use`. Anything except `Original` needs `imageSource`. Fair use stays at most 640 by 480. The template prints the caption, credit, source link, and licence.
 
-The build fails a published story that has no hero, fewer than two body images, a missing or thin alt text, alt text that calls the picture an illustration or drawing, a caption other than `AI-generated photograph`, a missing WebP or AVIF file, or a press photo that is incomplete or points at a stock agency. A draft with the front matter filled in and the files not yet added shows the empty slot instead of a drawing.
+The build fails a published story that has no hero, fewer than two body images, a missing or thin alt text, alt text that calls the picture an illustration or drawing, a missing WebP or AVIF file, or a press photo that is incomplete or points at a stock agency. A caption on an AI picture is optional. Do not use it as a visible AI label. The disclosure lives on `/disclaimer/`. Credit, source, and licence stay mandatory for a real press photo. A draft with the front matter filled in and the files not yet added shows the empty slot instead of a drawing.
 
 ## Inline citations
 
