@@ -11,6 +11,7 @@
         {% for item in site.categories %}
         <li><a href="{{ ('/category/' ~ item.slug ~ '/') | url }}">{{ item.name }}</a></li>
         {% endfor %}
+        <li><a href="{{ '/data/' | url }}">Data</a></li>
         <li><a href="{{ '/archive/' | url }}">Archive</a></li>
       </ul>
     </nav>

@@ -23,6 +23,9 @@
         <a href="{{ ('/category/' ~ item.slug ~ '/') | url }}"{% if (desk and desk.slug == item.slug) or category == item.name %} aria-current="page"{% endif %}>{% set iconName = item.slug %}{% include "partials/section-icon.njk" %}{{ item.name }}</a>
       </li>
       {% endfor %}
+      <li>
+        <a href="{{ '/data/' | url }}"{% if page.url == ("/data/" | url) %} aria-current="page"{% endif %}>{% set iconName = "gauge" %}{% include "partials/section-icon.njk" %}Data</a>
+      </li>
     </ul>
   </nav>
   {% include "partials/ticker.njk" %}

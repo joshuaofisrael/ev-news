@@ -1,0 +1,80 @@
+---
+layout: layouts/base.njk
+permalink: /data/
+title: EV data dashboard
+summary: "Sourced figures from the 23 October 2026 stories. Each number names its publisher and date. Not real-time, and not advice."
+kind: dashboard
+date: 2026-10-23
+---
+{% set view = dashboard | presentDashboard %}
+<header class="page-head">
+  <h1>EV data dashboard</h1>
+  <p class="last-updated">Last updated <time datetime="{{ view.updated }}">{{ view.updated | displayDate }}</time></p>
+  <p>Each figure below is already in a published story, and the story cites the page that printed it.</p>
+  <p>A <strong>company statement</strong> is the company’s own published figure. An <strong>independent source</strong> is a publisher other than the company. A <strong>sum of company figures</strong> is arithmetic this desk did from counts the company published; the source page did not print that result. The rule is on <a href="{{ '/sources-ethics/' | url }}">Sources &amp; Ethics</a>.</p>
+  <p class="dash-note">Figures are as published by the named sources on the dates shown. They are not real-time, and they are not advice.</p>
+</header>
+
+<section class="dash-section" aria-labelledby="dash-tiles-heading">
+  <h2 id="dash-tiles-heading">Figures</h2>
+  <ul class="dash-tiles">
+    {% for tile in view.tiles %}
+    <li>
+      <p class="dash-basis dash-basis-{{ tile.basis }}">{{ tile.basisLabel }}</p>
+      <p class="dash-value"><span class="dash-number">{{ tile.display }}</span> <span class="dash-unit">{{ tile.unit }}</span></p>
+      <p class="dash-label">{{ tile.label }}</p>
+      {% if tile.note %}<p class="dash-tile-note">{{ tile.note }}</p>{% endif %}
+      <p class="dash-meta">As of <time datetime="{{ tile.asOf }}">{{ tile.asOf | displayDate }}</time>. <a href="{{ tile.sourceUrl }}">{{ tile.sourceName }}</a>. <a href="{{ ('/articles/' ~ tile.articleSlug ~ '/') | url }}">Source article</a>.</p>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+{% for chart in view.charts %}
+<section class="dash-section" aria-labelledby="chart-{{ chart.id }}">
+  <h2 id="chart-{{ chart.id }}">{{ chart.title }}</h2>
+  <p>{{ chart.lede }}</p>
+  <figure class="dash-figure">
+    <div class="dash-bars" aria-hidden="true">
+      {% for row in chart.rows %}
+      <div class="dash-bar">
+        <p><span>{{ row.label }}</span> <strong>{{ row.display }}</strong></p>
+        <svg class="dash-svg" viewBox="0 0 100 8" preserveAspectRatio="none" focusable="false">
+          <rect class="dash-track" x="0" y="0" width="100" height="8"></rect>
+          <rect class="dash-fill" x="0" y="0" width="{{ row.barWidth }}" height="8"></rect>
+        </svg>
+      </div>
+      {% endfor %}
+    </div>
+    <table class="dash-table">
+      <caption>{{ chart.title }}. {{ chart.basisLabel }}.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Item</th>
+          <th scope="col">Value</th>
+          <th scope="col">Unit</th>
+          <th scope="col">As of</th>
+          <th scope="col">Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in chart.rows %}
+        <tr>
+          <th scope="row">{{ row.label }}</th>
+          <td>{{ row.display }}</td>
+          <td>{{ row.unit }}</td>
+          <td><time datetime="{{ row.asOf }}">{{ row.asOf | displayDate }}</time></td>
+          <td><a href="{{ row.sourceUrl }}">{{ row.sourceName }}</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <figcaption>
+      <span class="dash-basis dash-basis-{{ chart.rows[0].basis }}">{{ chart.basisLabel }}</span>
+      Source: <a href="{{ chart.sourceUrl }}">{{ chart.sourceName }}</a>,
+      as of <time datetime="{{ chart.asOf }}">{{ chart.asOf | displayDate }}</time>.
+      <a href="{{ ('/articles/' ~ chart.articleSlug ~ '/') | url }}">Source article</a>.
+    </figcaption>
+  </figure>
+</section>
+{% endfor %}

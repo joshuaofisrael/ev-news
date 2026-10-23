@@ -6,7 +6,9 @@ import { absoluteUrl, pathPrefixFromSiteUrl, prefixRootUrls } from "./lib/site-u
 import { buildCrumbs, renderBreadcrumbNav, renderJsonLd } from "./lib/structured-data.js";
 import { figureCaption, imageFilesReady, insertBodyImages } from "./lib/article-images.js";
 import { metaDescription } from "./lib/meta-description.js";
+import { presentDashboard, validateDashboard } from "./lib/dashboard.js";
 import { formatValidationErrors, validatePostsDir } from "./lib/validate-posts.js";
+import dashboard from "./src/_data/dashboard.js";
 
 const pathPrefix = pathPrefixFromSiteUrl(site.url);
 const includeDrafts = process.env.ELEVENTY_ENV === "development";
@@ -62,6 +64,7 @@ export default function (eleventyConfig) {
     return `${title || site.name} — ${site.name}`;
   });
   eleventyConfig.addFilter("metaDescription", (summary) => metaDescription(summary, site.description));
+  eleventyConfig.addFilter("presentDashboard", (data) => presentDashboard(data));
 
   eleventyConfig.addShortcode("structuredData", function () {
     return renderJsonLd(pageContext(this), site);
@@ -110,6 +113,12 @@ export default function (eleventyConfig) {
       throw new Error(`Published articles failed the sources check:\n${formatValidationErrors(result)}`);
     }
     for (const warning of result.warnings) console.warn(`Source check warning: ${warning}`);
+    const dashboardCheck = validateDashboard(dashboard);
+    if (!dashboardCheck.ok) {
+      throw new Error(
+        `Dashboard figures failed the source check:\n${dashboardCheck.errors.map((error) => `- ${error}`).join("\n")}`,
+      );
+    }
   });
 
   return {
