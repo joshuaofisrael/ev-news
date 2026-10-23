@@ -1,0 +1,148 @@
+---
+layout: layouts/base.njk
+permalink: /dashboard/
+title: Newsroom dashboard
+summary: "Published stories, newest first: a lead photo, a dated list, each category's latest, and recent updates."
+kind: newsroom
+date: 2026-10-23
+---
+{% set stories = collections.posts | newsroomPosts %}
+{% set updates = stories | byUpdated | limit(5) %}
+{% set dataView = dashboard | presentDashboard %}
+{% set picks = dataView.tiles | limit(4) %}
+<header class="page-head">
+  {% include "partials/view-switch.njk" %}
+  <h1>Newsroom dashboard</h1>
+  <p>Published stories, newest first. A story appears here after it leaves draft status.</p>
+</header>
+
+{% if stories and stories.length %}
+<section class="news-block" aria-labelledby="lead-heading">
+  <h2 id="lead-heading">Lead story</h2>
+  {% for post in stories %}
+  {% if loop.first %}
+  <article class="lead-story">
+    {% if post.data.hero and post.data.hero.src %}
+    <figure class="lead-photo">
+      {% set srcBase = post.data.hero.src %}
+      {% set imageAlt = post.data.hero.alt %}
+      {% set imageWidth = post.data.hero.width %}
+      {% set imageHeight = post.data.hero.height %}
+      {% set imageLoading = "eager" %}
+      {% set imagePriority = "high" %}
+      {% include "partials/picture.njk" %}
+    </figure>
+    {% endif %}
+    <div>
+      <p class="story-kicker">
+        <a class="chip" href="{{ ('/category/' ~ (post.data.category | categorySlug) ~ '/') | url }}">{{ post.data.category }}</a>
+        <time datetime="{{ post.date | isoDate }}">{{ post.date | displayDate }}</time>
+        <span>{{ post.data.sources.length }} source{% if post.data.sources.length != 1 %}s{% endif %}</span>
+      </p>
+      <h3 class="story-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+      <p>{{ post.data.summary }}</p>
+    </div>
+  </article>
+  {% endif %}
+  {% endfor %}
+</section>
+
+<section class="news-block" aria-labelledby="latest-heading" data-newsroom>
+  <h2 id="latest-heading">Latest</h2>
+  <div class="news-filter" role="group" aria-label="Filter the latest list by category">
+    <button type="button" data-filter="all" aria-pressed="true">All</button>
+    {% for item in site.categories %}
+    <button type="button" data-filter="{{ item.name }}" aria-pressed="false">{{ item.name }}</button>
+    {% endfor %}
+  </div>
+  <ul class="news-list">
+    {% for post in stories %}
+    {% if not loop.first %}
+    <li data-story data-category="{{ post.data.category }}">
+      <article class="news-row">
+        <p class="news-meta">
+          <time datetime="{{ post.date | isoDate }}">{{ post.date | displayDate }}</time>
+          <a class="chip" href="{{ ('/category/' ~ (post.data.category | categorySlug) ~ '/') | url }}">{{ post.data.category }}</a>
+          <span>{{ post.data.sources.length }} source{% if post.data.sources.length != 1 %}s{% endif %}</span>
+        </p>
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <p class="news-summary">{{ post.data.summary }}</p>
+      </article>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  <p class="news-filter-empty" data-filter-empty hidden>No other published story is in that category.</p>
+</section>
+
+<section class="news-block" aria-labelledby="desks-heading">
+  <h2 id="desks-heading">By category</h2>
+  <div class="desk-grid">
+    {% for item in site.categories %}
+    {% set deskStories = stories | whereCategory(item.name) | limit(3) %}
+    <section class="desk-column" aria-labelledby="desk-{{ item.slug }}">
+      <h3 id="desk-{{ item.slug }}"><a href="{{ ('/category/' ~ item.slug ~ '/') | url }}">{{ item.name }}</a></h3>
+      {% if deskStories and deskStories.length %}
+      {% if deskStories[0].data.hero and deskStories[0].data.hero.src %}
+      <figure class="desk-thumb">
+        {% set srcBase = deskStories[0].data.hero.src %}
+        {% set imageAlt = deskStories[0].data.hero.alt %}
+        {% set imageWidth = deskStories[0].data.hero.width %}
+        {% set imageHeight = deskStories[0].data.hero.height %}
+        {% set imageLoading = "lazy" %}
+        {% set imagePriority = false %}
+        {% include "partials/picture.njk" %}
+      </figure>
+      {% endif %}
+      <ol>
+        {% for post in deskStories %}
+        <li>
+          <a href="{{ post.url }}">{{ post.data.title }}</a>
+          <time datetime="{{ post.date | isoDate }}">{{ post.date | displayDate }}</time>
+        </li>
+        {% endfor %}
+      </ol>
+      {% else %}
+      <p class="empty">No story filed on this desk yet.</p>
+      {% endif %}
+    </section>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="news-block" aria-labelledby="updates-heading">
+  <h2 id="updates-heading">Most recent updates</h2>
+  <ul class="update-strip">
+    {% for post in updates %}
+    <li>
+      <time datetime="{{ (post.data.updatedAt or post.date) | isoDate }}">Updated {{ (post.data.updatedAt or post.date) | displayDate }}</time>
+      <a href="{{ post.url }}">{{ post.data.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% else %}
+<p class="empty">No story has left draft status yet.</p>
+{% endif %}
+
+<section class="news-block" aria-labelledby="picks-heading">
+  <h2 id="picks-heading">EV data</h2>
+  <ul class="data-picks">
+    {% for tile in picks %}
+    <li>
+      <a href="{{ '/data/' | url }}">
+        <span class="dash-basis dash-basis-{{ tile.basis }}">{{ tile.basisLabel }}</span>
+        <span class="data-pick-value">{{ tile.display }} <span>{{ tile.unit }}</span></span>
+        <span class="data-pick-label">{{ tile.label }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  <p><a href="{{ '/data/' | url }}">All EV data</a></p>
+</section>
+
+<nav class="news-standards" aria-label="Standards">
+  <a href="{{ '/sources-ethics/' | url }}">Sources &amp; Ethics</a>
+  <a href="{{ '/corrections/' | url }}">Corrections</a>
+</nav>
+<script src="{{ '/assets/js/newsroom.js' | url }}" defer></script>

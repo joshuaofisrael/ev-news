@@ -14,6 +14,7 @@ Search and AI crawlers may read this site. Published articles list public source
 ## Pages
 
 - [Home]({{ "/" | absoluteUrl }}): Latest stories
+- [Newsroom dashboard]({{ "/dashboard/" | absoluteUrl }}): Published stories, newest first
 {% for item in site.categories %}
 - [{{ item.name | safe }}]({{ ("/category/" ~ item.slug ~ "/") | absoluteUrl }}): {{ item.description | safe }}
 {% endfor %}
