@@ -46,6 +46,20 @@ test("NewsArticle publisher is the Florida LLC and breadcrumbs escape text", () 
   );
   const dataset = dash["@graph"].find((node) => node["@type"] === "Dataset");
   const newsroom = dash["@graph"].find((node) => node["@type"] === "NewsMediaOrganization");
+  const room = buildGraph(
+    {
+      kind: "newsroom",
+      title: "Newsroom dashboard",
+      summary: "Published stories, newest first.",
+      page: { url: "/dashboard/" },
+    },
+    site,
+  );
+  const collection = room["@graph"].find((node) => node["@type"] === "CollectionPage");
+  assert.equal(collection.publisher.name, "EV News Desk");
+  assert.equal(collection.name, "Newsroom dashboard");
+  assert.doesNotMatch(collection.publisher.name, /Joshua/);
+
   assert.equal(dataset.creator.name, "EV News Desk");
   assert.equal(dataset.publisher["@id"], newsroom["@id"]);
   assert.equal(newsroom.name, "EV News Desk");

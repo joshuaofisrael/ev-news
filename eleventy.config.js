@@ -65,6 +65,25 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addFilter("metaDescription", (summary) => metaDescription(summary, site.description));
   eleventyConfig.addFilter("presentDashboard", (data) => presentDashboard(data));
+  eleventyConfig.addFilter("newsroomPosts", (posts) =>
+    (posts || [])
+      .filter((post) => post.data.draft !== true && post.data.sample !== true)
+      .sort((a, b) => {
+        const delta = new Date(b.date) - new Date(a.date);
+        if (delta) return delta;
+        return String(b.page?.inputPath || "").localeCompare(String(a.page?.inputPath || ""));
+      }),
+  );
+  eleventyConfig.addFilter("byUpdated", (posts) =>
+    [...(posts || [])].sort((a, b) => {
+      const stamp = (post) => String(post.data.updatedAt || "");
+      const delta = stamp(b).localeCompare(stamp(a));
+      if (delta) return delta;
+      const dated = new Date(b.date) - new Date(a.date);
+      if (dated) return dated;
+      return String(b.page?.inputPath || "").localeCompare(String(a.page?.inputPath || ""));
+    }),
+  );
 
   eleventyConfig.addShortcode("structuredData", function () {
     return renderJsonLd(pageContext(this), site);

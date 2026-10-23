@@ -155,6 +155,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     `${site.url}/sources-ethics/`,
     `${site.url}/archive/`,
     `${site.url}/data/`,
+    `${site.url}/dashboard/`,
     `${site.url}/category/cars/`,
     `${site.url}/category/batteries/`,
     `${site.url}/category/charging/`,
@@ -236,9 +237,15 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const topics = home.match(/<nav class="topics"[\s\S]*?<\/nav>/)[0];
   const coverage = home.match(/<nav aria-label="Coverage"[\s\S]*?<\/nav>/)[0];
   assert.ok(topics.indexOf("/category/industry/") < topics.lastIndexOf('href="/data/"'));
-  assert.match(topics, /aria-label="Topics"[\s\S]*Data/);
-  assert.ok(coverage.indexOf("/category/industry/") < coverage.indexOf('href="/data/"'));
+  assert.match(topics, /EV data<\/a>/);
+  assert.ok(topics.indexOf('href="/dashboard/"') < topics.indexOf('href="/data/"'));
+  assert.match(home, /class="nav-dashboard" href="\/dashboard\/"/);
+  assert.match(home, /aria-label="View"/);
+  assert.match(home, /href="\/"[^>]*aria-current="page"[^>]*>Home</);
+  assert.ok(coverage.indexOf("/category/industry/") < coverage.indexOf('href="/dashboard/"'));
+  assert.ok(coverage.indexOf('href="/dashboard/"') < coverage.indexOf('href="/data/"'));
   assert.ok(coverage.indexOf('href="/data/"') < coverage.indexOf('href="/archive/"'));
+  assert.match(coverage, /EV data<\/a>/);
   assert.match(llms, /\/data\//);
 
   const beacon = `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${site.cloudflareAnalyticsToken}"}'></script>`;
@@ -357,6 +364,44 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const dashMain = dash.match(/<main\b[^>]*>([\s\S]*)<\/main>/)[1];
   assert.doesNotMatch(dashMain, /Joshua/);
   assert.match(dash, /<nav class="topics"[\s\S]*href="\/data\/" aria-current="page"/);
+  assert.match(dash, /EV data<\/a>/);
+  assert.match(dash, /2027 Mustang Mach-E starting price/);
+  assert.doesNotMatch(dash, /with destination/);
+  assert.match(dash, /The PDF prints no publication day\. October 23, 2026 is the day the story recorded the file\./);
+
+  const room = read("_site", "dashboard/index.html");
+  const roomTitle = decodeAttr(room.match(/<title>([^<]*)<\/title>/)[1]);
+  const roomSummary =
+    "Published stories, newest first: a lead photo, a dated list, each category's latest, and recent updates.";
+  assert.ok(roomTitle.length <= 60, roomTitle);
+  assert.equal(roomTitle, "Newsroom dashboard — EV News Desk");
+  assert.deepEqual(metaDescriptions(room), [roomSummary, roomSummary, roomSummary]);
+  assert.match(room, /rel="canonical" href="https:\/\/evnewsdesk\.com\/dashboard\/"/);
+  assert.match(room, /property="og:url" content="https:\/\/evnewsdesk\.com\/dashboard\/"/);
+  assert.match(room, /property="og:title" content="Newsroom dashboard — EV News Desk"/);
+  assert.match(room, /property="og:site_name" content="EV News Desk"/);
+  assert.match(room, /"@type":"CollectionPage"/);
+  assert.match(room, /class="nav-dashboard" href="\/dashboard\/" aria-current="page"/);
+  assert.match(room, /aria-label="View"[\s\S]*href="\/dashboard\/" aria-current="page"/);
+  assert.match(room, /tesla-q3-hero\.webp/);
+  assert.match(room, /width="1280" height="720"/);
+  assert.match(room, /loading="eager"/);
+  assert.match(room, /loading="lazy"/);
+  assert.match(room, /class="story-title"><a href="\/articles\/2026-10-23-tesla-q3-results\/">/);
+  assert.match(room, /3 sources/);
+  assert.match(room, /Recently updated/);
+  assert.match(room, /Updated October 23, 2026/);
+  assert.match(room, /41\.7/);
+  assert.match(room, /href="\/data\/"/);
+  assert.match(room, /href="\/sources-ethics\/"/);
+  assert.match(room, /href="\/corrections\/"/);
+  assert.match(room, /src="\/assets\/js\/newsroom\.js"/);
+  assert.doesNotMatch(room, /Sample draft|sample-cars-hero/);
+  assert.doesNotMatch(room, /\sstyle="/);
+  const roomHeader = room.match(/<header class="site-header">[\s\S]*?<\/header>/)[0];
+  const roomMain = room.match(/<main\b[^>]*>([\s\S]*)<\/main>/)[1];
+  assert.doesNotMatch(`${roomHeader}\n${roomMain}`, /Joshua|Joshua Israel Ventures LLC/);
+  assert.doesNotMatch(read("_site", "assets/js/newsroom.js"), /https?:\/\//);
 
   const preview = runEleventy(["--output=_site-preview"], { ELEVENTY_ENV: "development" });
   assert.equal(preview.status, 0, preview.stdout + preview.stderr);
