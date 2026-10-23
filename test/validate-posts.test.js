@@ -56,23 +56,23 @@ test("drafts and complete posts follow the publish gate", () => {
 
 test("a published story needs a hero and two described body images", () => {
   const hero = {
-    src: "sample-cars-hero",
-    alt: "Unbranded electric hatchback parked on a quiet residential street, an illustration rather than a news photograph",
-    caption: "AI-generated illustration",
+    src: "fixture-hero",
+    alt: "Unbranded electric hatchback parked on a quiet residential street, with no people in frame",
+    caption: "AI-generated photograph",
     width: 1200,
     height: 675,
   };
   const body = {
-    src: "sample-cars-port",
+    src: "fixture-body-a",
     alt: "Close view of an empty charging port on a generic electric car, with no brand marks",
-    caption: "AI-generated illustration",
+    caption: "AI-generated photograph",
     after: 2,
     width: 1200,
     height: 675,
   };
   const second = {
     ...body,
-    src: "sample-cars-cabin",
+    src: "fixture-body-b",
     alt: "Empty front seats and a blank dashboard inside a generic electric car",
     after: 4,
   };
@@ -82,15 +82,22 @@ test("a published story needs a hero and two described body images", () => {
   assert.match(validateArticleImages({ hero, images: [{ ...body, alt: "car" }, second] }).join(" "), /meaningful/);
   assert.match(
     validateArticleImages({ hero: { ...hero, caption: "A real photo" }, images: [body, second] }).join(" "),
-    /AI-generated illustration/,
+    /AI-generated photograph/,
+  );
+  assert.match(
+    validateArticleImages({
+      hero: { ...hero, alt: "An illustration of an electric car on a street" },
+      images: [body, second],
+    }).join(" "),
+    /photoreal/,
   );
 });
 
 test("a published image needs credit and cannot be a stock-agency file", () => {
   const ready = {
-    image: "cars",
-    imageAlt: "Original illustration of a simplified electric car and a charge bolt",
-    imageCaption: "Original illustration for the Cars desk.",
+    image: "fixture-hero",
+    imageAlt: "Unbranded electric hatchback parked on a quiet residential street, used only as a validator fixture",
+    imageCaption: "Press photograph used only as a validator fixture.",
     imageCredit: "EV News Desk",
     imageLicense: "Original",
     imageWidth: 1200,

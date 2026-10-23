@@ -14,7 +14,7 @@ layout: layouts/base.njk
     {% endif %}
   </header>
   {% if hero and hero.src %}
-  <figure class="story-figure story-hero">
+  <figure class="story-figure story-hero{% if not (hero.src | imageFilesReady) %} is-slot{% endif %}">
     {% set srcBase = hero.src %}
     {% set imageAlt = hero.alt %}
     {% set imageWidth = hero.width %}
@@ -22,7 +22,7 @@ layout: layouts/base.njk
     {% set imageLoading = "eager" %}
     {% set imagePriority = "high" %}
     {% include "partials/picture.njk" %}
-    <figcaption><span class="figure-caption">{{ hero.caption or "AI-generated illustration" }}</span></figcaption>
+    <figcaption><span class="figure-caption">{{ hero.caption or "AI-generated photograph" }}</span></figcaption>
   </figure>
   {% endif %}
   {% include "partials/story-figure.njk" %}

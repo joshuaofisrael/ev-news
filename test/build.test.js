@@ -63,16 +63,11 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(home, /No story has been published yet/);
   assert.match(home, /class="masthead"/);
   assert.match(home, /class="charge-fill"/);
-  assert.match(home, /assets\/images\/hero\.avif/);
-  assert.match(home, /assets\/images\/hero\.webp/);
-  assert.match(home, /width="1200"/);
-  assert.match(home, /height="675"/);
-  assert.match(home, /fetchpriority="high"/);
-  assert.match(home, /Original illustration/);
+  assert.doesNotMatch(home, /assets\/images\/hero\.(avif|webp)/);
+  assert.doesNotMatch(home, /Original illustration|AI-generated illustration/);
   const charging = read("_site", "category/charging/index.html");
-  assert.match(charging, /assets\/images\/charging\.avif/);
-  assert.match(charging, /loading="lazy"/);
-  assert.match(charging, /Original illustration/);
+  assert.doesNotMatch(charging, /assets\/images\/charging\.(avif|webp|svg)/);
+  assert.doesNotMatch(charging, /Original illustration/);
   assert.match(home, /class="road-line"/);
   assert.match(home, /class="hero-scene"/);
   assert.match(home, /class="scene-car"/);
@@ -193,13 +188,14 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(draft, /NewsArticle/);
   assert.match(draft, /"name":"Joshua Israel Ventures LLC"/);
   assert.match(draft, />sample</);
-  assert.match(draft, /sample-cars-hero\.webp/);
-  assert.match(draft, /loading="eager"/);
-  assert.match(draft, /fetchpriority="high"/);
-  assert.match(draft, /sample-cars-port\.webp/);
-  assert.match(draft, /sample-cars-cabin\.webp/);
-  assert.match(draft, /loading="lazy"/);
-  assert.equal((draft.match(/AI-generated illustration/g) || []).length, 3);
+  assert.match(draft, /class="image-slot"/);
+  assert.match(draft, /src\/assets\/images\/sample-cars-hero\.webp/);
+  assert.match(draft, /src\/assets\/images\/sample-cars-hero\.avif/);
+  assert.match(draft, /src\/assets\/images\/sample-cars-port\.webp/);
+  assert.match(draft, /src\/assets\/images\/sample-cars-cabin\.webp/);
+  assert.doesNotMatch(draft, /<img /);
+  assert.equal((draft.match(/AI-generated photograph/g) || []).length, 3);
+  assert.doesNotMatch(draft, /AI-generated illustration|Original illustration/);
   const portAt = draft.indexOf("sample-cars-port.webp");
   const citationAt = draft.indexOf("How an inline citation is written");
   assert.ok(portAt > 0 && citationAt > portAt);
@@ -207,9 +203,10 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     "_site-preview",
     "articles/2026-10-21-sample-charging-template/index.html",
   );
-  assert.match(chargingDraft, /sample-charging-hero\.webp/);
-  assert.match(chargingDraft, /loading="eager"/);
-  assert.match(chargingDraft, /sample-charging-stall\.webp/);
-  assert.match(chargingDraft, /sample-charging-plug\.webp/);
-  assert.equal((chargingDraft.match(/AI-generated illustration/g) || []).length, 3);
+  assert.match(chargingDraft, /class="image-slot"/);
+  assert.match(chargingDraft, /src\/assets\/images\/sample-charging-hero\.webp/);
+  assert.match(chargingDraft, /src\/assets\/images\/sample-charging-stall\.webp/);
+  assert.match(chargingDraft, /src\/assets\/images\/sample-charging-plug\.webp/);
+  assert.equal((chargingDraft.match(/AI-generated photograph/g) || []).length, 3);
+  assert.doesNotMatch(chargingDraft, /<img /);
 });

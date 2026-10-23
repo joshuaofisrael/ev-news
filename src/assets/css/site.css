@@ -1180,3 +1180,90 @@ main:focus { outline: none; }
   .ticker-toggle-label { margin-right: 0.45rem; }
   .hero-scene-wrap { margin-top: 0; }
 }
+
+.hero-panel picture {
+  display: block;
+  padding: 3px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #7DDEEA, #D2F34A);
+}
+
+.hero-panel img { border-radius: 13px; }
+
+.category-art,
+.story-figure {
+  position: relative;
+  padding: 0.55rem 0.55rem 0.7rem;
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, #ffffff, #f4f8f6) padding-box,
+    linear-gradient(135deg, #1493B8, #D2F34A) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 0 0 1px rgba(20, 147, 184, 0.18), 0 14px 30px rgba(7, 19, 31, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.category-art::before,
+.story-figure::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0.85rem;
+  left: 0.85rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  background: var(--gold);
+  clip-path: polygon(50% 0, 93% 36%, 76% 100%, 24% 100%, 7% 36%);
+  filter: drop-shadow(0 0 0 #07131f);
+}
+
+.category-art picture,
+.story-figure picture { border-radius: 14px; }
+
+.category-art figcaption::after,
+.story-figure figcaption::after {
+  content: "";
+  display: block;
+  width: min(9rem, 55%);
+  height: 0.35rem;
+  margin-top: 0.45rem;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, var(--link), var(--gold)) left / 68% 100% no-repeat,
+    #E1EAF0;
+}
+
+@media (hover: hover) {
+  .category-art:hover,
+  .story-figure:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 22px rgba(20, 147, 184, 0.28), 0 18px 32px rgba(7, 19, 31, 0.12);
+  }
+}
+
+.image-slot {
+  display: grid;
+  gap: 0.45rem;
+  min-height: 12rem;
+  align-content: center;
+  padding: 1.2rem 1.1rem;
+  border: 2px dashed var(--link);
+  border-radius: 14px;
+  background: var(--paper-deep);
+  color: var(--ink);
+}
+
+.image-slot p { margin: 0; }
+
+.image-slot-kicker {
+  font-family: var(--sans);
+  font-weight: 800;
+  color: var(--link);
+}
+
+.image-slot code {
+  font-size: 0.92rem;
+  overflow-wrap: anywhere;
+}
+
+.is-slot:hover { transform: none; box-shadow: none; }

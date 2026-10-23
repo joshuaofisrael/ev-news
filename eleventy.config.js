@@ -3,7 +3,7 @@ import site from "./src/_data/site.js";
 import { formatDisplayDate, isFreshNews, toIso, toRfc822 } from "./lib/dates.js";
 import { absoluteUrl, pathPrefixFromSiteUrl, prefixRootUrls } from "./lib/site-url.js";
 import { buildCrumbs, renderBreadcrumbNav, renderJsonLd } from "./lib/structured-data.js";
-import { insertBodyImages } from "./lib/article-images.js";
+import { imageFilesReady, insertBodyImages } from "./lib/article-images.js";
 import { formatValidationErrors, validatePostsDir } from "./lib/validate-posts.js";
 
 const pathPrefix = pathPrefixFromSiteUrl(site.url);
@@ -15,7 +15,9 @@ function pageContext(bound) {
 }
 
 export default function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/assets", {
+    filter: (filePath) => !/[\\/]fixture-[^\\/]+\.(webp|avif)$/.test(filePath),
+  });
   eleventyConfig.addPassthroughCopy({ CNAME: "CNAME" });
   eleventyConfig.addWatchTarget("src/assets");
 
@@ -38,6 +40,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("insertBodyImages", (html, images) =>
     insertBodyImages(html, images, pathPrefix),
   );
+  eleventyConfig.addFilter("imageFilesReady", imageFilesReady);
   eleventyConfig.addFilter("safeHttpUrl", (value) => {
     const url = String(value ?? "").trim();
     return /^https?:\/\/\S+$/i.test(url) ? url : "";
