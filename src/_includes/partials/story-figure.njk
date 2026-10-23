@@ -1,0 +1,34 @@
+{% if image %}
+<figure class="story-figure">
+  {% set srcBase = image %}
+  {% set imageLoading = "lazy" %}
+  {% include "partials/picture.njk" %}
+  <figcaption>
+    <span class="figure-caption">{{ imageCaption }}</span>
+    <span class="figure-meta">
+      <span>{{ imageCredit }}</span>
+      {% set sourceHref = imageSource | safeHttpUrl %}
+      {% if sourceHref %}
+      <a href="{{ sourceHref }}">Source<span class="visually-hidden"> for this image</span></a>
+      {% endif %}
+      <span class="figure-licence">{{ imageLicense }}</span>
+    </span>
+  </figcaption>
+</figure>
+{% else %}
+<figure class="story-figure is-fallback">
+  {% set srcBase = (category | categorySlug) or "fallback" %}
+  {% set imageAlt = "Original illustration for the " ~ (category or "news") ~ " desk" %}
+  {% set imageWidth = 1200 %}
+  {% set imageHeight = 675 %}
+  {% set imageLoading = "lazy" %}
+  {% include "partials/picture.njk" %}
+  <figcaption>
+    <span class="figure-caption">Original illustration for the {{ category or "news" }} desk. Not a photograph.</span>
+    <span class="figure-meta">
+      <span>EV News Desk</span>
+      <span class="figure-licence">Original</span>
+    </span>
+  </figcaption>
+</figure>
+{% endif %}

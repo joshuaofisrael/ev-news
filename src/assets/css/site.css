@@ -331,7 +331,83 @@ main:focus { outline: none; }
   font-size: 0.95rem;
 }
 
-.hero-battery { display: block; width: min(100%, 168px); height: auto; margin-top: 0.45rem; }
+.hero-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: var(--header);
+}
+
+.hero-credit {
+  margin: 0.55rem 0 0;
+  color: var(--header-muted);
+  font-family: var(--sans);
+  font-size: 0.88rem;
+}
+
+.category-art,
+.story-figure { margin: 0 0 1.15rem; }
+
+.story-figure { max-width: 46rem; }
+
+.category-art picture,
+.story-figure picture { display: block; }
+
+.category-art picture {
+  aspect-ratio: 12 / 5;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--header);
+}
+
+.category-art img,
+.story-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  background: var(--header);
+}
+
+.category-art img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+}
+
+.category-art figcaption,
+.story-figure figcaption {
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+
+.figure-caption { display: block; }
+
+.figure-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.75rem;
+  align-items: center;
+}
+
+.figure-meta a,
+.figure-licence {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.figure-licence {
+  padding: 0 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  font-weight: 800;
+}
 
 .charge-track {
   height: 0.7rem;

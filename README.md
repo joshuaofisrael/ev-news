@@ -64,6 +64,27 @@ The byline is **EV News Desk**, from `author` in `src/_data/site.js`. The articl
 
 A published article also needs `title`, `date`, `category`, and `summary`. Those checks fail the build together with the sources check so a public page is not missing its dek or desk.
 
+## Images
+
+Stories can carry one image. It has to be original art, a CC0 or CC-BY picture with credit, or a small low-resolution press image used under fair use. Do not use stock-agency photos.
+
+Put a `.webp` and an `.avif` of the same picture in `src/assets/images/`. The filename is the `image` basename (`cars`, not a URL). Original illustrations in this repo were drawn for the desk. Raster files are 1200 by 675.
+
+```yaml
+image: cars
+imageAlt: "Original illustration of a simplified electric car and a charge bolt"
+imageCaption: "Original illustration for the Cars desk. Not a photograph."
+imageCredit: "EV News Desk"
+imageSource: "https://evnewsdesk.com/about/"
+imageLicense: Original
+imageWidth: 1200
+imageHeight: 675
+```
+
+`imageLicense` is one of `Original`, `CC0`, `CC-BY`, `CC-BY-SA`, or `Fair use`. Anything except `Original` needs an `imageSource` URL. Fair use also has to stay small: width at most 640 and height at most 480. The article template prints the caption, credit, source link, and licence. A story with no `image` gets the desk’s original illustration as a fallback, labeled Original.
+
+The build fails a published story that sets `image` without those fields, points `image` at a missing file, or uses a stock-agency URL.
+
 ## Inline citations
 
 The sources list is required. It is not a substitute for linking the claim in the sentence it supports. Use a normal Markdown link on the words a reader would want to check:

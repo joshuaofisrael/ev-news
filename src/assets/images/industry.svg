@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#07131F"/>
+  <path d="M0 560H1200" stroke="#1493B8" stroke-width="6"/>
+  <path d="M40 610H1160" stroke="#D2F34A" stroke-width="8" stroke-dasharray="28 20"/>
+  <g fill="none" stroke="#8FB4C8" stroke-opacity="0.35" stroke-width="2">
+    <path d="M40 70H220V140H400"/>
+    <path d="M980 80H1160"/>
+  </g>
+  <g transform="translate(140 180)">
+    <path fill="#10283A" stroke="#D2F34A" stroke-width="6" d="M0 340V120l90-70 90 70 90-70 90 70 90-70 90 70V340z"/>
+    <rect x="40" y="180" width="50" height="70" fill="#D2F34A"/>
+    <rect x="130" y="180" width="50" height="70" fill="#1493B8"/>
+    <rect x="230" y="160" width="50" height="90" fill="#D2F34A"/>
+    <rect x="330" y="180" width="50" height="70" fill="#1493B8"/>
+    <rect x="430" y="150" width="50" height="100" fill="#7DDEEA"/>
+    <rect x="250" y="250" width="90" height="90" fill="#07131F" stroke="#F5F8FB" stroke-width="6"/>
+  </g>
+  <g transform="translate(760 250)">
+    <path fill="#10283A" stroke="#8FB4C8" stroke-width="6" d="M20 250h300c18 0 28-12 28-28v-24H250L210 70H110L70 198H20c-12 0-24 10-24 24v28c0 16 12 28 24 28z"/>
+    <path fill="#1493B8" d="M90 198h140l-28-48H120z"/>
+    <circle cx="90" cy="250" r="28" fill="#07131F" stroke="#F5F8FB" stroke-width="6"/>
+    <circle cx="250" cy="250" r="28" fill="#07131F" stroke="#F5F8FB" stroke-width="6"/>
+    <path fill="#D2F34A" d="M200 92l-16 26h12l-8 22 20-28h-12l8-20z"/>
+  </g>
+</svg>

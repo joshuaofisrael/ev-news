@@ -8,6 +8,14 @@ tags:
   - template
 draft: true
 sample: true
+image: cars
+imageAlt: "Original illustration of a simplified electric car and a charge bolt"
+imageCaption: "Original illustration for the Cars desk. Not a photograph of a production vehicle."
+imageCredit: "EV News Desk"
+imageSource: "https://evnewsdesk.com/about/"
+imageLicense: Original
+imageWidth: 1200
+imageHeight: 675
 sources:
   - title: "All-Electric Vehicles"
     url: "https://www.fueleconomy.gov/feg/evtech.shtml"

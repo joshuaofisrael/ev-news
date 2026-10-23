@@ -63,6 +63,16 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(home, /No story has been published yet/);
   assert.match(home, /class="masthead"/);
   assert.match(home, /class="charge-fill"/);
+  assert.match(home, /assets\/images\/hero\.avif/);
+  assert.match(home, /assets\/images\/hero\.webp/);
+  assert.match(home, /width="1200"/);
+  assert.match(home, /height="675"/);
+  assert.match(home, /fetchpriority="high"/);
+  assert.match(home, /Original illustration/);
+  const charging = read("_site", "category/charging/index.html");
+  assert.match(charging, /assets\/images\/charging\.avif/);
+  assert.match(charging, /loading="lazy"/);
+  assert.match(charging, /Original illustration/);
   assert.match(home, /class="road-line"/);
   assert.match(home, /class="hero-scene"/);
   assert.match(home, /class="scene-car"/);
@@ -153,6 +163,11 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     "fonts.gstatic",
     "cdn.jsdelivr",
     "unpkg.com",
+    "shutterstock",
+    "gettyimages",
+    "istockphoto",
+    "adobestock",
+    "depositphotos",
   ];
   const built = walk(path.join(root, "_site"))
     .filter((file) => /\.(html|css|xml|txt|svg)$/.test(file))
@@ -178,4 +193,14 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(draft, /NewsArticle/);
   assert.match(draft, /"name":"Joshua Israel Ventures LLC"/);
   assert.match(draft, />sample</);
+  assert.match(draft, /Original illustration for the Cars desk/);
+  assert.match(draft, /class="figure-licence">Original</);
+  assert.match(draft, /https:\/\/evnewsdesk\.com\/about\//);
+  assert.match(draft, /loading="lazy"/);
+  const chargingDraft = read(
+    "_site-preview",
+    "articles/2026-10-21-sample-charging-template/index.html",
+  );
+  assert.match(chargingDraft, /assets\/images\/charging\.webp/);
+  assert.match(chargingDraft, /Original illustration for the Charging desk/);
 });

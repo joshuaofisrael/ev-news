@@ -13,6 +13,7 @@ layout: layouts/base.njk
     <p class="dek">{{ summary }}</p>
     {% endif %}
   </header>
+  {% include "partials/story-figure.njk" %}
   <div class="prose">
     {{ content | safe }}
   </div>

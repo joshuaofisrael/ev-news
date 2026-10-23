@@ -2,7 +2,17 @@
 layout: layouts/base.njk
 ---
 <header class="page-head">
-  <p class="page-kicker">{% set iconName = "gauge" %}{% include "partials/section-icon.njk" %} The desk</p>
+  {% if desk %}
+  <figure class="category-art">
+    {% set srcBase = desk.slug %}
+    {% set imageAlt = "Original illustration for the " ~ desk.name ~ " desk" %}
+    {% set imageWidth = 1200 %}
+    {% set imageHeight = 675 %}
+    {% set imageLoading = "lazy" %}
+    {% include "partials/picture.njk" %}
+    <figcaption>Original illustration · EV News Desk · <span class="figure-licence">Original</span></figcaption>
+  </figure>
+  {% endif %}
   <h1>{{ title }}</h1>
   {% if summary %}
   <p class="dek">{{ summary }}</p>

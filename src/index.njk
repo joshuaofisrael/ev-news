@@ -13,13 +13,16 @@ permalink: /
     </div>
     <div class="hero-panel">
       <p class="panel-kicker">Daily charge</p>
-      <svg class="hero-battery" viewBox="0 0 168 76" width="168" height="76" aria-hidden="true" focusable="false">
-        <rect x="3" y="10" width="142" height="56" rx="12" fill="#0C2233" stroke="#D2F34A" stroke-width="3"></rect>
-        <rect x="150" y="28" width="12" height="20" rx="3" fill="#D2F34A"></rect>
-        <rect x="12" y="19" width="98" height="38" rx="7" fill="#D2F34A"></rect>
-      </svg>
+      {% set srcBase = "hero" %}
+      {% set imageAlt = "Original illustration of an electric car, a charge bolt, and a battery" %}
+      {% set imageWidth = 1200 %}
+      {% set imageHeight = 675 %}
+      {% set imageLoading = "eager" %}
+      {% set imagePriority = "high" %}
+      {% include "partials/picture.njk" %}
       <div class="charge-track" aria-hidden="true"><span class="charge-fill"></span></div>
       <p class="panel-note">Five desks, one sourced story a day.</p>
+      <p class="hero-credit">Original illustration · EV News Desk</p>
     </div>
   </div>
   {% include "partials/hero-scene.njk" %}

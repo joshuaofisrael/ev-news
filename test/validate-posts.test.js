@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import {
   inlineCitationWarning,
+  validateImageCredit,
   validatePostsDir,
   validatePublishedPost,
   validateSourceList,
@@ -50,6 +51,44 @@ test("drafts and complete posts follow the publish gate", () => {
   const posts = validatePostsDir("src/content/posts");
   assert.equal(posts.ok, true, JSON.stringify(posts.errors));
   assert.deepEqual(posts.warnings, []);
+});
+
+test("a published image needs credit and cannot be a stock-agency file", () => {
+  const ready = {
+    image: "cars",
+    imageAlt: "Original illustration of a simplified electric car and a charge bolt",
+    imageCaption: "Original illustration for the Cars desk.",
+    imageCredit: "EV News Desk",
+    imageLicense: "Original",
+    imageWidth: 1200,
+    imageHeight: 675,
+  };
+  assert.deepEqual(validateImageCredit(ready), []);
+  assert.match(validateImageCredit({ image: "https://example.com/a.jpg" }).join(" "), /basename/);
+  assert.match(validateImageCredit({ ...ready, image: "missing-art" }).join(" "), /missing/);
+  assert.match(
+    validateImageCredit({ ...ready, imageLicense: "CC-BY", imageCredit: "Ada", imageSource: "" }).join(" "),
+    /imageSource/,
+  );
+  assert.match(
+    validateImageCredit({
+      ...ready,
+      imageLicense: "Fair use",
+      imageSource: "https://www.epa.gov/greenvehicles/electric-vehicle-myths",
+      imageWidth: 1200,
+    }).join(" "),
+    /small/,
+  );
+  assert.match(
+    validateImageCredit({
+      ...ready,
+      imageLicense: "CC0",
+      imageSource: "https://www.shutterstock.com/image-photo/example",
+      imageWidth: 640,
+      imageHeight: 360,
+    }).join(" "),
+    /stock-agency/,
+  );
 });
 
 test("published posts need a known category and an inline citation warning is separate", () => {
