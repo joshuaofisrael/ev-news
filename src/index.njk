@@ -22,11 +22,13 @@ permalink: /
       <p class="panel-note">Five desks, one sourced story a day.</p>
     </div>
   </div>
+  {% include "partials/hero-scene.njk" %}
 </header>
+{% include "partials/energy-divider.njk" %}
 <div class="wrap">
   <div class="home-grid">
     <section aria-labelledby="latest-heading">
-      <h2 id="latest-heading" class="section-heading">Latest</h2>
+      <h2 id="latest-heading" class="section-heading">{% set iconName = "bolt" %}{% include "partials/section-icon.njk" %} Latest</h2>
       {% set stories = collections.posts | limit(20) %}
       {% set storyHeading = "h3" %}
       {% set emptyNote = "No story has been published yet. The desk files one sourced article a day. A story appears here after it leaves draft status with a public source list." %}
@@ -37,19 +39,20 @@ permalink: /
     </section>
     <aside class="home-rail">
       <section aria-labelledby="desks-heading">
-      <h2 id="desks-heading">Desks</h2>
+      <h2 id="desks-heading">{% set iconName = "batteries" %}{% include "partials/section-icon.njk" %} Desks</h2>
       <div class="desk-list">
         {% for item in site.categories %}
         <a class="desk-card" href="{{ ('/category/' ~ item.slug ~ '/') | url }}">
-          <strong>{{ item.name }}</strong>
+          <span class="desk-card-top">{% set iconName = item.slug %}{% include "partials/section-icon.njk" %}<strong>{{ item.name }}</strong></span>
           <span>{{ item.description }}</span>
           <span class="mini-charge" aria-hidden="true"><span class="mini-charge-fill"></span></span>
         </a>
         {% endfor %}
       </div>
       </section>
+      {% include "partials/energy-divider.njk" %}
       <section aria-labelledby="publishing-heading">
-      <h2 id="publishing-heading">How a story gets published</h2>
+      <h2 id="publishing-heading">{% set iconName = "policy" %}{% include "partials/section-icon.njk" %} How a story gets published</h2>
       <ol class="process">
         <li>Write it in Markdown under the content folder.</li>
         <li>Link each claim to a public source in the sentence it supports.</li>

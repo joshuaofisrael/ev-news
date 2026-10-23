@@ -1,0 +1,23 @@
+<div class="ticker" {% if collections.posts and collections.posts.length %}aria-label="Latest headlines"{% else %}aria-label="Desks on the wire"{% endif %}>
+  <p class="ticker-label">{% set iconName = "bolt" %}{% include "partials/section-icon.njk" %} Wire</p>
+  <input class="ticker-toggle" id="wire-pause" type="checkbox">
+  <label class="ticker-toggle-label" for="wire-pause"><span class="when-playing">Pause</span><span class="when-paused">Play</span></label>
+  <div class="ticker-viewport">
+    <div class="ticker-track">
+      {% for clone in [false, true] %}
+      <ul {% if clone %}aria-hidden="true"{% endif %}>
+        {% if collections.posts and collections.posts.length %}
+          {% for post in collections.posts | limit(12) %}
+          <li><a href="{{ post.url }}"{% if clone %} tabindex="-1"{% endif %}>{{ post.data.title }}</a></li>
+          {% endfor %}
+        {% else %}
+          <li><span class="ticker-empty">No headline yet</span></li>
+          {% for item in site.categories %}
+          <li><a href="{{ ('/category/' ~ item.slug ~ '/') | url }}"{% if clone %} tabindex="-1"{% endif %}>{{ item.name }}</a></li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+      {% endfor %}
+    </div>
+  </div>
+</div>

@@ -4,7 +4,7 @@ layout: layouts/base.njk
 <article class="story-page">
   <header class="article-head">
     <p class="story-kicker">
-      <a href="{{ ('/category/' ~ (category | categorySlug) ~ '/') | url }}">{{ category }}</a>
+      <a class="chip" href="{{ ('/category/' ~ (category | categorySlug) ~ '/') | url }}">{% set iconName = category | categorySlug %}{% include "partials/section-icon.njk" %}{{ category }}</a>
       <time datetime="{{ page.date | isoDate }}">{{ page.date | displayDate }}</time>
     </p>
     <h1>{{ title }}</h1>

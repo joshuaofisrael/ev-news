@@ -20,10 +20,11 @@
     <ul class="topic-list wrap">
       {% for item in site.categories %}
       <li>
-        <a href="{{ ('/category/' ~ item.slug ~ '/') | url }}"{% if (desk and desk.slug == item.slug) or category == item.name %} aria-current="page"{% endif %}>{{ item.name }}</a>
+        <a href="{{ ('/category/' ~ item.slug ~ '/') | url }}"{% if (desk and desk.slug == item.slug) or category == item.name %} aria-current="page"{% endif %}>{% set iconName = item.slug %}{% include "partials/section-icon.njk" %}{{ item.name }}</a>
       </li>
       {% endfor %}
     </ul>
   </nav>
+  {% include "partials/ticker.njk" %}
   <div class="road-line" aria-hidden="true"></div>
 </header>

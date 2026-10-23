@@ -64,6 +64,13 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(home, /class="masthead"/);
   assert.match(home, /class="charge-fill"/);
   assert.match(home, /class="road-line"/);
+  assert.match(home, /class="hero-scene"/);
+  assert.match(home, /class="scene-car"/);
+  assert.match(home, /class="ticker"/);
+  assert.match(home, /id="wire-pause"/);
+  assert.match(home, /No headline yet/);
+  assert.match(home, /class="section-icon"/);
+  assert.match(home, /class="energy-divider"/);
   assert.match(home, /lang="en"/);
   assert.match(home, /Skip to content/);
   assert.match(home, new RegExp(`rel="canonical" href="${esc(site.url)}/"`));
