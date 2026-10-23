@@ -234,19 +234,31 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.doesNotMatch(ethics, /legally compliant|in compliance with the law/i);
   assert.match(home, /href="\/sources-ethics\/"/);
   assert.match(home, /href="\/corrections\/"/);
-  const topics = home.match(/<nav class="topics"[\s\S]*?<\/nav>/)[0];
+  const header = home.match(/<header class="site-header">[\s\S]*?<\/header>/)[0];
+  const topics = header.match(/<nav class="topics"[\s\S]*?<\/nav>/)[0];
   const coverage = home.match(/<nav aria-label="Coverage"[\s\S]*?<\/nav>/)[0];
-  assert.ok(topics.indexOf('href="/dashboard/"') < topics.indexOf("/category/"));
-  assert.ok(topics.indexOf("/category/industry/") < topics.lastIndexOf('href="/data/"'));
-  assert.match(topics, /EV data<\/a>/);
-  assert.ok(topics.indexOf('href="/dashboard/"') < topics.indexOf('href="/data/"'));
+  const sectionHrefs = [...topics.matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
+  assert.deepEqual(sectionHrefs, [
+    "/dashboard/",
+    "/category/cars/",
+    "/category/batteries/",
+    "/category/charging/",
+    "/category/policy/",
+    "/category/industry/",
+    "/data/",
+  ]);
+  assert.equal((header.match(/href="\/dashboard\/"/g) || []).length, 1);
   assert.match(topics, /class="nav-dashboard" href="\/dashboard\/"/);
-  const company = home.match(/<nav class="company-nav"[\s\S]*?<\/nav>/)[0];
+  assert.match(topics, /EV data<\/a>/);
+  const company = header.match(/<nav class="utility"[\s\S]*?<\/nav>/)[0];
   assert.match(company, />About</);
   assert.match(company, />Contact</);
+  assert.match(company, /class="utility-closed">Menu</);
   assert.doesNotMatch(company, /\/dashboard\//);
-  assert.match(home, /aria-label="View"/);
-  assert.match(home, /href="\/"[^>]*aria-current="page"[^>]*>Home</);
+  assert.doesNotMatch(header, /aria-label="View"/);
+  assert.match(header, /class="brand" href="\/" aria-current="page"/);
+  assert.doesNotMatch(header, /Joshua|Joshua Israel Ventures LLC/);
+  assert.doesNotMatch(read("_site", "assets/js/header.js"), /https?:\/\//);
   assert.ok(coverage.indexOf("/category/industry/") < coverage.indexOf('href="/dashboard/"'));
   assert.ok(coverage.indexOf('href="/dashboard/"') < coverage.indexOf('href="/data/"'));
   assert.ok(coverage.indexOf('href="/data/"') < coverage.indexOf('href="/archive/"'));
@@ -387,7 +399,9 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(room, /property="og:site_name" content="EV News Desk"/);
   assert.match(room, /"@type":"CollectionPage"/);
   assert.match(room, /class="nav-dashboard" href="\/dashboard\/" aria-current="page"/);
-  assert.match(room, /aria-label="View"[\s\S]*href="\/dashboard\/" aria-current="page"/);
+  assert.doesNotMatch(room, /aria-label="View"/);
+  const roomHeaderNav = room.match(/<header class="site-header">[\s\S]*?<\/header>/)[0];
+  assert.equal((roomHeaderNav.match(/href="\/dashboard\/"/g) || []).length, 1);
   assert.match(room, /tesla-q3-hero\.webp/);
   assert.match(room, /width="1280" height="720"/);
   assert.match(room, /loading="eager"/);
@@ -448,6 +462,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.doesNotMatch(chargingDraft, /<img /);
 
   const story = read("_site", "articles/2026-10-23-tesla-q3-results/index.html");
+  assert.match(story, /href="\/category\/industry\/" aria-current="page"/);
   assert.match(
     story,
     /src="\/assets\/images\/tesla-q3-hero\.webp" alt="[^"]+" width="1280" height="720" loading="eager" decoding="async" fetchpriority="high"/,
