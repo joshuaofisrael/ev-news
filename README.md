@@ -126,7 +126,9 @@ npm run indexnow
 
 [`.github/workflows/pages.yml`](.github/workflows/pages.yml) runs the tests and production build on pull requests and on pushes to `main`. Pushes to `main` upload `_site`, including `CNAME`, and deploy it to GitHub Pages.
 
-`name` is EV News Desk and `url` is `https://evnewsdesk.com`. `contactEmail` is still `desk@example.com` until you change it. The contact page says so, and it does not list a street address.
+`name` is EV News Desk and `url` is `https://evnewsdesk.com`. `contactEmail` is still `desk@example.com` until you change it. The contact page does not list a street address.
+
+The contact form posts to `contactFormEndpoint` in `src/_data/site.js`. That value is currently the plain FormSubmit email endpoint so the first submission can activate the inbox. After you click the activation link FormSubmit emails you, replace the whole `contactFormEndpoint` string with the random alias from that email (`https://formsubmit.co/<alias>`). The form works without JavaScript. The honeypot is `_honey`. A short script also ignores a submit in the first three seconds when JavaScript is on. `/contact/thanks/` is `noindex` and is left out of the sitemap.
 
 ## Layout
 

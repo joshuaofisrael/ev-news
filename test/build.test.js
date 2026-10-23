@@ -118,6 +118,29 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(about, /One sourced story a day on the electric-vehicle beat/);
   assert.match(contact, /do not publish a street address/i);
   assert.doesNotMatch(contact, /Suite|P\.O\. Box|streetAddress/);
+  assert.match(home, /href="\/contact\/"/);
+  assert.match(home, />Contact Us</);
+  assert.match(contact, new RegExp(`<form id="contact-form"[^>]*action="${esc(site.contactFormEndpoint)}"[^>]*method="post"`));
+  assert.match(contact, /<label for="contact-name">Name<\/label>/);
+  assert.match(contact, /<label for="contact-email">Email<\/label>/);
+  assert.match(contact, /<label for="contact-message">Message<\/label>/);
+  assert.match(contact, /name="_honey"/);
+  assert.match(contact, /name="_captcha" value="false"/);
+  assert.match(contact, /name="_next" value="https:\/\/evnewsdesk\.com\/contact\/thanks\/"/);
+  assert.match(contact, /name="_ready"/);
+  assert.match(contact, /emailed to the site owner only to respond and are not sold/i);
+  assert.match(contact, /href="\/privacy\/"/);
+  assert.match(contact, /form-action https:\/\/formsubmit\.co/);
+  assert.match(home, /form-action 'none'/);
+  assert.doesNotMatch(contact, /<button[^>]*disabled/);
+  assert.doesNotMatch(contact, /mailto:joshuaofisrael@gmail\.com/);
+  assert.equal((contact.match(/joshuaofisrael@gmail\.com/g) || []).length, 1);
+  const thanks = read("_site", "contact/thanks/index.html");
+  assert.match(thanks, /noindex, nofollow/);
+  assert.match(thanks, /Thank you/);
+  assert.match(thanks, />Contact Us</);
+  assert.doesNotMatch(thanks, /joshuaofisrael@gmail\.com/);
+  assert.doesNotMatch(sitemap, /contact\/thanks/);
   const corrections = read("_site", "corrections/index.html");
   const ethics = read("_site", "sources-ethics/index.html");
   assert.match(corrections, /Corrections/);
@@ -129,7 +152,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(home, /href="\/corrections\/"/);
 
   const beacon = `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${site.cloudflareAnalyticsToken}"}'></script>`;
-  for (const page of [home, about, privacy]) {
+  for (const page of [home, about, privacy, contact, thanks]) {
     assert.match(page, new RegExp(`${esc(beacon)}\\s*</body>`));
     assert.match(
       page,
