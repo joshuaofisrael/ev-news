@@ -61,6 +61,7 @@ a:hover { text-decoration-thickness: 2px; }
 .site-header :focus-visible { outline-color: var(--gold); }
 
 .topic-list a[aria-current="page"]:focus-visible,
+.topic-list a.nav-dashboard:focus-visible,
 .company-nav a[aria-current="page"]:focus-visible,
 .company-nav a:hover:focus-visible { outline-color: var(--header); }
 
@@ -1670,16 +1671,18 @@ main:focus { outline: none; }
   .dash-table { display: block; overflow-x: auto; }
 }
 
-.company-nav a.nav-dashboard {
+.topic-list a.nav-dashboard {
   background: var(--gold);
   color: var(--header);
-  border-color: var(--gold);
 }
 
-.company-nav a.nav-dashboard:hover,
-.company-nav a.nav-dashboard[aria-current="page"] {
+.topic-list a.nav-dashboard .section-icon { color: currentColor; }
+
+.topic-list a.nav-dashboard:hover,
+.topic-list a.nav-dashboard[aria-current="page"] {
   background: var(--header-text);
   color: var(--header);
+  text-decoration: none;
 }
 
 .view-switch {

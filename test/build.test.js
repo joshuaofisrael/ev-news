@@ -236,10 +236,15 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(home, /href="\/corrections\/"/);
   const topics = home.match(/<nav class="topics"[\s\S]*?<\/nav>/)[0];
   const coverage = home.match(/<nav aria-label="Coverage"[\s\S]*?<\/nav>/)[0];
+  assert.ok(topics.indexOf('href="/dashboard/"') < topics.indexOf("/category/"));
   assert.ok(topics.indexOf("/category/industry/") < topics.lastIndexOf('href="/data/"'));
   assert.match(topics, /EV data<\/a>/);
   assert.ok(topics.indexOf('href="/dashboard/"') < topics.indexOf('href="/data/"'));
-  assert.match(home, /class="nav-dashboard" href="\/dashboard\/"/);
+  assert.match(topics, /class="nav-dashboard" href="\/dashboard\/"/);
+  const company = home.match(/<nav class="company-nav"[\s\S]*?<\/nav>/)[0];
+  assert.match(company, />About</);
+  assert.match(company, />Contact</);
+  assert.doesNotMatch(company, /\/dashboard\//);
   assert.match(home, /aria-label="View"/);
   assert.match(home, /href="\/"[^>]*aria-current="page"[^>]*>Home</);
   assert.ok(coverage.indexOf("/category/industry/") < coverage.indexOf('href="/dashboard/"'));
