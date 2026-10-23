@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
 import site from "../src/_data/site.js";
+import { isFreshNews } from "../lib/dates.js";
 
 const root = path.resolve(import.meta.dirname, "..");
 const bin = path.join(root, "node_modules", ".bin", "eleventy");
@@ -60,7 +61,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const copyright = `© ${site.year} ${site.operator}. All rights reserved. ${site.name} is owned and operated by ${site.operator}.`;
 
   assert.match(home, new RegExp(copyright.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-  assert.match(home, /No story has been published yet/);
+  assert.match(home, /\/articles\/2026-10-23-tesla-q3-results\//);
+  assert.doesNotMatch(home, /No story has been published yet/);
   assert.match(home, /class="masthead[\s"]/);
   assert.match(home, /class="charge-fill"/);
   assert.doesNotMatch(home, /assets\/images\/hero\.(avif|webp)/);
@@ -74,7 +76,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(home, /fetchpriority="high"/);
   assert.match(home, /loading="lazy"/);
   assert.match(home, /assets\/photos\/cat-industry\.avif/);
-  assert.match(home, /First stories land daily/);
+  assert.doesNotMatch(home, /First stories land daily/);
   assert.match(home, /White electric crossover in a bright showroom/);
   assert.doesNotMatch(home, /AI-generated photograph/);
   assert.match(charging, /assets\/photos\/cat-charging\.avif/);
@@ -87,7 +89,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(home, /class="scene-car"/);
   assert.match(home, /class="ticker"/);
   assert.match(home, /id="wire-pause"/);
-  assert.match(home, /No headline yet/);
+  assert.doesNotMatch(home, /No headline yet/);
+  assert.match(home, /Tesla&#39;s third-quarter revenue stayed near/);
   assert.match(home, /class="section-icon"/);
   assert.match(home, /class="energy-divider"/);
   assert.match(home, /lang="en"/);
@@ -112,8 +115,18 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(robots, /User-agent: \*\s+Allow: \//);
   assert.doesNotMatch(robots, /disallow|noai|noimageai|ads\.txt/i);
   assert.match(robots, new RegExp(`Sitemap: ${esc(site.url)}/sitemap\\.xml`));
-  assert.doesNotMatch(robots, /news-sitemap/);
-  assert.doesNotMatch(llms, /news-sitemap/);
+  if (isFreshNews("2026-10-23")) {
+    assert.match(robots, /Sitemap: https:\/\/evnewsdesk\.com\/news-sitemap\.xml/);
+    assert.match(llms, /news-sitemap\.xml/);
+    assert.match(news, /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-23-tesla-q3-results\/<\/loc>/);
+    assert.match(news, /<news:publication_date>2026-10-23T00:00:00Z<\/news:publication_date>/);
+    assert.doesNotMatch(news, /No articles were published in the last two days/);
+  } else {
+    assert.doesNotMatch(robots, /news-sitemap/);
+    assert.doesNotMatch(llms, /news-sitemap/);
+    assert.match(news, /<!-- No articles were published in the last two days. -->/);
+    assert.doesNotMatch(news, /<url>/);
+  }
 
   for (const url of [
     `${site.url}/`,
@@ -138,16 +151,14 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(news, /^<\?xml version="1.0" encoding="UTF-8"\?>/);
   assert.match(news, /xmlns="http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9"/);
   assert.match(news, /xmlns:news="http:\/\/www.google.com\/schemas\/sitemap-news\/0.9"/);
-  assert.match(news, /<!-- No articles were published in the last two days. -->/);
-  assert.doesNotMatch(news, /<url>/);
-  assert.doesNotMatch(news, /<news:title>/);
   assert.match(feed, /<rss version="2.0">/);
   assert.match(atom, /<feed xmlns="http:\/\/www.w3.org\/2005\/Atom">/);
   assert.doesNotMatch(feed + atom, /Sample draft/);
   assert.match(llms, new RegExp(`^# ${esc(site.name)}`, "m"));
   assert.match(llms, /Joshua Israel Ventures LLC/);
   assert.match(llms, /https:\/\/evnewsdesk\.com\//);
-  assert.match(llms, /No article has been published yet/);
+  assert.match(llms, /\/articles\/2026-10-23-tesla-q3-results\//);
+  assert.doesNotMatch(llms, /No article has been published yet/);
   assert.doesNotMatch(llms, /EV News(?! Desk)/);
   assert.equal(read("_site", `${site.indexNowKey}.txt`), site.indexNowKey);
 
@@ -303,4 +314,18 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(chargingDraft, /src\/assets\/images\/sample-charging-plug\.webp/);
   assert.doesNotMatch(chargingDraft, /AI-generated photograph/);
   assert.doesNotMatch(chargingDraft, /<img /);
+
+  const story = read("_site", "articles/2026-10-23-tesla-q3-results/index.html");
+  assert.match(
+    story,
+    /src="\/assets\/images\/tesla-q3-hero\.webp" alt="[^"]+" width="1280" height="720" loading="eager" decoding="async" fetchpriority="high"/,
+  );
+  assert.match(story, /\/assets\/images\/tesla-q3-hero\.avif/);
+  assert.match(
+    story,
+    /src="\/assets\/images\/tesla-q3-storage\.webp" alt="[^"]+" width="1280" height="720" loading="lazy"/,
+  );
+  assert.doesNotMatch(story, /<figcaption>[^<]*AI-generated image/);
+  assert.equal(fs.existsSync(path.join(root, "_site/assets/images/tesla-q3-hero.webp")), true);
+  assert.equal(fs.existsSync(path.join(root, "_site/assets/images/tesla-q3-hero.avif")), true);
 });
