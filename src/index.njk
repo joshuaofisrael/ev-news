@@ -32,7 +32,7 @@ permalink: /
   <h2 id="desks-heading" class="section-heading">{% set iconName = "batteries" %}{% include "partials/section-icon.njk" %} Desks</h2>
   <div class="desk-list desk-photo-list">
     {% for item in site.categories %}
-    <a class="desk-card desk-photo-card" href="{{ ('/category/' ~ item.slug ~ '/') | url }}">
+    <a class="desk-card desk-photo-card" href="{{ ('/topics/' ~ item.slug ~ '/') | url }}">
       <figure class="desk-photo">
         {% set photo = item.photo %}
         {% set imageAlt = item.photoAlt %}

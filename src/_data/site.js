@@ -47,6 +47,7 @@ const site = {
       photo: "cat-cars",
       photoAlt: "White electric crossover on a wet city street at dusk, headlights on, with no people or readable badges",
       description: "Models and product reporting, published only with a public source list.",
+      hubIntro: "Published Cars stories: models and product reporting, each with a public source list.",
     },
     {
       name: "Batteries",
@@ -54,6 +55,7 @@ const site = {
       photo: "cat-batteries",
       photoAlt: "Rows of prismatic battery cells and modules on a dark workbench, with no people or brand names",
       description: "Cells, packs, materials, and the supply chain behind them.",
+      hubIntro: "Published Batteries stories: cells, packs, materials, and the supply chain behind them.",
     },
     {
       name: "Charging",
@@ -61,6 +63,8 @@ const site = {
       photo: "cat-charging",
       photoAlt: "White electric crossover plugged into a curbside charger on a residential street, with no people in view",
       description: "Home, workplace, and public charging, and the power that feeds them.",
+      hubIntro:
+        "Published Charging stories: home, workplace, and public charging, and the power that feeds them.",
     },
     {
       name: "Policy",
@@ -68,6 +72,7 @@ const site = {
       photo: "cat-policy",
       photoAlt: "Close view of the United States Capitol dome against a clear blue sky",
       description: "Laws, incentives, standards, and regulation.",
+      hubIntro: "Published Policy stories: laws, incentives, standards, and regulation.",
     },
     {
       name: "Industry/Business",
@@ -75,6 +80,8 @@ const site = {
       photo: "cat-industry",
       photoAlt: "Robotic arms over a car chassis on an electric-vehicle assembly line, with no people in view",
       description: "Companies, factories, capital, and the market around electric vehicles.",
+      hubIntro:
+        "Published Industry/Business stories: companies, factories, capital, and the market around electric vehicles.",
     },
   ],
 };

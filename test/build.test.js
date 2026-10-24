@@ -75,7 +75,9 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const terms = read("_site", "terms/index.html");
   const privacy = read("_site", "privacy/index.html");
   const disclaimer = read("_site", "disclaimer/index.html");
-  assert.match(home, new RegExp(`<a href="/terms/">© ${site.year} ${esc(site.name)}</a>`));
+  const legalNotice =
+    "© 2026 Joshua Israel Ventures LLC. All rights reserved. EV News Desk is a trade name of Joshua Israel Ventures LLC, a Florida limited liability company.";
+  assert.doesNotMatch(home, /©|Copyright|All rights reserved/);
   assert.doesNotMatch(home, /Joshua|Ventures/);
   assert.match(home, /\/articles\/2026-10-23-tesla-q3-results\//);
   assert.doesNotMatch(home, /No story has been published yet/);
@@ -160,6 +162,11 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     `${site.url}/category/charging/`,
     `${site.url}/category/policy/`,
     `${site.url}/category/industry/`,
+    `${site.url}/topics/cars/`,
+    `${site.url}/topics/batteries/`,
+    `${site.url}/topics/charging/`,
+    `${site.url}/topics/policy/`,
+    `${site.url}/topics/industry/`,
     `${site.url}/ads.txt`,
   ]) {
     assert.match(sitemap, new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
@@ -170,11 +177,13 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(news, /xmlns:news="http:\/\/www.google.com\/schemas\/sitemap-news\/0.9"/);
   assert.match(feed, /<rss version="2.0">/);
   assert.match(atom, /<feed xmlns="http:\/\/www.w3.org\/2005\/Atom">/);
+  assert.doesNotMatch(feed + atom, /©|<copyright>|Copyright|All rights reserved/);
   assert.doesNotMatch(feed + atom, /Sample draft/);
   assert.match(llms, new RegExp(`^# ${esc(site.name)}`, "m"));
   assert.doesNotMatch(llms, /Joshua|Ventures|Florida/);
   assert.match(llms, /https:\/\/evnewsdesk\.com\//);
   assert.match(llms, /\/articles\/2026-10-23-tesla-q3-results\//);
+  assert.match(llms, /\/topics\/charging\//);
   assert.doesNotMatch(llms, /No article has been published yet/);
   assert.doesNotMatch(llms, /EV News(?! Desk)/);
   assert.equal(read("_site", `${site.indexNowKey}.txt`), site.indexNowKey);
@@ -185,6 +194,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   for (const page of [terms, privacy, disclaimer]) {
     assert.match(page, /Joshua Israel Ventures LLC/);
     assert.match(page, /Florida/);
+    assert.equal((page.match(new RegExp(esc(legalNotice), "g")) || []).length, 1);
   }
   assert.match(about, /One sourced story a day on the electric-vehicle beat/);
   assert.match(contact, /do not publish a street address/i);
@@ -231,6 +241,11 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   for (const file of legalPages) {
     assert.match(fs.readFileSync(file, "utf8"), /Joshua Israel Ventures LLC/);
   }
+  for (const file of walk(path.join(root, "_site"))) {
+    if (!/\.(html|xml|txt)$/.test(file)) continue;
+    if (legalPages.has(path.normalize(file))) continue;
+    assert.doesNotMatch(fs.readFileSync(file, "utf8"), /©|Copyright|All rights reserved/, file);
+  }
   assert.match(ethics, /Sources &amp; Ethics|Sources & Ethics/);
   assert.match(ethics, /AI-generated imagery/);
   assert.match(ethics, /href="\/disclaimer\/"/);
@@ -257,11 +272,11 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const sectionHrefs = [...topics.matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
   assert.deepEqual(sectionHrefs, [
     "/dashboard/",
-    "/category/cars/",
-    "/category/batteries/",
-    "/category/charging/",
-    "/category/policy/",
-    "/category/industry/",
+    "/topics/cars/",
+    "/topics/batteries/",
+    "/topics/charging/",
+    "/topics/policy/",
+    "/topics/industry/",
     "/data/",
   ]);
   assert.equal((header.match(/href="\/dashboard\/"/g) || []).length, 1);
@@ -276,7 +291,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(header, /class="brand" href="\/" aria-current="page"/);
   assert.doesNotMatch(header, /Joshua|Joshua Israel Ventures LLC/);
   assert.doesNotMatch(read("_site", "assets/js/header.js"), /https?:\/\//);
-  assert.ok(coverage.indexOf("/category/industry/") < coverage.indexOf('href="/dashboard/"'));
+  assert.ok(coverage.indexOf("/topics/industry/") < coverage.indexOf('href="/dashboard/"'));
   assert.ok(coverage.indexOf('href="/dashboard/"') < coverage.indexOf('href="/data/"'));
   assert.ok(coverage.indexOf('href="/data/"') < coverage.indexOf('href="/archive/"'));
   assert.match(coverage, /EV data<\/a>/);
@@ -480,7 +495,46 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.doesNotMatch(chargingDraft, /<img /);
 
   const story = read("_site", "articles/2026-10-23-tesla-q3-results/index.html");
-  assert.match(story, /href="\/category\/industry\/" aria-current="page"/);
+  assert.match(story, /href="\/topics\/industry\/" aria-current="page"/);
+  const storyRelated = story.match(/<section class="related"[\s\S]*?<\/section>/)[0];
+  assert.match(storyRelated, /Related stories/);
+  assert.match(storyRelated, /href="\/articles\/2026-10-24-byd-camacari-capacity\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-10-24-volvo-q3-results\/"/);
+  assert.equal((storyRelated.match(/href="\/articles\//g) || []).length, 2);
+  assert.doesNotMatch(storyRelated, /tesla-q3-results|Joshua|©/);
+  const carsStory = read("_site", "articles/2026-10-23-ford-mach-e-trail/index.html");
+  const carsRelated = carsStory.match(/<section class="related"[\s\S]*?<\/section>/)[0];
+  const carsRelatedCount = (carsRelated.match(/href="\/articles\//g) || []).length;
+  assert.ok(carsRelatedCount >= 3 && carsRelatedCount <= 5, String(carsRelatedCount));
+  assert.doesNotMatch(carsRelated, /ford-mach-e-trail|chargepoint|catl-baic|europe-september/);
+  const batteryStory = read("_site", "articles/2026-10-23-catl-baic-battery-swap/index.html");
+  const batteryRelated = batteryStory.match(/<section class="related"[\s\S]*?<\/section>/)[0];
+  assert.match(batteryRelated, /No other published story is in Batteries/);
+  assert.doesNotMatch(batteryRelated, /href="\/articles\//);
+  const chargingHub = read("_site", "topics/charging/index.html");
+  assert.match(chargingHub, /Published Charging stories: home, workplace, and public charging/);
+  const chargingList = chargingHub.match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0];
+  assert.match(chargingList, /href="\/articles\/2026-10-24-chargepoint-us-dc-fast-ports\/"/);
+  assert.match(chargingList, /href="\/articles\/2026-10-24-chery-volt-dragon-charging\/"/);
+  assert.match(chargingList, /href="\/articles\/2026-10-23-laz-evercharge-apartment-charging\/"/);
+  assert.equal((chargingList.match(/href="\/articles\//g) || []).length, 3);
+  assert.match(chargingHub, /rel="canonical" href="https:\/\/evnewsdesk\.com\/topics\/charging\/"/);
+  assert.match(chargingHub, /"name":"EV News Desk"/);
+  assert.match(chargingHub, /"@type":"CollectionPage"/);
+  assert.doesNotMatch(chargingHub, /Joshua|Ventures|©|Sample draft/);
+  const carsHub = read("_site", "topics/cars/index.html");
+  const carsList = carsHub.match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0];
+  assert.equal((carsList.match(/href="\/articles\//g) || []).length, 5);
+  const listedStories = (file) =>
+    (read("_site", file).match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0].match(/href="\/articles\//g) || []).length;
+  assert.equal(listedStories("topics/batteries/index.html"), 1);
+  assert.equal(listedStories("topics/policy/index.html"), 1);
+  assert.equal(listedStories("topics/industry/index.html"), 3);
+  assert.doesNotMatch(carsHub, /sample-cars|Sample draft|Joshua/);
+  for (const slug of ["cars", "batteries", "charging", "policy", "industry"]) {
+    const hub = read("_site", `topics/${slug}/index.html`);
+    assert.match(hub, new RegExp(`href="/topics/${slug}/" aria-current="page"`));
+  }
   assert.match(
     story,
     /src="\/assets\/images\/tesla-q3-hero\.webp" alt="[^"]+" width="1280" height="720" loading="eager" decoding="async" fetchpriority="high"/,

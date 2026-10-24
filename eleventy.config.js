@@ -38,6 +38,18 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("whereCategory", (posts, name) =>
     (posts || []).filter((post) => post.data.category === name),
   );
+  eleventyConfig.addFilter("relatedStories", (posts, category, currentUrl, limit = 5) =>
+    (posts || [])
+      .filter((post) => post.data.category === category)
+      .filter((post) => post.data.draft !== true && post.data.sample !== true)
+      .filter((post) => post.url && post.url !== currentUrl)
+      .sort((a, b) => {
+        const delta = new Date(b.date) - new Date(a.date);
+        if (delta) return delta;
+        return String(b.page?.inputPath || "").localeCompare(String(a.page?.inputPath || ""));
+      })
+      .slice(0, Number(limit) || 5),
+  );
   eleventyConfig.addFilter("whereTag", (posts, tag) =>
     (posts || []).filter((post) => (post.data.tags || []).includes(tag)),
   );

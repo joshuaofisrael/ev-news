@@ -34,7 +34,7 @@ date: 2026-10-23
     {% endif %}
     <div>
       <p class="story-kicker">
-        <a class="chip" href="{{ ('/category/' ~ (post.data.category | categorySlug) ~ '/') | url }}">{{ post.data.category }}</a>
+        <a class="chip" href="{{ ('/topics/' ~ (post.data.category | categorySlug) ~ '/') | url }}">{{ post.data.category }}</a>
         <time datetime="{{ post.date | isoDate }}">{{ post.date | displayDate }}</time>
         <span>{{ post.data.sources.length }} source{% if post.data.sources.length != 1 %}s{% endif %}</span>
       </p>
@@ -61,7 +61,7 @@ date: 2026-10-23
       <article class="news-row">
         <p class="news-meta">
           <time datetime="{{ post.date | isoDate }}">{{ post.date | displayDate }}</time>
-          <a class="chip" href="{{ ('/category/' ~ (post.data.category | categorySlug) ~ '/') | url }}">{{ post.data.category }}</a>
+          <a class="chip" href="{{ ('/topics/' ~ (post.data.category | categorySlug) ~ '/') | url }}">{{ post.data.category }}</a>
           <span>{{ post.data.sources.length }} source{% if post.data.sources.length != 1 %}s{% endif %}</span>
         </p>
         <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
@@ -80,7 +80,7 @@ date: 2026-10-23
     {% for item in site.categories %}
     {% set deskStories = stories | whereCategory(item.name) | limit(3) %}
     <section class="desk-column" aria-labelledby="desk-{{ item.slug }}">
-      <h3 id="desk-{{ item.slug }}"><a href="{{ ('/category/' ~ item.slug ~ '/') | url }}">{{ item.name }}</a></h3>
+      <h3 id="desk-{{ item.slug }}"><a href="{{ ('/topics/' ~ item.slug ~ '/') | url }}">{{ item.name }}</a></h3>
       {% if deskStories and deskStories.length %}
       {% if deskStories[0].data.hero and deskStories[0].data.hero.src %}
       <figure class="desk-thumb">

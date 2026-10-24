@@ -13,7 +13,7 @@
         {% else %}
           <li><span class="ticker-empty">No headline yet</span></li>
           {% for item in site.categories %}
-          <li><a href="{{ ('/category/' ~ item.slug ~ '/') | url }}"{% if clone %} tabindex="-1"{% endif %}>{{ item.name }}</a></li>
+          <li><a href="{{ ('/topics/' ~ item.slug ~ '/') | url }}"{% if clone %} tabindex="-1"{% endif %}>{{ item.name }}</a></li>
           {% endfor %}
         {% endif %}
       </ul>

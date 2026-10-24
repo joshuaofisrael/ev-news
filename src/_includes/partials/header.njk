@@ -29,7 +29,7 @@
         </li>
         {% for item in site.categories %}
         <li>
-          <a href="{{ ('/category/' ~ item.slug ~ '/') | url }}"{% if (desk and desk.slug == item.slug) or category == item.name %} aria-current="page"{% endif %}>{% set iconName = item.slug %}{% include "partials/section-icon.njk" %}{{ item.name }}</a>
+          <a href="{{ ('/topics/' ~ item.slug ~ '/') | url }}"{% if (desk and desk.slug == item.slug) or category == item.name %} aria-current="page"{% endif %}>{% set iconName = item.slug %}{% include "partials/section-icon.njk" %}{{ item.name }}</a>
         </li>
         {% endfor %}
         <li>
