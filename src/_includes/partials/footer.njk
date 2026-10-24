@@ -9,7 +9,7 @@
       <h2>{% set iconName = "cars" %}{% include "partials/section-icon.njk" %} Coverage</h2>
       <ul>
         {% for item in site.categories %}
-        <li><a href="{{ ('/category/' ~ item.slug ~ '/') | url }}">{{ item.name }}</a></li>
+        <li><a href="{{ ('/topics/' ~ item.slug ~ '/') | url }}">{{ item.name }}</a></li>
         {% endfor %}
         <li><a href="{{ '/dashboard/' | url }}">Dashboard</a></li>
         <li><a href="{{ '/data/' | url }}">EV data</a></li>
@@ -35,8 +35,5 @@
         <li><a href="{{ '/atom.xml' | url }}">Atom</a></li>
       </ul>
     </nav>
-  </div>
-  <div class="wrap footer-legal">
-    <p class="copyright"><a href="{{ '/terms/' | url }}">© {{ site.year }} {{ site.name }}</a></p>
   </div>
 </footer>

@@ -846,6 +846,34 @@ main:focus { outline: none; }
 .sources a { overflow-wrap: anywhere; }
 .source-meta { display: block; color: var(--muted); font-size: 0.95rem; }
 
+.related {
+  margin-top: 2rem;
+  max-width: 68ch;
+}
+
+.related h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 0.85rem;
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.related h2::before {
+  content: "";
+  width: 1.15rem;
+  height: 0.38rem;
+  flex: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--link), var(--gold));
+}
+
+.related ul { margin: 0; padding-left: 1.2rem; }
+.related li { margin: 0.55rem 0; }
+
 .site-footer {
   background: var(--header);
   color: var(--header-muted);

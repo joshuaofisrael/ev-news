@@ -4,7 +4,7 @@ layout: layouts/base.njk
 <article class="story-page">
   <header class="article-head">
     <p class="story-kicker">
-      <a class="chip" href="{{ ('/category/' ~ (category | categorySlug) ~ '/') | url }}">{% set iconName = category | categorySlug %}{% include "partials/section-icon.njk" %}{{ category }}</a>
+      <a class="chip" href="{{ ('/topics/' ~ (category | categorySlug) ~ '/') | url }}">{% set iconName = category | categorySlug %}{% include "partials/section-icon.njk" %}{{ category }}</a>
       <time datetime="{{ page.date | isoDate }}">{{ page.date | displayDate }}</time>
     </p>
     <h1>{{ title }}</h1>
@@ -87,6 +87,19 @@ layout: layouts/base.njk
     </ol>
     {% else %}
     <p>This draft has no sources yet. Add a non-empty sources list before publishing. The production build fails without one.</p>
+    {% endif %}
+  </section>
+  {% set related = collections.posts | relatedStories(category, page.url, 5) %}
+  <section class="related" aria-labelledby="related-heading">
+    <h2 id="related-heading">Related stories</h2>
+    {% if related.length %}
+    <ul>
+      {% for post in related %}
+      <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No other published story is in {{ category }}.</p>
     {% endif %}
   </section>
 </article>

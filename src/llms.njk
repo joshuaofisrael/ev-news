@@ -16,7 +16,7 @@ Search and AI crawlers may read this site. Published articles list public source
 - [Home]({{ "/" | absoluteUrl }}): Latest stories
 - [Newsroom dashboard]({{ "/dashboard/" | absoluteUrl }}): Published stories, newest first
 {% for item in site.categories %}
-- [{{ item.name | safe }}]({{ ("/category/" ~ item.slug ~ "/") | absoluteUrl }}): {{ item.description | safe }}
+- [{{ item.name | safe }}]({{ ("/topics/" ~ item.slug ~ "/") | absoluteUrl }}): {{ item.hubIntro | safe }}
 {% endfor %}
 - [Archive]({{ "/archive/" | absoluteUrl }}): Every published story
 - [EV data dashboard]({{ "/data/" | absoluteUrl }}): Sourced figures from published stories

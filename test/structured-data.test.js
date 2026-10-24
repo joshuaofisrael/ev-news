@@ -32,6 +32,24 @@ test("NewsArticle publisher is EV News Desk and breadcrumbs escape text", () => 
   );
   assert.equal(crumbs.itemListElement[0].name, "Home");
   assert.equal(crumbs.itemListElement[1].name, "Cars");
+  assert.equal(crumbs.itemListElement[1].item, "https://evnewsdesk.com/topics/cars/");
+  const topic = buildGraph(
+    {
+      kind: "topic",
+      hub: "topic",
+      title: "Charging",
+      summary: site.categories.find((category) => category.slug === "charging").hubIntro,
+      desk: site.categories.find((category) => category.slug === "charging"),
+      page: { url: "/topics/charging/" },
+    },
+    site,
+  );
+  const topicPage = topic["@graph"].find((node) => node["@type"] === "CollectionPage");
+  const topicCrumbs = topic["@graph"].find((node) => node["@type"] === "BreadcrumbList");
+  assert.equal(topicPage.publisher.name, "EV News Desk");
+  assert.equal(topicPage.name, "Charging");
+  assert.equal(topicCrumbs.itemListElement[1].item, "https://evnewsdesk.com/topics/charging/");
+  assert.equal(JSON.stringify(topic).includes("Joshua"), false);
 
   const home = buildGraph({ title: site.name, page: { url: "/" } }, site);
   assert.equal(
