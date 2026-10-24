@@ -372,7 +372,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const dash = read("_site", "data/index.html");
   const dashTitle = decodeAttr(dash.match(/<title>([^<]*)<\/title>/)[1]);
   const dashSummary =
-    "Sourced figures from the 23 October 2026 stories. Each number names its publisher and date. Not real-time, and not advice.";
+    "Sourced figures from the 23 and 24 October 2026 stories. Each number names its publisher and date. Not real-time, and not advice.";
   assert.ok(dashTitle.length <= 60, dashTitle);
   assert.equal(dashTitle, "EV data dashboard — EV News Desk");
   assert.deepEqual(metaDescriptions(dash), [dashSummary, dashSummary, dashSummary]);
@@ -382,7 +382,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(dash, /property="og:site_name" content="EV News Desk"/);
   assert.match(dash, /"@type":"Dataset"/);
   assert.match(dash, /Last updated/);
-  assert.match(dash, /datetime="2026-10-23"/);
+  assert.match(dash, /datetime="2026-10-24"/);
   assert.match(dash, /They are not real-time, and they are not advice/);
   assert.match(dash, /Company statement/);
   assert.match(dash, /Independent source/);
@@ -419,14 +419,14 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.doesNotMatch(room, /aria-label="View"/);
   const roomHeaderNav = room.match(/<header class="site-header">[\s\S]*?<\/header>/)[0];
   assert.equal((roomHeaderNav.match(/href="\/dashboard\/"/g) || []).length, 1);
-  assert.match(room, /tesla-q3-hero\.webp/);
+  assert.match(room, /volvo-q3-hero\.webp/);
   assert.match(room, /width="1280" height="720"/);
   assert.match(room, /loading="eager"/);
   assert.match(room, /loading="lazy"/);
-  assert.match(room, /class="story-title"><a href="\/articles\/2026-10-23-tesla-q3-results\/">/);
+  assert.match(room, /class="story-title"><a href="\/articles\/2026-10-24-volvo-q3-results\/">/);
   assert.match(room, /3 sources/);
   assert.match(room, /Recently updated/);
-  assert.match(room, /Updated October 23, 2026/);
+  assert.match(room, /Updated October 24, 2026/);
   assert.match(room, /41\.7/);
   assert.match(room, /href="\/data\/"/);
   assert.match(room, /href="\/sources-ethics\/"/);
