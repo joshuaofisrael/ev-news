@@ -81,3 +81,14 @@ permalink: /
     </aside>
   </div>
 </div>
+<section class="faq wrap" aria-labelledby="faq-heading">
+  <h2 id="faq-heading" class="section-heading">{% set iconName = "policy" %}{% include "partials/section-icon.njk" %} Questions</h2>
+  <div class="faq-list">
+    {% for item in faq %}
+    <article class="faq-item">
+      <h3>{{ item.question }}</h3>
+      <p>{% for part in item.parts %}{% if part.href %}<a href="{{ part.href | url }}">{{ part.text }}</a>{% else %}{{ part.text }}{% endif %}{% endfor %}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>

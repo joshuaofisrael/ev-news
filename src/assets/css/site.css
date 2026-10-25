@@ -504,6 +504,27 @@ main:focus { outline: none; }
   align-items: start;
 }
 
+.faq { margin: 2.5rem auto 3rem; }
+
+.faq-list { display: grid; gap: 0.9rem; }
+
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem 1.15rem;
+}
+
+.faq-item h3 {
+  margin: 0 0 0.4rem;
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.faq-item p { margin: 0; }
+
 .section-heading,
 .home-rail h2,
 .footer-grid h2,

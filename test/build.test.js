@@ -3,9 +3,12 @@ import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
+import matter from "gray-matter";
 import { metaDescription } from "../lib/meta-description.js";
+import { formatDisplayDate, isFreshNews } from "../lib/dates.js";
+import faq from "../lib/faq.js";
 import site from "../src/_data/site.js";
-import { isFreshNews } from "../lib/dates.js";
+import dashboardData from "../src/_data/dashboard.js";
 
 const root = path.resolve(import.meta.dirname, "..");
 const bin = path.join(root, "node_modules", ".bin", "eleventy");
@@ -33,6 +36,38 @@ function decodeAttr(value) {
     .replace(/&#39;|&apos;/g, "'")
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">");
+}
+
+function dayStamp(value) {
+  if (value instanceof Date && !Number.isNaN(value.getTime())) return value.toISOString().slice(0, 10);
+  return String(value ?? "").slice(0, 10);
+}
+
+function publishedPosts() {
+  const dir = path.join(root, "src/content/posts");
+  return fs
+    .readdirSync(dir)
+    .filter((name) => name.endsWith(".md"))
+    .map((name) => {
+      const inputPath = path.join(dir, name);
+      const data = matter(fs.readFileSync(inputPath, "utf8")).data;
+      return {
+        slug: name.replace(/\.md$/, ""),
+        inputPath,
+        date: dayStamp(data.date),
+        updatedAt: dayStamp(data.updatedAt || data.date),
+        hero: data.hero?.src || "",
+        sources: Array.isArray(data.sources) ? data.sources.length : 0,
+        draft: data.draft === true,
+        sample: data.sample === true,
+      };
+    })
+    .filter((post) => !post.draft && !post.sample)
+    .sort((a, b) => {
+      const delta = b.date.localeCompare(a.date);
+      if (delta) return delta;
+      return b.inputPath.localeCompare(a.inputPath);
+    });
 }
 
 function metaDescriptions(html) {
@@ -124,6 +159,29 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     assert.match(page, /application\/ld\+json/);
   }
   assert.match(home, /BreadcrumbList/);
+  assert.match(home, /"@type":"FAQPage"/);
+  assert.match(home, /https:\/\/x\.com\/TheCharismaCat1/);
+  assert.doesNotMatch(home, /"sameAs":\[[^\]]*(twitter\.com|facebook\.com|instagram\.com|linkedin\.com)/);
+  const faqHtml = home.match(/<section class="faq[\s\S]*?<\/section>/)[0];
+  const faqQuestions = [...faqHtml.matchAll(/<h3>([^<]*)<\/h3>/g)].map((match) => decodeAttr(match[1]));
+  assert.deepEqual(faqQuestions, faq.map((item) => item.question));
+  assert.ok(faqQuestions.length >= 5 && faqQuestions.length <= 6);
+  for (const item of faq) {
+    for (const part of item.parts) {
+      const htmlText = part.text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+      assert.match(faqHtml, new RegExp(esc(htmlText)));
+    }
+  }
+  assert.match(faqHtml, /href="\/disclaimer\/"/);
+  assert.match(faqHtml, /href="\/corrections\/"/);
+  assert.match(faqHtml, /href="\/contact\/"/);
+  assert.match(faqHtml, /href="\/sources-ethics\/"/);
+  assert.doesNotMatch(faqHtml, /Joshua|Ventures|Florida/);
   assert.doesNotMatch(home, /NewsArticle/);
   assert.doesNotMatch(home, /noindex|noai|noimageai/i);
   assert.doesNotMatch(home, /Sample draft/);
@@ -397,8 +455,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
 
   const dash = read("_site", "data/index.html");
   const dashTitle = decodeAttr(dash.match(/<title>([^<]*)<\/title>/)[1]);
-  const dashSummary =
-    "Sourced figures from the 23 and 24 October 2026 stories. Each number names its publisher and date. Not real-time, and not advice.";
+  const dashSummary = matter(fs.readFileSync(path.join(root, "src/data.njk"), "utf8")).data.summary;
   assert.ok(dashTitle.length <= 60, dashTitle);
   assert.equal(dashTitle, "EV data dashboard — EV News Desk");
   assert.deepEqual(metaDescriptions(dash), [dashSummary, dashSummary, dashSummary]);
@@ -408,7 +465,10 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(dash, /property="og:site_name" content="EV News Desk"/);
   assert.match(dash, /"@type":"Dataset"/);
   assert.match(dash, /Last updated/);
-  assert.match(dash, /datetime="2026-10-24"/);
+  assert.match(dash, new RegExp(`datetime="${esc(dashboardData.updated)}"`));
+  for (const slug of new Set(dashboardData.figures.map((figure) => figure.articleSlug))) {
+    assert.match(dash, new RegExp(`/articles/${esc(slug)}/`), slug);
+  }
   assert.match(dash, /They are not real-time, and they are not advice/);
   assert.match(dash, /Company statement/);
   assert.match(dash, /Independent source/);
@@ -445,14 +505,31 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.doesNotMatch(room, /aria-label="View"/);
   const roomHeaderNav = room.match(/<header class="site-header">[\s\S]*?<\/header>/)[0];
   assert.equal((roomHeaderNav.match(/href="\/dashboard\/"/g) || []).length, 1);
-  assert.match(room, /etrucks-hero\.webp/);
+  const stories = publishedPosts();
+  const lead = stories[0];
+  const leadHtml = room.match(/<article class="lead-story">[\s\S]*?<\/article>/)[0];
+  const leadSources = `${lead.sources} source${lead.sources === 1 ? "" : "s"}`;
+  assert.match(leadHtml, new RegExp(`/articles/${esc(lead.slug)}/`));
+  assert.match(leadHtml, new RegExp(`${esc(lead.hero)}\\.webp`));
+  assert.match(leadHtml, new RegExp(esc(leadSources)));
   assert.match(room, /width="1280" height="720"/);
   assert.match(room, /loading="eager"/);
   assert.match(room, /loading="lazy"/);
-  assert.match(room, /class="story-title"><a href="\/articles\/2026-10-25-zero-emission-truck-sales\/">/);
-  assert.match(room, /3 sources/);
+  for (const story of stories) {
+    assert.match(room, new RegExp(`/articles/${esc(story.slug)}/`), story.slug);
+  }
+  const later = stories.filter((story) => story.date > "2026-10-24");
+  assert.ok(later.length > 0);
+  assert.ok(later.some((story) => story.slug === lead.slug));
+  const newestUpdate = [...stories].sort((a, b) => {
+    const delta = b.updatedAt.localeCompare(a.updatedAt);
+    if (delta) return delta;
+    const dated = b.date.localeCompare(a.date);
+    if (dated) return dated;
+    return b.inputPath.localeCompare(a.inputPath);
+  })[0];
   assert.match(room, /Recently updated/);
-  assert.match(room, /Updated October 25, 2026/);
+  assert.match(room, new RegExp(`Updated ${esc(formatDisplayDate(newestUpdate.updatedAt))}`));
   assert.match(room, /41\.7/);
   assert.match(room, /href="\/data\/"/);
   assert.match(room, /href="\/sources-ethics\/"/);
