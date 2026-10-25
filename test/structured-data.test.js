@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
+import faq, { faqAnswerText } from "../lib/faq.js";
 import site from "../src/_data/site.js";
 import { buildGraph, renderBreadcrumbNav } from "../lib/structured-data.js";
 
@@ -21,6 +22,7 @@ test("NewsArticle publisher is EV News Desk and breadcrumbs escape text", () => 
   const articleNewsroom = graph["@graph"].find((node) => node["@type"] === "NewsMediaOrganization");
   assert.equal(article.publisher["@id"], articleNewsroom["@id"]);
   assert.equal(articleNewsroom.name, "EV News Desk");
+  assert.deepEqual(articleNewsroom.sameAs, ["https://x.com/TheCharismaCat1"]);
   assert.equal(article.author.name, "EV News Desk");
   assert.equal(article.copyrightHolder.name, "EV News Desk");
   assert.equal(JSON.stringify(graph).includes("Joshua"), false);
@@ -51,7 +53,19 @@ test("NewsArticle publisher is EV News Desk and breadcrumbs escape text", () => 
   assert.equal(topicCrumbs.itemListElement[1].item, "https://evnewsdesk.com/topics/charging/");
   assert.equal(JSON.stringify(topic).includes("Joshua"), false);
 
-  const home = buildGraph({ title: site.name, page: { url: "/" } }, site);
+  const home = buildGraph({ kind: "home", title: site.name, page: { url: "/" } }, site);
+  const faqPage = home["@graph"].find((node) => node["@type"] === "FAQPage");
+  assert.ok(faqPage.mainEntity.length >= 5 && faqPage.mainEntity.length <= 6);
+  assert.deepEqual(
+    faqPage.mainEntity.map((item) => item.name),
+    faq.map((item) => item.question),
+  );
+  assert.deepEqual(
+    faqPage.mainEntity.map((item) => item.acceptedAnswer.text),
+    faq.map((item) => faqAnswerText(item)),
+  );
+  assert.equal(JSON.stringify(home).includes("Joshua"), false);
+  assert.equal(home["@graph"].find((node) => node["@id"]?.endsWith("#newsroom")).sameAs.length, 1);
   assert.equal(
     home["@graph"].some((node) => node["@type"] === "NewsArticle"),
     false,

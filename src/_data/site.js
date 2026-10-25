@@ -11,6 +11,8 @@ const site = {
   locale: "en_US",
   language: "en",
   author: "EV News Desk",
+  // Real public profiles only. Tech Beat Daily is the network news account.
+  sameAs: ["https://x.com/TheCharismaCat1"],
   operator: "Joshua Israel Ventures LLC",
   jurisdiction: "Florida",
   entityDescription: "a Florida limited liability company",
