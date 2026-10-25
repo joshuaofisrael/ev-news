@@ -4,6 +4,7 @@ date: 2026-10-25
 updatedAt: 2026-10-25
 category: Cars
 summary: "Electrek and Drive Tesla Canada, both citing Germany's KBA, put three battery campaigns at 72,668 Volkswagen and Cupra electric cars worldwide, including 9,881 in Germany. Volkswagen and Cupra tell affected owners the factory is holding charge at 80 percent until a repair."
+description: "Electrek and Drive Tesla Canada, citing Germany's KBA, put three campaigns at 72,668 Volkswagen and Cupra electric cars, with charge held at 80 percent."
 tags:
   - volkswagen
   - cupra
@@ -75,3 +76,5 @@ Owners should follow the manufacturer's and the regulator's official guidance, a
 ## Analysis
 
 Roughly 72,700 is the rounded form of 72,668, the sum Electrek and Drive Tesla Canada attribute to three KBA campaigns. Drive Tesla Canada says the KBA does not remove a car that sits in more than one campaign. The 9,881 in Germany are part of the 72,668. The 22,524 ID.4 vehicles are the separate U.S. filing Electrek describes. The 80 percent cap is the temporary step on the manufacturer pages. Denmark's first-quarter 2027 date is that page's expectation for the software, and the UK pages do not print it.
+
+More from the [Cars desk](/topics/cars/): [ID. Cross prices in France](/articles/2026-10-25-vw-id-cross-lfp-france/) and [Firefly's 60 kWh pack](/articles/2026-10-25-nio-firefly-60-kwh/). The [Batteries desk](/topics/batteries/) has [CATL and BAIC's battery-swap pact](/articles/2026-10-23-catl-baic-battery-swap/).

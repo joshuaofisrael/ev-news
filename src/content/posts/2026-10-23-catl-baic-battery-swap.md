@@ -1,9 +1,10 @@
 ---
 title: "CATL and BAIC sign a battery-swap pact aimed at one million vehicles"
 date: 2026-10-23
-updatedAt: 2026-10-23
+updatedAt: 2026-10-25
 category: Batteries
 summary: "CATL's 22 October statement says BAIC will connect multi-brand models to its chocolate battery-swap ecosystem and that the two companies are pushing toward one million swap vehicles. The statement sets no date for that figure."
+description: "CATL's 22 October statement says BAIC will connect models to its battery-swap network and push toward one million swap vehicles, with no date given."
 tags:
   - catl
   - baic
@@ -59,3 +60,5 @@ A million-vehicle target is a scale claim, not an operating network. The CATL po
 Readers should keep the two documents in their lanes. CATL's page is the company's announcement of an agreement and a target. The Business Times article is a news report of that announcement, including the English name Choco-Swap and the explicit note that no date was attached to the million-vehicle aim. Neither page, in the text reviewed for this story, is a station map or a delivery forecast.
 
 The agreement is still a commercial plan with a defined scope on paper: cars that can use the swap system, batteries supplied for that system, stations tied to BAIC's dealers, a battery-bank element, and a search for a business model. The number attached to it, in CATL's wording, is one million swap vehicles and a million-vehicle-scale ecosystem. Until either company publishes a schedule or a station plan, that number is the destination they announced on 22 October, not a count of cars already driving.
+
+More from the [Batteries desk](/topics/batteries/): [Firefly's 60 kWh pack](/articles/2026-10-25-nio-firefly-60-kwh/), the [Volkswagen and Cupra battery campaigns](/articles/2026-10-25-vw-id-cupra-battery-recall/), and the [ID. Cross battery versions](/articles/2026-10-25-vw-id-cross-lfp-france/).

@@ -1,9 +1,10 @@
 ---
 title: "What EV fans on X are discussing: a Tesla Manufacturing post says Giga Berlin built 7,000 Model Y in one week"
 date: 2026-10-24
-updatedAt: 2026-10-24
+updatedAt: 2026-10-25
 category: Cars
 summary: "TeslaNorth and Drive Tesla Canada both quote a 23 October post from @gigafactories saying Giga Berlin built 7,000 Model Y in one week. This desk could not open that post, and neither outlet presents an independent count of the cars."
+description: "TeslaNorth and Drive Tesla Canada quote a 23 October post saying Giga Berlin built 7,000 Model Y in one week. This desk could not open that post."
 tags:
   - tesla
   - manufacturing
@@ -54,3 +55,5 @@ Drive Tesla Canada writes that Tesla began bringing German-built Model Ys into C
 ## Analysis
 
 The 7,000 is a claim about one week, from an account the two outlets identify as Tesla's, and it is not matched here to a filing. It does not show what the plant will build next week. The 364,000 figure is a full year only if every week matches this one, which the quoted sentence does not say.
+
+More from the [Cars desk](/topics/cars/): [Tesla's FSD (Supervised) attach rate](/articles/2026-10-23-tesla-fsd-supervised-attach-rate/) and [Tesla's third-quarter results](/articles/2026-10-23-tesla-q3-results/). [Volvo Cars' third quarter](/articles/2026-10-24-volvo-q3-results/) is on the industry desk.

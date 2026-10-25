@@ -4,6 +4,7 @@ date: 2026-10-25
 updatedAt: 2026-10-25
 category: Industry/Business
 summary: "BloombergNEF says global sales of medium- and heavy-duty electric trucks reached 158,000 in the first half of 2026, up 75 percent. The Commercial ZEV Factbook puts fuel-cell trucks at around 530 units and says electric trucks are likely to exceed 9 percent of 2026 truck sales."
+description: "BloombergNEF says medium- and heavy-duty electric truck sales hit 158,000 in the first half of 2026, up 75 percent. Fuel-cell trucks were near 530."
 tags:
   - trucks
   - bloombergnef
@@ -57,3 +58,5 @@ The factbook prints a representative residual-value range after three to five ye
 ## Analysis
 
 The 75 percent figure is global. The factbook says more than nine-tenths of the trucks were sold in China, Europe's volume rose 50 percent to more than 11,200, and U.S. volume fell 63 percent to a few hundred. "Likely to exceed 9 percent" is the factbook's full-year 2026 line. The September article does not repeat it. Fuel-cell sales are the remainder: around 530 in one section, just over 500 in another, with 507 of the around-530 count placed in China.
+
+More from the [Industry/Business desk](/topics/industry/): [China's new-energy exports to Brazil](/articles/2026-10-25-china-nev-exports-brazil/) and [Tesla's third quarter](/articles/2026-10-23-tesla-q3-results/). Charging figures in the factbook sit next to the [Charging desk](/topics/charging/).

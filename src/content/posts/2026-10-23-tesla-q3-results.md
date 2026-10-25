@@ -1,9 +1,10 @@
 ---
 title: "Tesla's third-quarter revenue stayed near $28 billion as deliveries eased and storage orders rose"
 date: 2026-10-23
-updatedAt: 2026-10-23
+updatedAt: 2026-10-25
 category: Industry/Business
 summary: "Tesla's 10-Q reports $28.05 billion of third-quarter revenue, a $49 million dip from a year earlier. Deliveries fell, energy-storage revenue fell, and the company says battery supply still limits how fast auto output can grow."
+description: "Tesla's 10-Q reports $28.05 billion of third-quarter revenue, $49 million below a year earlier. Deliveries fell, and battery supply still limits output."
 tags:
   - tesla
   - earnings
@@ -72,3 +73,5 @@ The update says storage deployment was 13.7 gigawatt-hours, against 12.5 a year 
 The 10-Q gives the revenue side of that quarter. The 16 percent decline, it says, was primarily tariff refunds for certain Megapack customers, a lower average selling price per Megapack, a decrease in Powerwall deployments, and a decrease in solar-retrofit cash deployments, partly offset by an increase in Megapack deployments. Cost of energy revenue fell $415 million, or 18 percent, to $1,927 million. The filing says that cost decline, and the margin increase from 31.4 percent to 33.1 percent, followed those deployment swings, tariff refunds, and a lower average cost per Megapack.
 
 Both documents describe a new factory and a first cell shipment. The update says Megafactory Texas began production, with planned Megapack capacity of 50 gigawatt-hours, and that Tesla shipped the first Megapacks built with LFP cells from its Nevada factory, "comprised solely of our own LFP cells." The 10-Q says a new Megafactory near Houston, Texas, began production in the third quarter, and that Tesla shipped the first Megapack with LFP cells manufactured at Gigafactory Nevada. The 10-Q says the 33 percent rise in services and other revenue came primarily from used-vehicle sales, maintenance and collision work outside warranty, and paid Supercharging.
+
+More from the [Industry/Business desk](/topics/industry/): [Volvo Cars' third quarter](/articles/2026-10-24-volvo-q3-results/), [BYD's Camaçari permit request](/articles/2026-10-24-byd-camacari-capacity/), and [China's new-energy exports to Brazil](/articles/2026-10-25-china-nev-exports-brazil/).

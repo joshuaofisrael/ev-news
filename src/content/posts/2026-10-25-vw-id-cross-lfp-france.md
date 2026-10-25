@@ -4,6 +4,7 @@ date: 2026-10-25
 updatedAt: 2026-10-25
 category: Cars
 summary: "Volkswagen France lists the ID. Cross from €27,995 and a range of up to 426 km. Frandroid and L'Auto-Journal report that the entry car uses a 37 kWh LFP pack, and that the 52 kWh NMC version still starts at €37,800."
+description: "Volkswagen France lists the ID. Cross from €27,995 and up to 426 km. French outlets report a 37 kWh LFP car and a 52 kWh NMC version from €37,800."
 tags:
   - volkswagen
   - id-cross
@@ -57,3 +58,5 @@ Frandroid prints the body at 4.15 meters long, 1.79 wide, 1.58 high, with a 2.60
 ## Analysis
 
 The 27,995 euro Trend price, the lineup range of up to 426 km, and the 52 kWh charge time of about 24 minutes at 105 kW are on Volkswagen France's page. The 37 kWh LFP label, the NMC label on the 52 kWh pack, and the 37,800 euro price are what Frandroid and L'Auto-Journal both reported on 19 October. They match each other and the entry price Volkswagen prints. The model page this desk opened does not itself say LFP or NMC. Volkswagen's footnote says WLTP range in use varies with driving, speed, temperature, and load. The CEE net prices are the outlets' subtraction, not a price Volkswagen prints and not advice on who can claim the bonus.
+
+More from the [Cars desk](/topics/cars/): [cold weather and electric-car range](/articles/2026-10-25-ev-range-cold-weather/), the [Volkswagen and Cupra battery campaigns](/articles/2026-10-25-vw-id-cupra-battery-recall/), and [Firefly's 60 kWh pack](/articles/2026-10-25-nio-firefly-60-kwh/).

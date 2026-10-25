@@ -1,9 +1,10 @@
 ---
 title: "ChargePoint's U.S. DC fast-charging count passed 5,000 ports in an AFDC reading, inside a national network Paren put at 80,964"
 date: 2026-10-24
-updatedAt: 2026-10-24
+updatedAt: 2026-10-25
 category: Charging
 summary: "EVChargingStations.com says the Alternative Fuels Data Center listed 5,004 ChargePoint DC fast ports in the United States on 22 October. Paren's third-quarter report put the whole public fast-charging network at 80,964 ports, with Tesla still the largest operator."
+description: "An AFDC reading on 22 October listed 5,004 ChargePoint DC fast ports in the U.S. Paren put the national public fast-charging network at 80,964 ports."
 tags:
   - chargepoint
   - charging
@@ -70,3 +71,5 @@ Drivers are using the larger network at about the same rate. Paren says national
 ## Analysis
 
 The 5,004 and the 80,964 answer different questions. One is a single network's DC fast ports in a 22 October AFDC reading. The other is Paren's installed-base total for all public U.S. DC fast ports at the third-quarter report. A reader who adds them, or who treats Paren's 4,774 and the AFDC 5,004 as a revision of the same count, will be mixing sources Paren says are not meant to be compared that way.
+
+More from the [Charging desk](/topics/charging/): [Chery's Volt-Dragon charger](/articles/2026-10-24-chery-volt-dragon-charging/) and the [LAZ and EverCharge joint venture](/articles/2026-10-23-laz-evercharge-apartment-charging/). See also [cold weather and electric-car range](/articles/2026-10-25-ev-range-cold-weather/).

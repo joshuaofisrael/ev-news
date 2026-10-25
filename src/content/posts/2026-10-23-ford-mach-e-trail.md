@@ -1,9 +1,10 @@
 ---
 title: "What EV fans on X are discussing: Ford's 2027 Mustang Mach-E Trail"
 date: 2026-10-23
-updatedAt: 2026-10-23
+updatedAt: 2026-10-25
 category: Cars
 summary: "Electrek, Car and Driver, and Autoweek reported on 22 October that the 2027 Mustang Mach-E adds a Trail version and makes an extended-range battery standard. Their prices line up once the destination fee is included."
+description: "Electrek, Car and Driver, and Autoweek reported on 22 October that the 2027 Mustang Mach-E adds a Trail version and a standard extended-range battery."
 tags:
   - ford
   - mustang-mach-e
@@ -46,3 +47,5 @@ Electrek says the Select rear-wheel-drive model starts at $39,995 before a $2,04
 Electrek says an 88 kWh extended-range battery is now standard, including on Select and Premium. Car and Driver says Select, Premium, and Trail use an 88.0 kWh battery. Autoweek says the extended-range pack is standard, with 88 kWh of usable capacity on Select and Premium and 91 kWh on the GT and Rally. Electrek also lists 91 kWh for the GT and Rally. Only Autoweek uses the word "usable."
 
 Electrek and Autoweek say 400-watt Pro Power Onboard is standard on the Trail. Electrek adds that it is a 120-volt system and an upgrade on Premium, GT, and Rally. Car and Driver says the feature is standard on the Trail and does not state a wattage. Electrek, citing Ford, says the package is meant to make "outdoor adventures across pavement, gravel, and dirt roads more accessible than ever." Electrek and Autoweek expect deliveries in the first quarter of 2027. Car and Driver says early 2027, with orders open.
+
+More from the [Cars desk](/topics/cars/): [cold weather and electric-car range](/articles/2026-10-25-ev-range-cold-weather/), the [second-generation Seagull](/articles/2026-10-24-byd-seagull-second-generation/), and [ID. Cross prices in France](/articles/2026-10-25-vw-id-cross-lfp-france/).

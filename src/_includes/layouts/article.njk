@@ -92,6 +92,7 @@ layout: layouts/base.njk
   {% set related = collections.posts | relatedStories(category, page.url, 5) %}
   <section class="related" aria-labelledby="related-heading">
     <h2 id="related-heading">Related stories</h2>
+    <p>More from the <a href="{{ ('/topics/' ~ (category | categorySlug) ~ '/') | url }}">{{ category }} desk</a>.</p>
     {% if related.length %}
     <ul>
       {% for post in related %}

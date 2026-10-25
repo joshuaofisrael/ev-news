@@ -28,6 +28,24 @@ test("NewsArticle publisher is EV News Desk and breadcrumbs escape text", () => 
   assert.equal(JSON.stringify(graph).includes("Joshua"), false);
   assert.equal(JSON.stringify(graph).includes("PostalAddress"), false);
   assert.equal(article.dateModified, "2026-10-23T00:00:00.000Z");
+  assert.equal(article["@type"], "NewsArticle");
+  const explainer = buildGraph(
+    {
+      kind: "article",
+      title: "Cold weather and electric-car range",
+      summary: "A sourced explainer.",
+      news: false,
+      category: "Cars",
+      updatedAt: "2026-10-25",
+      page: { url: "/articles/2026-10-25-ev-range-cold-weather/", date: new Date("2026-10-25T00:00:00Z") },
+    },
+    site,
+  );
+  assert.equal(
+    explainer["@graph"].some((node) => node["@type"] === "NewsArticle"),
+    false,
+  );
+  assert.equal(explainer["@graph"].find((node) => node["@type"] === "Article").headline, "Cold weather and electric-car range");
   assert.match(
     graph["@graph"].find((node) => node["@type"] === "NewsMediaOrganization").publishingPrinciples,
     /\/sources-ethics\/$/,

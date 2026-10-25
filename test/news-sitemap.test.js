@@ -37,6 +37,10 @@ test("the news sitemap lists only articles from the last two days", () => {
   assert.match(xml, /<news:title>Pack &amp; cell supply<\/news:title>/);
   assert.doesNotMatch(xml, /Old pack story|Not published yet/);
   assert.equal(freshNewsPosts([{ date: "2026-10-22" }, { date: "2026-10-01" }], now).length, 1);
+  assert.equal(
+    freshNewsPosts([{ date: "2026-10-22", data: { news: false, title: "Evergreen" } }], now).length,
+    0,
+  );
 });
 
 test("an empty news sitemap stays valid XML and is not a bare urlset", () => {

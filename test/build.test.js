@@ -207,6 +207,14 @@ test("production build omits drafts and the sources gate fails closed", { timeou
       );
       assert.match(news, /<news:publication_date>2026-10-25T00:00:00Z<\/news:publication_date>/);
     }
+    assert.doesNotMatch(news, /ev-range-cold-weather/);
+    for (const loc of [...news.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])) {
+      const slug = loc.match(/\/articles\/([^/]+)\//)?.[1];
+      assert.ok(slug, loc);
+      const post = matter(fs.readFileSync(path.join(root, `src/content/posts/${slug}.md`), "utf8")).data;
+      assert.notEqual(post.news, false, slug);
+      assert.equal(isFreshNews(post.date), true, slug);
+    }
   } else {
     assert.doesNotMatch(robots, /news-sitemap/);
     assert.doesNotMatch(llms, /news-sitemap/);
@@ -241,6 +249,16 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     assert.match(sitemap, new RegExp(url.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
   assert.doesNotMatch(sitemap, /Sample draft|404\.html/);
+  for (const loc of [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])) {
+    const pathname = new URL(loc).pathname;
+    const relative = pathname.endsWith("/") ? `${pathname.slice(1)}index.html` : pathname.slice(1);
+    assert.equal(fs.existsSync(path.join(root, "_site", relative)), true, loc);
+  }
+  assert.match(sitemap, /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-25-ev-range-cold-weather\/<\/loc>/);
+  assert.match(
+    sitemap,
+    /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-25-ev-range-cold-weather\/<\/loc>\s*<lastmod>2026-10-25T00:00:00\.000Z<\/lastmod>/,
+  );
   assert.match(news, /^<\?xml version="1.0" encoding="UTF-8"\?>/);
   assert.match(news, /xmlns="http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9"/);
   assert.match(news, /xmlns:news="http:\/\/www.google.com\/schemas\/sitemap-news\/0.9"/);
@@ -431,26 +449,34 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(revealJs, /prefers-reduced-motion/);
   assert.match(read("_site", "404.html"), /noindex/);
 
-  const europeSummary = fs
-    .readFileSync(path.join(root, "src/content/posts/2026-10-23-europe-september-ev-shares.md"), "utf8")
-    .match(/^summary:\s+"([^"]+)"/m)[1];
+  const europeFile = fs.readFileSync(
+    path.join(root, "src/content/posts/2026-10-23-europe-september-ev-shares.md"),
+    "utf8",
+  );
+  const europeSummary = europeFile.match(/^summary:\s+"([^"]+)"/m)[1];
+  const europeDescription = europeFile.match(/^description:\s+"([^"]+)"/m)[1];
   assert.ok(europeSummary.length > 155);
-  const europeMeta = metaDescription(europeSummary);
-  assert.ok(europeMeta.length <= 155);
-  assert.ok(europeMeta.endsWith("…"));
-  assert.equal(europeSummary[europeMeta.length - 1], " ");
+  assert.ok(europeDescription.length <= 155);
+  assert.doesNotMatch(europeDescription, /…/);
   const europe = read("_site", "articles/2026-10-23-europe-september-ev-shares/index.html");
-  assert.deepEqual(metaDescriptions(europe), [europeMeta, europeMeta, europeMeta]);
+  assert.deepEqual(metaDescriptions(europe), [europeDescription, europeDescription, europeDescription]);
   assert.match(europe, /"description":"France's September electric-car share/);
   assert.match(europe, /it is not law\./);
-  assert.doesNotMatch(europeMeta, /it is not law/);
+  assert.doesNotMatch(europeDescription, /it is not law/);
   const homeMeta = metaDescription("", site.description);
   assert.deepEqual(metaDescriptions(home), [homeMeta, homeMeta, homeMeta]);
   assert.match(home, new RegExp(`"description":"${esc(site.description)}"`));
+  const seenMeta = new Map();
   for (const file of walk(path.join(root, "_site")).filter((name) => name.endsWith(".html"))) {
-    const texts = metaDescriptions(fs.readFileSync(file, "utf8"));
+    const html = fs.readFileSync(file, "utf8");
+    const texts = metaDescriptions(html);
     assert.equal(texts.length, 3, file);
     for (const text of texts) assert.ok(text.length <= 155, `${file} description is ${text.length} characters`);
+    assert.equal(texts[0], texts[1], file);
+    assert.equal(texts[0], texts[2], file);
+    const previous = seenMeta.get(texts[0]);
+    assert.equal(previous, undefined, `${file} repeats the meta description of ${previous}: ${texts[0]}`);
+    seenMeta.set(texts[0], file);
   }
 
   const dash = read("_site", "data/index.html");
@@ -601,8 +627,27 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const batteryRelated = batteryStory.match(/<section class="related"[\s\S]*?<\/section>/)[0];
   assert.match(batteryRelated, /href="\/articles\/2026-10-25-nio-firefly-60-kwh\/"/);
   assert.equal((batteryRelated.match(/href="\/articles\//g) || []).length, 1);
+  assert.match(batteryRelated, /href="\/topics\/batteries\/"/);
+  for (const story of stories) {
+    const html = read("_site", `articles/${story.slug}/index.html`);
+    const main = html.match(/<main\b[^>]*>([\s\S]*)<\/main>/)[1];
+    assert.match(main, /href="\/topics\/[a-z]+\/"/, story.slug);
+    const articleLinks = new Set(main.match(/href="\/articles\/[^"]+"/g) || []);
+    assert.ok(articleLinks.size >= 2, `${story.slug} has ${articleLinks.size} related article links`);
+    assert.equal(articleLinks.has(`href="/articles/${story.slug}/"`), false, story.slug);
+  }
+  const explainer = read("_site", "articles/2026-10-25-ev-range-cold-weather/index.html");
+  assert.match(explainer, /"@type":"Article"/);
+  assert.doesNotMatch(explainer, /"@type":"NewsArticle"/);
+  assert.match(explainer, /This is not financial, tax, or investment advice/);
+  assert.match(explainer, /39\.0 percent/);
+  assert.match(explainer, /https:\/\/www\.fueleconomy\.gov\/feg\/coldweather\.shtml/);
+  assert.doesNotMatch(explainer, /AI-generated photograph/);
   const chargingHub = read("_site", "topics/charging/index.html");
-  assert.match(chargingHub, /Published Charging stories: home, workplace, and public charging/);
+  assert.match(chargingHub, /EV charging news: home, workplace, and public charging/);
+  assert.match(chargingHub, /<title>EV charging news — EV News Desk<\/title>/);
+  assert.match(chargingHub, /aria-label="Other desks"/);
+  assert.match(chargingHub, /href="\/topics\/cars\/"/);
   const chargingList = chargingHub.match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0];
   assert.match(chargingList, /href="\/articles\/2026-10-24-chargepoint-us-dc-fast-ports\/"/);
   assert.match(chargingList, /href="\/articles\/2026-10-24-chery-volt-dragon-charging\/"/);
@@ -614,7 +659,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.doesNotMatch(chargingHub, /Joshua|Ventures|©|Sample draft/);
   const carsHub = read("_site", "topics/cars/index.html");
   const carsList = carsHub.match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0];
-  assert.equal((carsList.match(/href="\/articles\//g) || []).length, 7);
+  assert.equal((carsList.match(/href="\/articles\//g) || []).length, 8);
+  assert.match(carsList, /href="\/articles\/2026-10-25-ev-range-cold-weather\/"/);
   const listedStories = (file) =>
     (read("_site", file).match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0].match(/href="\/articles\//g) || []).length;
   assert.equal(listedStories("topics/batteries/index.html"), 2);

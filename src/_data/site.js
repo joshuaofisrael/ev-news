@@ -46,44 +46,52 @@ const site = {
     {
       name: "Cars",
       slug: "cars",
+      seoTitle: "Electric car news",
       photo: "cat-cars",
       photoAlt: "White electric crossover on a wet city street at dusk, headlights on, with no people or readable badges",
       description: "Models and product reporting, published only with a public source list.",
-      hubIntro: "Published Cars stories: models and product reporting, each with a public source list.",
+      hubIntro:
+        "Electric car news: launches, prices, deliveries, and range. Every story on this desk links the public source for its figures.",
     },
     {
       name: "Batteries",
       slug: "batteries",
+      seoTitle: "EV battery news",
       photo: "cat-batteries",
       photoAlt: "Rows of prismatic battery cells and modules on a dark workbench, with no people or brand names",
       description: "Cells, packs, materials, and the supply chain behind them.",
-      hubIntro: "Published Batteries stories: cells, packs, materials, and the supply chain behind them.",
+      hubIntro:
+        "EV battery news: cells, packs, materials, and swap networks. Every story on this desk links the public source for its figures.",
     },
     {
       name: "Charging",
       slug: "charging",
+      seoTitle: "EV charging news",
       photo: "cat-charging",
       photoAlt: "White electric crossover plugged into a curbside charger on a residential street, with no people in view",
       description: "Home, workplace, and public charging, and the power that feeds them.",
       hubIntro:
-        "Published Charging stories: home, workplace, and public charging, and the power that feeds them.",
+        "EV charging news: home, workplace, and public charging, and the power that feeds them. Each story links the source for its figures.",
     },
     {
       name: "Policy",
       slug: "policy",
+      seoTitle: "EV policy news",
       photo: "cat-policy",
       photoAlt: "Close view of the United States Capitol dome against a clear blue sky",
       description: "Laws, incentives, standards, and regulation.",
-      hubIntro: "Published Policy stories: laws, incentives, standards, and regulation.",
+      hubIntro:
+        "EV policy news: laws, incentives, standards, and regulation. Each story links the public document or dataset it cites.",
     },
     {
       name: "Industry/Business",
       slug: "industry",
+      seoTitle: "EV industry news",
       photo: "cat-industry",
       photoAlt: "Robotic arms over a car chassis on an electric-vehicle assembly line, with no people in view",
       description: "Companies, factories, capital, and the market around electric vehicles.",
       hubIntro:
-        "Published Industry/Business stories: companies, factories, capital, and the market around electric vehicles.",
+        "EV industry news: companies, factories, capital, and markets. Each story links the filing, release, or dataset behind the number.",
     },
   ],
 };

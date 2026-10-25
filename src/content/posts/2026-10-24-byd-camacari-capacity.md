@@ -1,9 +1,10 @@
 ---
 title: "BYD is seeking permits to take its Camaçari plant to 600,000 vehicles a year, its Brazil chief told Reuters"
 date: 2026-10-24
-updatedAt: 2026-10-24
+updatedAt: 2026-10-25
 category: Industry/Business
 summary: "Alexandre Baldy told Reuters that BYD is seeking permits to double annual capacity at its Camaçari, Brazil plant to 600,000 vehicles. He gave no date for that step, and he described a nearer output target of 25,000 vehicles a month by the end of 2026."
+description: "Alexandre Baldy told Reuters that BYD is seeking permits to double its Camaçari plant to 600,000 vehicles a year. He gave no date for that step."
 tags:
   - byd
   - manufacturing
@@ -48,3 +49,5 @@ The export book, as Baldy described it to Reuters, is already partly spoken for.
 ## Analysis
 
 A permit application is not finished capacity. Baldy did not give Reuters a date for the 600,000-vehicle figure. The 25,000-a-month output he described, for the end of 2026, is a nearer production target. Twelve times 25,000 is 300,000 vehicles a year. That product is this desk's arithmetic, not a capacity number BYD printed beside the permit request. Reuters described the permit step as a doubling, to 600,000. Nothing in the interview says the plant is building at the higher rate now.
+
+More from the [Industry/Business desk](/topics/industry/): [China's new-energy exports to Brazil](/articles/2026-10-25-china-nev-exports-brazil/), [Volvo Cars' third quarter](/articles/2026-10-24-volvo-q3-results/), and [Tesla's third quarter](/articles/2026-10-23-tesla-q3-results/).
