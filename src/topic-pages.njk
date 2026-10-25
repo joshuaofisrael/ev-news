@@ -12,3 +12,13 @@ layout: layouts/section.njk
 {% set stories = collections.posts | whereCategory(desk.name) %}
 {% set emptyNote = "No story has been published in " ~ desk.name ~ " yet." %}
 {% include "partials/story-list.njk" %}
+<nav class="related" aria-label="Other desks">
+  <h2>Other desks</h2>
+  <ul>
+    {% for item in site.categories %}
+    {% if item.slug != desk.slug %}
+    <li><a href="{{ ('/topics/' ~ item.slug ~ '/') | url }}">{{ item.name }}</a></li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</nav>

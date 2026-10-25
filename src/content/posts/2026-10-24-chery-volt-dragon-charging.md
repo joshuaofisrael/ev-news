@@ -1,9 +1,10 @@
 ---
 title: "Chery says its Volt-Dragon charger peaks at 1.44 MW, with a 10 to 97 percent charge in 6 minutes 50 seconds"
 date: 2026-10-24
-updatedAt: 2026-10-24
+updatedAt: 2026-10-25
 category: Charging
 summary: "Chery has announced a passenger-car charger it calls Volt-Dragon, with a stated peak of 1.44 MW and a 10 to 97 percent charge in 6 minutes 50 seconds. It has not named the car, and the first step it describes is about 100 sites in 10 Chinese cities."
+description: "Chery says its Volt-Dragon charger peaks at 1.44 MW and charged from 10 to 97 percent in 6 minutes 50 seconds. It has not named the car."
 tags:
   - chery
   - charging
@@ -66,3 +67,5 @@ The same week, BYD's fast-charging name turned up in a Malaysian agreement that 
 ## Analysis
 
 The 1.44 MW peak, the 6 minutes 50 seconds, and the 500 km claim are Chery's figures, as three outlets reported them. No report cited here names the test car, the pack size, or an outside lab. The 100-site step and the 20,000-station mark are targets. The Gentari document is an agreement to look at Malaysian sites, not a count of Flash Charging stalls already open there.
+
+More from the [Charging desk](/topics/charging/): [ChargePoint's U.S. DC fast-port count](/articles/2026-10-24-chargepoint-us-dc-fast-ports/) and the [LAZ and EverCharge joint venture](/articles/2026-10-23-laz-evercharge-apartment-charging/). The [second-generation Seagull](/articles/2026-10-24-byd-seagull-second-generation/) is the cars story on a fast-charge claim.

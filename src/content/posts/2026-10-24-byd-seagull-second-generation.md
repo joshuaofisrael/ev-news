@@ -1,9 +1,10 @@
 ---
 title: "BYD launched the second-generation Seagull in China from 65,900 yuan, with flash charging on the 420 km trims"
 date: 2026-10-24
-updatedAt: 2026-10-24
+updatedAt: 2026-10-25
 category: Cars
 summary: "BYD launched the second-generation Seagull in China on 20 October at guide prices of 65,900 to 99,900 yuan. The three higher trims use a 39.2 kWh pack and a 420 km CLTC rating, and the company says those trims can charge from 10 to 70 percent in five minutes."
+description: "BYD launched the second-generation Seagull in China on 20 October from 65,900 yuan. Higher trims are rated 420 km CLTC with a claimed five-minute charge."
 tags:
   - byd
   - seagull
@@ -62,3 +63,5 @@ EV says BYD has not said whether this generation will be sold outside China. The
 ## Analysis
 
 The guide prices, the 39.2 kWh and 420 km CLTC figures, and the 10 to 70 percent claim in five minutes are the launch specifications as CnEVPost, EV, and Electrek reported them. CLTC is the range label those reports use. It is not a U.S. test cycle, and none of the three stories prints an EPA figure. The 12,165 stations are one outlet's report of what Zhang said on 20 October. They are not the late-August 10,000 figure, and they are not the 20,000 year-end target.
+
+More from the [Cars desk](/topics/cars/): [cold weather and electric-car range](/articles/2026-10-25-ev-range-cold-weather/), [Firefly's 60 kWh pack](/articles/2026-10-25-nio-firefly-60-kwh/), and the [ID. Cross](/articles/2026-10-25-vw-id-cross-lfp-france/).

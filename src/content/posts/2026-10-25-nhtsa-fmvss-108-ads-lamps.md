@@ -4,6 +4,7 @@ date: 2026-10-25
 updatedAt: 2026-10-25
 category: Policy
 summary: "NHTSA has proposed, and has not finalized, optional cyan marker lamps for automated vehicles and narrower manual-control rules in FMVSS No. 108. The notice is 91 FR 67243, docket NHTSA-2026-1519, with comments due 25 November 2026."
+description: "NHTSA has proposed optional cyan marker lamps for automated vehicles in FMVSS No. 108. It is not a final rule. Comments are due 25 November 2026."
 tags:
   - nhtsa
   - policy
@@ -54,3 +55,5 @@ Readers on X have treated the draft as a Cybercab item. [EVwire](https://evwire.
 ## Analysis
 
 The notice is a proposal, with comments due 25 November 2026, thirty days after the 26 October date printed on it. Cyan lamps would be optional. The notice does not find that a named vehicle already complies, and it does not require every automated vehicle to carry them. The Cybercab connection is the reading EVwire attributes to posts on X. The audit query The Verge describes is a separate certification inquiry, not this lighting draft.
+
+More from the [Policy desk](/topics/policy/): [September electric-car shares in France and Germany](/articles/2026-10-23-europe-september-ev-shares/). On the cars desk, [Tesla's FSD (Supervised) attach rate](/articles/2026-10-23-tesla-fsd-supervised-attach-rate/) is a separate driver-assistance story.

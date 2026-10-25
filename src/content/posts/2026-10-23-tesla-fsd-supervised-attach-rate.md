@@ -1,9 +1,10 @@
 ---
 title: "What EV fans on X are discussing: Tesla says FSD (Supervised) came with over 75 percent of new North American deliveries"
 date: 2026-10-23
-updatedAt: 2026-10-23
+updatedAt: 2026-10-25
 category: Cars
 summary: "Tesla's third-quarter update says the FSD (Supervised) attach rate reached over 75 percent of new deliveries in North America. Tesla says the system requires an attentive driver and does not make the vehicle autonomous."
+description: "Tesla's third-quarter update says FSD (Supervised) came with over 75 percent of new North American deliveries, and that the driver must stay attentive."
 tags:
   - tesla
   - driver-assistance
@@ -39,3 +40,5 @@ In the highlights, Tesla says the FSD (Supervised) attach rate reached over 75 p
 A second passage says Tesla "achieved record FSD attach rates in North America, with over 75% of new deliveries including FSD subscriptions," and mentions record net new subscriptions. The operational table lists 1.74 million active FSD subscriptions, up 67 percent from 1.04 million a year earlier. Footnote 3 says that count includes upfront payments and monthly subscriptions and excludes free trials. The deck does not say the 75 percent share applies outside North America. The 1.74 million is a subscription count, not that share.
 
 Since the end of the second quarter, Tesla says it added approvals in Croatia, Slovenia, the Czech Republic, and Slovakia, and that FSD is in nine EU countries, used by over 100,000 customers logging more than 160 million kilometres. Those are not the North American attach rate. Tesla says it believes the feature is adding demand where it is offered and that it is still seeking approval in other markets. That is the company's statement, not a separate demand study.
+
+More from the [Cars desk](/topics/cars/): [Giga Berlin's reported Model Y week](/articles/2026-10-24-tesla-giga-berlin-week/) and [Tesla's third-quarter results](/articles/2026-10-23-tesla-q3-results/). The [Policy desk](/topics/policy/) has [NHTSA's lighting proposal for automated vehicles](/articles/2026-10-25-nhtsa-fmvss-108-ads-lamps/).

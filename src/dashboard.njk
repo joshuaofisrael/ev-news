@@ -5,6 +5,7 @@ title: Newsroom dashboard
 summary: "Published stories, newest first: a lead photo, a dated list, each category's latest, and recent updates."
 kind: newsroom
 date: 2026-10-23
+updatedAt: 2026-10-25
 ---
 {% set stories = collections.posts | newsroomPosts %}
 {% set updates = stories | byUpdated | limit(5) %}

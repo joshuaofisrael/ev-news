@@ -4,6 +4,7 @@ date: 2026-10-25
 updatedAt: 2026-10-25
 category: Batteries
 summary: "Firefly says its new 60 kWh pack reaches 560 km on the CLTC cycle, with outright prices from 136,800 yuan or 79,800 yuan under battery rental at 599 yuan a month. CnEVPost reports a 17,000 yuan permanent upgrade from the 42 kWh pack."
+description: "Firefly says a new 60 kWh pack is rated at 560 km CLTC. Outright prices start at 136,800 yuan, or 79,800 yuan with a 599 yuan monthly battery rental."
 tags:
   - firefly
   - nio
@@ -55,3 +56,5 @@ Deliveries have exceeded 90,000, the release says. CnEVPost says the brand annou
 ## Analysis
 
 The 560 km figure is a CLTC laboratory rating. The release does not print a WLTP number. The 79,800 yuan BaaS price is the car without the pack, plus 599 yuan a month for the 60 kWh battery. In CnEVPost's Free Edition row, 136,800 minus 119,800 is 17,000 yuan, the outright upgrade difference the outlet prints, and the monthly fee rises by 200 yuan, from 399 to 599. "Exceeded 90,000" is not an exact delivery total. Neither source is a recommendation to buy the car or take the upgrade.
+
+More from the [Batteries desk](/topics/batteries/): [CATL and BAIC's battery-swap pact](/articles/2026-10-23-catl-baic-battery-swap/). Related car stories: the [ID. Cross battery versions](/articles/2026-10-25-vw-id-cross-lfp-france/) and the [Volkswagen and Cupra battery campaigns](/articles/2026-10-25-vw-id-cupra-battery-recall/).

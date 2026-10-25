@@ -1,9 +1,10 @@
 ---
 title: "Porsche's three electric lines add up to 38,730 deliveries through September"
 date: 2026-10-23
-updatedAt: 2026-10-23
+updatedAt: 2026-10-25
 category: Cars
 summary: "Porsche's 9 October delivery release does not print a single electric total. The Macan Electric, Taycan, and Cayenne Electric figures in that release add up to 38,730 of the 178,532 cars delivered worldwide."
+description: "Porsche's 9 October release does not print one electric total. Macan Electric, Taycan, and Cayenne Electric add up to 38,730 of 178,532 deliveries."
 tags:
   - porsche
   - deliveries
@@ -54,3 +55,5 @@ Matthias Becker, the Porsche AG executive board member for sales and marketing, 
 The release also notes that GTS, Turbo, and GT models again made up a significant share of sales, and that 911 demand was strong. Those points sit beside the electric counts. They are not a claim that electric demand and 911 demand are the same phenomenon. The document's electric facts are the three model counts, the summer start of Cayenne Electric deliveries, the end of combustion Macan production, and the note that last year's Macan Electric performance is one reason North American deliveries are lower.
 
 What the 9 October release does not do is publish a battery-electric total, a battery-electric share, or a regional electric table. The 38,730 and the 21.7 percent in this article are arithmetic from the figures Porsche did publish. The surrounding business result, which Porsche states directly, is a 16 percent decline in worldwide deliveries, to 178,532 cars, with China down 33 percent and the Cayenne still the largest line.
+
+More from the [Cars desk](/topics/cars/): [cold weather and electric-car range](/articles/2026-10-25-ev-range-cold-weather/), the [second-generation Seagull](/articles/2026-10-24-byd-seagull-second-generation/), and the [2027 Mustang Mach-E Trail](/articles/2026-10-23-ford-mach-e-trail/).
