@@ -651,7 +651,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const batteryStory = read("_site", "articles/2026-10-23-catl-baic-battery-swap/index.html");
   const batteryRelated = batteryStory.match(/<section class="related"[\s\S]*?<\/section>/)[0];
   assert.match(batteryRelated, /href="\/articles\/2026-10-25-nio-firefly-60-kwh\/"/);
-  assert.equal((batteryRelated.match(/href="\/articles\//g) || []).length, 1);
+  assert.match(batteryRelated, /href="\/articles\/2026-10-26-li-auto-i6-range-test\/"/);
+  assert.equal((batteryRelated.match(/href="\/articles\//g) || []).length, 2);
   assert.match(batteryRelated, /href="\/topics\/batteries\/"/);
   for (const story of stories) {
     const html = read("_site", `articles/${story.slug}/index.html`);
@@ -678,20 +679,20 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(chargingList, /href="\/articles\/2026-10-24-chargepoint-us-dc-fast-ports\/"/);
   assert.match(chargingList, /href="\/articles\/2026-10-24-chery-volt-dragon-charging\/"/);
   assert.match(chargingList, /href="\/articles\/2026-10-23-laz-evercharge-apartment-charging\/"/);
-  assert.equal((chargingList.match(/href="\/articles\//g) || []).length, 4);
+  assert.equal((chargingList.match(/href="\/articles\//g) || []).length, 6);
   assert.match(chargingHub, /rel="canonical" href="https:\/\/evnewsdesk\.com\/topics\/charging\/"/);
   assert.match(chargingHub, /"name":"EV News Desk"/);
   assert.match(chargingHub, /"@type":"CollectionPage"/);
   assert.doesNotMatch(chargingHub, /Joshua|Ventures|©|Sample draft/);
   const carsHub = read("_site", "topics/cars/index.html");
   const carsList = carsHub.match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0];
-  assert.equal((carsList.match(/href="\/articles\//g) || []).length, 9);
+  assert.equal((carsList.match(/href="\/articles\//g) || []).length, 10);
   assert.match(carsList, /href="\/articles\/2026-10-26-jetta-m6-orders\/"/);
   assert.match(carsList, /href="\/articles\/2026-10-25-ev-range-cold-weather\/"/);
   const listedStories = (file) =>
     (read("_site", file).match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0].match(/href="\/articles\//g) || []).length;
-  assert.equal(listedStories("topics/batteries/index.html"), 2);
-  assert.equal(listedStories("topics/policy/index.html"), 2);
+  assert.equal(listedStories("topics/batteries/index.html"), 3);
+  assert.equal(listedStories("topics/policy/index.html"), 3);
   assert.equal(listedStories("topics/industry/index.html"), 8);
   assert.match(
     read("_site", "topics/industry/index.html"),
