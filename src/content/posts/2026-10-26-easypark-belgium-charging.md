@@ -42,6 +42,6 @@ Newmobility.news argues the fee makes little sense for Belgian company-car drive
 
 ## Analysis
 
-On a 10 euro session, a 15% fee adds 1.50 euros; the 2 euro cap applies from about 13.33 euros. The per-kWh price still depends on the operator. The 62% coverage figure is the company's claim as reported, not a count by this desk.
+On a 10 euro session, a 15% fee adds 1.50 euros; the 2 euro cap applies from about 13.33 euros. The per-kWh price still depends on the operator. The 62% coverage figure is the company's claim as reported, not a count by this desk. A fee on a public session in Belgium is a different charge from a U.S. home electricity rate, covered in [what it costs to charge an electric car at home](/articles/2026-10-26-ev-charging-cost/).
 
 More from the [Charging desk](/topics/charging/): [Tesla's Singapore chargers](/articles/2026-10-26-tesla-singapore-chargers-open/), [ChargePoint's U.S. DC ports](/articles/2026-10-24-chargepoint-us-dc-fast-ports/), and [cold weather and range](/articles/2026-10-25-ev-range-cold-weather/).

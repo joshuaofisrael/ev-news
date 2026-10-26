@@ -1,7 +1,7 @@
 ---
 title: "ChargePoint's U.S. DC fast-charging count passed 5,000 ports in an AFDC reading, inside a national network Paren put at 80,964"
 date: 2026-10-24
-updatedAt: 2026-10-25
+updatedAt: 2026-10-26
 category: Charging
 summary: "EVChargingStations.com says the Alternative Fuels Data Center listed 5,004 ChargePoint DC fast ports in the United States on 22 October. Paren's third-quarter report put the whole public fast-charging network at 80,964 ports, with Tesla still the largest operator."
 description: "An AFDC reading on 22 October listed 5,004 ChargePoint DC fast ports in the U.S. Paren put the national public fast-charging network at 80,964 ports."
@@ -66,7 +66,7 @@ ChargePoint's place depends on which table is open. EVwire's Paren table lists C
 
 The shape of the new sites is part of the same Paren report. It says 71 percent of ChargePoint's sites with new third-quarter ports had two ports or fewer, and that ChargePoint added 111 ports rated under 150 kW, the most of any network in that lower tier. Across all networks, Paren says 73 percent of new ports were rated at least 250 kW. Electrek, citing Paren, says urban markets received 90 percent of the quarter's new stations and rural markets received 68 of the 664 additions.
 
-Drivers are using the larger network at about the same rate. Paren says national utilization was 15.9 percent, against 15.8 percent in the second quarter, and that charging sessions reached 50.4 million in the quarter, up 26 percent from a year earlier. On price, Paren says the national average reached $0.540 per kWh. It attributes the rise to Tesla: a non-member price up 15 percent over the year to $0.569, and a member price up 9 percent to $0.396, while the non-Tesla average held near $0.533 for five quarters. Electrek reported those same price figures from the report.
+Drivers are using the larger network at about the same rate. Paren says national utilization was 15.9 percent, against 15.8 percent in the second quarter, and that charging sessions reached 50.4 million in the quarter, up 26 percent from a year earlier. On price, Paren says the national average reached $0.540 per kWh. It attributes the rise to Tesla: a non-member price up 15 percent over the year to $0.569, and a member price up 9 percent to $0.396, while the non-Tesla average held near $0.533 for five quarters. Electrek reported those same price figures from the report. Those are public DC fast-charging prices in that report. A U.S. residential average is a different figure, in [what it costs to charge an electric car at home](/articles/2026-10-26-ev-charging-cost/).
 
 ## Analysis
 

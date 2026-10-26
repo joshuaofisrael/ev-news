@@ -60,6 +60,7 @@ function publishedPosts() {
         sources: Array.isArray(data.sources) ? data.sources.length : 0,
         draft: data.draft === true,
         sample: data.sample === true,
+        news: data.news !== false,
       };
     })
     .filter((post) => !post.draft && !post.sample)
@@ -272,8 +273,20 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(sitemap, /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-26-jetta-m6-orders\/<\/loc>/);
   assert.match(
     sitemap,
-    /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-25-ev-range-cold-weather\/<\/loc>\s*<lastmod>2026-10-25T00:00:00\.000Z<\/lastmod>/,
+    /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-25-ev-range-cold-weather\/<\/loc>\s*<lastmod>2026-10-26T00:00:00\.000Z<\/lastmod>/,
   );
+  assert.match(sitemap, /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-26-ev-charging-cost\/<\/loc>/);
+  for (const post of publishedPosts()) {
+    const loc = `https://evnewsdesk.com/articles/${post.slug}/`;
+    assert.equal(sitemap.includes(`<loc>${loc}</loc>`), true, loc);
+    const block = news.split("<url>").find((part) => part.includes(`<loc>${loc}</loc>`));
+    const expectNews = post.news && isFreshNews(post.date);
+    assert.equal(Boolean(block), expectNews, post.slug);
+    if (!expectNews) continue;
+    assert.match(block, new RegExp(`<news:publication_date>${post.date}T00:00:00Z</news:publication_date>`));
+    assert.match(block, /<news:name>EV News Desk<\/news:name>/);
+  }
+  assert.doesNotMatch(news, /ev-charging-cost/);
   assert.match(news, /^<\?xml version="1.0" encoding="UTF-8"\?>/);
   assert.match(news, /xmlns="http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9"/);
   assert.match(news, /xmlns:news="http:\/\/www.google.com\/schemas\/sitemap-news\/0.9"/);
@@ -495,6 +508,10 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     const texts = metaDescriptions(html);
     assert.equal(texts.length, 3, file);
     for (const text of texts) assert.ok(text.length <= 155, `${file} description is ${text.length} characters`);
+    const titleMatch = html.match(/<title>([^<]*)<\/title>/);
+    assert.ok(titleMatch, file);
+    const pageTitle = decodeAttr(titleMatch[1]);
+    assert.ok(pageTitle.length <= 155, `${file} title is ${pageTitle.length} characters: ${pageTitle}`);
     assert.equal(texts[0], texts[1], file);
     assert.equal(texts[0], texts[2], file);
     const previous = seenMeta.get(texts[0]);
@@ -669,6 +686,25 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(explainer, /39\.0 percent/);
   assert.match(explainer, /https:\/\/www\.fueleconomy\.gov\/feg\/coldweather\.shtml/);
   assert.doesNotMatch(explainer, /AI-generated photograph/);
+  const chargingCost = read("_site", "articles/2026-10-26-ev-charging-cost/index.html");
+  assert.match(chargingCost, /"@type":"Article"/);
+  assert.doesNotMatch(chargingCost, /"@type":"NewsArticle"/);
+  assert.match(chargingCost, /This is not financial, tax, or investment advice/);
+  assert.match(chargingCost, /18\.16 cents/);
+  assert.match(chargingCost, /\$45\.50/);
+  assert.match(chargingCost, /https:\/\/www\.fueleconomy\.gov\/feg\/charging\.shtml/);
+  assert.match(chargingCost, /https:\/\/afdc\.energy\.gov\/fuels\/electricity-charging-home/);
+  assert.match(chargingCost, /https:\/\/www\.eia\.gov\/electricity\/monthly\/update\/print-version\.php/);
+  assert.match(chargingCost, /href="\/topics\/charging\/"/);
+  assert.match(chargingCost, /href="\/articles\/2026-10-25-ev-range-cold-weather\/"/);
+  assert.match(chargingCost, /"name":"EV News Desk"/);
+  assert.doesNotMatch(chargingCost, /AI-generated photograph|Joshua|Ventures/);
+  const chargingJson = JSON.parse(chargingCost.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  assert.equal(chargingJson["@graph"].some((node) => node["@type"] === "NewsArticle"), false);
+  assert.equal(
+    chargingJson["@graph"].find((node) => node["@type"] === "Article").headline,
+    "What it costs to charge an electric car at home",
+  );
   const chargingHub = read("_site", "topics/charging/index.html");
   assert.match(chargingHub, /EV charging news: home, workplace, and public charging/);
   assert.match(chargingHub, /<title>EV charging news — EV News Desk<\/title>/);
@@ -679,7 +715,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(chargingList, /href="\/articles\/2026-10-24-chargepoint-us-dc-fast-ports\/"/);
   assert.match(chargingList, /href="\/articles\/2026-10-24-chery-volt-dragon-charging\/"/);
   assert.match(chargingList, /href="\/articles\/2026-10-23-laz-evercharge-apartment-charging\/"/);
-  assert.equal((chargingList.match(/href="\/articles\//g) || []).length, 6);
+  assert.match(chargingList, /href="\/articles\/2026-10-26-ev-charging-cost\/"/);
+  assert.equal((chargingList.match(/href="\/articles\//g) || []).length, 7);
   assert.match(chargingHub, /rel="canonical" href="https:\/\/evnewsdesk\.com\/topics\/charging\/"/);
   assert.match(chargingHub, /"name":"EV News Desk"/);
   assert.match(chargingHub, /"@type":"CollectionPage"/);

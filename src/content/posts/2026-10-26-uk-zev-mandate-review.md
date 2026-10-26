@@ -46,7 +46,7 @@ Under the current rules, 80% of a manufacturer's new cars and 70% of new vans mu
 
 [The Guardian](https://www.theguardian.com/environment/2026/oct/25/policy-u-turn-uk-electric-vehicles) reported on 25 October on analysis from the Energy and Climate Intelligence Unit, seen by the paper. It says a cut to 50% could mean an extra 147 megatonnes of carbon dioxide equivalent. The paper quotes a government spokesperson: "no decisions have been taken," and says the government still plans to phase out new petrol and diesel cars by 2030 and be fully zero emission by 2035.
 
-The Guardian also says more than half of new UK cars sold last month were electric if hybrids are counted, and about 28% were fully electric. Those are the paper's figures; this desk did not open the registration tables.
+The Guardian also says more than half of new UK cars sold last month were electric if hybrids are counted, and about 28% were fully electric. Those are the paper's figures; this desk did not open the registration tables. September electric-car shares for France and Germany, from AAA Data and the KBA, are in a [separate Policy desk story](/articles/2026-10-23-europe-september-ev-shares/).
 
 ## Analysis
 

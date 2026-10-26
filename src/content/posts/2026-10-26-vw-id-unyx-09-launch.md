@@ -42,7 +42,7 @@ CnEVPost lists three trims, Ultra, a fully equipped version and Max, at 179,900,
 
 The headline 169,900 yuan figure is narrow. CnEVPost says that Double 11 promotional price applies only to the Ultra in a black exterior, is limited to 500 cars, and is 10,000 yuan off that trim's list price. It says launch offers apply to deposits paid from 24 October to 30 November.
 
-On hardware, CnEVPost says the two rear-drive trims have a 230 kW motor and a 755 km CLTC range, and the all-wheel-drive Max uses 140 kW and 230 kW motors for 705 km CLTC. Every version has a pack of about 92 kWh with 5C cells from CATL, and Volkswagen Anhui says five minutes of charging can add 250 km of range. The car is 5,081 mm long on a 3,030 mm wheelbase, and each trim carries an Xpeng Turing chip rated at 750 TOPS. CarNewsChina gives the top range as about 612 km on the WLTP cycle; that conversion is the outlet's.
+On hardware, CnEVPost says the two rear-drive trims have a 230 kW motor and a 755 km CLTC range, and the all-wheel-drive Max uses 140 kW and 230 kW motors for 705 km CLTC. Every version has a pack of about 92 kWh with 5C cells from CATL, and Volkswagen Anhui says five minutes of charging can add 250 km of range. That five-minute figure is the company's claim. [Chery's stated charger](/articles/2026-10-24-chery-volt-dragon-charging/) and [BMW's iX5 demonstration](/articles/2026-10-26-bmw-ix5-460kw-charging/) are separate fast-charge claims on the [Charging desk](/topics/charging/). The car is 5,081 mm long on a 3,030 mm wheelbase, and each trim carries an Xpeng Turing chip rated at 750 TOPS. CarNewsChina gives the top range as about 612 km on the WLTP cycle; that conversion is the outlet's.
 
 ## Analysis
 

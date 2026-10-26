@@ -1,5 +1,5 @@
 ---
-title: "BMW's U.S. release says an iX5 60 xDrive can add up to 182 miles in 10 minutes at 460 kW. The global release prints 226 miles and a 141 kWh pack"
+title: "BMW's U.S. release says an iX5 60 xDrive can add up to 182 miles in 10 minutes at 460 kW"
 date: 2026-10-26
 updatedAt: 2026-10-26
 category: Charging
@@ -56,6 +56,6 @@ The global release also prints a combined electric power consumption, according 
 
 ## Analysis
 
-The figure a reader can treat as shared, because both press releases print it, is a stated peak of up to 460 kW and a stated 10-to-80 percent time of 22 minutes, on hardware BMW says is not commercially available in the United States. The 144 kWh and 182-mile EPA lines belong to the U.S. release, with the miles and the 22 minutes marked as BMW estimates. The 141 kWh and 226-mile WLTP lines belong to the global release. The "about 23 minutes" line belongs to the U.S. product page, which also says "about 22 minutes" further down. None of those pages is an independent lab report, and none says a public network in the U.S. currently offers 460 kW to this model. A 10-minute range and a full-charge range are different claims, and an EPA-procedure estimate is not the same document as a WLTP figure.
+The figure a reader can treat as shared, because both press releases print it, is a stated peak of up to 460 kW and a stated 10-to-80 percent time of 22 minutes, on hardware BMW says is not commercially available in the United States. The 144 kWh and 182-mile EPA lines belong to the U.S. release, with the miles and the 22 minutes marked as BMW estimates. The 141 kWh and 226-mile WLTP lines belong to the global release. The "about 23 minutes" line belongs to the U.S. product page, which also says "about 22 minutes" further down. None of those pages is an independent lab report, and none says a public network in the U.S. currently offers 460 kW to this model. A 10-minute range and a full-charge range are different claims, and an EPA-procedure estimate is not the same document as a WLTP figure. A public fast-charge demonstration is also a different bill from home electricity, which is the subject of [what it costs to charge an electric car at home](/articles/2026-10-26-ev-charging-cost/).
 
 More from the [Charging desk](/topics/charging/): [ChargePoint's U.S. fast-charging ports](/articles/2026-10-24-chargepoint-us-dc-fast-ports/), [Chery's stated 1.44 MW charger](/articles/2026-10-24-chery-volt-dragon-charging/), and [apartment charging from LAZ and EverCharge](/articles/2026-10-23-laz-evercharge-apartment-charging/).

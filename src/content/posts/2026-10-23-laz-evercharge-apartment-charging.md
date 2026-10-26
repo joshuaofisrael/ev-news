@@ -1,7 +1,7 @@
 ---
 title: "LAZ and EverCharge form a joint venture for apartment and condo charging"
 date: 2026-10-23
-updatedAt: 2026-10-25
+updatedAt: 2026-10-26
 category: Charging
 summary: "LAZ Parking and EverCharge, part of indiGOtech, said on 20 October that a new joint venture will sell multifamily charging under the EverCharge SmartPower name. LAZ says the deal takes its network to 25,000 ports in North America."
 description: "LAZ Parking and EverCharge said on 20 October that a joint venture will sell apartment and condo charging. LAZ puts the network at 25,000 ports."
@@ -59,6 +59,6 @@ The last section of the announcement looks past apartments. It says that as tran
 
 Lazowski's other quoted line is about place: "LAZ has always been about more than parking. We connect people with the places they're going, and the future is charging right where people park." He adds that the wider relationship with GO is a chance to look at how LAZ's sites could sit alongside electric and autonomous vehicles. That is a statement of interest from the company's chairman, paired with the port figure above.
 
-What a property manager cannot learn from the page is the commercial fine print. The release names no apartment community, no monthly fee, no installation price, and no date for the first site under the joint venture. It does say multifamily charging is "now available across LAZ's nationwide footprint," and it repeats the operating numbers for both companies. The concrete offer, as of the 20 October announcement, is a joint venture, a SmartPower product aimed at shared buildings, and LAZ's statement that its charging network reaches 25,000 ports in North America.
+What a property manager cannot learn from the page is the commercial fine print. The release names no apartment community, no monthly fee, no installation price, and no date for the first site under the joint venture. A federal page's range for a home charger unit, and the electricity price beside it, are in [what it costs to charge an electric car at home](/articles/2026-10-26-ev-charging-cost/). That explainer is not this joint venture. The home-charging page it cites says multifamily charging may be more like public charging than charging at a single-family home. It does say multifamily charging is "now available across LAZ's nationwide footprint," and it repeats the operating numbers for both companies. The concrete offer, as of the 20 October announcement, is a joint venture, a SmartPower product aimed at shared buildings, and LAZ's statement that its charging network reaches 25,000 ports in North America.
 
 More from the [Charging desk](/topics/charging/): [ChargePoint's U.S. DC fast-port count](/articles/2026-10-24-chargepoint-us-dc-fast-ports/) and [Chery's Volt-Dragon charger](/articles/2026-10-24-chery-volt-dragon-charging/). A separate [Cars desk explainer](/articles/2026-10-25-ev-range-cold-weather/) covers cold-weather range.
