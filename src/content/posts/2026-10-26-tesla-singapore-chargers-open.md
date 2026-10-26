@@ -46,6 +46,6 @@ The same Straits Times report says transit platform SimplyGo added charger searc
 
 ## Analysis
 
-This is one site of four bays, not Tesla's Singapore network. The price gap is the bigger detail for other drivers: at the top of each band, non-Tesla cars pay 24 cents more per kWh. SimplyGo's six operators are mostly private sites, some not open to the public.
+This is one site of four bays, not Tesla's Singapore network. The price gap is the bigger detail for other drivers: at the top of each band, non-Tesla cars pay 24 cents more per kWh. SimplyGo's six operators are mostly private sites, some not open to the public. Those are Singapore public prices. A U.S. residential average is a different figure, in [what it costs to charge an electric car at home](/articles/2026-10-26-ev-charging-cost/).
 
 More from the [Charging desk](/topics/charging/): [ChargePoint's U.S. DC ports](/articles/2026-10-24-chargepoint-us-dc-fast-ports/), [BMW's 460 kW iX5 test](/articles/2026-10-26-bmw-ix5-460kw-charging/), and [apartment charging from LAZ and EverCharge](/articles/2026-10-23-laz-evercharge-apartment-charging/).

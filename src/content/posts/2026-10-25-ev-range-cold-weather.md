@@ -1,7 +1,7 @@
 ---
 title: "Cold weather and electric-car range"
 date: 2026-10-25
-updatedAt: 2026-10-25
+updatedAt: 2026-10-26
 category: Cars
 news: false
 disclaimer: financial
@@ -62,7 +62,7 @@ The electric-vehicle average hides a wide spread. These combined figures are the
 
 The report says the Mach-E's cold penalty was smaller in percent terms than the other two electric vehicles in the set. In that paragraph it says Ford, for the 2025 Mach-E, implemented a patented vapor-injection heat-pump architecture and revised thermal control algorithms, designed to limit losses from cabin and battery heating at temperature extremes. The desk's story on the [2027 Mustang Mach-E Trail](/articles/2026-10-23-ford-mach-e-trail/) is a later model year and a different report. It is not this test car.
 
-At 95°F the report's electric-vehicle averages were a 10.4 percent drop in MPGe and an 8.5 percent drop in range, versus 75°F. The same vehicle lines show that average is also a spread. The Model Y fell to 88.3 MPGe, down 22.3 percent, and 233.9 miles, down 21.4 percent. The Equinox EV fell to 105.5 MPGe, down 3.3 percent, and 317.2 miles, down 1.1 percent. The report says that was the smallest hot-weather degradation in the electric group. The Mach-E fell to 90.6 MPGe, down 5.6 percent, and 278.7 miles, down 3.0 percent. On cost, the key findings say cold operation raised electric-vehicle operating cost by $32.11 per 1,000 miles at residential electricity rates and by $76.93 per 1,000 miles at commercial charging rates. The newsroom says those figures use AAA's fuel and electricity prices as of 27 March 2026. They are AAA's estimates for this test. They are not a household's bill, and they are not a recommendation.
+At 95°F the report's electric-vehicle averages were a 10.4 percent drop in MPGe and an 8.5 percent drop in range, versus 75°F. The same vehicle lines show that average is also a spread. The Model Y fell to 88.3 MPGe, down 22.3 percent, and 233.9 miles, down 21.4 percent. The Equinox EV fell to 105.5 MPGe, down 3.3 percent, and 317.2 miles, down 1.1 percent. The report says that was the smallest hot-weather degradation in the electric group. The Mach-E fell to 90.6 MPGe, down 5.6 percent, and 278.7 miles, down 3.0 percent. On cost, the key findings say cold operation raised electric-vehicle operating cost by $32.11 per 1,000 miles at residential electricity rates and by $76.93 per 1,000 miles at commercial charging rates. The newsroom says those figures use AAA's fuel and electricity prices as of 27 March 2026. They are AAA's estimates for this test. They are not a household's bill, and they are not a recommendation. How a later U.S. residential average differs from a worked home-charging example is in [what it costs to charge an electric car at home](/articles/2026-10-26-ev-charging-cost/).
 
 Greg Brannon, AAA's director of automotive engineering and research, said on the newsroom page: "EVs are efficient in moderate temperatures but lose significant range in the cold." He added: "We expected this from our previous research, but were surprised by the 23% reduction in fuel economy for the hybrids in cold temperatures." The report's key findings print 22.8 percent for that hybrid loss. The quote prints 23 percent. Both sentences are AAA's.
 

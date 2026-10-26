@@ -10,7 +10,7 @@ export default {
       return data.desk?.hubIntro || "";
     },
     updatedAt() {
-      return "2026-10-25";
+      return "2026-10-26";
     },
   },
 };
