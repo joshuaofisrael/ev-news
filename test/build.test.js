@@ -114,7 +114,9 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     "© 2026 Joshua Israel Ventures LLC. All rights reserved. EV News Desk is a trade name of Joshua Israel Ventures LLC, a Florida limited liability company.";
   assert.doesNotMatch(home, /©|Copyright|All rights reserved/);
   assert.doesNotMatch(home, /Joshua|Ventures/);
-  assert.match(home, /\/articles\/2026-10-23-tesla-q3-results\//);
+  assert.match(home, /\/articles\/2026-10-26-bmw-ix5-460kw-charging\//);
+  assert.match(home, /\/articles\/2026-10-26-rivian-q3-us-ev-sales\//);
+  assert.match(sitemap, /\/articles\/2026-10-23-tesla-q3-results\//);
   assert.doesNotMatch(home, /No story has been published yet/);
   assert.match(home, /class="masthead[\s"]/);
   assert.match(home, /class="charge-fill"/);
@@ -143,7 +145,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(home, /class="ticker"/);
   assert.match(home, /id="wire-pause"/);
   assert.doesNotMatch(home, /No headline yet/);
-  assert.match(home, /Tesla&#39;s third-quarter revenue stayed near/);
+  assert.match(home, /Kelley Blue Book file headed estimates as of 13 October 2026/);
   assert.match(home, /class="section-icon"/);
   assert.match(home, /class="energy-divider"/);
   assert.match(home, /lang="en"/);
@@ -207,6 +209,17 @@ test("production build omits drafts and the sources gate fails closed", { timeou
       );
       assert.match(news, /<news:publication_date>2026-10-25T00:00:00Z<\/news:publication_date>/);
     }
+    if (isFreshNews("2026-10-26")) {
+      assert.match(
+        news,
+        /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-26-bmw-ix5-460kw-charging\/<\/loc>/,
+      );
+      assert.match(
+        news,
+        /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-26-rivian-q3-us-ev-sales\/<\/loc>/,
+      );
+      assert.match(news, /<news:publication_date>2026-10-26T00:00:00Z<\/news:publication_date>/);
+    }
     assert.doesNotMatch(news, /ev-range-cold-weather/);
     for (const loc of [...news.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])) {
       const slug = loc.match(/\/articles\/([^/]+)\//)?.[1];
@@ -255,6 +268,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     assert.equal(fs.existsSync(path.join(root, "_site", relative)), true, loc);
   }
   assert.match(sitemap, /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-25-ev-range-cold-weather\/<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-26-bmw-ix5-460kw-charging\/<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-26-jetta-m6-orders\/<\/loc>/);
   assert.match(
     sitemap,
     /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-25-ev-range-cold-weather\/<\/loc>\s*<lastmod>2026-10-25T00:00:00\.000Z<\/lastmod>/,
@@ -264,6 +279,14 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(news, /xmlns:news="http:\/\/www.google.com\/schemas\/sitemap-news\/0.9"/);
   assert.match(feed, /<rss version="2.0">/);
   assert.match(atom, /<feed xmlns="http:\/\/www.w3.org\/2005\/Atom">/);
+  assert.match(feed, /\/articles\/2026-10-26-bmw-ix5-460kw-charging\//);
+  assert.match(feed, /\/articles\/2026-10-26-rivian-q3-us-ev-sales\//);
+  assert.match(feed, /\/articles\/2026-10-26-cpca-october-nev-forecast\//);
+  assert.match(feed, /\/articles\/2026-10-26-foxconn-mitsubishi-electric-mobility\//);
+  assert.match(feed, /\/articles\/2026-10-26-jetta-m6-orders\//);
+  assert.match(atom, /\/articles\/2026-10-26-bmw-ix5-460kw-charging\//);
+  assert.match(atom, /\/articles\/2026-10-26-jetta-m6-orders\//);
+  assert.doesNotMatch(feed + atom, /gas-only-cars-below-half/);
   assert.doesNotMatch(feed + atom, /©|<copyright>|Copyright|All rights reserved/);
   assert.doesNotMatch(feed + atom, /Sample draft/);
   assert.match(llms, new RegExp(`^# ${esc(site.name)}`, "m"));
@@ -612,11 +635,13 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(story, /href="\/topics\/industry\/" aria-current="page"/);
   const storyRelated = story.match(/<section class="related"[\s\S]*?<\/section>/)[0];
   assert.match(storyRelated, /Related stories/);
+  assert.match(storyRelated, /href="\/articles\/2026-10-26-rivian-q3-us-ev-sales\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-10-26-foxconn-mitsubishi-electric-mobility\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-10-26-cpca-october-nev-forecast\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-10-25-zero-emission-truck-sales\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-10-25-china-nev-exports-brazil\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-10-24-byd-camacari-capacity\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-10-24-volvo-q3-results\/"/);
-  assert.equal((storyRelated.match(/href="\/articles\//g) || []).length, 4);
+  assert.equal((storyRelated.match(/href="\/articles\//g) || []).length, 5);
+  assert.doesNotMatch(storyRelated, /volvo-q3-results|byd-camacari-capacity/);
   assert.doesNotMatch(storyRelated, /tesla-q3-results|Joshua|©/);
   const carsStory = read("_site", "articles/2026-10-23-ford-mach-e-trail/index.html");
   const carsRelated = carsStory.match(/<section class="related"[\s\S]*?<\/section>/)[0];
@@ -649,23 +674,29 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(chargingHub, /aria-label="Other desks"/);
   assert.match(chargingHub, /href="\/topics\/cars\/"/);
   const chargingList = chargingHub.match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0];
+  assert.match(chargingList, /href="\/articles\/2026-10-26-bmw-ix5-460kw-charging\/"/);
   assert.match(chargingList, /href="\/articles\/2026-10-24-chargepoint-us-dc-fast-ports\/"/);
   assert.match(chargingList, /href="\/articles\/2026-10-24-chery-volt-dragon-charging\/"/);
   assert.match(chargingList, /href="\/articles\/2026-10-23-laz-evercharge-apartment-charging\/"/);
-  assert.equal((chargingList.match(/href="\/articles\//g) || []).length, 3);
+  assert.equal((chargingList.match(/href="\/articles\//g) || []).length, 4);
   assert.match(chargingHub, /rel="canonical" href="https:\/\/evnewsdesk\.com\/topics\/charging\/"/);
   assert.match(chargingHub, /"name":"EV News Desk"/);
   assert.match(chargingHub, /"@type":"CollectionPage"/);
   assert.doesNotMatch(chargingHub, /Joshua|Ventures|©|Sample draft/);
   const carsHub = read("_site", "topics/cars/index.html");
   const carsList = carsHub.match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0];
-  assert.equal((carsList.match(/href="\/articles\//g) || []).length, 8);
+  assert.equal((carsList.match(/href="\/articles\//g) || []).length, 9);
+  assert.match(carsList, /href="\/articles\/2026-10-26-jetta-m6-orders\/"/);
   assert.match(carsList, /href="\/articles\/2026-10-25-ev-range-cold-weather\/"/);
   const listedStories = (file) =>
     (read("_site", file).match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0].match(/href="\/articles\//g) || []).length;
   assert.equal(listedStories("topics/batteries/index.html"), 2);
   assert.equal(listedStories("topics/policy/index.html"), 2);
-  assert.equal(listedStories("topics/industry/index.html"), 5);
+  assert.equal(listedStories("topics/industry/index.html"), 8);
+  assert.match(
+    read("_site", "topics/industry/index.html"),
+    /href="\/articles\/2026-10-26-rivian-q3-us-ev-sales\/"/,
+  );
   assert.doesNotMatch(carsHub, /sample-cars|Sample draft|Joshua/);
   for (const slug of ["cars", "batteries", "charging", "policy", "industry"]) {
     const hub = read("_site", `topics/${slug}/index.html`);

@@ -15,7 +15,7 @@ test("dashboard figures cite a source URL and a number the story prints", () => 
     assert.match(figure.asOf, /^\d{4}-\d{2}-\d{2}$/);
     assert.ok(figure.sourceName.trim());
     assert.match(figure.sourceUrl, /^https:\/\/\S+$/);
-    assert.match(figure.articleSlug, /^2026-10-2[34]-/);
+    assert.match(figure.articleSlug, /^2026-10-2[3-6]-/);
   }
 });
 

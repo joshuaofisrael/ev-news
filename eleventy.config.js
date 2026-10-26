@@ -88,7 +88,7 @@ export default function (eleventyConfig) {
   );
   eleventyConfig.addFilter("byUpdated", (posts) =>
     [...(posts || [])].sort((a, b) => {
-      const stamp = (post) => String(post.data.updatedAt || "");
+      const stamp = (post) => toIso(post.data.updatedAt || post.date);
       const delta = stamp(b).localeCompare(stamp(a));
       if (delta) return delta;
       const dated = new Date(b.date) - new Date(a.date);
