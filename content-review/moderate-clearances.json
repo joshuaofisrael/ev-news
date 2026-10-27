@@ -1,0 +1,19 @@
+{
+  "note": "An entry unlocks one moderate hold only when holdTier is moderate, the file has no rule 1, 5, or 6 flag, slug matches the markdown filename, sha256 is the hash of the exact file bytes, reviewer is named, and verdict is clear. It does not unlock any other hold. Do not add an entry without a recorded editorial sign-off. A coding agent must not add clearances.",
+  "clearances": [
+    {
+      "slug": "2026-10-27-eved-pay-per-mile-trend",
+      "sha256": "42d6970542ba88ec94fd683b4bb5ed2ba89ce8dd593aa3ecc5c06d18465950b8",
+      "reviewer": "chatgpt_review.py gpt-4o",
+      "verdict": "clear",
+      "date": "2026-10-27"
+    },
+    {
+      "slug": "2026-10-25-vw-id-cupra-battery-recall",
+      "sha256": "3ce3833d5e7c7e61f8eb0e4ba4fb3e5f2366671441e8a7339b8d5469d3083e8f",
+      "reviewer": "chatgpt_review.py gpt-4o",
+      "verdict": "clear",
+      "date": "2026-10-27"
+    }
+  ]
+}

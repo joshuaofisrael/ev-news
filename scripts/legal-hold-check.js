@@ -1,15 +1,19 @@
 #!/usr/bin/env node
-import { formatHoldReport, loadApprovals, reviewDirectory } from "../lib/legal-hold.js";
+import { formatHoldReport, loadApprovals, loadModerateClearances, reviewDirectory } from "../lib/legal-hold.js";
 
 const args = process.argv.slice(2);
 const dir = args.find((arg) => !arg.startsWith("--")) || "src/content/posts";
 const approvalsArg = args.find((arg) => arg.startsWith("--approvals="));
+const clearancesArg = args.find((arg) => arg.startsWith("--clearances="));
 const asJson = args.includes("--json");
 
 let result;
 try {
   const approvals = loadApprovals(approvalsArg ? approvalsArg.slice("--approvals=".length) : undefined);
-  result = reviewDirectory(dir, { approvals });
+  const clearances = loadModerateClearances(
+    clearancesArg ? clearancesArg.slice("--clearances=".length) : undefined,
+  );
+  result = reviewDirectory(dir, { approvals, clearances });
 } catch (error) {
   console.error(error.message);
   process.exit(2);
