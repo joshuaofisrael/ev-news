@@ -1,7 +1,7 @@
 ---
 title: "September's electric-car shares in France and Germany, and the 2035 proposal beside them"
 date: 2026-10-23
-updatedAt: 2026-10-25
+updatedAt: 2026-10-27
 category: Policy
 summary: "France's September electric-car share was 41.7 percent in the AAA Data table, and Germany's was 34.5 percent at the KBA. A 34.6 percent German figure is a separate compilation. The 90 percent CO2 idea is a reported negotiating position, not the short joint statement's text, and it is not law."
 description: "France's September electric-car share was 41.7 percent and Germany's was 34.5 percent at the KBA. A reported 90 percent CO2 idea is not law."
@@ -90,4 +90,4 @@ The [joint statement](https://jp.diplomatie.gouv.fr/fr/declaration-de-presse-con
 
 Read together, the documents support a limited comparison. France's 41.7 percent and Germany's 34.5 percent are one month of registrations, and in both national releases hybrids still held a larger share than battery-electric cars. The 34.6 percent is the bulletin's Germany, repeated by Automotive World. The 90 percent figure is a negotiating position as Reuters and Euronews describe it, not a sentence in the published joint statement, and not a rule those outlets say has been adopted. A strong September in France and Germany does not describe Italy or Poland in the same bulletin, and it does not settle the legislative text.
 
-More from the [Policy desk](/topics/policy/): [NHTSA's proposed cyan marker lamps](/articles/2026-10-25-nhtsa-fmvss-108-ads-lamps/). Market counts on other desks include [China's new-energy exports to Brazil](/articles/2026-10-25-china-nev-exports-brazil/) and [electric truck sales](/articles/2026-10-25-zero-emission-truck-sales/).
+More from the [Policy desk](/topics/policy/): [NHTSA's proposed cyan marker lamps](/articles/2026-10-25-nhtsa-fmvss-108-ads-lamps/) and the [UK zero-emission vehicle mandate review](/articles/2026-10-26-uk-zev-mandate-review/). A later count of [Chinese-branded cars in Europe](/articles/2026-10-27-chinese-brands-overtake-japanese-europe/) is an industry story, not this registration table. Reports that [Subaru will sell only electric cars in Europe](/articles/2026-10-27-subaru-ev-only-europe/) are on the [Cars desk](/topics/cars/).

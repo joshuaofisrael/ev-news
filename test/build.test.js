@@ -275,7 +275,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(sitemap, /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-26-jetta-m6-orders\/<\/loc>/);
   assert.match(
     sitemap,
-    /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-25-ev-range-cold-weather\/<\/loc>\s*<lastmod>2026-10-26T00:00:00\.000Z<\/lastmod>/,
+    /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-25-ev-range-cold-weather\/<\/loc>\s*<lastmod>2026-10-27T00:00:00\.000Z<\/lastmod>/,
   );
   assert.match(sitemap, /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-26-ev-charging-cost\/<\/loc>/);
   for (const post of publishedPosts()) {

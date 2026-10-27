@@ -1,7 +1,7 @@
 ---
 title: "Volkswagen Anhui launches the Xpeng-developed ID. UNYX 09 sedan from 179,900 yuan"
 date: 2026-10-26
-updatedAt: 2026-10-26
+updatedAt: 2026-10-27
 category: Cars
 summary: "Volkswagen Anhui put the ID. UNYX 09 electric sedan on sale on 24 October at list prices of 179,900 to 249,900 yuan. A 169,900 yuan price covers only 500 black entry cars."
 description: "VW Anhui's ID. UNYX 09, its second car developed with Xpeng, lists from 179,900 yuan; the 169,900 yuan offer is capped at 500 cars."
@@ -46,6 +46,6 @@ On hardware, CnEVPost says the two rear-drive trims have a 230 kW motor and a 75
 
 ## Analysis
 
-The 169,900 yuan price is a 500-car promotion on one colour of one trim. For most buyers the car starts at 179,900 yuan. The 755 km figure is a CLTC rating for the rear-drive versions, and CLTC numbers usually run well above WLTP or EPA figures. The 250 km in five minutes is the company's claim, not a test by this desk.
+The 169,900 yuan price is a 500-car promotion on one colour of one trim. For most buyers the car starts at 179,900 yuan. The 755 km figure is a CLTC rating for the rear-drive versions, and CLTC numbers usually run well above WLTP or EPA figures. The 250 km in five minutes is the company's claim, not a test by this desk. A later story covers [Xpeng's Guangzhou robotaxi permit and Volkswagen Group China's Hefei test licence](/articles/2026-10-27-xpeng-vw-robotaxi-permits/). It is not this sedan launch.
 
 More from the [Cars desk](/topics/cars/): [Jetta's M6 orders](/articles/2026-10-26-jetta-m6-orders/), [the ID. Cross in France](/articles/2026-10-25-vw-id-cross-lfp-france/), and [cold weather and electric-car range](/articles/2026-10-25-ev-range-cold-weather/).

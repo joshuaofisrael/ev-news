@@ -1,10 +1,11 @@
 ---
 title: "What is trending on X: UK electric vehicle excise duty, 3p a mile from April 2028"
+seoTitle: "UK electric vehicle excise duty from April 2028"
 date: 2026-10-27
 updatedAt: 2026-10-27
 category: Policy
 summary: "A pay-per-mile charge on electric cars is trending on X under a headline about a Treasury advert and fuel duty. GOV.UK says electric vehicle excise duty starts on 1 April 2028 at 3p a mile for electric and hydrogen cars and 1.5p for plug-in hybrids. This desk could not open the Civil Service Jobs advert the posts discuss."
-description: "eVED is trending on X. GOV.UK sets it at 3p a mile for electric cars and 1.5p for plug-in hybrids from 1 April 2028."
+description: "GOV.UK sets electric vehicle excise duty at 3p a mile for electric cars and 1.5p for plug-in hybrids from 1 April 2028."
 tags:
   - uk
   - eved
@@ -59,4 +60,4 @@ The [consultation response](https://www.gov.uk/government/consultations/consulta
 
 The trending title presents a Treasury advert as revealing eVED to be a long-term fuel-duty replacement. The @EnglandUK post says the advert says that, and then says petrol and diesel drivers are next. GOV.UK already describes the car charge as a replacement for lost fuel duty revenue. The advert text itself is what this desk could not verify, because Civil Service Jobs did not open.
 
-The rates here are the GOV.UK figures. The [zero-emission vehicle mandate review](/articles/2026-10-26-uk-zev-mandate-review/) is a separate sales-target consultation.
+The rates here are the GOV.UK figures. The [zero-emission vehicle mandate review](/articles/2026-10-26-uk-zev-mandate-review/) is a separate sales-target consultation. More from the [Policy desk](/topics/policy/): [September electric-car shares in France and Germany](/articles/2026-10-23-europe-september-ev-shares/).

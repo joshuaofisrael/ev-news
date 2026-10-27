@@ -1,7 +1,7 @@
 ---
 title: "China exported 337,104 new-energy vehicles to Brazil in the first eight months of 2026, up 159.4 percent, Xinhua reported"
 date: 2026-10-25
-updatedAt: 2026-10-25
+updatedAt: 2026-10-27
 category: Industry/Business
 summary: "Xinhua, citing the China Passenger Car Association, says China exported 337,104 new-energy vehicles to Brazil in January through August 2026, up 159.4 percent. ABVE counts 22,246 battery-electric registrations in Brazil in September, up 172.3 percent."
 description: "Xinhua, citing the China Passenger Car Association, says China exported 337,104 new-energy vehicles to Brazil in the first eight months of 2026."
@@ -59,4 +59,4 @@ People's Daily, citing Fenabrave, says eight of the ten best-selling electric br
 
 The 337,104 is an eight-month export count, as Xinhua attributes it to the China Passenger Car Association. The 22,246 is September's battery-electric registrations, as ABVE prints them. A shipment in August and a registration in September are different events. The July drop to 6,700 and the August rise to nearly 31,000 are shipment figures inside the eight-month total. The 35 percent rate is what People's Daily says Brazil has charged since July on finished and partly assembled imports. Vehicles assembled at Camaçari, 100,000 by July in People's Daily, are a production milestone. The permit request in the earlier story is a separate claim about future capacity.
 
-More from the [Industry/Business desk](/topics/industry/): [Volvo Cars' third quarter](/articles/2026-10-24-volvo-q3-results/), [Tesla's third quarter](/articles/2026-10-23-tesla-q3-results/), and [electric truck sales](/articles/2026-10-25-zero-emission-truck-sales/).
+More from the [Industry/Business desk](/topics/industry/): [Chinese-branded cars in Europe](/articles/2026-10-27-chinese-brands-overtake-japanese-europe/), [Volvo Cars' third quarter](/articles/2026-10-24-volvo-q3-results/), and [Tesla's third quarter](/articles/2026-10-23-tesla-q3-results/).

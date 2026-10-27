@@ -1,7 +1,7 @@
 ---
 title: "UK ZEV mandate consultation closes with 2030 car target options from 80% down to 50%"
 date: 2026-10-26
-updatedAt: 2026-10-26
+updatedAt: 2026-10-27
 category: Policy
 summary: "The UK consultation on the zero emission vehicle mandate closed on 23 October. Options include cutting the 2030 car target from 80% to 70%, 60% or 50%. The government says no decision has been taken."
 description: "The UK ZEV mandate review closed on 23 October with options to cut the 2030 car target from 80% to as low as 50%. No decision yet."
@@ -52,4 +52,4 @@ The Guardian also says more than half of new UK cars sold last month were electr
 
 Nothing has changed in law. The 50% to 70% figures are options in a consultation, and the government says the 2035 end point stays. The emissions estimate is one think tank's analysis as reported by the Guardian.
 
-More from the [Policy desk](/topics/policy/): [NHTSA's lighting proposal](/articles/2026-10-25-nhtsa-fmvss-108-ads-lamps/), [Europe's September EV shares](/articles/2026-10-23-europe-september-ev-shares/), and [zero-emission truck sales](/articles/2026-10-25-zero-emission-truck-sales/).
+More from the [Policy desk](/topics/policy/): [electric vehicle excise duty from April 2028](/articles/2026-10-27-eved-pay-per-mile-trend/), [NHTSA's lighting proposal](/articles/2026-10-25-nhtsa-fmvss-108-ads-lamps/), and [Europe's September EV shares](/articles/2026-10-23-europe-september-ev-shares/).
