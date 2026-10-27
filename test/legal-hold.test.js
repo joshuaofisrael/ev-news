@@ -113,12 +113,14 @@ test("HOLD_REVIEW or a matching file hash unlocks a flagged article, and the rep
   const clearances = loadModerateClearances();
   assert.ok(Array.isArray(repoClearances.clearances));
   assert.equal(clearances.length, repoClearances.clearances.length);
-  assert.ok(clearances.length >= 2);
+  assert.ok(clearances.length >= 3);
   const signedOff = {
     "2026-10-27-eved-pay-per-mile-trend":
       "42d6970542ba88ec94fd683b4bb5ed2ba89ce8dd593aa3ecc5c06d18465950b8",
     "2026-10-25-vw-id-cupra-battery-recall":
       "3ce3833d5e7c7e61f8eb0e4ba4fb3e5f2366671441e8a7339b8d5469d3083e8f",
+    "2026-10-24-tesla-giga-berlin-week":
+      "6019c40d7cc1968305662cf02273362bae0ce1c940b41fe1f698375f90505004",
   };
   for (const entry of clearances) {
     assert.equal(isValidClearance(entry), true, entry.slug);
@@ -134,7 +136,7 @@ test("HOLD_REVIEW or a matching file hash unlocks a flagged article, and the rep
     assert.equal(entry.sha256, hash, slug);
     assert.equal(entry.reviewer, "chatgpt_review.py gpt-4o", slug);
   }
-  const heldSlugs = ["2026-10-24-tesla-giga-berlin-week", "2026-10-27-kadena-air-base-byd-vehicle-ban"];
+  const heldSlugs = ["2026-10-27-kadena-air-base-byd-vehicle-ban"];
   for (const slug of heldSlugs) {
     assert.equal(
       clearances.some((entry) => entry.slug === slug),
@@ -254,6 +256,7 @@ test("the three repaired stories stay on HOLD_REVIEW, and Kadena is not a modera
   const released = new Set([
     "2026-10-27-eved-pay-per-mile-trend",
     "2026-10-25-vw-id-cupra-battery-recall",
+    "2026-10-24-tesla-giga-berlin-week",
   ]);
   for (const slug of [
     "2026-10-27-eved-pay-per-mile-trend",
@@ -285,11 +288,20 @@ test("the three repaired stories stay on HOLD_REVIEW, and Kadena is not a modera
 
   const berlin = read("2026-10-24-tesla-giga-berlin-week");
   assert.notEqual(berlin.data.draft, true);
-  assert.match(berlin.data.title, /TeslaNorth/);
-  assert.match(berlin.data.title, /reportedly/);
-  assert.match(berlin.content, /TeslaNorth\]\([^)]+\) writes that Tesla says Giga Berlin built 7,000 Model Y/);
-  assert.match(berlin.content, /could not open that post/);
-  assert.match(berlin.content, /Drive Tesla Canada's page did not open/);
+  assert.equal(
+    berlin.data.title,
+    "Tesla account claims 7,000 Model Y a week at Giga Berlin, TeslaNorth reports",
+  );
+  assert.match(berlin.content, /Tesla Manufacturing's account on X/);
+  assert.match(berlin.content, /x\.com\/gigafactories\/status\/2113745614228099452/);
+  assert.match(
+    berlin.content,
+    /Ramp-up is in full swing at Giga Berlin\. This week we hit the next production milestone: 7,000 Model Y built in one week\./,
+  );
+  assert.match(berlin.content, /TeslaNorth\]\([^)]+\) reports the same claim/);
+  assert.match(berlin.content, /The 7,000 figure is unverified/);
+  assert.match(berlin.content, /does not state that the plant built 7,000 Model Y in one week/);
+  assert.doesNotMatch(berlin.content, /364,000|75 percent|4,700/);
 
   const kadena = read("2026-10-27-kadena-air-base-byd-vehicle-ban");
   assert.equal(kadena.data.status, "HOLD_REVIEW");
