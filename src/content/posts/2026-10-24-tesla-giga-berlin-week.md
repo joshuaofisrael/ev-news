@@ -1,12 +1,12 @@
 ---
 status: HOLD_REVIEW
 holdTier: moderate
-title: "What EV fans on X are discussing: Giga Berlin reportedly built 7,000 Model Y in one week"
+title: "TeslaNorth: Giga Berlin reportedly built 7,000 Model Y in one week"
 date: 2026-10-24
 updatedAt: 2026-10-27
 category: Cars
-summary: "As reported by TeslaNorth/Drive Tesla Canada, a 23 October post from @gigafactories says Giga Berlin built 7,000 Model Y in one week. This desk could not open the original post, and neither outlet presents an independent count of the cars."
-description: "Giga Berlin reportedly built 7,000 Model Y in one week, as reported by TeslaNorth/Drive Tesla Canada. This desk could not open the original post."
+summary: "TeslaNorth writes that Tesla says Giga Berlin built 7,000 Model Y in one week, and it prints a 23 October 2026 post it attributes to Tesla Manufacturing. This desk could not open that post. Drive Tesla Canada's page did not open, so it is not used here."
+description: "TeslaNorth says Giga Berlin reportedly built 7,000 Model Y in one week. This desk could not open the original post."
 tags:
   - tesla
   - manufacturing
@@ -28,34 +28,18 @@ images:
     width: 1280
     height: 720
 sources:
-  - title: "Post from @gigafactories, 23 October 2026, as reported by TeslaNorth/Drive Tesla Canada. This desk could not open the original post."
-    url: "https://x.com/gigafactories/status/2113745614228099452"
-    publisher: "X, account @gigafactories"
-    date: 2026-10-23
   - title: "Giga Berlin Hits 7,000 Model Y in One Week as Tesla Ramps Up Output"
     url: "https://teslanorth.com/2026/10/23/tesla-giga-berlin-7000-model-y-week/"
     publisher: "TeslaNorth"
     date: 2026-10-23
-  - title: "Tesla produces 7,000 Model Ys in one week at Giga Berlin"
-    url: "https://driveteslacanada.ca/news/tesla-giga-berlin-7000-model-y-week/"
-    publisher: "Drive Tesla Canada"
-    date: 2026-10-23
 ---
 
-EV fans on X have been passing around a one-week production claim dated 23 October 2026. As reported by [TeslaNorth](https://teslanorth.com/2026/10/23/tesla-giga-berlin-7000-model-y-week/)/[Drive Tesla Canada](https://driveteslacanada.ca/news/tesla-giga-berlin-7000-model-y-week/), the account @gigafactories, which those outlets identify as Tesla Manufacturing, posted: "Ramp-up is in full swing at Giga Berlin. This week we hit the next production milestone: 7,000 Model Y built in one week."
+[TeslaNorth](https://teslanorth.com/2026/10/23/tesla-giga-berlin-7000-model-y-week/) writes that Tesla says Giga Berlin built 7,000 Model Y in a single week. TeslaNorth prints this sentence and attributes it to the company's Tesla Manufacturing account on X, in a post TeslaNorth dates 23 October 2026: "Ramp-up is in full swing at Giga Berlin. This week we hit the next production milestone: 7,000 Model Y built in one week. Congrats to the whole team!"
 
-The post those outlets quote is [this status on X](https://x.com/gigafactories/status/2113745614228099452). This desk could not open the original post. The request was refused, so the wording here is as reported by TeslaNorth/Drive Tesla Canada, not a copy taken from X itself. The 23 October date is the date both stories put on the post.
+This desk could not open that post. The wording above is the wording TeslaNorth prints. Drive Tesla Canada's page did not open, so this desk is not using it, and no sentence here is taken from Drive Tesla Canada.
 
-Neither story says someone outside Tesla counted the cars. TeslaNorth presents the 7,000 as what the company said in that post. Drive Tesla Canada likewise attributes the announcement to the Tesla Manufacturing account. A quarterly production table is a different document. This story does not treat a one-week social-media claim as a checked factory total. Tesla has not, in the pages cited here, published a separate production filing for that week.
+TeslaNorth writes that the week is well above the 6,000 cars a week it says the plant first reached in early 2024, and 75 percent more than the 4,000 Model Y a week it says Giga Berlin hit in February 2023. TeslaNorth writes that, by its math, holding 7,000 a week would work out to roughly 364,000 vehicles a year, and that Tesla did not say how long it expects to keep that pace.
 
-Both outlets then multiply the week into a year. TeslaNorth writes that holding 7,000 a week would work out to roughly 364,000 vehicles a year, and it notes that Tesla did not say how long it expects to keep that pace. Drive Tesla Canada prints the same annual figure, about 364,000 Model Ys. Seven thousand times 52 is 364,000. That product is arithmetic on the claimed week. It is not a target in the sentence the outlets quote.
-
-The two stories also disagree on earlier weeks. TeslaNorth cites 4,000 Model Y a week in February 2023 and 6,000 in early 2024. Drive Tesla Canada cites 5,000 in a week in March 2023 and 6,000 in early 2024. Those sequences do not match, so the older counts stay out.
-
-Drive Tesla Canada writes that Tesla began bringing German-built Model Ys into Canada in September 2025, first through Halifax, and that the switch avoided a 25 percent counter-tariff on U.S.-built vehicles. That is the outlet's account of why the plant matters for Canadian orders. It is not a check on the 7,000.
-
-## Analysis
-
-The 7,000 is a claim about one week, as reported by TeslaNorth/Drive Tesla Canada, from an account those outlets identify as Tesla's. This desk could not open the original post, and the figure is not matched here to a filing. It does not show what the plant will build next week. The 364,000 figure is a full year only if every week matches this one, which the quoted sentence does not say.
+TeslaNorth also writes that Giga Berlin passed 750,000 vehicles in May, that Tesla said it was raising the plant's output by 20 percent by hiring staff and adding shifts, and that the factory built more than 61,000 vehicles in the first quarter of 2026, about 4,700 a week over 13 weeks. Those figures are TeslaNorth's. This desk did not open a separate Tesla production filing for the week.
 
 More from the [Cars desk](/topics/cars/): [Tesla's FSD (Supervised) attach rate](/articles/2026-10-23-tesla-fsd-supervised-attach-rate/) and [Tesla's third-quarter results](/articles/2026-10-23-tesla-q3-results/). [Volvo Cars' third quarter](/articles/2026-10-24-volvo-q3-results/) is on the industry desk.

@@ -231,22 +231,28 @@ test("the three repaired stories stay on HOLD_REVIEW, and Kadena is not a modera
 
   const eved = read("2026-10-27-eved-pay-per-mile-trend");
   assert.equal(eved.data.images[0].src, "eved-trend-plug");
+  assert.match(eved.data.title, /1 April 2028/);
+  assert.match(eved.content, /3 pence per mile/);
+  assert.doesNotMatch(eved.content, /Treasury|EnglandUK|Civil Service/);
   assert.equal(
     reviewContent({ data: eved.data, content: eved.content }).some((flag) => flag.rule === 7),
     false,
   );
 
   const vw = read("2026-10-25-vw-id-cupra-battery-recall");
-  assert.match(vw.data.title, /^Reports: about 72,700 VW and Cupra EVs/);
-  assert.match(vw.content, /Volkswagen UK says there are no confirmed personal injuries/);
-  assert.match(vw.content, /CUPRA UK says there are no confirmed personal injuries/);
-  assert.match(vw.content, /electrive, citing the KBA/);
-  assert.match(vw.content, /Drive Tesla Canada, citing dpa/);
+  assert.match(vw.data.title, /Volkswagen UK and CUPRA UK say the factory is limiting affected cars to an 80 percent charge/);
+  assert.match(vw.content, /Volkswagen UK says there are no confirmed cases of personal injury/);
+  assert.match(vw.content, /CUPRA UK gives the same two answers/);
+  assert.match(vw.content, /Volkswagen Denmark/);
+  assert.doesNotMatch(vw.content, /72,668|72,700|Electrek|electrive/);
 
   const berlin = read("2026-10-24-tesla-giga-berlin-week");
+  assert.notEqual(berlin.data.draft, true);
+  assert.match(berlin.data.title, /TeslaNorth/);
   assert.match(berlin.data.title, /reportedly/);
-  assert.match(berlin.content, /As reported by \[TeslaNorth\][^\n]*\/\[Drive Tesla Canada\]/);
-  assert.match(berlin.content, /could not open the original post/);
+  assert.match(berlin.content, /TeslaNorth\]\([^)]+\) writes that Tesla says Giga Berlin built 7,000 Model Y/);
+  assert.match(berlin.content, /could not open that post/);
+  assert.match(berlin.content, /Drive Tesla Canada's page did not open/);
 
   const kadena = read("2026-10-27-kadena-air-base-byd-vehicle-ban");
   assert.equal(kadena.data.status, "HOLD_REVIEW");
