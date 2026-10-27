@@ -193,7 +193,9 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(robots, /User-agent: \*\s+Allow: \//);
   assert.doesNotMatch(robots, /disallow|noai|noimageai|ads\.txt/i);
   assert.match(robots, new RegExp(`Sitemap: ${esc(site.url)}/sitemap\\.xml`));
-  const freshDates = ["2026-10-23", "2026-10-24", "2026-10-25"].filter((day) => isFreshNews(day));
+  const freshDates = ["2026-10-23", "2026-10-24", "2026-10-25", "2026-10-26", "2026-10-27"].filter((day) =>
+    isFreshNews(day),
+  );
   if (freshDates.length) {
     assert.match(robots, /Sitemap: https:\/\/evnewsdesk\.com\/news-sitemap\.xml/);
     assert.match(llms, /news-sitemap\.xml/);
@@ -652,11 +654,11 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(story, /href="\/topics\/industry\/" aria-current="page"/);
   const storyRelated = story.match(/<section class="related"[\s\S]*?<\/section>/)[0];
   assert.match(storyRelated, /Related stories/);
+  assert.match(storyRelated, /href="\/articles\/2026-10-27-xpeng-vw-robotaxi-permits\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-10-27-chinese-brands-overtake-japanese-europe\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-10-26-rivian-q3-us-ev-sales\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-10-26-foxconn-mitsubishi-electric-mobility\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-10-26-cpca-october-nev-forecast\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-10-25-zero-emission-truck-sales\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-10-25-china-nev-exports-brazil\/"/);
   assert.equal((storyRelated.match(/href="\/articles\//g) || []).length, 5);
   assert.doesNotMatch(storyRelated, /volvo-q3-results|byd-camacari-capacity/);
   assert.doesNotMatch(storyRelated, /tesla-q3-results|Joshua|©/);
@@ -723,14 +725,14 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.doesNotMatch(chargingHub, /Joshua|Ventures|©|Sample draft/);
   const carsHub = read("_site", "topics/cars/index.html");
   const carsList = carsHub.match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0];
-  assert.equal((carsList.match(/href="\/articles\//g) || []).length, 10);
+  assert.equal((carsList.match(/href="\/articles\//g) || []).length, 12);
   assert.match(carsList, /href="\/articles\/2026-10-26-jetta-m6-orders\/"/);
   assert.match(carsList, /href="\/articles\/2026-10-25-ev-range-cold-weather\/"/);
   const listedStories = (file) =>
     (read("_site", file).match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0].match(/href="\/articles\//g) || []).length;
   assert.equal(listedStories("topics/batteries/index.html"), 3);
-  assert.equal(listedStories("topics/policy/index.html"), 3);
-  assert.equal(listedStories("topics/industry/index.html"), 8);
+  assert.equal(listedStories("topics/policy/index.html"), 5);
+  assert.equal(listedStories("topics/industry/index.html"), 10);
   assert.match(
     read("_site", "topics/industry/index.html"),
     /href="\/articles\/2026-10-26-rivian-q3-us-ev-sales\/"/,
