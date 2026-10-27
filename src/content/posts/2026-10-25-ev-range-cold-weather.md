@@ -1,7 +1,8 @@
 ---
 title: "Cold weather and electric-car range"
+seoTitle: "How cold weather cuts electric-car range"
 date: 2026-10-25
-updatedAt: 2026-10-26
+updatedAt: 2026-10-27
 category: Cars
 news: false
 disclaimer: financial
@@ -72,7 +73,7 @@ The 2026 averages are not the 2019 test. AAA's [2019 range report](https://www.a
 
 A [Department of Energy program record](https://www.energy.gov/sites/default/files/2024-10/Impact_of_Cold_Ambient_Temperature_on_BEV_Performance_v15_TechEditFinal_12Sep2024__0.pdf), dated 12 September 2024 and approved on 23 September 2024, reports a different laboratory set. Argonne National Laboratory dyno-tested three model-year 2019 to 2020 electric vehicles on EPA drive cycles, with the cabin held at 72°F. Against a 72°F ambient reference, the record says range fell 41 percent at 20°F and by an average of 14 percent at 95°F. At 0°F, it says the added HVAC load produced an average range loss of approximately 50 percent, with a maximum of 59 percent in urban driving that included idle time and a minimum of 39 percent in highway driving with no idle. It calls HVAC power the primary reason for the range gaps, and battery chemistry in the cold a secondary reason. It says heat-pump systems typically use notably less power than electric resistance heat alone, and that in one comparison a heat pump cut HVAC power draw by 38 percent at 20°F. That 41 percent is Argonne's figure for those three older vehicles against a 72°F reference. AAA's 2019 figure of 41 percent is a different test, against 75°F, with the heater on. The same integer is not the same measurement.
 
-FuelEconomy.gov says preheating the cabin of a plug-in hybrid or electric vehicle while it is plugged in can extend range, and that seat warmers instead of the cabin heater can save energy and extend range. That is the page's guidance for drivers. It is not a measured result for the cars named above. Public and home charging stories are on the [Charging desk](/topics/charging/).
+FuelEconomy.gov says preheating the cabin of a plug-in hybrid or electric vehicle while it is plugged in can extend range, and that seat warmers instead of the cabin heater can save energy and extend range. That is the page's guidance for drivers. It is not a measured result for the cars named above. Public and home charging stories are on the [Charging desk](/topics/charging/). [What it costs to charge an electric car at home](/articles/2026-10-26-ev-charging-cost/) separates the price per kilowatt-hour from Level 1, Level 2, and DC fast speeds, and it quotes the agency note that charge rate also depends on ambient temperature.
 
 ## Analysis
 
