@@ -24,6 +24,8 @@ const site = {
   cloudflareAnalyticsToken: "72a6ea1974794ada98ce78efa935c214",
   // Google AdSense publisher id. The head prints the loader and account meta. No ad units.
   adsenseClient: "ca-pub-5681559774142917",
+  // Google Analytics 4. Consent defaults to denied; the tag loads only after Accept.
+  gaMeasurementId: "G-RMVS2GZM1G",
   homePhoto: {
     src: "home-hero",
     alt: "White electric crossover in a bright showroom, seen from the front three-quarter angle, with a charging cable at the front wheel and no people in view",

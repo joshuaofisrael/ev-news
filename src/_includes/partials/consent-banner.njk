@@ -1,0 +1,62 @@
+<script>
+  (function () {
+    if (window.__mtmBanner) return;
+    window.__mtmBanner = true;
+    var api = window.mtmConsent;
+    if (!api) return;
+
+    function place(banner) {
+      var skip = document.querySelector(".skip-link");
+      if (skip && skip.parentNode) {
+        skip.parentNode.insertBefore(banner, skip.nextSibling);
+        return;
+      }
+      document.body.insertBefore(banner, document.body.firstChild);
+    }
+
+    function closeBanner(returnFocus) {
+      var banner = document.getElementById("mtm-consent");
+      if (banner) banner.remove();
+      if (!returnFocus) return;
+      var opener = document.querySelector("[data-consent-open]");
+      if (opener) opener.focus();
+    }
+
+    function openBanner(fromFooter) {
+      var existing = document.getElementById("mtm-consent");
+      if (existing) {
+        if (fromFooter) {
+          var current = existing.querySelector(".acc");
+          if (current) current.focus();
+        }
+        return;
+      }
+      var banner = document.createElement("div");
+      banner.id = "mtm-consent";
+      banner.setAttribute("role", "region");
+      banner.setAttribute("aria-label", "Cookie choices");
+      banner.innerHTML = '<div class="wrap mtm-consent-bar"><p>Google Analytics 4 stays off until you accept. Accept also allows the advertising cookies this site uses with Google AdSense. Reject leaves analytics and those ad signals off.</p><div class="mtm-consent-actions"><button type="button" class="acc">Accept</button><button type="button" class="rej">Reject</button></div></div>';
+      place(banner);
+      banner.querySelector(".acc").addEventListener("click", function () {
+        api.write("granted");
+        api.loadGa();
+        closeBanner(fromFooter);
+      });
+      banner.querySelector(".rej").addEventListener("click", function () {
+        api.write("denied");
+        api.denyGa();
+        closeBanner(fromFooter);
+      });
+      if (fromFooter) banner.querySelector(".acc").focus();
+    }
+
+    document.addEventListener("click", function (event) {
+      var opener = event.target && event.target.closest ? event.target.closest("[data-consent-open]") : null;
+      if (!opener) return;
+      event.preventDefault();
+      openBanner(true);
+    });
+
+    if (!api.read()) openBanner(false);
+  })();
+</script>

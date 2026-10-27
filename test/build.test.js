@@ -438,6 +438,12 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(privacy, /cookieless Cloudflare Web Analytics/);
   assert.match(privacy, /https:\/\/policies\.google\.com\/technologies\/ads/);
   assert.match(privacy, /Visitors in the EU and the UK see a consent choice/);
+  assert.match(privacy, /Google Analytics 4/);
+  assert.match(privacy, new RegExp(`measurement ID ${esc(site.gaMeasurementId)}`));
+  assert.match(privacy, /runs only after you accept/);
+  assert.match(privacy, /Cookie choices button in the footer/);
+  assert.match(privacy, /https:\/\/tools\.google\.com\/dlpage\/gaoptout/);
+  assert.match(privacy, /ad storage, ad user data, and ad personalization/);
   const adsenseScript = `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${site.adsenseClient}" crossorigin="anonymous"></script>`;
   const adsenseMeta = `<meta name="google-adsense-account" content="${site.adsenseClient}">`;
   for (const page of [home, about, privacy, contact, thanks]) {
@@ -450,11 +456,10 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   );
   assert.equal(read("_site", "ads.txt").trim().split("\n").length, 1);
 
-  // Other advertising hosts and font CDNs stay banned. The AdSense loader above
-  // is the only advertising script, and pages do not include ad units.
+  // GA4 is consent-gated: the hosts are in CSP and the inline loader, and the
+  // tag is not a parser-fetched script until the visitor accepts. AdSense stays
+  // the only advertising script. Other advertising hosts and font CDNs stay banned.
   const banned = [
-    "googletagmanager",
-    "google-analytics",
     "doubleclick",
     "facebook.net",
     "hotjar",
@@ -475,6 +480,47 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     .map((file) => fs.readFileSync(file, "utf8"))
     .join("\n");
   for (const host of banned) assert.equal(built.toLowerCase().includes(host), false, host);
+  assert.match(built, /https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=/);
+  assert.match(built, /https:\/\/www\.google-analytics\.com/);
+  assert.doesNotMatch(built, /<script[^>]*\ssrc=["'][^"']*(?:googletagmanager|google-analytics)\.com/);
+  const htmlPages = walk(path.join(root, "_site")).filter((file) => file.endsWith(".html"));
+  assert.ok(htmlPages.length > 10);
+  for (const file of htmlPages) {
+    const pageHtml = fs.readFileSync(file, "utf8");
+    assert.match(pageHtml, new RegExp(esc(site.gaMeasurementId)), file);
+    assert.match(pageHtml, /mtm-analytics-consent/, file);
+    assert.match(pageHtml, /data-consent-open/, file);
+    assert.match(pageHtml, /"ad_storage": "denied"/, file);
+    assert.match(pageHtml, /"analytics_storage": "denied"/, file);
+    assert.match(pageHtml, /"ad_user_data": "denied"/, file);
+    assert.match(pageHtml, /"ad_personalization": "denied"/, file);
+  }
+  const tagRoot = path.join(root, "_site/tags");
+  const tagSlugs = fs.readdirSync(tagRoot);
+  assert.ok(tagSlugs.length > 10);
+  const thinTags = [];
+  for (const slug of tagSlugs) {
+    const tagHtml = read("_site", `tags/${slug}/index.html`);
+    const stories = (tagHtml.match(/class="story-card"/g) || []).length;
+    const loc = `${site.url}/tags/${slug}/`;
+    if (stories < 3) {
+      thinTags.push(slug);
+      assert.match(tagHtml, /name="robots" content="noindex,follow"/, slug);
+      assert.doesNotMatch(tagHtml, /name="robots" content="index, follow"/, slug);
+      assert.equal(sitemap.includes(`<loc>${loc}</loc>`), false, loc);
+    } else {
+      assert.match(tagHtml, /name="robots" content="index, follow"/, slug);
+      assert.equal(sitemap.includes(`<loc>${loc}</loc>`), true, loc);
+    }
+  }
+  assert.ok(thinTags.length > 0);
+  for (const desk of site.categories) {
+    for (const prefix of ["topics", "category"]) {
+      const deskHtml = read("_site", `${prefix}/${desk.slug}/index.html`);
+      assert.match(deskHtml, /name="robots" content="index, follow"/, desk.slug);
+      assert.equal(sitemap.includes(`<loc>${site.url}/${prefix}/${desk.slug}/</loc>`), true, desk.slug);
+    }
+  }
   assert.doesNotMatch(built, /joshuaofisrael@gmail\.com/);
   assert.doesNotMatch(built, /data-ad-slot|class="adsbygoogle"|fundingchoices|cookieconsent/i);
   assert.doesNotMatch(built, /AI-generated photograph/);
