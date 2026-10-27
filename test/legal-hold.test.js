@@ -285,11 +285,20 @@ test("the three repaired stories stay on HOLD_REVIEW, and Kadena is not a modera
 
   const berlin = read("2026-10-24-tesla-giga-berlin-week");
   assert.notEqual(berlin.data.draft, true);
-  assert.match(berlin.data.title, /TeslaNorth/);
-  assert.match(berlin.data.title, /reportedly/);
-  assert.match(berlin.content, /TeslaNorth\]\([^)]+\) writes that Tesla says Giga Berlin built 7,000 Model Y/);
-  assert.match(berlin.content, /could not open that post/);
-  assert.match(berlin.content, /Drive Tesla Canada's page did not open/);
+  assert.equal(
+    berlin.data.title,
+    "Tesla account claims 7,000 Model Y a week at Giga Berlin, TeslaNorth reports",
+  );
+  assert.match(berlin.content, /Tesla Manufacturing's account on X/);
+  assert.match(berlin.content, /x\.com\/gigafactories\/status\/2113745614228099452/);
+  assert.match(
+    berlin.content,
+    /Ramp-up is in full swing at Giga Berlin\. This week we hit the next production milestone: 7,000 Model Y built in one week\./,
+  );
+  assert.match(berlin.content, /TeslaNorth\]\([^)]+\) reports the same claim/);
+  assert.match(berlin.content, /The 7,000 figure is unverified/);
+  assert.match(berlin.content, /does not state that the plant built 7,000 Model Y in one week/);
+  assert.doesNotMatch(berlin.content, /364,000|75 percent|4,700/);
 
   const kadena = read("2026-10-27-kadena-air-base-byd-vehicle-ban");
   assert.equal(kadena.data.status, "HOLD_REVIEW");
