@@ -1,5 +1,5 @@
 import site from "../../_data/site.js";
-import { isApprovedFile, isHoldReview } from "../../../lib/legal-hold.js";
+import { isHoldReview, isReleasedFile } from "../../../lib/legal-hold.js";
 import { isDraft } from "../../../lib/validate-posts.js";
 
 const includeDrafts = process.env.ELEVENTY_ENV === "development";
@@ -7,7 +7,7 @@ const includeDrafts = process.env.ELEVENTY_ENV === "development";
 function withheld(data) {
   if (!isHoldReview(data.status)) return false;
   const input = data.page?.inputPath;
-  if (!input || !isApprovedFile(input)) return true;
+  if (!input || !isReleasedFile(input)) return true;
   return false;
 }
 

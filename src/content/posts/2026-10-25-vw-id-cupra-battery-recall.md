@@ -1,11 +1,12 @@
 ---
 status: HOLD_REVIEW
-title: "KBA campaigns cover 72,668 Volkswagen and Cupra electric cars, and the companies are limiting charge to 80 percent"
+holdTier: moderate
+title: "Reports: about 72,700 VW and Cupra EVs are in battery campaigns, with the charge limit at 80 percent"
 date: 2026-10-25
-updatedAt: 2026-10-25
+updatedAt: 2026-10-27
 category: Cars
-summary: "Electrek and Drive Tesla Canada, both citing Germany's KBA, put three battery campaigns at 72,668 Volkswagen and Cupra electric cars worldwide, including 9,881 in Germany. Volkswagen and Cupra tell affected owners the factory is holding charge at 80 percent until a repair."
-description: "Electrek and Drive Tesla Canada, citing Germany's KBA, put three campaigns at 72,668 Volkswagen and Cupra electric cars, with charge held at 80 percent."
+summary: "Reports put the campaigns at about 72,700 Volkswagen and Cupra electric cars. Electrek and Drive Tesla Canada, both citing Germany's KBA, print 72,668 worldwide, including 9,881 in Germany. Volkswagen UK and CUPRA UK say there have been individual cases of property damage. electrive, citing the KBA, says there have been none."
+description: "Reports put about 72,700 VW and Cupra EVs in battery campaigns. Property-damage accounts from the companies and the outlets do not match."
 tags:
   - volkswagen
   - cupra
@@ -58,7 +59,7 @@ sources:
     date: 2026-10-24
 ---
 
-Three battery campaigns cover 72,668 Volkswagen and Cupra electric cars worldwide, including 9,881 in Germany, [Electrek](https://electrek.co/2026/10/21/volkswagen-recalls-nearly-73000-evs-faulty-batteries/) and [Drive Tesla Canada](https://driveteslacanada.ca/news/volkswagen-recall-72700-evs-battery-cells/) reported on 21 October 2026, both citing Germany's KBA, the Federal Motor Transport Authority. Electrek lists manufacturer codes 93MF, 93MV, and 93W4 for the Cupra Born. [Latest EV News](https://www.latestevnews.com/briefing/2026-10-24) used the same 72,668 on 24 October and said owners are advised to limit charging to 80 percent until a permanent fix. [electrive](https://www.electrive.com/2026/10/21/vws-battery-recall-affects-72700-evs-including-10000-in-germany/) rounded the action to nearly 72,700 cars, with 10,000 in Germany. This desk did not open the KBA database. The 72,668 is the total those two outlets attribute to it.
+Reports put the campaigns at about 72,700 Volkswagen and Cupra electric cars. [Electrek](https://electrek.co/2026/10/21/volkswagen-recalls-nearly-73000-evs-faulty-batteries/) and [Drive Tesla Canada](https://driveteslacanada.ca/news/volkswagen-recall-72700-evs-battery-cells/) reported on 21 October 2026, both citing Germany's KBA, the Federal Motor Transport Authority, a total of 72,668 cars worldwide, including 9,881 in Germany. Electrek lists manufacturer codes 93MF, 93MV, and 93W4 for the Cupra Born. [Latest EV News](https://www.latestevnews.com/briefing/2026-10-24) used the same 72,668 on 24 October and said owners are advised to limit charging to 80 percent until a permanent fix. [electrive](https://www.electrive.com/2026/10/21/vws-battery-recall-affects-72700-evs-including-10000-in-germany/) rounded the action to nearly 72,700 cars, with 10,000 in Germany. This desk did not open the KBA database. The 72,668 is the total Electrek and Drive Tesla Canada attribute to it. The about 72,700 in the headline is the rounded figure electrive and Drive Tesla Canada use.
 
 Drive Tesla Canada says the KBA total does not account for overlap. Code 93MF is 62,927 ID.3, ID.4, ID.7, and ID. Buzz models built from 13 July 2022 to 6 June 2025. Code 93MV is 5,050 of the same models, built from 18 September 2023 to 27 June 2025. Code 93W4 is 4,691 Cupra Born models, built from September 2022 to May 2024. Those three counts add to 72,668. The 9,881 German cars are inside that total. electrive says Škoda is reportedly not affected, and it lists KBA references 17137R, 17101R, and 17103R without pairing them to the manufacturer codes.
 
@@ -68,7 +69,7 @@ The companies' own pages name the cars and the charge limit, and they do not pri
 
 The charge cap is the interim step on the company pages. Volkswagen UK says the factory is limiting affected cars to 80 percent, in most cases remotely, and that a car without the limit should use the setting it calls Battery Care Mode. DC charging still works, it says, because the cap changes how full the battery may be, not which charger can be used. CUPRA UK prints the same limit and the same setting. Volkswagen Denmark expects the software update in the first quarter of 2027, says the check takes about an hour, and says the work is free. Some cars may get a warning sticker. Others may be cleared after the check. Volkswagen UK says finished work restores the original charge level, and that some cars may need modules replaced. The 2027 quarter is on the Denmark page only.
 
-The accounts of damage already on the record differ. Volkswagen UK and CUPRA UK say there are no confirmed personal injuries, and that there have been individual cases of property damage. electrive, citing the KBA, says there have been no incidents of property damage or personal injury. Drive Tesla Canada, citing dpa, says the KBA initially knew of none.
+The accounts of property damage do not match. Volkswagen UK says there are no confirmed personal injuries, and that there have been individual cases of property damage. CUPRA UK says there are no confirmed personal injuries, and that there have been individual cases of property damage. electrive, citing the KBA, says there have been no incidents of property damage or personal injury. Drive Tesla Canada, citing dpa, says the KBA initially knew of no incidents involving property damage or injuries. This desk did not open the KBA record, so the discrepancy is between those published accounts.
 
 The United States ID.4 filing is separate, and adding its count to 72,668 would mix two campaigns. Electrek says the NHTSA recall covers 22,524 ID.4 SUVs, campaign 26V630, Volkswagen number 93EX. It says owners were told that, unless they opted out by 21 October, charging would be limited to 80 percent, with the remote change showing in the app on or about 27 October 2026 and letters expected on 27 November 2026. electrive calls the same 22,524 vehicles model years 2023 to 2026. Drive Tesla Canada says the European campaigns have no matching NHTSA or Transport Canada number. This desk did not open the NHTSA file, so those figures are what Electrek and electrive report.
 
@@ -76,6 +77,6 @@ Owners should follow the manufacturer's and the regulator's official guidance, a
 
 ## Analysis
 
-Roughly 72,700 is the rounded form of 72,668, the sum Electrek and Drive Tesla Canada attribute to three KBA campaigns. Drive Tesla Canada says the KBA does not remove a car that sits in more than one campaign. The 9,881 in Germany are part of the 72,668. The 22,524 ID.4 vehicles are the separate U.S. filing Electrek describes. The 80 percent cap is the temporary step on the manufacturer pages. Denmark's first-quarter 2027 date is that page's expectation for the software, and the UK pages do not print it.
+Roughly 72,700 is the rounded form of 72,668, the sum Electrek and Drive Tesla Canada attribute to three KBA campaigns. Drive Tesla Canada says the KBA does not remove a car that sits in more than one campaign. The 9,881 in Germany are part of the 72,668. The 22,524 ID.4 vehicles are the separate U.S. filing Electrek describes. The 80 percent cap is the temporary step on the manufacturer pages. Denmark's first-quarter 2027 date is that page's expectation for the software, and the UK pages do not print it. On property damage, Volkswagen UK and CUPRA UK each say there have been individual cases, and electrive and Drive Tesla Canada each say the KBA account they cite did not have those cases.
 
 More from the [Cars desk](/topics/cars/): [ID. Cross prices in France](/articles/2026-10-25-vw-id-cross-lfp-france/) and [Firefly's 60 kWh pack](/articles/2026-10-25-nio-firefly-60-kwh/). The [Batteries desk](/topics/batteries/) has [CATL and BAIC's battery-swap pact](/articles/2026-10-23-catl-baic-battery-swap/).

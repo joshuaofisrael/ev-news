@@ -144,9 +144,11 @@ Each sample keeps a hero and two body slots in the front matter. The photograph 
 
 ## Legal hold
 
-`scripts/legal-hold-check` runs in CI after the tests and before `npm run build`. `npm test` runs it as well, and the production build runs it again. A flagged article fails the deploy unless the file is `status: HOLD_REVIEW` or `content-review/approvals.json` contains its slug and the sha256 of the exact file bytes.
+`scripts/legal-hold-check` runs in CI after the tests and before `npm run build`. `npm test` runs it as well, and the production build runs it again. A flagged article fails the deploy unless the file is `status: HOLD_REVIEW`, `content-review/approvals.json` contains its slug and the sha256 of the exact file bytes, or a moderate clearance matches a moderate hold.
 
 `HOLD_REVIEW` leaves the article out of the build, the sitemap, the news sitemap, RSS, Atom, and IndexNow. IndexNow submits the sitemap, so a held URL is not sent. An approval unlocks that exact file. Changing the file changes the hash and the hold returns. Do not add an approval without a recorded editorial sign-off.
+
+A moderate hold is `status: HOLD_REVIEW` plus `holdTier: moderate`, and it has no flag under rules 1, 5, or 6. `content-review/moderate-clearances.json` unlocks that exact file when `slug`, `sha256`, `reviewer`, and `verdict` are present and `verdict` is `clear`. The same entry does not unlock a high hold, a hold with no tier, or a hold that still trips rules 1, 5, or 6. Those stay on `approvals.json`. Leave the clearances list empty until a named reviewer records the verdict. Do not add a clearance without that sign-off. `HOLD_REVIEW` stays on the file until that entry matches.
 
 Code-enforced rules:
 
@@ -204,6 +206,7 @@ lib/legal-hold.js          the pre-publish legal-hold gate
 scripts/legal-hold-check   runs the gate; CI calls it before the build
 scripts/ping-indexnow.js   IndexNow submitter
 content-review/approvals.json  slug plus sha256 unlocks one exact held file
+content-review/moderate-clearances.json  slug, sha256, reviewer, and verdict clear unlock one moderate hold
 scripts/build-logo.js      regenerates the original mark at src/assets/logo.png
 ```
 

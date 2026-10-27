@@ -5,12 +5,17 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { test } from "node:test";
+import matter from "gray-matter";
 import {
   CODE_ENFORCED,
+  HIGH_SEVERITY_RULES,
   JUDGEMENT_ONLY,
   canClearByDroppingOptionalImage,
   fileSha256,
   formatHoldReport,
+  isReleasedFile,
+  isValidClearance,
+  loadModerateClearances,
   reviewContent,
   reviewDirectory,
 } from "../lib/legal-hold.js";
@@ -101,6 +106,152 @@ test("HOLD_REVIEW or a matching file hash unlocks a flagged article, and the rep
   assert.match(repoApprovals, /"approvals": \[\]/);
   assert.doesNotMatch(repoApprovals, /must-hold|must-pass/);
   assert.equal(crypto.createHash("sha256").update(fs.readFileSync(holdFile)).digest("hex"), hash);
+
+  const repoClearances = fs.readFileSync(path.join(root, "content-review/moderate-clearances.json"), "utf8");
+  assert.match(repoClearances, /"clearances": \[\]/);
+  assert.deepEqual(loadModerateClearances(), []);
+});
+
+test("a moderate clearance unlocks only a moderate hold", () => {
+  assert.deepEqual([...HIGH_SEVERITY_RULES], [1, 5, 6]);
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "legal-hold-moderate-"));
+  const moderateBody = `---
+status: HOLD_REVIEW
+holdTier: moderate
+title: "A sourced charger note"
+summary: "General information about a mileage display."
+sources:
+  - title: "Electric Vehicle Myths"
+    url: "https://www.epa.gov/greenvehicles/electric-vehicle-myths"
+    publisher: "EPA"
+    date: 2026-10-27
+hero:
+  src: fixture-hero
+  alt: "Illuminated mileage digits reading 45218 on a dark instrument panel"
+  width: 1200
+  height: 675
+---
+
+General information about electric cars.
+`;
+  const file = path.join(dir, "2026-10-27-moderate.md");
+  fs.writeFileSync(file, moderateBody);
+  const hash = fileSha256(file);
+  const entry = { slug: "2026-10-27-moderate", sha256: hash, reviewer: "Ada Lovelace", verdict: "clear" };
+
+  const held = reviewDirectory(dir, { approvals: [], clearances: [] });
+  assert.equal(held.ok, true, formatHoldReport(held));
+  assert.equal(held.articles[0].held, true);
+  assert.equal(held.articles[0].moderate, true);
+  assert.equal(held.articles[0].blocking, false);
+  assert.ok(held.articles[0].flags.some((flag) => flag.rule === 7));
+
+  const cleared = reviewDirectory(dir, { approvals: [], clearances: [entry] });
+  assert.equal(cleared.ok, true, formatHoldReport(cleared));
+  assert.equal(cleared.articles[0].held, false);
+  assert.equal(cleared.articles[0].moderateCleared, true);
+  assert.equal(cleared.articles[0].blocking, false);
+  assert.equal(cleared.unlocked.length, 1);
+  assert.equal(isReleasedFile(file, { approvals: [], clearances: [entry] }), true);
+
+  const rejected = { ...entry, verdict: "hold" };
+  assert.equal(isValidClearance(rejected), false);
+  const stillHeld = reviewDirectory(dir, { approvals: [], clearances: [rejected] });
+  assert.equal(stillHeld.articles[0].held, true);
+  assert.equal(stillHeld.articles[0].moderateCleared, false);
+
+  const unnamed = { ...entry, reviewer: " " };
+  assert.equal(isValidClearance(unnamed), false);
+  assert.equal(reviewDirectory(dir, { approvals: [], clearances: [unnamed] }).articles[0].held, true);
+
+  const wrongHash = reviewDirectory(dir, {
+    approvals: [],
+    clearances: [{ ...entry, sha256: "b".repeat(64) }],
+  });
+  assert.equal(wrongHash.articles[0].held, true);
+
+  const unmarkedPath = path.join(dir, "2026-10-27-unmarked.md");
+  fs.writeFileSync(unmarkedPath, moderateBody.replace("holdTier: moderate\n", ""));
+  const unmarkedHash = fileSha256(unmarkedPath);
+  const unmarked = reviewDirectory(dir, {
+    approvals: [],
+    clearances: [
+      entry,
+      { slug: "2026-10-27-unmarked", sha256: unmarkedHash, reviewer: "Ada Lovelace", verdict: "clear" },
+    ],
+  });
+  const unmarkedArticle = unmarked.articles.find((article) => article.slug === "2026-10-27-unmarked");
+  assert.equal(unmarkedArticle.moderate, false);
+  assert.equal(unmarkedArticle.moderateCleared, false);
+  assert.equal(unmarkedArticle.held, true);
+
+  const highPath = path.join(dir, "2026-10-27-high.md");
+  const highBody = fs
+    .readFileSync(holdFile, "utf8")
+    .replace("---\n", "---\nstatus: HOLD_REVIEW\nholdTier: moderate\n");
+  fs.writeFileSync(highPath, highBody);
+  const highHash = fileSha256(highPath);
+  const high = reviewDirectory(dir, {
+    approvals: [],
+    clearances: [
+      { slug: "2026-10-27-high", sha256: highHash, reviewer: "Ada Lovelace", verdict: "cleared" },
+    ],
+  });
+  const highArticle = high.articles.find((article) => article.slug === "2026-10-27-high");
+  assert.equal(highArticle.moderate, false);
+  assert.equal(highArticle.moderateCleared, false);
+  assert.equal(highArticle.held, true);
+  assert.ok(highArticle.flags.some((flag) => flag.rule === 1));
+  assert.equal(isReleasedFile(highPath, { approvals: [], clearances: [
+    { slug: "2026-10-27-high", sha256: highHash, reviewer: "Ada Lovelace", verdict: "cleared" },
+  ] }), false);
+
+  const clearancesPath = path.join(dir, "moderate-clearances.json");
+  fs.writeFileSync(clearancesPath, JSON.stringify({ clearances: [entry] }));
+  const cli = runCheck([dir, "--approvals=" + path.join(dir, "missing-approvals.json"), `--clearances=${clearancesPath}`]);
+  assert.equal(cli.status, 0, cli.stdout + cli.stderr);
+  assert.match(cli.stdout, /2026-10-27-moderate/);
+  assert.match(cli.stdout, /UNLOCKED/);
+  assert.match(cli.stdout, /HELD 2026-10-27-high/);
+});
+
+test("the three repaired stories stay on HOLD_REVIEW, and Kadena is not a moderate hold", () => {
+  const posts = path.join(root, "src/content/posts");
+  const read = (slug) => matter(fs.readFileSync(path.join(posts, `${slug}.md`), "utf8"));
+  for (const slug of [
+    "2026-10-27-eved-pay-per-mile-trend",
+    "2026-10-25-vw-id-cupra-battery-recall",
+    "2026-10-24-tesla-giga-berlin-week",
+  ]) {
+    const parsed = read(slug);
+    assert.equal(parsed.data.status, "HOLD_REVIEW", slug);
+    assert.equal(parsed.data.holdTier, "moderate", slug);
+    assert.equal(isReleasedFile(path.join(posts, `${slug}.md`)), false, slug);
+  }
+
+  const eved = read("2026-10-27-eved-pay-per-mile-trend");
+  assert.equal(eved.data.images[0].src, "eved-trend-plug");
+  assert.equal(
+    reviewContent({ data: eved.data, content: eved.content }).some((flag) => flag.rule === 7),
+    false,
+  );
+
+  const vw = read("2026-10-25-vw-id-cupra-battery-recall");
+  assert.match(vw.data.title, /^Reports: about 72,700 VW and Cupra EVs/);
+  assert.match(vw.content, /Volkswagen UK says there are no confirmed personal injuries/);
+  assert.match(vw.content, /CUPRA UK says there are no confirmed personal injuries/);
+  assert.match(vw.content, /electrive, citing the KBA/);
+  assert.match(vw.content, /Drive Tesla Canada, citing dpa/);
+
+  const berlin = read("2026-10-24-tesla-giga-berlin-week");
+  assert.match(berlin.data.title, /reportedly/);
+  assert.match(berlin.content, /As reported by \[TeslaNorth\][^\n]*\/\[Drive Tesla Canada\]/);
+  assert.match(berlin.content, /could not open the original post/);
+
+  const kadena = read("2026-10-27-kadena-air-base-byd-vehicle-ban");
+  assert.equal(kadena.data.status, "HOLD_REVIEW");
+  assert.equal(kadena.data.holdTier, undefined);
+  assert.equal(kadena.data.title, "The 18th Wing has restricted BYD vehicles at Kadena Air Base, citing risk to the mission");
 });
 
 test("an optional fair-use image is the only droppable flag, and owned AI images pass", () => {

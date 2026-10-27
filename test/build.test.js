@@ -4,7 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
 import matter from "gray-matter";
-import { isApprovedFile, isHoldReview } from "../lib/legal-hold.js";
+import { isHoldReview, isReleasedFile } from "../lib/legal-hold.js";
 import { metaDescription } from "../lib/meta-description.js";
 import { formatDisplayDate, isFreshNews } from "../lib/dates.js";
 import faq from "../lib/faq.js";
@@ -69,7 +69,7 @@ function markdownPosts() {
 
 function isPublicPost(post) {
   if (post.draft || post.sample) return false;
-  if (isHoldReview(post.status) && !isApprovedFile(post.inputPath)) return false;
+  if (isHoldReview(post.status) && !isReleasedFile(post.inputPath)) return false;
   return true;
 }
 
@@ -307,7 +307,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(feed, /<rss version="2.0">/);
   assert.match(atom, /<feed xmlns="http:\/\/www.w3.org\/2005\/Atom">/);
   for (const post of markdownPosts()) {
-    if (!isHoldReview(post.status) || isApprovedFile(post.inputPath)) continue;
+    if (!isHoldReview(post.status) || isReleasedFile(post.inputPath)) continue;
     const loc = `https://evnewsdesk.com/articles/${post.slug}/`;
     assert.equal(sitemap.includes(`<loc>${loc}</loc>`), false, loc);
     assert.doesNotMatch(feed, new RegExp(esc(post.slug)));
@@ -681,7 +681,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const preview = runEleventy(["--output=_site-preview"], { ELEVENTY_ENV: "development" });
   assert.equal(preview.status, 0, preview.stdout + preview.stderr);
   for (const post of markdownPosts()) {
-    if (!isHoldReview(post.status) || isApprovedFile(post.inputPath)) continue;
+    if (!isHoldReview(post.status) || isReleasedFile(post.inputPath)) continue;
     assert.equal(
       fs.existsSync(path.join(root, "_site-preview", "articles", post.slug, "index.html")),
       false,

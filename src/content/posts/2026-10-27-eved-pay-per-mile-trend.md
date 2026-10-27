@@ -1,5 +1,6 @@
 ---
 status: HOLD_REVIEW
+holdTier: moderate
 title: "What is trending on X: UK electric vehicle excise duty, 3p a mile from April 2028"
 seoTitle: "UK electric vehicle excise duty from April 2028"
 date: 2026-10-27
@@ -18,8 +19,8 @@ hero:
   width: 1280
   height: 720
 images:
-  - src: eved-trend-odometer
-    alt: "Illuminated mileage digits reading 45218 on a dark instrument panel"
+  - src: eved-trend-plug
+    alt: "A dark hatchback plugged into an unbranded charger in an empty car park, with no people, no badges, and no readable numbers"
     after: 3
     width: 1280
     height: 720

@@ -8,7 +8,7 @@ import { figureCaption, imageFilesReady, insertBodyImages } from "./lib/article-
 import { metaDescription } from "./lib/meta-description.js";
 import { presentDashboard, validateDashboard } from "./lib/dashboard.js";
 import { formatValidationErrors, validatePostsDir } from "./lib/validate-posts.js";
-import { formatHoldReport, isApprovedFile, isHoldReview, reviewDirectory } from "./lib/legal-hold.js";
+import { formatHoldReport, isHoldReview, isReleasedFile, reviewDirectory } from "./lib/legal-hold.js";
 import dashboard from "./src/_data/dashboard.js";
 
 const pathPrefix = pathPrefixFromSiteUrl(site.url);
@@ -18,7 +18,7 @@ function withheldPost(post) {
   if (!isHoldReview(post?.data?.status)) return false;
   const input = post?.page?.inputPath;
   if (!input) return true;
-  return !isApprovedFile(input);
+  return !isReleasedFile(input);
 }
 
 function pageContext(bound) {
@@ -43,7 +43,7 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addFilter("absoluteUrl", (pageUrl) => absoluteUrl(site.url, pageUrl || "/"));
   eleventyConfig.addFilter("limit", (items, count) => (items || []).slice(0, count));
-  eleventyConfig.addFilter("holdApproved", (inputPath) => Boolean(inputPath) && isApprovedFile(String(inputPath)));
+  eleventyConfig.addFilter("holdApproved", (inputPath) => Boolean(inputPath) && isReleasedFile(String(inputPath)));
   eleventyConfig.addFilter("whereCategory", (posts, name) =>
     (posts || []).filter((post) => post.data.category === name && !withheldPost(post)),
   );
@@ -160,7 +160,7 @@ export default function (eleventyConfig) {
     const hold = reviewDirectory(dir);
     if (!hold.ok) {
       throw new Error(
-        `Legal hold check failed. A flagged article needs status HOLD_REVIEW, or a matching slug and sha256 in content-review/approvals.json.\n${formatHoldReport(hold)}`,
+        `Legal hold check failed. A flagged article needs status HOLD_REVIEW, a matching slug and sha256 in content-review/approvals.json, or a moderate clearance for a moderate hold in content-review/moderate-clearances.json.\n${formatHoldReport(hold)}`,
       );
     }
     if (hold.held.length) {

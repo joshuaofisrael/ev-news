@@ -1,0 +1,4 @@
+{
+  "note": "An entry unlocks one moderate hold only when holdTier is moderate, the file has no rule 1, 5, or 6 flag, slug matches the markdown filename, sha256 is the hash of the exact file bytes, reviewer is named, and verdict is clear. It does not unlock any other hold. Do not add an entry without a recorded editorial sign-off. A coding agent must not add clearances.",
+  "clearances": []
+}
