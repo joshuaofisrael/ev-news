@@ -285,6 +285,9 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(sitemap, /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-25-ev-range-cold-weather\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-26-bmw-ix5-460kw-charging\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-26-jetta-m6-orders\/<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-27-eved-pay-per-mile-trend\/<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-25-vw-id-cupra-battery-recall\/<\/loc>/);
+  assert.doesNotMatch(sitemap, /tesla-giga-berlin-week|kadena-air-base-byd-vehicle-ban/);
   assert.match(
     sitemap,
     /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-25-ev-range-cold-weather\/<\/loc>\s*<lastmod>2026-10-27T00:00:00\.000Z<\/lastmod>/,
@@ -801,13 +804,18 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.doesNotMatch(chargingHub, /Joshua|Ventures|©|Sample draft/);
   const carsHub = read("_site", "topics/cars/index.html");
   const carsList = carsHub.match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0];
-  assert.equal((carsList.match(/href="\/articles\//g) || []).length, 10);
+  assert.equal((carsList.match(/href="\/articles\//g) || []).length, 11);
   assert.match(carsList, /href="\/articles\/2026-10-26-jetta-m6-orders\/"/);
   assert.match(carsList, /href="\/articles\/2026-10-25-ev-range-cold-weather\/"/);
+  assert.match(carsList, /href="\/articles\/2026-10-25-vw-id-cupra-battery-recall\/"/);
+  assert.doesNotMatch(carsList, /tesla-giga-berlin-week/);
   const listedStories = (file) =>
     (read("_site", file).match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0].match(/href="\/articles\//g) || []).length;
   assert.equal(listedStories("topics/batteries/index.html"), 3);
-  assert.equal(listedStories("topics/policy/index.html"), 3);
+  assert.equal(listedStories("topics/policy/index.html"), 4);
+  const policyList = read("_site", "topics/policy/index.html").match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0];
+  assert.match(policyList, /href="\/articles\/2026-10-27-eved-pay-per-mile-trend\/"/);
+  assert.doesNotMatch(policyList, /kadena-air-base-byd-vehicle-ban/);
   assert.equal(listedStories("topics/industry/index.html"), 10);
   assert.match(
     read("_site", "topics/industry/index.html"),
