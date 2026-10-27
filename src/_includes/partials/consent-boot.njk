@@ -1,0 +1,107 @@
+<script>
+  (function () {
+    if (window.__mtmConsentBoot) return;
+    window.__mtmConsentBoot = true;
+
+    var KEY = "mtm-analytics-consent";
+    var ID = "{{ site.gaMeasurementId }}";
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = window.gtag || gtag;
+
+    function read() {
+      try { return localStorage.getItem(KEY); } catch (err) { return null; }
+    }
+    function write(value) {
+      try { localStorage.setItem(KEY, value); } catch (err) {}
+    }
+    function isGaName(name) {
+      return name === "_ga" || name.indexOf("_ga_") === 0 || name === "_gid" || name === "_gat" || name.indexOf("_gat_") === 0;
+    }
+    function installGaCookieGate() {
+      if (installGaCookieGate.done) return;
+      installGaCookieGate.done = true;
+      try {
+        var original = Object.getOwnPropertyDescriptor(Document.prototype, "cookie");
+        if (!original || !original.get || !original.set) return;
+        Object.defineProperty(document, "cookie", {
+          configurable: true,
+          get: function () { return original.get.call(document); },
+          set: function (value) {
+            var pair = String(value);
+            var name = pair.split("=")[0].trim();
+            var expiring = /max-age=0/i.test(pair) || /expires=thu, 01 jan 1970/i.test(pair);
+            if (isGaName(name) && read() !== "granted" && !expiring) return;
+            original.set.call(document, pair);
+          }
+        });
+      } catch (err) {}
+    }
+    function clearGaCookies() {
+      var jar = document.cookie ? document.cookie.split(";") : [];
+      var names = [];
+      for (var i = 0; i < jar.length; i++) {
+        var name = jar[i].split("=")[0].trim();
+        if (isGaName(name) && names.indexOf(name) === -1) names.push(name);
+      }
+      var host = location.hostname;
+      var domains = ["", host, "." + host];
+      var parts = host.split(".");
+      if (parts.length > 1) domains.push("." + parts.slice(-2).join("."));
+      for (var n = 0; n < names.length; n++) {
+        for (var d = 0; d < domains.length; d++) {
+          var extra = domains[d] ? "; domain=" + domains[d] : "";
+          document.cookie = names[n] + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; path=/" + extra;
+          document.cookie = names[n] + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; path=/; SameSite=Lax" + extra;
+        }
+      }
+    }
+    function grantSignals() {
+      window["ga-disable-" + ID] = false;
+      gtag("consent", "update", {
+        "analytics_storage": "granted",
+        "ad_storage": "granted",
+        "ad_user_data": "granted",
+        "ad_personalization": "granted"
+      });
+    }
+    function loadGa() {
+      grantSignals();
+      if (window.__mtmGaLoaded) return;
+      window.__mtmGaLoaded = true;
+      var script = document.createElement("script");
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=" + ID;
+      document.head.appendChild(script);
+      gtag("js", new Date());
+      gtag("config", ID);
+    }
+    function denyGa() {
+      window["ga-disable-" + ID] = true;
+      gtag("consent", "update", {
+        "ad_storage": "denied",
+        "analytics_storage": "denied",
+        "ad_user_data": "denied",
+        "ad_personalization": "denied"
+      });
+      clearGaCookies();
+    }
+
+    installGaCookieGate();
+    gtag("consent", "default", {
+      "ad_storage": "denied",
+      "analytics_storage": "denied",
+      "ad_user_data": "denied",
+      "ad_personalization": "denied"
+    });
+    if (read() === "granted") loadGa();
+    else window["ga-disable-" + ID] = true;
+
+    window.mtmConsent = {
+      read: read,
+      write: write,
+      loadGa: loadGa,
+      denyGa: denyGa
+    };
+  })();
+</script>

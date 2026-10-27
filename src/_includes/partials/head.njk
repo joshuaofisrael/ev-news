@@ -5,11 +5,14 @@
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#14211C">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://pagead2.googlesyndication.com; connect-src https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action {% if formAction %}{{ formAction }}{% else %}'none'{% endif %}; frame-ancestors 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://www.google-analytics.com https://*.google-analytics.com; style-src 'self'; font-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://pagead2.googlesyndication.com https://www.googletagmanager.com https://*.googletagmanager.com; connect-src https://cloudflareinsights.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action {% if formAction %}{{ formAction }}{% else %}'none'{% endif %}; frame-ancestors 'none'">
+{% include "partials/consent-boot.njk" %}
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsenseClient }}" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="{{ site.adsenseClient }}">
 {% if draft or noindex %}
 <meta name="robots" content="noindex, nofollow">
+{% elif thin %}
+<meta name="robots" content="noindex,follow">
 {% else %}
 <meta name="robots" content="index, follow">
 {% endif %}
