@@ -1,0 +1,4 @@
+{
+  "note": "An entry unlocks one held article only when slug matches the markdown filename and sha256 is the hash of the exact file bytes. Do not add an entry without a recorded editorial approval. A coding agent must not add approvals.",
+  "approvals": []
+}

@@ -1,4 +1,5 @@
 ---
+status: HOLD_REVIEW
 title: "What EV fans on X are discussing: a Tesla Manufacturing post says Giga Berlin built 7,000 Model Y in one week"
 date: 2026-10-24
 updatedAt: 2026-10-25

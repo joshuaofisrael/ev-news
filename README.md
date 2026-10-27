@@ -28,7 +28,7 @@ Publish one article a day. Topics can be news, models, batteries, charging, poli
 4. Add a hero and about one picture every few paragraphs. The pictures are photoreal, as described under Images. Save each as WebP and AVIF under `src/assets/images/`, then fill `hero` and `images`. Homepage and category banners live in `src/assets/photos/` and are not article images.
 5. Run `npm run dev` and open `/articles/YYYY-MM-DD-short-slug/`.
 6. When the source list is complete and the copy is checked, remove the `draft` line (or set `draft: false`).
-7. Run `npm test`. The production build fails if a published article has no sources, a source is missing `title`, `url`, `publisher`, or `date`, `updatedAt` is missing, or the story is missing a hero, two body images, or alt text. Do not put a visible AI caption on a picture. The disclosure lives on `/disclaimer/`.
+7. Run `npm test`. The production build fails if a published article has no sources, a source is missing `title`, `url`, `publisher`, or `date`, `updatedAt` is missing, or the story is missing a hero, two body images, or alt text. `npm test` also runs the legal-hold check. Do not put a visible AI caption on a picture. The disclosure lives on `/disclaimer/`.
 8. Optional: if the story carries a sourced statistic, add that figure to [`src/_data/dashboard.js`](src/_data/dashboard.js) with its label, value, unit, as-of date, source name, source URL, and article slug. The build fails a dashboard figure that has no source URL. Skip this when the story has no figure to add.
 9. Commit and push to `main`. GitHub Actions runs the tests, builds the site, and deploys `_site` to GitHub Pages.
 
@@ -67,7 +67,7 @@ The byline is **EV News Desk**, from `author` in `src/_data/site.js`. The articl
 
 `opinion: true` or `label: opinion`, `label: analysis`, or `label: speculation` prints that label at the top. `disclaimer: health`, `disclaimer: legal`, or `disclaimer: financial` prints a short notice that the piece is not advice.
 
-An AI-generated picture uses `hero` or an `images` entry with `src`, `alt`, `width`, and `height`. `caption` is optional and is not an AI label. Do not put a visible AI caption on the picture. The disclosure lives on `/disclaimer/`. The alt text describes the picture and does not name a real person or stage an event that did not happen. A third-party press image uses `image`, `imageAlt`, `imageCaption`, `imageCredit`, `imageSource`, and `imageLicense`. Credit, source, and licence stay mandatory for a real press photo. Fair use images stay at most 640 by 480. Homepage and category photos in `src/assets/photos/` are site art, not story images, so the publish check does not look for them there.
+An AI-generated picture uses `hero` or an `images` entry with `src`, `alt`, `width`, and `height`. `caption` is optional and is not an AI label. Do not put a visible AI caption on the picture. The disclosure lives on `/disclaimer/`. The alt text describes the picture and does not name a real person or stage an event that did not happen. A third-party press image uses `image`, `imageAlt`, `imageCaption`, `imageCredit`, `imageSource`, and `imageLicense`. Credit, source, and licence stay mandatory for a real press photo. The structural image check still limits a fair-use file to 640 by 480. The legal-hold check rejects fair use and attribution-only credits before deploy. Homepage and category photos in `src/assets/photos/` are site art, not story images, so the publish check does not look for them there.
 
 The rules are also on the [Sources & Ethics](src/sources-ethics.njk) page. Corrections go through the [Corrections](src/corrections.njk) page. When a claim is in doubt, leave it out.
 
@@ -107,7 +107,7 @@ images:
 
 The hero loads immediately once its files are in place. Body images use `loading="lazy"`. Both set width and height.
 
-A genuine press photo is separate. Keep it small, low resolution, and credited. Do not use a stock-agency image. The fields are `image`, `imageAlt`, `imageCaption`, `imageCredit`, `imageSource`, `imageLicense`, `imageWidth`, and `imageHeight`. `imageLicense` is `Original`, `CC0`, `CC-BY`, `CC-BY-SA`, or `Fair use`. Anything except `Original` needs `imageSource`. Fair use stays at most 640 by 480. The template prints the caption, credit, source link, and licence.
+A genuine press photo is separate. Keep it small, low resolution, and credited. Do not use a stock-agency image. The fields are `image`, `imageAlt`, `imageCaption`, `imageCredit`, `imageSource`, `imageLicense`, `imageWidth`, and `imageHeight`. `imageLicense` is `Original`, `CC0`, `CC-BY`, `CC-BY-SA`, or `Fair use`. Anything except `Original` needs `imageSource`. Fair use stays at most 640 by 480 in the structural check. That credit does not clear the legal-hold check: fair use and attribution need documented permission, or the optional image has to come out. The template prints the caption, credit, source link, and licence.
 
 The build fails a published story that has no hero, fewer than two body images, a missing or thin alt text, alt text that calls the picture an illustration or drawing, a missing WebP or AVIF file, or a press photo that is incomplete or points at a stock agency. A caption on an AI picture is optional. Do not use it as a visible AI label. The disclosure lives on `/disclaimer/`. Credit, source, and licence stay mandatory for a real press photo. A draft with the front matter filled in and the files not yet added shows the empty slot instead of a drawing.
 
@@ -142,6 +142,27 @@ Each sample keeps a hero and two body slots in the front matter. The photograph 
 
 `npm run dev` shows them with an unpublished-draft banner so you can check the article layout.
 
+## Legal hold
+
+`scripts/legal-hold-check` runs in CI after the tests and before `npm run build`. `npm test` runs it as well, and the production build runs it again. A flagged article fails the deploy unless the file is `status: HOLD_REVIEW` or `content-review/approvals.json` contains its slug and the sha256 of the exact file bytes.
+
+`HOLD_REVIEW` leaves the article out of the build, the sitemap, the news sitemap, RSS, Atom, and IndexNow. IndexNow submits the sitemap, so a held URL is not sent. An approval unlocks that exact file. Changing the file changes the hash and the hold returns. Do not add an approval without a recorded editorial sign-off.
+
+Code-enforced rules:
+
+| Rule | What fails the check |
+| --- | --- |
+| 1 | Keywords: fraud, crime, lawsuit, alleged, misconduct, and close inflections |
+| 3 | A third-party image without a licence and a permission source. Fair use and attribution-only fail. Owned AI images pass |
+| 4 | No absolute source URL |
+| 5 | Personalised medical, legal, tax, or investment instructions |
+| 6 | Election wording |
+| 7 | An owned AI image of a real person, a real event, or a specific instrument reading |
+
+Judgement-only, not failed by the script: sensitive personal information, legal complaints and embargoes, defamation nuance the keyword list missed, and a headline that is stronger than the evidence. Those still keep a story off the site when a reviewer sets `HOLD_REVIEW`.
+
+The only content change the check allows on an existing story is dropping an optional unlicensed image and running the check again. Anything else that still flags is `HOLD_REVIEW`. Do not rewrite an allegation so the keywords disappear.
+
 ## Discovery files
 
 The production build writes:
@@ -166,7 +187,7 @@ npm run indexnow
 
 ## Pages deploy
 
-[`.github/workflows/pages.yml`](.github/workflows/pages.yml) runs the tests and production build on pull requests and on pushes to `main`. Pushes to `main` upload `_site`, including `CNAME`, and deploy it to GitHub Pages.
+[`.github/workflows/pages.yml`](.github/workflows/pages.yml) runs the tests, the legal-hold check, and the production build on pull requests and on pushes to `main`. Pushes to `main` upload `_site`, including `CNAME`, and deploy it to GitHub Pages. A flagged article that is not held fails that job before the upload.
 
 `name` is EV News Desk and `url` is `https://evnewsdesk.com`. `contactEmail` is still `desk@example.com` until you change it. The contact page does not list a street address.
 
@@ -179,7 +200,10 @@ src/_data/site.js          name, url, author, operator, IndexNow key
 src/content/posts/         one Markdown file per story
 src/_includes/             layouts
 lib/validate-posts.js      the publish-time sources check
+lib/legal-hold.js          the pre-publish legal-hold gate
+scripts/legal-hold-check   runs the gate; CI calls it before the build
 scripts/ping-indexnow.js   IndexNow submitter
+content-review/approvals.json  slug plus sha256 unlocks one exact held file
 scripts/build-logo.js      regenerates the original mark at src/assets/logo.png
 ```
 

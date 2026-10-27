@@ -28,6 +28,8 @@ jobs:
         run: npm ci
       - name: Test
         run: npm test
+      - name: Legal hold check
+        run: node scripts/legal-hold-check.js
       - name: Build
         run: npm run build
       - name: Setup Pages

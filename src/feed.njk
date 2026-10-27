@@ -12,6 +12,8 @@ sitemapIgnore: true
     <language>en-us</language>
     <lastBuildDate>{{ site.buildTime | rfc822 }}</lastBuildDate>
 {% for post in collections.publishedPosts %}
+{% set released = true if post.data.status != "HOLD_REVIEW" else (post.page.inputPath | holdApproved) %}
+{% if released %}
     <item>
       <title>{{ post.data.title }}</title>
       <link>{{ post.url | absoluteUrl }}</link>
@@ -20,6 +22,7 @@ sitemapIgnore: true
       <category>{{ post.data.category }}</category>
       <description>{{ post.data.summary }}</description>
     </item>
+{% endif %}
 {% endfor %}
   </channel>
 </rss>

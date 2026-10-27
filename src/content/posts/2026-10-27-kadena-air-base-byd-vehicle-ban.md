@@ -1,4 +1,5 @@
 ---
+status: HOLD_REVIEW
 title: "The 18th Wing has restricted BYD vehicles at Kadena Air Base, citing risk to the mission"
 date: 2026-10-27
 updatedAt: 2026-10-27
