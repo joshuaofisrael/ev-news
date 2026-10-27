@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
 import matter from "gray-matter";
+import { isApprovedFile, isHoldReview } from "../lib/legal-hold.js";
 import { metaDescription } from "../lib/meta-description.js";
 import { formatDisplayDate, isFreshNews } from "../lib/dates.js";
 import faq from "../lib/faq.js";
@@ -43,7 +44,7 @@ function dayStamp(value) {
   return String(value ?? "").slice(0, 10);
 }
 
-function publishedPosts() {
+function markdownPosts() {
   const dir = path.join(root, "src/content/posts");
   return fs
     .readdirSync(dir)
@@ -61,9 +62,20 @@ function publishedPosts() {
         draft: data.draft === true,
         sample: data.sample === true,
         news: data.news !== false,
+        status: String(data.status || ""),
       };
-    })
-    .filter((post) => !post.draft && !post.sample)
+    });
+}
+
+function isPublicPost(post) {
+  if (post.draft || post.sample) return false;
+  if (isHoldReview(post.status) && !isApprovedFile(post.inputPath)) return false;
+  return true;
+}
+
+function publishedPosts() {
+  return markdownPosts()
+    .filter(isPublicPost)
     .sort((a, b) => {
       const delta = b.date.localeCompare(a.date);
       if (delta) return delta;
@@ -294,6 +306,16 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(news, /xmlns:news="http:\/\/www.google.com\/schemas\/sitemap-news\/0.9"/);
   assert.match(feed, /<rss version="2.0">/);
   assert.match(atom, /<feed xmlns="http:\/\/www.w3.org\/2005\/Atom">/);
+  for (const post of markdownPosts()) {
+    if (!isHoldReview(post.status) || isApprovedFile(post.inputPath)) continue;
+    const loc = `https://evnewsdesk.com/articles/${post.slug}/`;
+    assert.equal(sitemap.includes(`<loc>${loc}</loc>`), false, loc);
+    assert.doesNotMatch(feed, new RegExp(esc(post.slug)));
+    assert.doesNotMatch(atom, new RegExp(esc(post.slug)));
+    assert.doesNotMatch(news, new RegExp(esc(post.slug)));
+    assert.doesNotMatch(llms, new RegExp(esc(post.slug)));
+    assert.equal(fs.existsSync(path.join(root, "_site", "articles", post.slug, "index.html")), false, post.slug);
+  }
   assert.match(feed, /\/articles\/2026-10-26-bmw-ix5-460kw-charging\//);
   assert.match(feed, /\/articles\/2026-10-26-rivian-q3-us-ev-sales\//);
   assert.match(feed, /\/articles\/2026-10-26-cpca-october-nev-forecast\//);
@@ -658,6 +680,14 @@ test("production build omits drafts and the sources gate fails closed", { timeou
 
   const preview = runEleventy(["--output=_site-preview"], { ELEVENTY_ENV: "development" });
   assert.equal(preview.status, 0, preview.stdout + preview.stderr);
+  for (const post of markdownPosts()) {
+    if (!isHoldReview(post.status) || isApprovedFile(post.inputPath)) continue;
+    assert.equal(
+      fs.existsSync(path.join(root, "_site-preview", "articles", post.slug, "index.html")),
+      false,
+      post.slug,
+    );
+  }
   const draft = read(
     "_site-preview",
     "articles/2026-10-22-sample-cars-template/index.html",
@@ -771,13 +801,13 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.doesNotMatch(chargingHub, /Joshua|Ventures|©|Sample draft/);
   const carsHub = read("_site", "topics/cars/index.html");
   const carsList = carsHub.match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0];
-  assert.equal((carsList.match(/href="\/articles\//g) || []).length, 12);
+  assert.equal((carsList.match(/href="\/articles\//g) || []).length, 10);
   assert.match(carsList, /href="\/articles\/2026-10-26-jetta-m6-orders\/"/);
   assert.match(carsList, /href="\/articles\/2026-10-25-ev-range-cold-weather\/"/);
   const listedStories = (file) =>
     (read("_site", file).match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0].match(/href="\/articles\//g) || []).length;
   assert.equal(listedStories("topics/batteries/index.html"), 3);
-  assert.equal(listedStories("topics/policy/index.html"), 5);
+  assert.equal(listedStories("topics/policy/index.html"), 3);
   assert.equal(listedStories("topics/industry/index.html"), 10);
   assert.match(
     read("_site", "topics/industry/index.html"),

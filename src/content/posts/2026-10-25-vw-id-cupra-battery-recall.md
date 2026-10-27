@@ -1,4 +1,5 @@
 ---
+status: HOLD_REVIEW
 title: "KBA campaigns cover 72,668 Volkswagen and Cupra electric cars, and the companies are limiting charge to 80 percent"
 date: 2026-10-25
 updatedAt: 2026-10-25

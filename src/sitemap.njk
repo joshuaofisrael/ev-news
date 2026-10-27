@@ -6,7 +6,8 @@ sitemapIgnore: true
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {% for item in collections.all %}
-{% if item.url and item.data.draft != true and item.data.sitemapIgnore != true and item.data.thin != true %}
+{% set released = true if item.data.status != "HOLD_REVIEW" else (item.page.inputPath | holdApproved) %}
+{% if item.url and released and item.data.draft != true and item.data.sitemapIgnore != true and item.data.thin != true %}
   <url>
     <loc>{{ item.url | absoluteUrl }}</loc>
     {% set stamp = (item.data.updatedAt or item.date) | isoDate %}

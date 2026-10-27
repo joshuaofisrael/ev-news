@@ -8,10 +8,18 @@ import { figureCaption, imageFilesReady, insertBodyImages } from "./lib/article-
 import { metaDescription } from "./lib/meta-description.js";
 import { presentDashboard, validateDashboard } from "./lib/dashboard.js";
 import { formatValidationErrors, validatePostsDir } from "./lib/validate-posts.js";
+import { formatHoldReport, isApprovedFile, isHoldReview, reviewDirectory } from "./lib/legal-hold.js";
 import dashboard from "./src/_data/dashboard.js";
 
 const pathPrefix = pathPrefixFromSiteUrl(site.url);
 const includeDrafts = process.env.ELEVENTY_ENV === "development";
+
+function withheldPost(post) {
+  if (!isHoldReview(post?.data?.status)) return false;
+  const input = post?.page?.inputPath;
+  if (!input) return true;
+  return !isApprovedFile(input);
+}
 
 function pageContext(bound) {
   const data = bound?.ctx ?? bound ?? {};
@@ -35,13 +43,15 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addFilter("absoluteUrl", (pageUrl) => absoluteUrl(site.url, pageUrl || "/"));
   eleventyConfig.addFilter("limit", (items, count) => (items || []).slice(0, count));
+  eleventyConfig.addFilter("holdApproved", (inputPath) => Boolean(inputPath) && isApprovedFile(String(inputPath)));
   eleventyConfig.addFilter("whereCategory", (posts, name) =>
-    (posts || []).filter((post) => post.data.category === name),
+    (posts || []).filter((post) => post.data.category === name && !withheldPost(post)),
   );
   eleventyConfig.addFilter("relatedStories", (posts, category, currentUrl, limit = 5) =>
     (posts || [])
       .filter((post) => post.data.category === category)
       .filter((post) => post.data.draft !== true && post.data.sample !== true)
+      .filter((post) => !withheldPost(post))
       .filter((post) => post.url && post.url !== currentUrl)
       .sort((a, b) => {
         const delta = new Date(b.date) - new Date(a.date);
@@ -51,7 +61,7 @@ export default function (eleventyConfig) {
       .slice(0, Number(limit) || 5),
   );
   eleventyConfig.addFilter("whereTag", (posts, tag) =>
-    (posts || []).filter((post) => (post.data.tags || []).includes(tag)),
+    (posts || []).filter((post) => (post.data.tags || []).includes(tag) && !withheldPost(post)),
   );
   eleventyConfig.addFilter("categorySlug", (name) => {
     const desk = site.categories.find((category) => category.name === name);
@@ -80,6 +90,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("newsroomPosts", (posts) =>
     (posts || [])
       .filter((post) => post.data.draft !== true && post.data.sample !== true)
+      .filter((post) => !withheldPost(post))
       .sort((a, b) => {
         const delta = new Date(b.date) - new Date(a.date);
         if (delta) return delta;
@@ -108,18 +119,20 @@ export default function (eleventyConfig) {
     api
       .getFilteredByGlob("src/content/posts/**/*.md")
       .filter((post) => includeDrafts || post.data.draft !== true)
+      .filter((post) => !withheldPost(post))
       .sort((a, b) => b.date - a.date),
   );
   eleventyConfig.addCollection("publishedPosts", (api) =>
     api
       .getFilteredByGlob("src/content/posts/**/*.md")
       .filter((post) => post.data.draft !== true)
+      .filter((post) => !withheldPost(post))
       .sort((a, b) => b.date - a.date),
   );
   eleventyConfig.addCollection("publicTagList", (api) => {
     const tags = new Set();
     for (const post of api.getFilteredByGlob("src/content/posts/**/*.md")) {
-      if (post.data.draft === true) continue;
+      if (post.data.draft === true || withheldPost(post)) continue;
       for (const tag of post.data.tags || []) {
         if (typeof tag === "string" && tag.trim() && tag !== "post") tags.add(tag.trim());
       }
@@ -144,6 +157,17 @@ export default function (eleventyConfig) {
       throw new Error(`Published articles failed the sources check:\n${formatValidationErrors(result)}`);
     }
     for (const warning of result.warnings) console.warn(`Source check warning: ${warning}`);
+    const hold = reviewDirectory(dir);
+    if (!hold.ok) {
+      throw new Error(
+        `Legal hold check failed. A flagged article needs status HOLD_REVIEW, or a matching slug and sha256 in content-review/approvals.json.\n${formatHoldReport(hold)}`,
+      );
+    }
+    if (hold.held.length) {
+      console.log(
+        `Legal hold excluded ${hold.held.length} article(s): ${hold.held.map((article) => article.slug).join(", ")}`,
+      );
+    }
     const dashboardCheck = validateDashboard(dashboard);
     if (!dashboardCheck.ok) {
       throw new Error(

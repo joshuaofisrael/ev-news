@@ -12,6 +12,8 @@ sitemapIgnore: true
   <link rel="alternate" href="{{ "/" | absoluteUrl }}"/>
   <author><name>{{ site.author }}</name></author>
 {% for post in collections.publishedPosts %}
+{% set released = true if post.data.status != "HOLD_REVIEW" else (post.page.inputPath | holdApproved) %}
+{% if released %}
   <entry>
     <title>{{ post.data.title }}</title>
     <id>{{ post.url | absoluteUrl }}</id>
@@ -22,5 +24,6 @@ sitemapIgnore: true
     <summary>{{ post.data.summary }}</summary>
     <category term="{{ post.data.category }}"/>
   </entry>
+{% endif %}
 {% endfor %}
 </feed>

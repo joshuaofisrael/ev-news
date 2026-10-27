@@ -23,6 +23,7 @@ if (!fs.existsSync(sitemapPath)) {
   process.exit(1);
 }
 
+// sitemap.xml is built without unapproved HOLD_REVIEW articles, so IndexNow does not receive them.
 const urls = urlsFromSitemap(fs.readFileSync(sitemapPath, "utf8"));
 if (!urls.length) {
   console.error("Sitemap has no URLs to submit.");

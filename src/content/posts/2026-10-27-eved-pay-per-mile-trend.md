@@ -1,4 +1,5 @@
 ---
+status: HOLD_REVIEW
 title: "What is trending on X: UK electric vehicle excise duty, 3p a mile from April 2028"
 seoTitle: "UK electric vehicle excise duty from April 2028"
 date: 2026-10-27
