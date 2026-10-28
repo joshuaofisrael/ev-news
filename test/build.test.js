@@ -738,7 +738,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(storyRelated, /href="\/articles\/2026-10-27-chinese-brands-overtake-japanese-europe\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-10-26-rivian-q3-us-ev-sales\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-10-26-foxconn-mitsubishi-electric-mobility\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-10-26-cpca-october-nev-forecast\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-10-28-ather-first-quarterly-profit\/"/);
   assert.equal((storyRelated.match(/href="\/articles\//g) || []).length, 5);
   assert.doesNotMatch(storyRelated, /volvo-q3-results|byd-camacari-capacity/);
   assert.doesNotMatch(storyRelated, /tesla-q3-results|Joshua|©/);
@@ -798,14 +798,18 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(chargingList, /href="\/articles\/2026-10-24-chery-volt-dragon-charging\/"/);
   assert.match(chargingList, /href="\/articles\/2026-10-23-laz-evercharge-apartment-charging\/"/);
   assert.match(chargingList, /href="\/articles\/2026-10-26-ev-charging-cost\/"/);
-  assert.equal((chargingList.match(/href="\/articles\//g) || []).length, 7);
+  assert.match(chargingList, /href="\/articles\/2026-10-28-ford-fathom-home-power\/"/);
+  assert.match(chargingList, /href="\/articles\/2026-10-28-ev-power-station-trend\/"/);
+  assert.equal((chargingList.match(/href="\/articles\//g) || []).length, 9);
   assert.match(chargingHub, /rel="canonical" href="https:\/\/evnewsdesk\.com\/topics\/charging\/"/);
   assert.match(chargingHub, /"name":"EV News Desk"/);
   assert.match(chargingHub, /"@type":"CollectionPage"/);
   assert.doesNotMatch(chargingHub, /Joshua|Ventures|©|Sample draft/);
   const carsHub = read("_site", "topics/cars/index.html");
   const carsList = carsHub.match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0];
-  assert.equal((carsList.match(/href="\/articles\//g) || []).length, 12);
+  assert.equal((carsList.match(/href="\/articles\//g) || []).length, 14);
+  assert.match(carsList, /href="\/articles\/2026-10-28-latvia-tesla-assisted-driving\/"/);
+  assert.match(carsList, /href="\/articles\/2026-10-28-lexus-rz-2027-pricing\/"/);
   assert.match(carsList, /href="\/articles\/2026-10-26-jetta-m6-orders\/"/);
   assert.match(carsList, /href="\/articles\/2026-10-25-ev-range-cold-weather\/"/);
   assert.match(carsList, /href="\/articles\/2026-10-25-vw-id-cupra-battery-recall\/"/);
@@ -813,14 +817,19 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const listedStories = (file) =>
     (read("_site", file).match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0].match(/href="\/articles\//g) || []).length;
   assert.equal(listedStories("topics/batteries/index.html"), 3);
-  assert.equal(listedStories("topics/policy/index.html"), 4);
+  assert.equal(listedStories("topics/policy/index.html"), 5);
   const policyList = read("_site", "topics/policy/index.html").match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0];
   assert.match(policyList, /href="\/articles\/2026-10-27-eved-pay-per-mile-trend\/"/);
+  assert.match(policyList, /href="\/articles\/2026-10-28-vehicle-choice-act-ev-credit\/"/);
   assert.doesNotMatch(policyList, /kadena-air-base-byd-vehicle-ban/);
-  assert.equal(listedStories("topics/industry/index.html"), 10);
+  assert.equal(listedStories("topics/industry/index.html"), 11);
   assert.match(
     read("_site", "topics/industry/index.html"),
     /href="\/articles\/2026-10-26-rivian-q3-us-ev-sales\/"/,
+  );
+  assert.match(
+    read("_site", "topics/industry/index.html"),
+    /href="\/articles\/2026-10-28-ather-first-quarterly-profit\/"/,
   );
   assert.doesNotMatch(carsHub, /sample-cars|Sample draft|Joshua/);
   for (const slug of ["cars", "batteries", "charging", "policy", "industry"]) {
