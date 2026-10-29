@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import site from "./src/_data/site.js";
-import { formatDisplayDate, isFreshNews, toIso, toRfc822 } from "./lib/dates.js";
+import { formatDisplayDate, isFreshNews, isFuturePublication, toIso, toRfc822 } from "./lib/dates.js";
 import { freshNewsPosts, renderNewsSitemap } from "./lib/news-sitemap.js";
 import { absoluteUrl, pathPrefixFromSiteUrl, prefixRootUrls } from "./lib/site-url.js";
 import { buildCrumbs, renderBreadcrumbNav, renderJsonLd } from "./lib/structured-data.js";
@@ -19,6 +19,11 @@ function withheldPost(post) {
   const input = post?.page?.inputPath;
   if (!input) return true;
   return !isReleasedFile(input);
+}
+
+function scheduledLater(post) {
+  if (includeDrafts) return false;
+  return isFuturePublication(post?.data?.publishAt);
 }
 
 function pageContext(bound) {
@@ -45,12 +50,13 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("limit", (items, count) => (items || []).slice(0, count));
   eleventyConfig.addFilter("holdApproved", (inputPath) => Boolean(inputPath) && isReleasedFile(String(inputPath)));
   eleventyConfig.addFilter("whereCategory", (posts, name) =>
-    (posts || []).filter((post) => post.data.category === name && !withheldPost(post)),
+    (posts || []).filter((post) => post.data.category === name && !scheduledLater(post) && !withheldPost(post)),
   );
   eleventyConfig.addFilter("relatedStories", (posts, category, currentUrl, limit = 5) =>
     (posts || [])
       .filter((post) => post.data.category === category)
       .filter((post) => post.data.draft !== true && post.data.sample !== true)
+      .filter((post) => !scheduledLater(post))
       .filter((post) => !withheldPost(post))
       .filter((post) => post.url && post.url !== currentUrl)
       .sort((a, b) => {
@@ -61,7 +67,9 @@ export default function (eleventyConfig) {
       .slice(0, Number(limit) || 5),
   );
   eleventyConfig.addFilter("whereTag", (posts, tag) =>
-    (posts || []).filter((post) => (post.data.tags || []).includes(tag) && !withheldPost(post)),
+    (posts || []).filter(
+      (post) => (post.data.tags || []).includes(tag) && !scheduledLater(post) && !withheldPost(post),
+    ),
   );
   eleventyConfig.addFilter("categorySlug", (name) => {
     const desk = site.categories.find((category) => category.name === name);
@@ -90,6 +98,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("newsroomPosts", (posts) =>
     (posts || [])
       .filter((post) => post.data.draft !== true && post.data.sample !== true)
+      .filter((post) => !scheduledLater(post))
       .filter((post) => !withheldPost(post))
       .sort((a, b) => {
         const delta = new Date(b.date) - new Date(a.date);
@@ -119,6 +128,7 @@ export default function (eleventyConfig) {
     api
       .getFilteredByGlob("src/content/posts/**/*.md")
       .filter((post) => includeDrafts || post.data.draft !== true)
+      .filter((post) => !scheduledLater(post))
       .filter((post) => !withheldPost(post))
       .sort((a, b) => b.date - a.date),
   );
@@ -126,13 +136,14 @@ export default function (eleventyConfig) {
     api
       .getFilteredByGlob("src/content/posts/**/*.md")
       .filter((post) => post.data.draft !== true)
+      .filter((post) => !scheduledLater(post))
       .filter((post) => !withheldPost(post))
       .sort((a, b) => b.date - a.date),
   );
   eleventyConfig.addCollection("publicTagList", (api) => {
     const tags = new Set();
     for (const post of api.getFilteredByGlob("src/content/posts/**/*.md")) {
-      if (post.data.draft === true || withheldPost(post)) continue;
+      if (post.data.draft === true || scheduledLater(post) || withheldPost(post)) continue;
       for (const tag of post.data.tags || []) {
         if (typeof tag === "string" && tag.trim() && tag !== "post") tags.add(tag.trim());
       }

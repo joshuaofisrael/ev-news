@@ -5,6 +5,12 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+  schedule:
+    # 29 October, London (UTC+0). Rebuilds main so a story whose publishAt
+    # has passed is included. :05 is a few minutes after 11:00, 15:00, and
+    # 19:00. :25 runs again if the first job was delayed. A later build also
+    # publishes anything already due, so a missed cron is not a permanent hold.
+    - cron: "5,25 11,15,19 29 10 *"
 
 permissions:
   contents: read
