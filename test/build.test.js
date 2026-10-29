@@ -6,7 +6,7 @@ import { test } from "node:test";
 import matter from "gray-matter";
 import { isHoldReview, isReleasedFile } from "../lib/legal-hold.js";
 import { metaDescription } from "../lib/meta-description.js";
-import { formatDisplayDate, isFreshNews } from "../lib/dates.js";
+import { formatDisplayDate, isFreshNews, isFuturePublication } from "../lib/dates.js";
 import faq from "../lib/faq.js";
 import site from "../src/_data/site.js";
 import dashboardData from "../src/_data/dashboard.js";
@@ -63,6 +63,8 @@ function markdownPosts() {
         sample: data.sample === true,
         news: data.news !== false,
         status: String(data.status || ""),
+        publishAt: data.publishAt ?? "",
+        category: data.category || "",
       };
     });
 }
@@ -70,7 +72,12 @@ function markdownPosts() {
 function isPublicPost(post) {
   if (post.draft || post.sample) return false;
   if (isHoldReview(post.status) && !isReleasedFile(post.inputPath)) return false;
+  if (isFuturePublication(post.publishAt)) return false;
   return true;
+}
+
+function publicIn(category) {
+  return publishedPosts().filter((post) => post.category === category).length;
 }
 
 function publishedPosts() {
@@ -205,10 +212,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(robots, /User-agent: \*\s+Allow: \//);
   assert.doesNotMatch(robots, /disallow|noai|noimageai|ads\.txt/i);
   assert.match(robots, new RegExp(`Sitemap: ${esc(site.url)}/sitemap\\.xml`));
-  const freshDates = ["2026-10-23", "2026-10-24", "2026-10-25", "2026-10-26", "2026-10-27"].filter((day) =>
-    isFreshNews(day),
-  );
-  if (freshDates.length) {
+  const freshNews = publishedPosts().filter((post) => post.news && isFreshNews(post.date));
+  if (freshNews.length) {
     assert.match(robots, /Sitemap: https:\/\/evnewsdesk\.com\/news-sitemap\.xml/);
     assert.match(llms, /news-sitemap\.xml/);
     assert.doesNotMatch(news, /No articles were published in the last two days/);
@@ -310,6 +315,15 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(news, /xmlns:news="http:\/\/www.google.com\/schemas\/sitemap-news\/0.9"/);
   assert.match(feed, /<rss version="2.0">/);
   assert.match(atom, /<feed xmlns="http:\/\/www.w3.org\/2005\/Atom">/);
+  for (const post of markdownPosts()) {
+    if (!isFuturePublication(post.publishAt)) continue;
+    const loc = `https://evnewsdesk.com/articles/${post.slug}/`;
+    assert.equal(sitemap.includes(`<loc>${loc}</loc>`), false, loc);
+    assert.equal(fs.existsSync(path.join(root, "_site", "articles", post.slug, "index.html")), false, post.slug);
+    assert.doesNotMatch(feed, new RegExp(esc(post.slug)));
+    assert.doesNotMatch(atom, new RegExp(esc(post.slug)));
+    assert.doesNotMatch(news, new RegExp(esc(post.slug)));
+  }
   for (const post of markdownPosts()) {
     if (!isHoldReview(post.status) || isReleasedFile(post.inputPath)) continue;
     const loc = `https://evnewsdesk.com/articles/${post.slug}/`;
@@ -685,6 +699,14 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const preview = runEleventy(["--output=_site-preview"], { ELEVENTY_ENV: "development" });
   assert.equal(preview.status, 0, preview.stdout + preview.stderr);
   for (const post of markdownPosts()) {
+    if (!isFuturePublication(post.publishAt)) continue;
+    assert.equal(
+      fs.existsSync(path.join(root, "_site-preview", "articles", post.slug, "index.html")),
+      true,
+      post.slug,
+    );
+  }
+  for (const post of markdownPosts()) {
     if (!isHoldReview(post.status) || isReleasedFile(post.inputPath)) continue;
     assert.equal(
       fs.existsSync(path.join(root, "_site-preview", "articles", post.slug, "index.html")),
@@ -800,14 +822,14 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(chargingList, /href="\/articles\/2026-10-26-ev-charging-cost\/"/);
   assert.match(chargingList, /href="\/articles\/2026-10-28-ford-fathom-home-power\/"/);
   assert.match(chargingList, /href="\/articles\/2026-10-28-ev-power-station-trend\/"/);
-  assert.equal((chargingList.match(/href="\/articles\//g) || []).length, 9);
+  assert.equal((chargingList.match(/href="\/articles\//g) || []).length, publicIn("Charging"));
   assert.match(chargingHub, /rel="canonical" href="https:\/\/evnewsdesk\.com\/topics\/charging\/"/);
   assert.match(chargingHub, /"name":"EV News Desk"/);
   assert.match(chargingHub, /"@type":"CollectionPage"/);
   assert.doesNotMatch(chargingHub, /Joshua|Ventures|©|Sample draft/);
   const carsHub = read("_site", "topics/cars/index.html");
   const carsList = carsHub.match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0];
-  assert.equal((carsList.match(/href="\/articles\//g) || []).length, 14);
+  assert.equal((carsList.match(/href="\/articles\//g) || []).length, publicIn("Cars"));
   assert.match(carsList, /href="\/articles\/2026-10-28-latvia-tesla-assisted-driving\/"/);
   assert.match(carsList, /href="\/articles\/2026-10-28-lexus-rz-2027-pricing\/"/);
   assert.match(carsList, /href="\/articles\/2026-10-26-jetta-m6-orders\/"/);
@@ -816,13 +838,13 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(carsList, /href="\/articles\/2026-10-24-tesla-giga-berlin-week\/"/);
   const listedStories = (file) =>
     (read("_site", file).match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0].match(/href="\/articles\//g) || []).length;
-  assert.equal(listedStories("topics/batteries/index.html"), 3);
-  assert.equal(listedStories("topics/policy/index.html"), 5);
+  assert.equal(listedStories("topics/batteries/index.html"), publicIn("Batteries"));
+  assert.equal(listedStories("topics/policy/index.html"), publicIn("Policy"));
   const policyList = read("_site", "topics/policy/index.html").match(/<ul class="story-list"[\s\S]*?<\/ul>/)[0];
   assert.match(policyList, /href="\/articles\/2026-10-27-eved-pay-per-mile-trend\/"/);
   assert.match(policyList, /href="\/articles\/2026-10-28-vehicle-choice-act-ev-credit\/"/);
   assert.doesNotMatch(policyList, /kadena-air-base-byd-vehicle-ban/);
-  assert.equal(listedStories("topics/industry/index.html"), 11);
+  assert.equal(listedStories("topics/industry/index.html"), publicIn("Industry/Business"));
   assert.match(
     read("_site", "topics/industry/index.html"),
     /href="\/articles\/2026-10-26-rivian-q3-us-ev-sales\/"/,

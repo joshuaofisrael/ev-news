@@ -22,7 +22,7 @@ npm run dev
 
 Publish one article a day. Topics can be news, models, batteries, charging, policy, industry, or a how-to. Create a new file. Do not edit the sample drafts into a real story.
 
-1. Add `src/content/posts/YYYY-MM-DD-short-slug.md`. The date in the filename and the `date` field should match the publication date, written as `YYYY-MM-DD`.
+1. Add `src/content/posts/YYYY-MM-DD-short-slug.md`. The date in the filename and the `date` field should match the publication date, written as `YYYY-MM-DD`. To hold a finished story until a clock time, set `publishAt` to an ISO timestamp such as `2026-10-29T11:00:00Z`. A production build leaves that file out of the site, the sitemap, and the feeds until that instant. `npm run dev` still shows it. The Pages workflow also rebuilds on 29 October at 11:05, 11:25, 15:05, 15:25, 19:05, and 19:25 UTC, which is London time on that date, so a same-day `publishAt` can go out without another commit. Any later production build publishes a story whose `publishAt` has already passed.
 2. Copy the front matter below. Keep `draft: true` while you check the sources.
 3. Write the story in Markdown. Link claims inline, as described in the next section.
 4. Add a hero and about one picture every few paragraphs. The pictures are photoreal, as described under Images. Save each as WebP and AVIF under `src/assets/images/`, then fill `hero` and `images`. Homepage and category banners live in `src/assets/photos/` and are not article images.

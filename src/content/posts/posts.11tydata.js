@@ -1,4 +1,5 @@
 import site from "../../_data/site.js";
+import { isFuturePublication } from "../../../lib/dates.js";
 import { isHoldReview, isReleasedFile } from "../../../lib/legal-hold.js";
 import { isDraft } from "../../../lib/validate-posts.js";
 
@@ -11,6 +12,11 @@ function withheld(data) {
   return false;
 }
 
+function scheduledLater(data) {
+  if (includeDrafts) return false;
+  return isFuturePublication(data.publishAt);
+}
+
 export default {
   layout: "layouts/article.njk",
   kind: "article",
@@ -19,12 +25,12 @@ export default {
       return site.author;
     },
     permalink(data) {
-      if ((isDraft(data.draft) && !includeDrafts) || withheld(data)) return false;
+      if ((isDraft(data.draft) && !includeDrafts) || scheduledLater(data) || withheld(data)) return false;
       const file = String(data.page.inputPath).split("/").pop().replace(/\.md$/, "");
       return `/articles/${file}/`;
     },
     eleventyExcludeFromCollections(data) {
-      return (isDraft(data.draft) && !includeDrafts) || withheld(data);
+      return (isDraft(data.draft) && !includeDrafts) || scheduledLater(data) || withheld(data);
     },
   },
 };

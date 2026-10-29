@@ -1,15 +1,18 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { isFuturePublication } from "../../lib/dates.js";
 import { isHoldReview, isReleasedFile } from "../../lib/legal-hold.js";
 
 const dir = path.resolve("src/content/posts");
+const includeScheduled = process.env.ELEVENTY_ENV === "development";
 const counts = {};
 
 for (const name of fs.readdirSync(dir)) {
   if (!name.endsWith(".md")) continue;
   const data = matter(fs.readFileSync(path.join(dir, name), "utf8")).data;
   if (data.draft === true || data.sample === true) continue;
+  if (!includeScheduled && isFuturePublication(data.publishAt)) continue;
   if (isHoldReview(data.status) && !isReleasedFile(path.join(dir, name))) continue;
   for (const tag of data.tags || []) {
     if (typeof tag !== "string") continue;
