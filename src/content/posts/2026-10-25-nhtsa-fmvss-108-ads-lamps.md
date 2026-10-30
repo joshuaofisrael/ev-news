@@ -1,5 +1,6 @@
 ---
 title: "What EV fans on X are discussing: NHTSA's proposal to allow optional cyan ADS marker lamps"
+seoTitle: "NHTSA proposes optional cyan marker lamps for AVs"
 date: 2026-10-25
 updatedAt: 2026-10-27
 category: Policy

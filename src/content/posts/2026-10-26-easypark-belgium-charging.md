@@ -1,5 +1,6 @@
 ---
 title: "EasyPark adds EV charging to its parking app in Belgium, with a 15% fee capped at 2 euros"
+seoTitle: "EasyPark adds EV charging to its app in Belgium"
 date: 2026-10-26
 updatedAt: 2026-10-26
 category: Charging

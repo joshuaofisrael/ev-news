@@ -1,5 +1,6 @@
 ---
 title: "Kelley Blue Book's later third-quarter file puts Rivian at 19,239 U.S. EV sales, second to Tesla, in a market of 262,649"
+seoTitle: "KBB puts Rivian second in U.S. Q3 EV sales"
 date: 2026-10-26
 updatedAt: 2026-10-26
 category: Industry/Business

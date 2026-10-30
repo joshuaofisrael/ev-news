@@ -1,5 +1,6 @@
 ---
 title: "BYD launched the second-generation Seagull in China from 65,900 yuan, with flash charging on the 420 km trims"
+seoTitle: "BYD Seagull second generation launches from 65,900 yuan"
 date: 2026-10-24
 updatedAt: 2026-10-27
 category: Cars

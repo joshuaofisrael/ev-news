@@ -1,5 +1,6 @@
 ---
 title: "Tesla's third-quarter revenue stayed near $28 billion as deliveries eased and storage orders rose"
+seoTitle: "Tesla Q3 2026 revenue stays near $28 billion"
 date: 2026-10-23
 updatedAt: 2026-10-25
 category: Industry/Business

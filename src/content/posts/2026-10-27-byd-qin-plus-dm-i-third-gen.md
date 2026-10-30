@@ -1,5 +1,6 @@
 ---
 title: "BYD puts the third-generation Qin Plus DM-i on sale in China from 76,900 yuan"
+seoTitle: "Third-generation BYD Qin Plus DM-i from 76,900 yuan"
 date: 2026-10-27
 updatedAt: 2026-10-27
 category: Cars

@@ -1,5 +1,6 @@
 ---
 title: "ChargePoint's U.S. DC fast-charging count passed 5,000 ports in an AFDC reading, inside a national network Paren put at 80,964"
+seoTitle: "ChargePoint passes 5,000 U.S. DC fast-charging ports"
 date: 2026-10-24
 updatedAt: 2026-10-26
 category: Charging

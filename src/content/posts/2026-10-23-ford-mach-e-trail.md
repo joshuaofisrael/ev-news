@@ -1,5 +1,6 @@
 ---
 title: "What EV fans on X are discussing: Ford's 2027 Mustang Mach-E Trail"
+seoTitle: "Ford adds a Trail version to the 2027 Mustang Mach-E"
 date: 2026-10-23
 updatedAt: 2026-10-25
 category: Cars

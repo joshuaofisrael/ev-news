@@ -1,5 +1,6 @@
 ---
 title: "Tesla opens four Singapore fast chargers to other EVs, while SimplyGo adds charging search and pay"
+seoTitle: "Tesla opens four Singapore fast chargers to other EVs"
 date: 2026-10-26
 updatedAt: 2026-10-26
 category: Charging

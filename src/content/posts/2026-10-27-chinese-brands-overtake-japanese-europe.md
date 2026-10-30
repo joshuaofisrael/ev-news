@@ -1,5 +1,6 @@
 ---
 title: "Chinese-branded cars topped Japanese brands in Europe for a quarter, on Dataforce figures Bloomberg reported"
+seoTitle: "Chinese car brands top Japanese in Europe for a quarter"
 date: 2026-10-27
 updatedAt: 2026-10-27
 category: Industry/Business

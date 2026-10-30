@@ -1,5 +1,6 @@
 ---
 title: "What EV fans on X are discussing: Tesla says FSD (Supervised) came with over 75 percent of new North American deliveries"
+seoTitle: "Tesla says FSD attach rate is over 75% in North America"
 date: 2026-10-23
 updatedAt: 2026-10-25
 category: Cars

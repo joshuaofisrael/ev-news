@@ -71,6 +71,6 @@ There were stronger lines too. Operating cash flow for the nine months was ¥54.
 
 The quarter shows BYD swapping a shrinking home market for a fast-growing export business. That brings more revenue, but it also ties up more money: cars spend longer in transit and at foreign dealers before BYD is paid. Electrek's own view is that the headline profit is "not as clean" as it looks, because inventory and receivables are rising faster than sales. That view is Electrek's commentary. Whether the extra stock sells at good prices will show up in later impairment figures. This desk is not commenting on BYD's shares.
 
-This desk has covered BYD's export push before, including the [second-generation Seagull](/articles/2026-10-24-byd-seagull-second-generation/) and its [Camaçari plant in Brazil](/articles/2026-10-24-byd-camacari-capacity/).
+This desk has covered BYD's export push before, including the [second-generation Seagull](/articles/2026-10-24-byd-seagull-second-generation/) and its [Camaçari plant in Brazil](/articles/2026-10-24-byd-camacari-capacity/). Other third-quarter results on this desk include [Rivian](/articles/2026-10-30-rivian-q3-2026-results/), [Ford's Model e unit](/articles/2026-10-30-ford-q3-2026-model-e-loss/), and [Tesla](/articles/2026-10-23-tesla-q3-results/).
 
 More from the [Industry desk](/topics/industry/).

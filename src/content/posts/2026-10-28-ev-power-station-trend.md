@@ -1,5 +1,6 @@
 ---
 title: "What people are discussing on X: electric cars as portable power stations"
+seoTitle: "Electric cars as portable power stations: Tesla and Ford"
 date: 2026-10-28
 updatedAt: 2026-10-28
 category: Charging

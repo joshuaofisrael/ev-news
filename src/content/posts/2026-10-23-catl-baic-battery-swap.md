@@ -1,5 +1,6 @@
 ---
 title: "CATL and BAIC sign a battery-swap pact aimed at one million vehicles"
+seoTitle: "CATL and BAIC sign a battery-swap pact"
 date: 2026-10-23
 updatedAt: 2026-10-25
 category: Batteries

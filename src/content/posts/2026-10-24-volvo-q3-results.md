@@ -1,5 +1,6 @@
 ---
 title: "Volvo Cars' third-quarter revenue was SEK 66.9 billion, and adjusted operating income was SEK -3.7 billion"
+seoTitle: "Volvo Cars Q3 2026: SEK 66.9 billion revenue"
 date: 2026-10-24
 updatedAt: 2026-10-25
 category: Industry/Business

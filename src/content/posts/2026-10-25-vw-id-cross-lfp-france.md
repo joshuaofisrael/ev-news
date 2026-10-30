@@ -1,5 +1,6 @@
 ---
 title: "Volkswagen France lists the ID. Cross from €27,995; French outlets report a 37 kWh LFP version against a 52 kWh NMC version from €37,800"
+seoTitle: "VW ID. Cross in France from €27,995: LFP and NMC packs"
 date: 2026-10-25
 updatedAt: 2026-10-25
 category: Cars

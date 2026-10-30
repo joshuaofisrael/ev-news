@@ -1,5 +1,6 @@
 ---
 title: "Latvia recognises Tesla Assisted Driving, which Teslarati calls the 10th EU country"
+seoTitle: "Latvia recognises Tesla Assisted Driving"
 date: 2026-10-28
 updatedAt: 2026-10-28
 category: Cars

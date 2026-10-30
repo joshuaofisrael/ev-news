@@ -1,5 +1,6 @@
 ---
 title: "Reports say Subaru will sell only electric cars in Europe as combustion models end by 2028"
+seoTitle: "Reports: Subaru to go EV-only in Europe by 2028"
 date: 2026-10-27
 updatedAt: 2026-10-27
 category: Cars

@@ -1,5 +1,6 @@
 ---
 title: "Li Auto's release prices the 2026 i6 at RMB 249,800, and Xinhua reports a 239,800 yuan introductory price"
+seoTitle: "Li Auto 2026 i6 launch price: RMB 249,800"
 date: 2026-10-29
 publishAt: 2026-10-29T11:00:00Z
 updatedAt: 2026-10-29

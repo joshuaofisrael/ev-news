@@ -1,5 +1,6 @@
 ---
 title: "California's charger reliability rules are now in force: 97% uptime and a common protocol"
+seoTitle: "California EV charger rules: 97% uptime and OCPP 2.0.1"
 date: 2026-10-30
 updatedAt: 2026-10-30
 category: Charging
@@ -78,6 +79,6 @@ Canary Media also reports that the California Public Utilities Commission's Ride
 
 The rules cover chargers that took public money, not every charger in the state, and the 97 percent figure is a standard for reporting, not a promise that a given station will work. What changes for drivers is mostly behind the screen: better data, open software that can outlive a failed network, and a regulator able to publish who performs worst. St. John's own view in Canary Media is that the state needs both rules and test spaces like the Charge Yard. That is his opinion.
 
-This desk has covered the wider U.S. picture in [ChargePoint's count of U.S. fast-charging ports](/articles/2026-10-24-chargepoint-us-dc-fast-ports/).
+This desk has covered the wider U.S. picture in [ChargePoint's count of U.S. fast-charging ports](/articles/2026-10-24-chargepoint-us-dc-fast-ports/). What public and home charging cost, and how fast each charging level is, are in [what it costs to charge an electric car at home](/articles/2026-10-26-ev-charging-cost/). Site batteries at fast-charging hubs come up in [Ionity's Wertheim story](/articles/2026-10-29-ionity-wertheim-storage/).
 
 More from the [Charging desk](/topics/charging/).

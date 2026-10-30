@@ -1,5 +1,6 @@
 ---
 title: "What people are discussing on X: Waymo and Toyota plan robotaxi tests in Japan from 2027"
+seoTitle: "Waymo and Toyota plan robotaxi tests in Japan from 2027"
 date: 2026-10-30
 updatedAt: 2026-10-30
 category: Cars

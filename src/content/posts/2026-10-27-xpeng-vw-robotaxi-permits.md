@@ -1,5 +1,6 @@
 ---
 title: "Xpeng has a Guangzhou robotaxi demonstration permit; Volkswagen Group China has an L3 test licence in Hefei"
+seoTitle: "Xpeng robotaxi permit in Guangzhou, VW L3 licence in Hefei"
 date: 2026-10-27
 updatedAt: 2026-10-27
 category: Industry/Business

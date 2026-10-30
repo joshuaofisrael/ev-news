@@ -1,5 +1,6 @@
 ---
 title: "Porsche's three electric lines add up to 38,730 deliveries through September"
+seoTitle: "Porsche EV deliveries: 38,730 through September"
 date: 2026-10-23
 updatedAt: 2026-10-25
 category: Cars

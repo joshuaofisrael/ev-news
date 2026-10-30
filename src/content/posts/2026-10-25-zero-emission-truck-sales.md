@@ -1,5 +1,6 @@
 ---
 title: "BloombergNEF counts 158,000 medium- and heavy-duty electric trucks sold in the first half of 2026, up 75 percent"
+seoTitle: "Electric truck sales up 75% in H1 2026, BNEF says"
 date: 2026-10-25
 updatedAt: 2026-10-25
 category: Industry/Business

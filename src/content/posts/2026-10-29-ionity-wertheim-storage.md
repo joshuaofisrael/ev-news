@@ -1,5 +1,6 @@
 ---
 title: "Ionity tells electrive a battery system is running at Wertheim, with about 50 more planned for 2027"
+seoTitle: "Ionity's first site battery runs at Wertheim"
 date: 2026-10-29
 publishAt: 2026-10-29T15:00:00Z
 updatedAt: 2026-10-29

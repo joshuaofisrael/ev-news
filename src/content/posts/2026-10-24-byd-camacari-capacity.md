@@ -1,5 +1,6 @@
 ---
 title: "BYD is seeking permits to take its Camaçari plant to 600,000 vehicles a year, its Brazil chief told Reuters"
+seoTitle: "BYD seeks permits for 600,000 cars a year in Brazil"
 date: 2026-10-24
 updatedAt: 2026-10-25
 category: Industry/Business
