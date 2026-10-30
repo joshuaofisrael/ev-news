@@ -1,5 +1,6 @@
 ---
 title: "Chinese outlets say Jetta's first electric sedan, the M6, passed 10,000 orders within 19 hours of going on sale"
+seoTitle: "Jetta M6 electric sedan passes 10,000 orders, reports say"
 date: 2026-10-26
 updatedAt: 2026-10-26
 category: Cars

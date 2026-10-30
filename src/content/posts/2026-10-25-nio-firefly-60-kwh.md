@@ -1,5 +1,6 @@
 ---
 title: "Firefly's new 60 kWh pack is rated at 560 km CLTC, and the outright price starts at 136,800 yuan"
+seoTitle: "Firefly 60 kWh pack: 560 km CLTC from 136,800 yuan"
 date: 2026-10-25
 updatedAt: 2026-10-25
 category: Batteries

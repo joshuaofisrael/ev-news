@@ -1,5 +1,6 @@
 ---
 title: "Ford's EV unit loses $1.1 billion in the third quarter as it readies the Fathom"
+seoTitle: "Ford's Model e EV unit loses $1.1 billion in Q3 2026"
 date: 2026-10-30
 updatedAt: 2026-10-30
 category: Industry/Business
@@ -68,6 +69,6 @@ On Ford Energy, the unit that will make battery storage products, Farley said th
 
 The Model e loss per vehicle went up even as the total loss came down. Dividing Ford's own figures, the segment lost roughly $31,000 per wholesale unit in the third quarter, against roughly $28,000 a year earlier, because volume fell faster than the loss. That calculation is this desk's, not Ford's. Ford's case is that first-generation EVs are being trimmed and that the economics change with the cheaper UEV vehicles from late 2027. Until then, the company's own guidance shows the EV unit costing about $4 billion this year.
 
-This desk covered the [Fathom's home-power features](/articles/2026-10-28-ford-fathom-home-power/) on 28 October.
+This desk covered the [Fathom's home-power features](/articles/2026-10-28-ford-fathom-home-power/) on 28 October. Other third-quarter results on this desk include [Rivian](/articles/2026-10-30-rivian-q3-2026-results/), [BYD](/articles/2026-10-30-byd-q3-2026-profit-exports/), and [Tesla](/articles/2026-10-23-tesla-q3-results/).
 
 More from the [Industry desk](/topics/industry/).

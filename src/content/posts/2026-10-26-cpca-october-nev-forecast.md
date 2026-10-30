@@ -1,5 +1,6 @@
 ---
 title: "China's passenger-car association forecasts about 1.07 million NEV retail sales in October, with penetration near 66.9 percent"
+seoTitle: "CPCA forecasts 1.07 million NEV retail sales in October"
 date: 2026-10-26
 updatedAt: 2026-10-26
 category: Industry/Business

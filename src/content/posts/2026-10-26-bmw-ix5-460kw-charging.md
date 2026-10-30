@@ -1,5 +1,6 @@
 ---
 title: "BMW's U.S. release says an iX5 60 xDrive can add up to 182 miles in 10 minutes at 460 kW"
+seoTitle: "BMW iX5 shows up to 460 kW charging with IONNA, Alpitronic"
 date: 2026-10-26
 updatedAt: 2026-10-26
 category: Charging

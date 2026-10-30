@@ -1,5 +1,6 @@
 ---
 title: "September's electric-car shares in France and Germany, and the 2035 proposal beside them"
+seoTitle: "France and Germany EV shares in September 2026"
 date: 2026-10-23
 updatedAt: 2026-10-27
 category: Policy

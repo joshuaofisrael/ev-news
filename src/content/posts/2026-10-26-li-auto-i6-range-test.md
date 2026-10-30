@@ -1,5 +1,6 @@
 ---
 title: "Li Auto says the 2026 i6 covered 811 km in an urban range test ahead of its 28 October launch"
+seoTitle: "Li Auto i6 covers 811 km in an urban range test"
 date: 2026-10-26
 updatedAt: 2026-10-26
 category: Batteries
@@ -48,6 +49,6 @@ The battery is the supply-chain detail. CarNewsChina says the pack is Li Auto's 
 
 ## Analysis
 
-This is a company-run test on slow city roads in mild weather. It says nothing about highway range or winter range, where consumption rises. The certified figure is still 780 km CLTC, and CLTC numbers usually sit well above WLTP or EPA ratings. See this desk's [cold-weather range explainer](/articles/2026-10-25-ev-range-cold-weather/) for why.
+This is a company-run test on slow city roads in mild weather. It says nothing about highway range or winter range, where consumption rises. The certified figure is still 780 km CLTC, and CLTC numbers usually sit well above WLTP or EPA ratings. See this desk's [cold-weather range explainer](/articles/2026-10-25-ev-range-cold-weather/) for why, and its [explainer on the U.S. EV label](/articles/2026-10-29-epa-ev-label-range/) for what an EPA range figure measures.
 
 More from the [Batteries desk](/topics/batteries/): [Nio's 60 kWh Firefly pack](/articles/2026-10-25-nio-firefly-60-kwh/), [CATL and BAIC's battery swaps](/articles/2026-10-23-catl-baic-battery-swap/), and [the VW and Cupra battery recall](/articles/2026-10-25-vw-id-cupra-battery-recall/).

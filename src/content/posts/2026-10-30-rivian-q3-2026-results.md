@@ -1,5 +1,6 @@
 ---
 title: "Rivian's third-quarter revenue rises 38% to $2.16 billion as R2 takes the lead"
+seoTitle: "Rivian Q3 2026 revenue rises 38% to $2.16 billion"
 date: 2026-10-30
 updatedAt: 2026-10-30
 category: Industry/Business
@@ -73,6 +74,6 @@ The shareholder letter sets out two dates for Rivian's driver-assistance work. I
 
 The numbers show a company whose vehicle business is still below break-even at the gross level, while the software arrangement with Volkswagen supplies a large share of its profit. More than half of software and services revenue came from that one joint venture, by Rivian's own count. The R2, which is cheaper than the R1, now drives volume, and the company points to falling per-vehicle costs as the sign that the ramp is working. Whether the R2 can carry the vehicle side to a gross profit is the question the next few quarters will answer. This desk is not making a forecast or saying anything about the shares.
 
-For background, this desk covered [Rivian's third-quarter U.S. sales estimate from Kelley Blue Book](/articles/2026-10-26-rivian-q3-us-ev-sales/) earlier this week, and other carmakers' results, including [Tesla](/articles/2026-10-23-tesla-q3-results/) and [Volvo Cars](/articles/2026-10-24-volvo-q3-results/).
+For background, this desk covered [Rivian's third-quarter U.S. sales estimate from Kelley Blue Book](/articles/2026-10-26-rivian-q3-us-ev-sales/) earlier this week, and other carmakers' results, including [Tesla](/articles/2026-10-23-tesla-q3-results/), [Volvo Cars](/articles/2026-10-24-volvo-q3-results/), [Ford's Model e unit](/articles/2026-10-30-ford-q3-2026-model-e-loss/), and [BYD](/articles/2026-10-30-byd-q3-2026-profit-exports/).
 
 More from the [Industry desk](/topics/industry/).

@@ -1,5 +1,6 @@
 ---
 title: "Chery says its Volt-Dragon charger peaks at 1.44 MW, with a 10 to 97 percent charge in 6 minutes 50 seconds"
+seoTitle: "Chery says its Volt-Dragon charger peaks at 1.44 MW"
 date: 2026-10-24
 updatedAt: 2026-10-26
 category: Charging

@@ -1,5 +1,6 @@
 ---
 title: "LAZ and EverCharge form a joint venture for apartment and condo charging"
+seoTitle: "LAZ and EverCharge form apartment EV charging venture"
 date: 2026-10-23
 updatedAt: 2026-10-26
 category: Charging

@@ -1,5 +1,6 @@
 ---
 title: "China exported 337,104 new-energy vehicles to Brazil in the first eight months of 2026, up 159.4 percent, Xinhua reported"
+seoTitle: "China's NEV exports to Brazil up 159.4% in eight months"
 date: 2026-10-25
 updatedAt: 2026-10-27
 category: Industry/Business

@@ -1,5 +1,6 @@
 ---
 title: "Hon Hai and Mitsubishi Electric agreed to split Mitsubishi Electric Mobility, at an expected 115 billion yen for 50 percent"
+seoTitle: "Hon Hai unit to take 50% of Mitsubishi Electric Mobility"
 date: 2026-10-26
 updatedAt: 2026-10-26
 category: Industry/Business

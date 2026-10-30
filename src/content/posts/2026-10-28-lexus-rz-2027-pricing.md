@@ -1,5 +1,6 @@
 ---
 title: "Lexus prices the 2027 RZ from $47,495, and the figure includes delivery"
+seoTitle: "Lexus prices the 2027 RZ from $47,495 with delivery"
 date: 2026-10-28
 updatedAt: 2026-10-28
 category: Cars
@@ -50,6 +51,6 @@ Lexus states the power figures as its own. It says the RZ 350e sends 221 total s
 
 Autoblog also reports sales. It says Lexus sold 5,340 RZ units in the first three quarters of last year and 10,214 in the same period of 2026. The story does not name the dataset behind those two counts. They are Autoblog's figures, not a table in the Lexus post. Specifications in this story stay with Lexus. Autoblog also discusses range on a 20-inch RZ 450e. That number is not used here, because Lexus's range section states 260 miles for the RZ 450e AWD with 18-inch wheels and does not, in that section, give a 20-inch figure for the 450e.
 
-The horsepower, range, and charging lines above are what Lexus published. They are not a comparison with another car, and they are not a recommendation to buy this one. A general account of how cold weather showed up in a separate range test, which is not this model's rating, is in [cold weather and electric-car range](/articles/2026-10-25-ev-range-cold-weather/). Ford's 2027 Mustang Mach-E Trail is a [different pricing story](/articles/2026-10-23-ford-mach-e-trail/).
+The horsepower, range, and charging lines above are what Lexus published. They are not a comparison with another car, and they are not a recommendation to buy this one. A general account of how cold weather showed up in a separate range test, which is not this model's rating, is in [cold weather and electric-car range](/articles/2026-10-25-ev-range-cold-weather/). What a U.S. range figure on a window sticker measures is set out in [what the U.S. electric-vehicle label measures](/articles/2026-10-29-epa-ev-label-range/). Ford's 2027 Mustang Mach-E Trail is a [different pricing story](/articles/2026-10-23-ford-mach-e-trail/).
 
 More from the [Cars desk](/topics/cars/).

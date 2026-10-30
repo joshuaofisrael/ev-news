@@ -1,5 +1,6 @@
 ---
 title: "Volkswagen Anhui launches the Xpeng-developed ID. UNYX 09 sedan from 179,900 yuan"
+seoTitle: "VW ID. UNYX 09 sedan launches from 179,900 yuan"
 date: 2026-10-26
 updatedAt: 2026-10-27
 category: Cars

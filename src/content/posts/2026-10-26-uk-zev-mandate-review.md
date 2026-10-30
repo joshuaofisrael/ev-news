@@ -1,5 +1,6 @@
 ---
 title: "UK ZEV mandate consultation closes with 2030 car target options from 80% down to 50%"
+seoTitle: "UK ZEV mandate consultation: 2030 options 80% to 50%"
 date: 2026-10-26
 updatedAt: 2026-10-27
 category: Policy
