@@ -757,9 +757,9 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const storyRelated = story.match(/<section class="related"[\s\S]*?<\/section>/)[0];
   assert.match(storyRelated, /Related stories/);
   assert.match(storyRelated, /href="\/articles\/2026-10-27-xpeng-vw-robotaxi-permits\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-10-27-chinese-brands-overtake-japanese-europe\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-10-26-rivian-q3-us-ev-sales\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-10-26-foxconn-mitsubishi-electric-mobility\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-10-30-rivian-q3-2026-results\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-10-30-ford-q3-2026-model-e-loss\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-10-30-byd-q3-2026-profit-exports\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-10-28-ather-first-quarterly-profit\/"/);
   assert.equal((storyRelated.match(/href="\/articles\//g) || []).length, 5);
   assert.doesNotMatch(storyRelated, /volvo-q3-results|byd-camacari-capacity/);
