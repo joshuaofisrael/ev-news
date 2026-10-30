@@ -134,8 +134,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     "© 2026 Joshua Israel Ventures LLC. All rights reserved. EV News Desk is a trade name of Joshua Israel Ventures LLC, a Florida limited liability company.";
   assert.doesNotMatch(home, /©|Copyright|All rights reserved/);
   assert.doesNotMatch(home, /Joshua|Ventures/);
-  assert.match(home, /\/articles\/2026-10-26-bmw-ix5-460kw-charging\//);
-  assert.match(home, /\/articles\/2026-10-26-rivian-q3-us-ev-sales\//);
+  assert.match(home, /\/articles\/2026-10-30-ford-q3-2026-model-e-loss\//);
+  assert.match(home, /\/articles\/2026-10-30-rivian-q3-2026-results\//);
   assert.match(sitemap, /\/articles\/2026-10-23-tesla-q3-results\//);
   assert.doesNotMatch(home, /No story has been published yet/);
   assert.match(home, /class="masthead[\s"]/);
@@ -165,7 +165,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(home, /class="ticker"/);
   assert.match(home, /id="wire-pause"/);
   assert.doesNotMatch(home, /No headline yet/);
-  assert.match(home, /Kelley Blue Book file headed estimates as of 13 October 2026/);
+  assert.match(read("_site", "archive/index.html"), /Kelley Blue Book file headed estimates as of 13 October 2026/);
   assert.match(home, /class="section-icon"/);
   assert.match(home, /class="energy-divider"/);
   assert.match(home, /lang="en"/);
@@ -414,7 +414,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(ethics, /Sources &amp; Ethics|Sources & Ethics/);
   assert.match(ethics, /AI-generated imagery/);
   assert.match(ethics, /href="\/disclaimer\/"/);
-  assert.match(ethics, /do not carry a visible AI caption/);
+  assert.match(ethics, /small “AI-generated” label/);
   assert.doesNotMatch(ethics, /AI-generated photograph/);
   assert.match(disclaimer, /<h2>AI-generated imagery<\/h2>/);
   assert.match(disclaimer, /AI-generated photorealistic illustrations of the subject/);

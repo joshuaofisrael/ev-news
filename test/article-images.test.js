@@ -35,6 +35,8 @@ test("body images land after the requested paragraphs and stay lazy", () => {
   assert.doesNotMatch(ready, /AI-generated photograph/);
   assert.doesNotMatch(ready, /<figcaption>/);
   assert.doesNotMatch(ready, /fetchpriority/);
+  assert.match(ready, /<span class="ai-label">AI-generated<\/span>/);
+  assert.doesNotMatch(out, /class="ai-label"/);
 
   const captioned = renderAiFigure(
     { ...picture("fixture-hero"), caption: "Quiet street, no people in frame" },

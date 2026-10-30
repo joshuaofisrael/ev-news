@@ -36,7 +36,14 @@ layout: layouts/base.njk
     {% set imageHeight = hero.height %}
     {% set imageLoading = "eager" %}
     {% set imagePriority = "high" %}
+    {% if hero.src | imageFilesReady %}
+    <div class="ai-frame">
     {% include "partials/picture.njk" %}
+    <span class="ai-label">AI-generated</span>
+    </div>
+    {% else %}
+    {% include "partials/picture.njk" %}
+    {% endif %}
     {% set heroCaption = hero.caption | figureCaption %}
     {% if heroCaption %}
     <figcaption><span class="figure-caption">{{ heroCaption }}</span></figcaption>
