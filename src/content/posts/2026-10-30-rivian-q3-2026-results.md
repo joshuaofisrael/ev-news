@@ -11,18 +11,18 @@ tags:
   - earnings
   - r2
 hero:
-  src: rivian-q3-hero
-  alt: "A dark pickup and a dark sport-utility vehicle parked at a dealership in sunset light, with no readable badges"
+  src: ev-factory-robot-arms-suv-bodies
+  alt: "Robot arms working on rows of unpainted sport-utility vehicle bodies moving along a brightly lit factory assembly line, with no people"
   width: 1200
   height: 675
 images:
-  - src: rivian-q3-vans
-    alt: "White delivery vans parked beside depot chargers, with no readable logos"
+  - src: dark-electric-pickups-factory-dusk
+    alt: "A row of dark electric pickup trucks with light-bar headlamps parked outside a factory building at dusk, with no badges and no people"
     after: 4
     width: 1200
     height: 675
-  - src: rivian-q3-charging
-    alt: "Several cars parked at chargers in a shopping-center lot, in daylight, with no readable badges"
+  - src: grey-compact-electric-suv-showroom
+    alt: "A grey compact electric sport-utility vehicle with a slim light-bar headlamp on display in a bright, empty showroom"
     after: 8
     width: 1200
     height: 675

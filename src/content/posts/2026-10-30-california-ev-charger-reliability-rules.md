@@ -11,18 +11,18 @@ tags:
   - reliability
   - ocpp
 hero:
-  src: us-dcfc-hero
-  alt: "A highway fast-charging canopy with several stalls and a white crossover under the roof, in daylight, with no people and no readable network names"
+  src: dc-fast-chargers-palm-plaza-sunset
+  alt: "A row of DC fast chargers at a palm-lined plaza at sunset, with two electric cars plugged in and no people"
   width: 1200
   height: 675
 images:
-  - src: us-dcfc-connectors
-    alt: "Two different charging connectors holstered side by side on a white pedestal, one smaller and rounder and one larger, with no readable logos"
+  - src: charging-connector-car-port-closeup
+    alt: "Close-up of a charging connector plugged into the charging port of a silver car"
     after: 3
     width: 1200
     height: 675
-  - src: us-dcfc-level2
-    alt: "A row of white wall-mounted Level 2 chargers with coiled cables in an indoor parking garage, with no cars and no people"
+  - src: technician-multimeter-charger-cabinet
+    alt: "A gloved hand holding a multimeter to test wiring inside an open electric-vehicle charger cabinet in a parking lot"
     after: 8
     width: 1200
     height: 675

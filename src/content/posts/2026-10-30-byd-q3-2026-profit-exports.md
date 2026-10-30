@@ -12,18 +12,18 @@ tags:
   - exports
   - china
 hero:
-  src: byd-brazil-port
-  alt: "Rows of identical white electric crossovers parked on a dock beside a container ship, with no people and no readable badging"
+  src: car-carrier-ship-container-port-aerial
+  alt: "Aerial view of a car carrier ship with new cars packed on its top deck, moored at a container port beside cranes and a loading ramp"
   width: 1200
   height: 675
 images:
-  - src: cpca-oct-lot
-    alt: "An aerial view of a port car lot filled with rows of new vehicles, with no readable markings"
+  - src: silver-ev-sedans-port-terminal-cranes
+    alt: "Rows of silver electric sedans parked at a port terminal under a grey sky, with harbour cranes and a cargo ship behind, and no badges"
     after: 4
     width: 1200
     height: 675
-  - src: seagull-charging
-    alt: "A white compact hatchback plugged into a tall fast charger under a canopy, with no people and no readable network branding"
+  - src: ev-battery-modules-production-line
+    alt: "Black battery modules with orange connectors lined up on an automated production line in a factory, with no people"
     after: 9
     width: 1200
     height: 675

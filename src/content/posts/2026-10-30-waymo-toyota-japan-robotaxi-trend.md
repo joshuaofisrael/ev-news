@@ -11,18 +11,18 @@ tags:
   - robotaxi
   - japan
 hero:
-  src: xpeng-robotaxi-hero
-  alt: "A white minivan with a roof sensor pod on a palm-lined boulevard at dusk, with empty lanes and no readable badges"
+  src: self-driving-suv-roof-sensors-neon-street
+  alt: "A dark self-driving sport-utility vehicle with a roof sensor array driving along a neon-lit city street at night, with no badges"
   width: 1200
   height: 675
 images:
-  - src: xpeng-robotaxi-lidar
-    alt: "A roof sensor pod with several cameras on a white vehicle, seen from above against palm trees"
+  - src: roof-lidar-sensor-closeup
+    alt: "Close-up of a cylindrical lidar sensor mounted on the roof of a white car, with a blurred city street behind"
     after: 2
     width: 1200
     height: 675
-  - src: xpeng-robotaxi-cabin
-    alt: "Empty front seats in a minivan, with a wide screen showing a street map and no one at the wheel"
+  - src: japanese-city-intersection-dusk-taxis
+    alt: "A wide city intersection in Japan at dusk, with taxis and cars crossing striped pedestrian crossings between office buildings"
     after: 4
     width: 1200
     height: 675

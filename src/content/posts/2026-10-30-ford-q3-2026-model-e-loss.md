@@ -12,18 +12,18 @@ tags:
   - model-e
   - fathom
 hero:
-  src: ford-fathom-hero
-  alt: "A dark green pickup truck plugged into a plain wall unit inside a residential garage, with no badges and no people"
+  src: dark-electric-pickup-home-garage-charging
+  alt: "A dark electric pickup truck plugged into a wall-mounted charger in a home garage at dusk, with the door open to a lit house across the street"
   width: 1200
   height: 675
 images:
-  - src: mache-trail-crossover
-    alt: "A blue-gray electric crossover parked on a dirt track between trees, with no people in the frame"
+  - src: ev-battery-pack-workshop-stand
+    alt: "A large electric-vehicle battery pack resting on a steel stand in a clean workshop, with tool cabinets and test benches behind"
     after: 3
     width: 1200
     height: 675
-  - src: jetta-m6-line
-    alt: "Car bodies moving along an assembly line with industrial robots, and no readable badges"
+  - src: electric-pickups-suvs-dealer-lot-grey-sky
+    alt: "Electric pickup trucks and sport-utility vehicles parked in a row on a wet dealer lot under a heavy grey sky, with no badges and no people"
     after: 7
     width: 1200
     height: 675
