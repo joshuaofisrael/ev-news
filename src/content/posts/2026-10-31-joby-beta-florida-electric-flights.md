@@ -1,6 +1,6 @@
 ---
 title: "Electric aircraft from Joby and BETA fly St. Petersburg to Tampa under a federal pilot programme"
-seoTitle: "Joby and BETA electric aircraft fly St. Pete to Tampa in FAA pilot"
+seoTitle: "Joby and BETA fly electric aircraft to Tampa"
 date: 2026-10-31
 updatedAt: 2026-10-31
 category: Industry/Business
@@ -80,6 +80,6 @@ Electric aircraft use many of the same building blocks as electric cars: lithium
 
 None of the sources gives a date for paid passenger flights in Florida, a price, or how many aircraft would serve a route. Joby describes this week as a first step, and BETA has not announced passenger service on this route.
 
-For other ways electric vehicles are being tested without a human driver, see our story on [Xpeng's robotaxi permits](/articles/2026-10-27-xpeng-vw-robotaxi-permits/).
+For other ways electric vehicles are being tested without a human driver, see our stories on [Xpeng's robotaxi permits](/articles/2026-10-27-xpeng-vw-robotaxi-permits/) and [Tesla Robotaxi's longer operating hours](/articles/2026-10-31-tesla-robotaxi-2am-trend/).
 
 More from the [Industry desk](/topics/industry/).

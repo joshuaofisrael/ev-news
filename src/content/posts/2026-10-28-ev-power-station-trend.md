@@ -54,6 +54,6 @@ The Ford side of the same X discussion is a truck, not a connector kit. Ford's [
 
 The two posts are not describing one product. Tesla North America's post, as Tesla North reports it, is about tools or gadgets from a new Tesla in the United States or Mexico. Ford's post is about sending a projected amount of AC power from a 2027 truck into a house. Neither text says the other company's system does the same job.
 
-A federal example of home charging cost, which is not a price for either setup, is in [what it costs to charge an electric car at home](/articles/2026-10-26-ev-charging-cost/). A BMW high-power demonstration is a [separate charging story](/articles/2026-10-26-bmw-ix5-460kw-charging/).
+A federal example of home charging cost, which is not a price for either setup, is in [what it costs to charge an electric car at home](/articles/2026-10-26-ev-charging-cost/). A BMW high-power demonstration is a [separate charging story](/articles/2026-10-26-bmw-ix5-460kw-charging/). Stationary home batteries are covered in [Walmart's investment in Base Power](/articles/2026-10-31-walmart-base-power-texas-home-batteries/).
 
 More from the [Charging desk](/topics/charging/).

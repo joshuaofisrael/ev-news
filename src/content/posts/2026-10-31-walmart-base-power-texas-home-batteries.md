@@ -1,6 +1,6 @@
 ---
 title: "Walmart invests in Base Power and will sell its home batteries in Texas stores"
-seoTitle: "Walmart invests in Base Power, offers Texas home battery discount"
+seoTitle: "Walmart backs Base Power home batteries in Texas"
 date: 2026-10-31
 updatedAt: 2026-10-31
 category: Batteries
@@ -71,6 +71,6 @@ For the battery industry, the investment is a sign that a major retailer sees ho
 
 This story is for information only and is not financial advice about energy plans or investments.
 
-Earlier this week this desk looked at [Ford's home power system](/articles/2026-10-28-ford-fathom-home-power/) and at [why portable power stations are trending](/articles/2026-10-28-ev-power-station-trend/).
+Earlier this week this desk looked at [Ford's home power system](/articles/2026-10-28-ford-fathom-home-power/) and at [why portable power stations are trending](/articles/2026-10-28-ev-power-station-trend/). Other battery-storage stories on this desk include [Ionity's first site battery at Wertheim](/articles/2026-10-29-ionity-wertheim-storage/) and [Tesla's third-quarter energy-storage figures](/articles/2026-10-23-tesla-q3-results/).
 
 More from the [Batteries desk](/topics/batteries/).

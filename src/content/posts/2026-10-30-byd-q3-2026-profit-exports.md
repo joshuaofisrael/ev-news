@@ -1,5 +1,6 @@
 ---
 title: "BYD's third-quarter profit rises 28% as exports reach 42% of sales"
+seoTitle: "BYD Q3 2026 profit up 28% as exports grow"
 date: 2026-10-30
 updatedAt: 2026-10-30
 category: Industry/Business

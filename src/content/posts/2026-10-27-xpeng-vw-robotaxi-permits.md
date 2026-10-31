@@ -84,6 +84,6 @@ The Post identifies the Volkswagen permission holder as Volkswagen (Anhui) Autom
 
 The Post says Xpeng's Guangzhou robotaxis will join previous licensees including Pony.ai, WeRide, Baidu, and Guangzhou Automobile Group. A separate [Cars desk story](/articles/2026-10-26-vw-id-unyx-09-launch/) covers the ID. UNYX 09, a different Volkswagen Anhui announcement.
 
-More from the [Industry/Business desk](/topics/industry/). A U.S. proposal on marker lamps for automated vehicles is a [separate Policy desk story](/articles/2026-10-25-nhtsa-fmvss-108-ads-lamps/). It is not this Guangzhou permit.
+More from the [Industry/Business desk](/topics/industry/). A U.S. proposal on marker lamps for automated vehicles is a [separate Policy desk story](/articles/2026-10-25-nhtsa-fmvss-108-ads-lamps/). It is not this Guangzhou permit. Later robotaxi stories cover [Waymo and Toyota's plan for tests in Japan](/articles/2026-10-30-waymo-toyota-japan-robotaxi-trend/) and [Tesla Robotaxi's hours extending to 2 a.m.](/articles/2026-10-31-tesla-robotaxi-2am-trend/).
 
 The company pages are the companies' statements. The Post is an independent report, and it is the source for the paying-passenger description that Xpeng's notices do not spell out.

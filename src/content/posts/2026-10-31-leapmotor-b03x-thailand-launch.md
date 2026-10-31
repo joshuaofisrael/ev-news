@@ -69,7 +69,7 @@ Bangkok Motorhaus places the B03X against other electric SUVs on sale in Thailan
 
 **Analysis:** The B03X arrives in one of Southeast Asia's most competitive EV markets, where Chinese brands already fight hard on price. The early-bird offer is a tactic to win the first wave of buyers, and the gap between the regular and early-bird prices is 50,000 baht on the Style and 40,000 baht on the Design. The 16-system driver-assistance package on the cheaper trim stands out, since, as Bangkok Motorhaus notes, rivals at similar prices often leave some of these features out. The trade-off on the Style is its smaller battery, with 340 km of NEDC range.
 
-Leapmotor has not announced local assembly of the B03X in Thailand in the reports we reviewed. This desk has previously covered [Chinese EV makers' export push into Brazil](/articles/2026-10-25-china-nev-exports-brazil/).
+Leapmotor has not announced local assembly of the B03X in Thailand in the reports we reviewed. This desk has previously covered [Chinese EV makers' export push into Brazil](/articles/2026-10-25-china-nev-exports-brazil/), and the launch of BYD's [second-generation Seagull](/articles/2026-10-24-byd-seagull-second-generation/) in China. NEDC is a different test cycle from the one behind U.S. window stickers; our explainer on [how the U.S. EV label states range](/articles/2026-10-29-epa-ev-label-range/) covers that label.
 
 This article reports prices and specifications as published. It is not buying advice.
 

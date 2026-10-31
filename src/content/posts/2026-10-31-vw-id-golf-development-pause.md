@@ -68,6 +68,6 @@ The pause does not mean VW is stepping back from small electric cars. Heise repo
 
 VW has not said how long the pause will last, what has to happen for work to restart, or whether the decision changes jobs or investment at Wolfsburg. It has also not published a firm launch date for the ID. Golf.
 
-For more on VW's electric line-up, see our earlier stories on the [ID. Cross with LFP batteries in France](/articles/2026-10-25-vw-id-cross-lfp-france/) and the [ID. and Cupra battery recall](/articles/2026-10-25-vw-id-cupra-battery-recall/).
+For more on VW's electric line-up, see our earlier stories on the [ID. Cross with LFP batteries in France](/articles/2026-10-25-vw-id-cross-lfp-france/), the [ID. and Cupra battery recall](/articles/2026-10-25-vw-id-cupra-battery-recall/), and the [ID. UNYX 09 sedan launch in China](/articles/2026-10-26-vw-id-unyx-09-launch/).
 
 More from the [Cars desk](/topics/cars/).
