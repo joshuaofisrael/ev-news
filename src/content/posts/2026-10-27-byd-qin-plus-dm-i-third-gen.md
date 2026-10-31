@@ -68,4 +68,4 @@ The product claims in this story are the launch report's claims. Where CnEVPost 
 
 The reported 30-to-80 percent time does not name a kilowatt rating. Typical U.S. charging speeds on agency pages, which are not this car's specification, are in [what it costs to charge an electric car at home](/articles/2026-10-26-ev-charging-cost/).
 
-More from the [Cars desk](/topics/cars/): the [second-generation Seagull](/articles/2026-10-24-byd-seagull-second-generation/) and [cold weather and electric-car range](/articles/2026-10-25-ev-range-cold-weather/). A restriction on BYD vehicles at Kadena Air Base is a [separate policy story](/articles/2026-10-27-kadena-air-base-byd-vehicle-ban/).
+More from the [Cars desk](/topics/cars/): the [second-generation Seagull](/articles/2026-10-24-byd-seagull-second-generation/) and [cold weather and electric-car range](/articles/2026-10-25-ev-range-cold-weather/).

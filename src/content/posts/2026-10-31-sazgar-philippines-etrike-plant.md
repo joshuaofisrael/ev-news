@@ -73,6 +73,6 @@ The reports do not give the size of Sazgar's investment, the retail prices of th
 
 *Analysis:* A local plant that leads with electric models is a practical test of whether electric tricycles for Southeast Asia can be built in the region rather than imported.
 
-For a related story from another fast-growing market, see our report on [Chinese electric car exports to Brazil](/articles/2026-10-25-china-nev-exports-brazil/).
+For a related story from another fast-growing market, see our report on [Chinese electric car exports to Brazil](/articles/2026-10-25-china-nev-exports-brazil/). In India, the electric-scooter maker [Ather Energy reported its first quarterly profit](/articles/2026-10-28-ather-first-quarterly-profit/).
 
 More from the [Industry desk](/topics/industry/).

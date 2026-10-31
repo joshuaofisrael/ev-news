@@ -56,6 +56,6 @@ Several details are still missing. [Reuters](https://finance.yahoo.com/technolog
 
 The X summary frames the plan as building robotaxis "from 2027." The company text is narrower: 2027 is the start of testing and validation in Japan, and the UK and other markets come later, with no dates given. Toyota's release also includes a safety comparison from Waymo about its record in the areas where it operates. That is Waymo's claim about its own service, and this story does not repeat or assess it.
 
-Earlier this week this desk covered [Xpeng's robotaxi demonstration permit in Guangzhou](/articles/2026-10-27-xpeng-vw-robotaxi-permits/) and a U.S. [lighting proposal for automated vehicles](/articles/2026-10-25-nhtsa-fmvss-108-ads-lamps/).
+Earlier this week this desk covered [Xpeng's robotaxi demonstration permit in Guangzhou](/articles/2026-10-27-xpeng-vw-robotaxi-permits/) and a U.S. [lighting proposal for automated vehicles](/articles/2026-10-25-nhtsa-fmvss-108-ads-lamps/). On 31 October, this desk covered [Tesla Robotaxi extending its hours to 2 a.m.](/articles/2026-10-31-tesla-robotaxi-2am-trend/).
 
 More from the [Cars desk](/topics/cars/).

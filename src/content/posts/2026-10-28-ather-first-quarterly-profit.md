@@ -1,5 +1,6 @@
 ---
 title: "Ather Energy reports a first quarterly profit of ₹1.26 crore"
+seoTitle: "Ather Energy posts its first quarterly profit"
 date: 2026-10-28
 updatedAt: 2026-10-28
 category: Industry/Business
@@ -58,5 +59,7 @@ The release sets out a capacity plan. Ather says it will increase annual product
 The share prices above are what those two outlets reported about a session that had already happened. They are not a valuation, and this desk is not saying whether the price is high or low, or what it will do next.
 
 Other company results on this desk use the same rule: the figure is the company's, or it is attributed to the outlet that printed it. Recent examples are [Rivian's U.S. third-quarter sales in a Kelley Blue Book file](/articles/2026-10-26-rivian-q3-us-ev-sales/), [Volvo Cars' third-quarter results](/articles/2026-10-24-volvo-q3-results/), and [Tesla's third-quarter revenue](/articles/2026-10-23-tesla-q3-results/).
+
+Another light electric-vehicle story is [Sazgar's new tricycle plant in the Philippines](/articles/2026-10-31-sazgar-philippines-etrike-plant/).
 
 More from the [Industry desk](/topics/industry/).

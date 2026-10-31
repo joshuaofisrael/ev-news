@@ -1,6 +1,6 @@
 ---
 title: "What people are discussing on X: Tesla Robotaxi extends its hours to 2 a.m."
-seoTitle: "Tesla Robotaxi now runs 6 a.m. to 2 a.m., adds Calm Mode"
+seoTitle: "Tesla Robotaxi extends its hours to 2 a.m."
 date: 2026-10-31
 updatedAt: 2026-10-31
 category: Cars
@@ -70,6 +70,6 @@ TeslaNorth reports that on Tesla's third-quarter earnings call, Ashok Elluswamy,
 
 **Analysis:** Later hours matter for a ride service because late-night trips, after shifts, events and nights out, are a real share of demand. The open questions are which cities the 2 a.m. hours apply to, and whether the service will move to round-the-clock operation, which TeslaNorth reports Elluswamy pointed toward on the earnings call. Tesla has not given a date for that. Some posts in the X discussion cite fleet and safety numbers; this desk has not verified those figures and does not repeat them.
 
-Earlier this week this desk covered [Waymo and Toyota's plan for robotaxi tests in Japan](/articles/2026-10-30-waymo-toyota-japan-robotaxi-trend/) and [Xpeng's robotaxi demonstration permit in Guangzhou](/articles/2026-10-27-xpeng-vw-robotaxi-permits/).
+Earlier this week this desk covered [Waymo and Toyota's plan for robotaxi tests in Japan](/articles/2026-10-30-waymo-toyota-japan-robotaxi-trend/) and [Xpeng's robotaxi demonstration permit in Guangzhou](/articles/2026-10-27-xpeng-vw-robotaxi-permits/). Related Tesla stories cover [what Tesla's third-quarter update says about FSD (Supervised) on new deliveries](/articles/2026-10-23-tesla-fsd-supervised-attach-rate/) and [Latvia's recognition of Tesla Assisted Driving](/articles/2026-10-28-latvia-tesla-assisted-driving/).
 
 More from the [Cars desk](/topics/cars/).

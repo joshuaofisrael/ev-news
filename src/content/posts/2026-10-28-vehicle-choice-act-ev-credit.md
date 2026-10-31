@@ -1,5 +1,6 @@
 ---
 title: "A House bill would raise the new EV credit to $15,000. It is not law."
+seoTitle: "House bill proposes a $15,000 EV credit"
 date: 2026-10-28
 updatedAt: 2026-10-28
 category: Policy

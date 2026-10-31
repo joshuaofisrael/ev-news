@@ -1,5 +1,6 @@
 ---
 title: "Ford says the 2027 Fathom can power a home without a wall inverter"
+seoTitle: "Ford says the 2027 Fathom can power a home"
 date: 2026-10-28
 updatedAt: 2026-10-28
 category: Charging
@@ -57,6 +58,6 @@ The Verge also reports that Ford has worked with Pacific Gas and Electric, Ameri
 
 The truck's starting price and the cut in charger hardware are not the full cost of using the vehicle as a house battery. TechCrunch says the prices it reports leave out installation, and that installation on existing vehicle-to-everything setups can reach $10,000. The Verge says permitting, electrician labor, and heavy-gauge wiring still sit on top of the hardware, and that final package prices are not set. The two outlets also disagree on the hardware dollars. Until Ford publishes a final price and the installer details TechCrunch says are still to come, whether a household can use the feature depends on installation and on the utility connection, not on the $28,350 MSRP alone. That reading is not a forecast, and it is not a recommendation to buy the truck or the hardware.
 
-A separate [Charging desk story](/articles/2026-10-28-ev-power-station-trend/) looks at how this announcement is sitting next to a Tesla Powershare discussion on X. A federal example of home electricity prices, which is not this truck's specification, is in [what it costs to charge an electric car at home](/articles/2026-10-26-ev-charging-cost/). Ford's 2027 Mustang Mach-E Trail is a [different product story](/articles/2026-10-23-ford-mach-e-trail/).
+A separate [Charging desk story](/articles/2026-10-28-ev-power-station-trend/) looks at how this announcement is sitting next to a Tesla Powershare discussion on X. A federal example of home electricity prices, which is not this truck's specification, is in [what it costs to charge an electric car at home](/articles/2026-10-26-ev-charging-cost/). Ford's 2027 Mustang Mach-E Trail is a [different product story](/articles/2026-10-23-ford-mach-e-trail/). Stationary home batteries are a separate product, covered in [Walmart's investment in Base Power](/articles/2026-10-31-walmart-base-power-texas-home-batteries/).
 
 More from the [Charging desk](/topics/charging/).
