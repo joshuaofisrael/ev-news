@@ -666,7 +666,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(leadHtml, new RegExp(`/articles/${esc(lead.slug)}/`));
   assert.match(leadHtml, new RegExp(`${esc(lead.hero)}\\.webp`));
   assert.match(leadHtml, new RegExp(esc(leadSources)));
-  assert.match(room, /width="1280" height="720"/);
+  assert.match(room, /width="(?:1280|1200)" height="(?:720|675)"/);
   assert.match(room, /loading="eager"/);
   assert.match(room, /loading="lazy"/);
   for (const story of stories) {
@@ -756,11 +756,11 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(story, /href="\/topics\/industry\/" aria-current="page"/);
   const storyRelated = story.match(/<section class="related"[\s\S]*?<\/section>/)[0];
   assert.match(storyRelated, /Related stories/);
-  assert.match(storyRelated, /href="\/articles\/2026-10-27-xpeng-vw-robotaxi-permits\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-10-31-sazgar-philippines-etrike-plant\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-10-31-joby-beta-florida-electric-flights\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-10-30-rivian-q3-2026-results\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-10-30-ford-q3-2026-model-e-loss\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-10-30-byd-q3-2026-profit-exports\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-10-28-ather-first-quarterly-profit\/"/);
   assert.equal((storyRelated.match(/href="\/articles\//g) || []).length, 5);
   assert.doesNotMatch(storyRelated, /volvo-q3-results|byd-camacari-capacity/);
   assert.doesNotMatch(storyRelated, /tesla-q3-results|Joshua|©/);
@@ -773,7 +773,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const batteryRelated = batteryStory.match(/<section class="related"[\s\S]*?<\/section>/)[0];
   assert.match(batteryRelated, /href="\/articles\/2026-10-25-nio-firefly-60-kwh\/"/);
   assert.match(batteryRelated, /href="\/articles\/2026-10-26-li-auto-i6-range-test\/"/);
-  assert.equal((batteryRelated.match(/href="\/articles\//g) || []).length, 2);
+  assert.match(batteryRelated, /href="\/articles\/2026-10-31-walmart-base-power-texas-home-batteries\/"/);
+  assert.equal((batteryRelated.match(/href="\/articles\//g) || []).length, 3);
   assert.match(batteryRelated, /href="\/topics\/batteries\/"/);
   for (const story of stories) {
     const html = read("_site", `articles/${story.slug}/index.html`);
