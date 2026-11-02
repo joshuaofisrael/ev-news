@@ -30,7 +30,8 @@ Publish one article a day. Topics can be news, models, batteries, charging, poli
 6. When the source list is complete and the copy is checked, remove the `draft` line (or set `draft: false`).
 7. Run `npm test`. The production build fails if a published article has no sources, a source is missing `title`, `url`, `publisher`, or `date`, `updatedAt` is missing, or the story is missing a hero, two body images, or alt text. `npm test` also runs the legal-hold check. The template puts a small “AI-generated” label on every AI picture (hero and body) automatically. Do not add one by hand in `caption`. The full disclosure lives on `/disclaimer/`.
 8. Optional: if the story carries a sourced statistic, add that figure to [`src/_data/dashboard.js`](src/_data/dashboard.js) with its label, value, unit, as-of date, source name, source URL, and article slug. The build fails a dashboard figure that has no source URL. Skip this when the story has no figure to add.
-9. Commit and push to `main`. GitHub Actions runs the tests, builds the site, and deploys `_site` to GitHub Pages.
+9. Run `npm run thumbnails` once the hero's WebP file is in place. It derives a ~640×360 WebP homepage-card thumbnail from each article's hero photo (`src/assets/images/thumbs/<hero-src>-640.webp`) and skips a slug that already has one. The homepage card list shows that thumbnail, lazy-loaded, next to the headline; a hero with no thumbnail yet just shows the headline and summary, same as before. This is a maintenance script, not part of the automatic build, so it is not required for the build to pass, but run it before you push so the new story's homepage card has a thumbnail. See [`scripts/build-thumbnails.js`](scripts/build-thumbnails.js).
+10. Commit and push to `main`. GitHub Actions runs the tests, builds the site, and deploys `_site` to GitHub Pages.
 
 Required front matter:
 
@@ -208,6 +209,8 @@ scripts/ping-indexnow.js   IndexNow submitter
 content-review/approvals.json  slug plus sha256 unlocks one exact held file
 content-review/moderate-clearances.json  slug, sha256, reviewer, and verdict clear unlock one moderate hold
 scripts/build-logo.js      regenerates the original mark at src/assets/logo.png
+scripts/build-thumbnails.js  regenerates homepage-card thumbnails from each article's hero photo
+lib/thumbnails.js          the thumbnail paths and the resize used by that script
 ```
 
 The logo and favicon are original geometric marks (a gold bolt on a dark green square). Body text uses the reader’s system fonts so the pages do not wait on a font download.
