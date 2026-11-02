@@ -1,8 +1,14 @@
 {% if stories and stories.length %}
-<ul class="story-list">
+<ul class="story-list{% if showThumb %} story-list-thumbs{% endif %}">
   {% for post in stories %}
   <li class="story-card">
-    <article>
+    <article class="story-card-body">
+      {% if showThumb and post.data.hero and post.data.hero.src and (post.data.hero.src | heroThumbReady) %}
+      <div class="story-thumb-frame">
+        <img class="story-thumb" src="{{ ('/assets/images/thumbs/' ~ (post.data.hero.src | heroThumbSrc) ~ '.webp') | url }}" alt="{{ post.data.hero.alt }}" width="640" height="360" loading="lazy" decoding="async">
+      </div>
+      {% endif %}
+      <div class="story-card-content">
       <p class="story-kicker">
         {% if post.data.draft %}<span class="badge">Unpublished draft</span>{% endif %}
         <a class="chip" href="{{ ('/topics/' ~ (post.data.category | categorySlug) ~ '/') | url }}">{% set iconName = post.data.category | categorySlug %}{% include "partials/section-icon.njk" %}{{ post.data.category }}</a>
@@ -14,6 +20,7 @@
       <h2 class="story-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
       {% endif %}
       <p>{{ post.data.summary }}</p>
+      </div>
     </article>
   </li>
   {% endfor %}

@@ -12,10 +12,14 @@
     "build:preview": "ELEVENTY_ENV=development eleventy --output=_site-preview",
     "indexnow": "node scripts/ping-indexnow.js",
     "legal-hold": "node scripts/legal-hold-check.js",
+    "thumbnails": "node scripts/build-thumbnails.js",
     "test": "node --test && node scripts/legal-hold-check.js"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.1.7",
     "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
   }
 }

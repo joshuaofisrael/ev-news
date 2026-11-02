@@ -55,6 +55,7 @@ updatedAt: 2026-10-27
       {% set stories = collections.posts | limit(20) %}
       {% if stories and stories.length %}
       {% set storyHeading = "h3" %}
+      {% set showThumb = true %}
       {% include "partials/story-list.njk" %}
       {% else %}
       <div class="arrival-panel">

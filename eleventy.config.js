@@ -5,6 +5,7 @@ import { freshNewsPosts, renderNewsSitemap } from "./lib/news-sitemap.js";
 import { absoluteUrl, pathPrefixFromSiteUrl, prefixRootUrls } from "./lib/site-url.js";
 import { buildCrumbs, renderBreadcrumbNav, renderJsonLd } from "./lib/structured-data.js";
 import { figureCaption, imageFilesReady, insertBodyImages } from "./lib/article-images.js";
+import { heroThumbReady, heroThumbSrc } from "./lib/thumbnails.js";
 import { metaDescription } from "./lib/meta-description.js";
 import { presentDashboard, validateDashboard } from "./lib/dashboard.js";
 import { formatValidationErrors, validatePostsDir } from "./lib/validate-posts.js";
@@ -80,6 +81,8 @@ export default function (eleventyConfig) {
   );
   eleventyConfig.addFilter("imageFilesReady", imageFilesReady);
   eleventyConfig.addFilter("figureCaption", figureCaption);
+  eleventyConfig.addFilter("heroThumbReady", heroThumbReady);
+  eleventyConfig.addFilter("heroThumbSrc", heroThumbSrc);
   eleventyConfig.addFilter("safeHttpUrl", (value) => {
     const url = String(value ?? "").trim();
     return /^https?:\/\/\S+$/i.test(url) ? url : "";
