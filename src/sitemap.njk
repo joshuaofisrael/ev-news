@@ -10,7 +10,7 @@ sitemapIgnore: true
 {% if item.url and released and item.data.draft != true and item.data.sitemapIgnore != true and item.data.thin != true %}
   <url>
     <loc>{{ item.url | absoluteUrl }}</loc>
-    {% set stamp = (item.data.updatedAt or item.date) | isoDate %}
+    {% set stamp = (item.data.updatedAt or item.data.date) | isoDate %}
     {% if stamp %}
     <lastmod>{{ stamp }}</lastmod>
     {% endif %}
