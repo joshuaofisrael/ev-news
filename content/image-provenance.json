@@ -1,0 +1,38 @@
+{
+  "note": "Image provenance for site-owned AI images.",
+  "images": {
+    "tesla-germany-registrations-nearly-quadruple-october-2026-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot GenerateImage",
+      "prompt": "Photorealistic photo: Rows of new unbranded white and grey electric SUVs parked at a German vehicle registration lot under an overcast autumn sky, no faces, logos or text, no number plates",
+      "source_sha256": "4b1d3cd2c0b4c046b067729c03b81811ad65be147f1a2dd4d4dbe8da63a78483",
+      "webp_sha256": "46bd343e4bb5811cdeca69f35efd6591995e7a8023f723c0e134098fa8e89799",
+      "recorded": "2026-11-04",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "tesla-germany-registrations-nearly-quadruple-october-2026-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot GenerateImage",
+      "prompt": "Photorealistic photo: Rows of new unbranded white and grey electric SUVs parked at a German vehicle registration lot under an overcast autumn sky, no faces, logos or text, no number plates",
+      "source_sha256": "4b1d3cd2c0b4c046b067729c03b81811ad65be147f1a2dd4d4dbe8da63a78483",
+      "webp_sha256": "2cad47788be165575bf4927e17ece949d5910e2aaa16217c6ef661f1e8d4922b",
+      "recorded": "2026-11-04",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "tesla-germany-registrations-nearly-quadruple-october-2026-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot GenerateImage",
+      "prompt": "Photorealistic photo: Rows of new unbranded white and grey electric SUVs parked at a German vehicle registration lot under an overcast autumn sky, no faces, logos or text, no number plates",
+      "source_sha256": "4b1d3cd2c0b4c046b067729c03b81811ad65be147f1a2dd4d4dbe8da63a78483",
+      "webp_sha256": "f08cd10ce69d654854fe052a1cf53fed709af422e1e3b61af7634e97106011bf",
+      "recorded": "2026-11-04",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    }
+  }
+}
