@@ -33,6 +33,39 @@
       "webp_sha256": "f08cd10ce69d654854fe052a1cf53fed709af422e1e3b61af7634e97106011bf",
       "recorded": "2026-11-04",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "tesla-berlin-engineering-center-btec-opens-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot GenerateImage",
+      "prompt": "Photorealistic photo: interior of a converted brick industrial factory hall turned into an automotive engineering lab, an unbranded electric car chassis on a test rig, battery cell test cabinets along the wall, bright clean lighting. No people, no faces, no logos, no readable text.",
+      "source_sha256": "299b4c0f200f2695f8a2e5c7ded9468f7d7da6964f80f9e0e2dd6ac77d90ae68",
+      "webp_sha256": "2f44e283f93ed8e5b8cf53085caff163bbcbbde1f14259c0a2ae3945b3dca2e0",
+      "recorded": "2026-11-04",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "tesla-berlin-engineering-center-btec-opens-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot GenerateImage",
+      "prompt": "Photorealistic photo: interior of a converted brick industrial factory hall turned into an automotive engineering lab, an unbranded electric car chassis on a test rig, battery cell test cabinets along the wall, bright clean lighting. No people, no faces, no logos, no readable text.",
+      "source_sha256": "299b4c0f200f2695f8a2e5c7ded9468f7d7da6964f80f9e0e2dd6ac77d90ae68",
+      "webp_sha256": "89a31b545b7f267323dd2d56c6d3be5dcfb79a2f4b0d5fee8706423b095fafca",
+      "recorded": "2026-11-04",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "tesla-berlin-engineering-center-btec-opens-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot GenerateImage",
+      "prompt": "Photorealistic photo: interior of a converted brick industrial factory hall turned into an automotive engineering lab, an unbranded electric car chassis on a test rig, battery cell test cabinets along the wall, bright clean lighting. No people, no faces, no logos, no readable text.",
+      "source_sha256": "299b4c0f200f2695f8a2e5c7ded9468f7d7da6964f80f9e0e2dd6ac77d90ae68",
+      "webp_sha256": "4650650cd48678352ea2260934febffb565f950be0eb35568a22dab2d22a839a",
+      "recorded": "2026-11-04",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }
