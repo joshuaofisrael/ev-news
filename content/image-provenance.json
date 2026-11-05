@@ -93,6 +93,39 @@
       "prompt": "Photorealistic photo: sleek unbranded silver electric sedan in a modern showroom with soft daylight, no logos or readable badges",
       "recorded": "2026-11-05",
       "source_sha256": "f7b8bfad1b82583cbf2edb0b0d07c7fdd3e52f329f895efb5ead4ae086f5b226"
+    },
+    "germany-bev-share-record-37-percent-october-2026-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Rows of unbadged electric sedans in a wet night dealership lot under tall lights, no faces, logos or readable text, no number plates",
+      "source_sha256": "6322e3490f4c06e11ea29665551ee469cdd46f4baa0b0ccad2fbbdad88da1be2",
+      "webp_sha256": "7209cd063462e9346b31ad389a8f13e2a261c937beff68b7ed0922b57dbebe8c",
+      "recorded": "2026-11-05",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "germany-bev-share-record-37-percent-october-2026-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Rows of unbadged electric sedans in a wet night dealership lot under tall lights, no faces, logos or readable text, no number plates",
+      "source_sha256": "6322e3490f4c06e11ea29665551ee469cdd46f4baa0b0ccad2fbbdad88da1be2",
+      "webp_sha256": "b9afe6611df0f39ddb40541d37773763fdff732334daf83aad44fa49c0315e38",
+      "recorded": "2026-11-05",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "germany-bev-share-record-37-percent-october-2026-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Rows of unbadged electric sedans in a wet night dealership lot under tall lights, no faces, logos or readable text, no number plates",
+      "source_sha256": "6322e3490f4c06e11ea29665551ee469cdd46f4baa0b0ccad2fbbdad88da1be2",
+      "webp_sha256": "bc6269f76d38fe6f20cbdb88239e432b26e21c7706842ce113928997a4335cc8",
+      "recorded": "2026-11-05",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }
