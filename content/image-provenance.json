@@ -66,6 +66,33 @@
       "webp_sha256": "4650650cd48678352ea2260934febffb565f950be0eb35568a22dab2d22a839a",
       "recorded": "2026-11-04",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "byd-second-gen-seal-07-china-launch-november-2026-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot GenerateImage",
+      "prompt": "Photorealistic photo: sleek unbranded silver electric sedan in a modern showroom with soft daylight, no logos or readable badges",
+      "recorded": "2026-11-05",
+      "source_sha256": "5f2f2fd2353635ff5723855a4f819cbf6f3fdd36b8958426c1d2a2990a83ee13"
+    },
+    "byd-second-gen-seal-07-china-launch-november-2026-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot GenerateImage",
+      "prompt": "Photorealistic photo: sleek unbranded silver electric sedan in a modern showroom with soft daylight, no logos or readable badges",
+      "recorded": "2026-11-05",
+      "source_sha256": "45990600bfcf12990c70e667fa815deab1245caf3f1192221fb612fe8a9b73b4"
+    },
+    "byd-second-gen-seal-07-china-launch-november-2026-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot GenerateImage",
+      "prompt": "Photorealistic photo: sleek unbranded silver electric sedan in a modern showroom with soft daylight, no logos or readable badges",
+      "recorded": "2026-11-05",
+      "source_sha256": "f7b8bfad1b82583cbf2edb0b0d07c7fdd3e52f329f895efb5ead4ae086f5b226"
     }
   }
 }
