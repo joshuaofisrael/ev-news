@@ -134,7 +134,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     "© 2026 Joshua Israel Ventures LLC. All rights reserved. EV News Desk is a trade name of Joshua Israel Ventures LLC, a Florida limited liability company.";
   assert.doesNotMatch(home, /©|Copyright|All rights reserved/);
   assert.doesNotMatch(home, /Joshua|Ventures/);
-  assert.match(home, /\/articles\/2026-10-30-ford-q3-2026-model-e-loss\//);
+  assert.match(home, /\/articles\/2026-10-30-waymo-toyota-japan-robotaxi-trend\//);
   assert.match(home, /\/articles\/2026-10-30-rivian-q3-2026-results\//);
   assert.match(sitemap, /\/articles\/2026-10-23-tesla-q3-results\//);
   assert.doesNotMatch(home, /No story has been published yet/);
