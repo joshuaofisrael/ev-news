@@ -134,8 +134,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     "© 2026 Joshua Israel Ventures LLC. All rights reserved. EV News Desk is a trade name of Joshua Israel Ventures LLC, a Florida limited liability company.";
   assert.doesNotMatch(home, /©|Copyright|All rights reserved/);
   assert.doesNotMatch(home, /Joshua|Ventures/);
-  assert.match(home, /\/articles\/2026-10-30-waymo-toyota-japan-robotaxi-trend\//);
-  assert.match(home, /\/articles\/2026-10-30-rivian-q3-2026-results\//);
+  assert.match(home, /\/articles\/2026-11-06-musk-cybertruck-wind-down-cybercab\//);
+  assert.match(home, /\/articles\/2026-11-06-nio-130-million-battery-swaps\//);
   assert.match(sitemap, /\/articles\/2026-10-23-tesla-q3-results\//);
   assert.doesNotMatch(home, /No story has been published yet/);
   assert.match(home, /class="masthead[\s"]/);
@@ -760,7 +760,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(storyRelated, /href="\/articles\/2026-10-31-joby-beta-florida-electric-flights\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-10-30-rivian-q3-2026-results\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-10-30-ford-q3-2026-model-e-loss\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-10-30-byd-q3-2026-profit-exports\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-11-06-musk-cybertruck-wind-down-cybercab\/"/);
   assert.equal((storyRelated.match(/href="\/articles\//g) || []).length, 5);
   assert.doesNotMatch(storyRelated, /volvo-q3-results|byd-camacari-capacity/);
   assert.doesNotMatch(storyRelated, /tesla-q3-results|Joshua|©/);
@@ -771,10 +771,11 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.doesNotMatch(carsRelated, /ford-mach-e-trail|chargepoint|catl-baic|europe-september/);
   const batteryStory = read("_site", "articles/2026-10-23-catl-baic-battery-swap/index.html");
   const batteryRelated = batteryStory.match(/<section class="related"[\s\S]*?<\/section>/)[0];
-  assert.match(batteryRelated, /href="\/articles\/2026-10-25-nio-firefly-60-kwh\/"/);
-  assert.match(batteryRelated, /href="\/articles\/2026-10-26-li-auto-i6-range-test\/"/);
+  assert.match(batteryRelated, /href="\/articles\/2026-11-06-nio-130-million-battery-swaps\/"/);
   assert.match(batteryRelated, /href="\/articles\/2026-10-31-walmart-base-power-texas-home-batteries\/"/);
-  assert.equal((batteryRelated.match(/href="\/articles\//g) || []).length, 3);
+  assert.match(batteryRelated, /href="\/articles\/2026-10-26-li-auto-i6-range-test\/"/);
+  assert.match(batteryRelated, /href="\/articles\/2026-10-25-nio-firefly-60-kwh\/"/);
+  assert.equal((batteryRelated.match(/href="\/articles\//g) || []).length, 4);
   assert.match(batteryRelated, /href="\/topics\/batteries\/"/);
   for (const story of stories) {
     const html = read("_site", `articles/${story.slug}/index.html`);
