@@ -225,6 +225,39 @@
       "webp_sha256": "75b86419d82eb163e616be6f248ba3b6535b9aa4128bb4959dffa4754d824453",
       "recorded": "2026-11-06",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "tesla-argentina-launch-november-20-2026-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged white electric hatchback charging at a curb charger on a wet overcast day, no faces logos or text",
+      "recorded": "2026-11-06",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph.",
+      "source_sha256": "3d927f7e6bef781f36d9ce73a771b482f09d579e78d1e95d3d86fdd69d9fd2f5",
+      "webp_sha256": "489d8642d30917ba4e56bb564329899ce42892faa6146cb5f24527c8050baabc"
+    },
+    "tesla-argentina-launch-november-20-2026-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged white electric hatchback charging at a curb charger on a wet overcast day, no faces logos or text",
+      "recorded": "2026-11-06",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero.",
+      "source_sha256": "2deee73e11a4db13268f645e060e998470506b25815900871e9206b4a1a61319",
+      "webp_sha256": "be9da4ab35b2a0b589606a565c08eba2a094b419c24fe9f9ab7aa365697a18b7"
+    },
+    "tesla-argentina-launch-november-20-2026-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged white electric hatchback charging at a curb charger on a wet overcast day, no faces logos or text",
+      "recorded": "2026-11-06",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero.",
+      "source_sha256": "12decf07e627df19acb21c3f61cd2ee64bf9351d91066e4fa8e25d624ae227d8",
+      "webp_sha256": "37b3f4e2a730a91faf3f7ab90b52ffd653b985280b76ea35b2212d7fd1e3b35a"
     }
   }
 }
