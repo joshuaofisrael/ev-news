@@ -134,8 +134,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     "© 2026 Joshua Israel Ventures LLC. All rights reserved. EV News Desk is a trade name of Joshua Israel Ventures LLC, a Florida limited liability company.";
   assert.doesNotMatch(home, /©|Copyright|All rights reserved/);
   assert.doesNotMatch(home, /Joshua|Ventures/);
+  assert.match(home, /\/articles\/2026-11-06-tesla-argentina-launch-november-20-2026\//);
   assert.match(home, /\/articles\/2026-11-06-musk-cybertruck-wind-down-cybercab\//);
-  assert.match(home, /\/articles\/2026-11-06-nio-130-million-battery-swaps\//);
   assert.match(sitemap, /\/articles\/2026-10-23-tesla-q3-results\//);
   assert.doesNotMatch(home, /No story has been published yet/);
   assert.match(home, /class="masthead[\s"]/);
@@ -759,7 +759,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(storyRelated, /href="\/articles\/2026-10-31-sazgar-philippines-etrike-plant\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-10-31-joby-beta-florida-electric-flights\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-10-30-rivian-q3-2026-results\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-10-30-ford-q3-2026-model-e-loss\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-11-06-tesla-argentina-launch-november-20-2026\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-11-06-musk-cybertruck-wind-down-cybercab\/"/);
   assert.equal((storyRelated.match(/href="\/articles\//g) || []).length, 5);
   assert.doesNotMatch(storyRelated, /volvo-q3-results|byd-camacari-capacity/);
