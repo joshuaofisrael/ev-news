@@ -80,12 +80,19 @@ function publicIn(category) {
   return publishedPosts().filter((post) => post.category === category).length;
 }
 
+function publishSortKey(post) {
+  const raw = post.publishAt || post.date || "";
+  if (raw instanceof Date && !Number.isNaN(raw.getTime())) return raw.toISOString();
+  return String(raw);
+}
+
 function publishedPosts() {
   return markdownPosts()
     .filter(isPublicPost)
     .sort((a, b) => {
-      const delta = b.date.localeCompare(a.date);
-      if (delta) return delta;
+      // Match eleventy byNewestPublish: prefer publishAt, then date, then path.
+      const pub = publishSortKey(b).localeCompare(publishSortKey(a));
+      if (pub) return pub;
       return b.inputPath.localeCompare(a.inputPath);
     });
 }
