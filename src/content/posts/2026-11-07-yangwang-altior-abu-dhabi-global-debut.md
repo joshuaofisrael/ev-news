@@ -11,9 +11,9 @@ description: BYD Yangwang unveiled the Altior flagship EV sedan in Abu Dhabi on 
   November 2026. Reports cite a 5.6 m length, coach doors and a limited edition opening
   for pre-order.
 tags:
-- BYD
-- Yangwang
-- Altior
+- byd
+- yangwang
+- altior
 - luxury-ev
 author: EV News Desk
 hero:
@@ -51,7 +51,7 @@ sources:
 
 Yangwang, BYD's luxury brand, unveiled its Altior ultra-luxury executive sedan at a global debut in Abu Dhabi on 7 November 2026.
 
-Newspress [posted the debut line on X](https://x.com/NewspressTweets/status/2119083000319074629), tagging BYD Europe:
+Newspress [posted the debut line on X](https://x.com/NewspressTweets), tagging BYD Europe:
 
 > "YANGWANG ALTIOR makes its global debut in Abu Dhabi: a higher expression of power"
 
@@ -61,4 +61,4 @@ Trade coverage from [CnEVPost](https://cnevpost.com/2026/11/07/byd-yangwang-debu
 
 Reporting consistently lists a 5,600 mm length and about 3,500 mm wheelbase, four independently controlled motors on Yangwang's e4 platform, second-generation Blade Battery hardware, and a claimed CLTC range of over 1,000 km. Some outlets also cite about 956 kW (roughly 1,280 hp) and flash-charging claims; treat power, range and pricing as manufacturer or press-kit figures until Yangwang publishes full homologation data for each market.
 
-The Altior debut is separate from Yangwang's U9 Xtreme speed-record coverage. Primary pointers for this story: the [Newspress X post](https://x.com/NewspressTweets/status/2119083000319074629) and the [CnEVPost write-up](https://cnevpost.com/2026/11/07/byd-yangwang-debuts-altior/).
+The Altior debut is separate from Yangwang's U9 Xtreme speed-record coverage. Primary pointers for this story: the [Newspress X post](https://x.com/NewspressTweets) (exact URL under Sources) and the [CnEVPost write-up](https://cnevpost.com/2026/11/07/byd-yangwang-debuts-altior/).
