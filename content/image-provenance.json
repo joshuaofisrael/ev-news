@@ -390,6 +390,39 @@
       "webp_sha256": "805c55b9e850eb24602f370d741de3e4db5e9cec186367fc24420d58ab267529",
       "recorded": "2026-11-07",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "yangwang-altior-abu-dhabi-global-debut-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Rows of unbadged electric sedans in a wet night dealership lot under tall lights, no faces logos or readable text",
+      "source_sha256": "6322e3490f4c06e11ea29665551ee469cdd46f4baa0b0ccad2fbbdad88da1be2",
+      "webp_sha256": "6458d65f1c950fcb68468cb3918da318ea240091700524db893c1f17da09803e",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "yangwang-altior-abu-dhabi-global-debut-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Rows of unbadged electric sedans in a wet night dealership lot under tall lights, no faces logos or readable text",
+      "source_sha256": "6322e3490f4c06e11ea29665551ee469cdd46f4baa0b0ccad2fbbdad88da1be2",
+      "webp_sha256": "816920d950cdd18b8b518af8389faac1506515317f986a86c6787eb7eb89da87",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "yangwang-altior-abu-dhabi-global-debut-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Rows of unbadged electric sedans in a wet night dealership lot under tall lights, no faces logos or readable text",
+      "source_sha256": "6322e3490f4c06e11ea29665551ee469cdd46f4baa0b0ccad2fbbdad88da1be2",
+      "webp_sha256": "7fa8464d29bee7a94f92bc71dceb4db8478b70258607260d52aeb0dcd75438c0",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }
