@@ -357,6 +357,39 @@
       "webp_sha256": "5535968ec562f2f08cff1fdcf370707f5d894ae82570d86bef1a82cd228759e9",
       "recorded": "2026-11-07",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "yangwang-u9-xtreme-503-kmh-fia-record-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged silver electric hypercar speeding across a white salt flat, no faces logos or readable text",
+      "source_sha256": "2e4d718d70c5cc0f1ddcdbcc015547abc1598ad63b797b2823b0a167a1672a3e",
+      "webp_sha256": "30598115c4a86d1c6ee5a4b45895ebb8e8a2cdce84b5aaceb3c5246a8b3ab3d5",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "yangwang-u9-xtreme-503-kmh-fia-record-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged silver electric hypercar speeding across a white salt flat, no faces logos or readable text",
+      "source_sha256": "2e4d718d70c5cc0f1ddcdbcc015547abc1598ad63b797b2823b0a167a1672a3e",
+      "webp_sha256": "0f06598780b03bfbfd5af387f56a65ecfe21686e844d3078f95b5503d4551b87",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "yangwang-u9-xtreme-503-kmh-fia-record-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged silver electric hypercar speeding across a white salt flat, no faces logos or readable text",
+      "source_sha256": "2e4d718d70c5cc0f1ddcdbcc015547abc1598ad63b797b2823b0a167a1672a3e",
+      "webp_sha256": "805c55b9e850eb24602f370d741de3e4db5e9cec186367fc24420d58ab267529",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }
