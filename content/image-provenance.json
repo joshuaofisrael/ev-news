@@ -258,6 +258,105 @@
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero.",
       "source_sha256": "12decf07e627df19acb21c3f61cd2ee64bf9351d91066e4fa8e25d624ae227d8",
       "webp_sha256": "37b3f4e2a730a91faf3f7ab90b52ffd653b985280b76ea35b2212d7fd1e3b35a"
+    },
+    "rivian-r2-topgear-suv-of-year-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric crossover parked on a misty mountain overlook, no faces logos or readable text",
+      "source_sha256": "90e3429c2b92d53e5c686689dfbb5ab6781bfeb70030bdce1924be557cdde702",
+      "webp_sha256": "8c95f7a04963c4bb74ca0a7b2165e5f2da658d415fa466012cae4eff14a64c73",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "rivian-r2-topgear-suv-of-year-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric crossover parked on a misty mountain overlook, no faces logos or readable text",
+      "source_sha256": "90e3429c2b92d53e5c686689dfbb5ab6781bfeb70030bdce1924be557cdde702",
+      "webp_sha256": "56df3b4034c05bcdef7f66128a68b5788ece3f94d0faf1abe88029ca908f4b49",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "rivian-r2-topgear-suv-of-year-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric crossover parked on a misty mountain overlook, no faces logos or readable text",
+      "source_sha256": "90e3429c2b92d53e5c686689dfbb5ab6781bfeb70030bdce1924be557cdde702",
+      "webp_sha256": "94b4a2e32f9205eb9c67b80a012f2174969c6868e877b9050b1eddc02b5d1a27",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "gm-brake-software-recall-cadillac-chevy-evs-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Mechanic from behind working under a lifted unbadged crossover, no faces logos or readable text",
+      "source_sha256": "c1137a755c304ba6cfc70989b06c380b424406507ae05c1f6c2dd7f70a3b71a7",
+      "webp_sha256": "6ea68fea27b85773a171411a916b4871e3b49380656bfd0d28dbe4be459c0738",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "gm-brake-software-recall-cadillac-chevy-evs-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Mechanic from behind working under a lifted unbadged crossover, no faces logos or readable text",
+      "source_sha256": "c1137a755c304ba6cfc70989b06c380b424406507ae05c1f6c2dd7f70a3b71a7",
+      "webp_sha256": "49a9c6548daac3a65a21dcf77103cdaa2d1245de781f271474a1721e08a43039",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "gm-brake-software-recall-cadillac-chevy-evs-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Mechanic from behind working under a lifted unbadged crossover, no faces logos or readable text",
+      "source_sha256": "c1137a755c304ba6cfc70989b06c380b424406507ae05c1f6c2dd7f70a3b71a7",
+      "webp_sha256": "c1c8e3bda2f4f1f9996429c2997ce5d1b020b039ec92d4f06cf72a4feb28a04f",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "bmw-2027-charging-credits-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Highway EV charging hub with a solar canopy in the mountains, no faces logos or readable text",
+      "source_sha256": "9e3b31cf5e281c24e287e1b107ff2eef3630f1791973e84bb6a31a47a95ca7af",
+      "webp_sha256": "6f8bf92bb368758395f16abdaa8b01c6e5cba5f895181230b50d50dd861e1229",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "bmw-2027-charging-credits-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Highway EV charging hub with a solar canopy in the mountains, no faces logos or readable text",
+      "source_sha256": "9e3b31cf5e281c24e287e1b107ff2eef3630f1791973e84bb6a31a47a95ca7af",
+      "webp_sha256": "0b4b4593c2000eaf93a5456f2aae79e6467fac27a0d4f1a89d5c378fa74aff54",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "bmw-2027-charging-credits-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Highway EV charging hub with a solar canopy in the mountains, no faces logos or readable text",
+      "source_sha256": "9e3b31cf5e281c24e287e1b107ff2eef3630f1791973e84bb6a31a47a95ca7af",
+      "webp_sha256": "5535968ec562f2f08cff1fdcf370707f5d894ae82570d86bef1a82cd228759e9",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }

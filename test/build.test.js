@@ -758,7 +758,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(storyRelated, /Related stories/);
   assert.match(storyRelated, /href="\/articles\/2026-10-31-sazgar-philippines-etrike-plant\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-10-31-joby-beta-florida-electric-flights\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-10-30-rivian-q3-2026-results\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-11-07-rivian-r2-topgear-suv-of-year\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-11-06-tesla-argentina-launch-november-20-2026\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-11-06-musk-cybertruck-wind-down-cybercab\/"/);
   assert.equal((storyRelated.match(/href="\/articles\//g) || []).length, 5);
