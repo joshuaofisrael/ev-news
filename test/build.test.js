@@ -763,7 +763,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(story, /href="\/topics\/industry\/" aria-current="page"/);
   const storyRelated = story.match(/<section class="related"[\s\S]*?<\/section>/)[0];
   assert.match(storyRelated, /Related stories/);
-  assert.match(storyRelated, /href="\/articles\/2026-10-31-sazgar-philippines-etrike-plant\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-11-09-byd-reaches-19-million-nev-production\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-11-08-musk-cybertruck-extra-shift-backlog\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-11-07-rivian-r2-topgear-suv-of-year\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-11-06-tesla-argentina-launch-november-20-2026\/"/);
@@ -781,7 +781,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(batteryRelated, /href="\/articles\/2026-11-06-nio-130-million-battery-swaps\/"/);
   assert.match(batteryRelated, /href="\/articles\/2026-10-31-walmart-base-power-texas-home-batteries\/"/);
   assert.match(batteryRelated, /href="\/articles\/2026-10-26-li-auto-i6-range-test\/"/);
-  assert.match(batteryRelated, /href="\/articles\/2026-10-25-nio-firefly-60-kwh\/"/);
+  assert.match(batteryRelated, /href="\/articles\/2026-11-09-bmw-adds-samsung-lg-gen6-cell-suppliers\/"/);
   assert.match(batteryRelated, /href="\/articles\/2026-11-08-bmw-lfp-batteries-neue-klasse\/"/);
   assert.equal((batteryRelated.match(/href="\/articles\//g) || []).length, 5);
   assert.match(batteryRelated, /href="\/topics\/batteries\/"/);
