@@ -767,7 +767,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(storyRelated, /href="\/articles\/2026-11-08-musk-cybertruck-extra-shift-backlog\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-11-07-rivian-r2-topgear-suv-of-year\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-11-06-tesla-argentina-launch-november-20-2026\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-11-06-musk-cybertruck-wind-down-cybercab\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-11-10-ford-fathom-louisville-test-vehicles\/"/);
   assert.equal((storyRelated.match(/href="\/articles\//g) || []).length, 5);
   assert.doesNotMatch(storyRelated, /volvo-q3-results|byd-camacari-capacity/);
   assert.doesNotMatch(storyRelated, /tesla-q3-results|Joshua|©/);

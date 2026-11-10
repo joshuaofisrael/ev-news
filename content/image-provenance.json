@@ -621,6 +621,72 @@
       "webp_sha256": "67a5c9f2685ae696d881d58aef0cce1dde7406fad2994dcd18299090e14086e5",
       "recorded": "2026-11-09",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "ford-fathom-louisville-test-vehicles-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric pickup parked on a foggy coastal cliff overlook, no faces logos or readable text",
+      "source_sha256": "db798aafd9a456de70f07209cbd25205de5ab38424f4c42380e37ca47b8a20f2",
+      "webp_sha256": "16199184c1510fba25cb7b9a9eac44c468de607848700f5787726ce567e656cd",
+      "recorded": "2026-11-10",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "ford-fathom-louisville-test-vehicles-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric pickup parked on a foggy coastal cliff overlook, no faces logos or readable text",
+      "source_sha256": "db798aafd9a456de70f07209cbd25205de5ab38424f4c42380e37ca47b8a20f2",
+      "webp_sha256": "282142892c269362e406965b2d8804ed469e77818c25e9e2649c57d8c657de88",
+      "recorded": "2026-11-10",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "ford-fathom-louisville-test-vehicles-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric pickup parked on a foggy coastal cliff overlook, no faces logos or readable text",
+      "source_sha256": "db798aafd9a456de70f07209cbd25205de5ab38424f4c42380e37ca47b8a20f2",
+      "webp_sha256": "e4c0fd1b073cf0444795d0894d578944422d9db4d6720a2f17501a075e9eecb8",
+      "recorded": "2026-11-10",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "hyundai-kona-electric-airbag-recall-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Mechanic seen from behind working under a lifted unbadged crossover in a service bay, no faces logos or readable text",
+      "source_sha256": "c1137a755c304ba6cfc70989b06c380b424406507ae05c1f6c2dd7f70a3b71a7",
+      "webp_sha256": "6ea68fea27b85773a171411a916b4871e3b49380656bfd0d28dbe4be459c0738",
+      "recorded": "2026-11-10",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "hyundai-kona-electric-airbag-recall-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Mechanic seen from behind working under a lifted unbadged crossover in a service bay, no faces logos or readable text",
+      "source_sha256": "c1137a755c304ba6cfc70989b06c380b424406507ae05c1f6c2dd7f70a3b71a7",
+      "webp_sha256": "49a9c6548daac3a65a21dcf77103cdaa2d1245de781f271474a1721e08a43039",
+      "recorded": "2026-11-10",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "hyundai-kona-electric-airbag-recall-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Mechanic seen from behind working under a lifted unbadged crossover in a service bay, no faces logos or readable text",
+      "source_sha256": "c1137a755c304ba6cfc70989b06c380b424406507ae05c1f6c2dd7f70a3b71a7",
+      "webp_sha256": "c1c8e3bda2f4f1f9996429c2997ce5d1b020b039ec92d4f06cf72a4feb28a04f",
+      "recorded": "2026-11-10",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }
