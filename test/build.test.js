@@ -44,6 +44,11 @@ function dayStamp(value) {
   return String(value ?? "").slice(0, 10);
 }
 
+function isoStamp(value) {
+  if (value instanceof Date && !Number.isNaN(value.getTime())) return value.toISOString();
+  return String(value ?? "");
+}
+
 function markdownPosts() {
   const dir = path.join(root, "src/content/posts");
   return fs
@@ -56,6 +61,7 @@ function markdownPosts() {
         slug: name.replace(/\.md$/, ""),
         inputPath,
         date: dayStamp(data.date),
+        dateRaw: isoStamp(data.date),
         updatedAt: dayStamp(data.updatedAt || data.date),
         hero: data.hero?.src || "",
         sources: Array.isArray(data.sources) ? data.sources.length : 0,
@@ -81,7 +87,7 @@ function publicIn(category) {
 }
 
 function publishSortKey(post) {
-  const raw = post.publishAt || post.date || "";
+  const raw = post.publishAt || post.dateRaw || post.date || "";
   if (raw instanceof Date && !Number.isNaN(raw.getTime())) return raw.toISOString();
   return String(raw);
 }
@@ -141,8 +147,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     "© 2026 Joshua Israel Ventures LLC. All rights reserved. EV News Desk is a trade name of Joshua Israel Ventures LLC, a Florida limited liability company.";
   assert.doesNotMatch(home, /©|Copyright|All rights reserved/);
   assert.doesNotMatch(home, /Joshua|Ventures/);
-  assert.match(home, /\/articles\/2026-11-06-tesla-argentina-launch-november-20-2026\//);
-  assert.match(home, /\/articles\/2026-11-06-musk-cybertruck-wind-down-cybercab\//);
+  assert.match(home, /\/articles\/2026-11-11-rivian-scaringe-2027-inflection-r2-autonomy\//);
+  assert.match(home, /\/articles\/2026-11-11-unplugged-offers-to-run-cybertruck-production\//);
   assert.match(sitemap, /\/articles\/2026-10-23-tesla-q3-results\//);
   assert.doesNotMatch(home, /No story has been published yet/);
   assert.match(home, /class="masthead[\s"]/);
@@ -313,7 +319,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     const expectNews = post.news && isFreshNews(post.date);
     assert.equal(Boolean(block), expectNews, post.slug);
     if (!expectNews) continue;
-    assert.match(block, new RegExp(`<news:publication_date>${post.date}T00:00:00Z</news:publication_date>`));
+    assert.match(block, new RegExp(`<news:publication_date>${post.date}T\\d{2}:\\d{2}:\\d{2}Z</news:publication_date>`));
     assert.match(block, /<news:name>EV News Desk<\/news:name>/);
   }
   assert.doesNotMatch(news, /ev-charging-cost/);
@@ -764,8 +770,8 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const storyRelated = story.match(/<section class="related"[\s\S]*?<\/section>/)[0];
   assert.match(storyRelated, /Related stories/);
   assert.match(storyRelated, /href="\/articles\/2026-11-09-byd-reaches-19-million-nev-production\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-11-08-musk-cybertruck-extra-shift-backlog\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-11-07-rivian-r2-topgear-suv-of-year\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-11-11-unplugged-offers-to-run-cybertruck-production\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-11-11-rivian-scaringe-2027-inflection-r2-autonomy\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-11-11-electric-truck-classes\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-11-10-ford-fathom-louisville-test-vehicles\/"/);
   assert.equal((storyRelated.match(/href="\/articles\//g) || []).length, 5);
