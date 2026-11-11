@@ -2,7 +2,7 @@
 seoTitle: "Rivian R2 wins Top Gear 2027 SUV of the Year award"
 title: "Rivian R2 named Top Gear 2027 US SUV of the Year"
 date: 2026-11-07
-updatedAt: 2026-11-07
+updatedAt: '2026-11-11T19:15:00.000Z'
 category: Industry/Business
 summary: "Rivian said its R2 won SUV of the Year in TopGear.com's 2027 US Car Awards. CEO RJ Scaringe called the recognition a testament to the team that brought the vehicle to life."
 description: "Rivian announced that R2 won TopGear.com's 2027 US SUV of the Year award, quoting Top Gear's Ollie Kew and CEO RJ Scaringe."
@@ -52,3 +52,5 @@ On [X](https://x.com/Rivian/status/2118754853237244159), the company quoted Top 
 Top Gear's US Car Awards pit gas, hybrid, and electric SUVs against one another. Rivian frames the win as validation that R2 keeps Rivian's design and performance character while aiming at a broader audience. The company did not announce a new price, range figure, or production-rate change in the posts reviewed here.
 
 Readers should treat the quotes as Top Gear's editorial judgment and Rivian's reaction, not as third-party lab test results. For the primary record, use Rivian's [X announcement](https://x.com/Rivian/status/2118754853237244159), the [Rivian story](https://rivian.com/stories/r2-top-gear-2027-suv-of-the-year), and Top Gear's [SUV of the Year writeup](https://www.topgear.com/car-news/usa/us-suv-year-rivian-r2-vs-bmw-ix3-vs-toyota-rav4-vs-kia-telluride-vs-lucid-gravity).
+
+Rivian's CEO later called 2027 an inflection year as [R2 and point-to-point driving ramp](/articles/2026-11-11-rivian-scaringe-2027-inflection-r2-autonomy/).

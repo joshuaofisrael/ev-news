@@ -2,7 +2,7 @@
 title: "Volvo Cars' third-quarter revenue was SEK 66.9 billion, and adjusted operating income was SEK -3.7 billion"
 seoTitle: "Volvo Cars Q3 2026: SEK 66.9 billion revenue"
 date: 2026-10-24
-updatedAt: 2026-10-25
+updatedAt: '2026-11-11T19:15:00.000Z'
 category: Industry/Business
 summary: "Volvo Cars reported third-quarter revenue of SEK 66.9 billion and an adjusted operating loss of SEK 3.7 billion. Fully electric cars were 32 percent of retail sales, and the company plans a lower-priced electric car on SPA3 with deliveries after summer 2027."
 description: "Volvo Cars reported third-quarter revenue of SEK 66.9 billion and an adjusted operating loss of SEK 3.7 billion. Electric cars were 32 percent of sales."
@@ -66,4 +66,4 @@ The product plan that sits beside the loss is a 2027 car, not a third-quarter de
 
 These figures describe the quarter that ended on 30 September 2026. They are not a forecast, and this article is not a recommendation to buy or sell any security. The SPA3 car's first deliveries are after summer 2027, so they are not in this revenue. The approximate 2,500 jobs are a planned reduction, including consultant contracts and attrition, not a count of people who have already left.
 
-More from the [Industry/Business desk](/topics/industry/): [Tesla's third quarter](/articles/2026-10-23-tesla-q3-results/), [BYD's Camaçari permit request](/articles/2026-10-24-byd-camacari-capacity/), and [electric truck sales](/articles/2026-10-25-zero-emission-truck-sales/).
+More from the [Industry/Business desk](/topics/industry/): [Tesla's third quarter](/articles/2026-10-23-tesla-q3-results/), [BYD's Camaçari permit request](/articles/2026-10-24-byd-camacari-capacity/), and [electric truck sales](/articles/2026-10-25-zero-emission-truck-sales/). More from the [Cars desk](/topics/cars/): [Polestar's Formula 2030 concept](/articles/2026-11-11-polestar-formula-2030-concept/).
