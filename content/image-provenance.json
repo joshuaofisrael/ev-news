@@ -852,6 +852,39 @@
       "webp_sha256": "b800404ce0575da0432f17e3596a2657d8c6e79e4d968438547e2fcd9c12b87e",
       "recorded": "2026-11-11",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "polestar-formula-2030-concept-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric sedan driving through rain on a wet highway at blue hour, no logos or faces, no faces logos or readable text",
+      "source_sha256": "30dbaafadc6bca96b3ec29d63ab87a04152f26462b88f4d3212334a29e00553e",
+      "webp_sha256": "d1b37f65931fc308d211c6d59a6a398399f6034bbb482a4371f8544729aaab7d",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "polestar-formula-2030-concept-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric sedan driving through rain on a wet highway at blue hour, no logos or faces, no faces logos or readable text",
+      "source_sha256": "30dbaafadc6bca96b3ec29d63ab87a04152f26462b88f4d3212334a29e00553e",
+      "webp_sha256": "19e7ef348e4e1bead59a1be2070b78fac62e1471eba43e11fc9de371ec34f117",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "polestar-formula-2030-concept-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric sedan driving through rain on a wet highway at blue hour, no logos or faces, no faces logos or readable text",
+      "source_sha256": "30dbaafadc6bca96b3ec29d63ab87a04152f26462b88f4d3212334a29e00553e",
+      "webp_sha256": "dcba97ecf0bc743468f4aa668b66f8fb3617e103f1c1f9897fe9c6a00b8bea74",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }
