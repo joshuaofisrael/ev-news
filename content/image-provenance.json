@@ -687,6 +687,72 @@
       "webp_sha256": "c1c8e3bda2f4f1f9996429c2997ce5d1b020b039ec92d4f06cf72a4feb28a04f",
       "recorded": "2026-11-10",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "used-ev-battery-health-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Gloved hands inspecting cylindrical EV battery cells on a metal lab tray, no faces logos or readable text",
+      "source_sha256": "80d93d838f0ddf72fa4fb89794276a13d072751a6e38ccf233b896abb079da00",
+      "webp_sha256": "d80ee5f1d26113bdc6981f5b66128209572fa20408e5ed5e7475289d600f919c",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "used-ev-battery-health-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Gloved hands inspecting cylindrical EV battery cells on a metal lab tray, no faces logos or readable text",
+      "source_sha256": "80d93d838f0ddf72fa4fb89794276a13d072751a6e38ccf233b896abb079da00",
+      "webp_sha256": "54d80d19d2c909868de399eeb04b45cef16c96ebd2efe8242cc4ddc74654fbc2",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "used-ev-battery-health-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Gloved hands inspecting cylindrical EV battery cells on a metal lab tray, no faces logos or readable text",
+      "source_sha256": "80d93d838f0ddf72fa4fb89794276a13d072751a6e38ccf233b896abb079da00",
+      "webp_sha256": "d70741bcb77b2e1ad27a9fc935e8a1f816bc75b05d9e7447526da3c77b6f0507",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "electric-truck-classes-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: White unbadged delivery van at a misty warehouse loading dock with a pallet jack, no faces logos or readable text",
+      "source_sha256": "65d6744e4668b1a27b49ccf7438ad5cd901a5b203b3fc1d5a2f63c96967ece69",
+      "webp_sha256": "479cf636e86270f46dd70416dfa3d6739b1df958d2d7bd97dfd30fb175d9d949",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "electric-truck-classes-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: White unbadged delivery van at a misty warehouse loading dock with a pallet jack, no faces logos or readable text",
+      "source_sha256": "65d6744e4668b1a27b49ccf7438ad5cd901a5b203b3fc1d5a2f63c96967ece69",
+      "webp_sha256": "e51a917f637b8a0f51922acdf69612f2fd96e53dc70af8dfe7680e04f2c324ab",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "electric-truck-classes-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: White unbadged delivery van at a misty warehouse loading dock with a pallet jack, no faces logos or readable text",
+      "source_sha256": "65d6744e4668b1a27b49ccf7438ad5cd901a5b203b3fc1d5a2f63c96967ece69",
+      "webp_sha256": "b1d31cf81c77c8ef6aaae5adc7f7716a6600aa394f528fed4d6e346da76220f4",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }

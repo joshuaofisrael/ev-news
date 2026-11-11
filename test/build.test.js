@@ -766,7 +766,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(storyRelated, /href="\/articles\/2026-11-09-byd-reaches-19-million-nev-production\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-11-08-musk-cybertruck-extra-shift-backlog\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-11-07-rivian-r2-topgear-suv-of-year\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-11-06-tesla-argentina-launch-november-20-2026\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-11-11-electric-truck-classes\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-11-10-ford-fathom-louisville-test-vehicles\/"/);
   assert.equal((storyRelated.match(/href="\/articles\//g) || []).length, 5);
   assert.doesNotMatch(storyRelated, /volvo-q3-results|byd-camacari-capacity/);
@@ -780,7 +780,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const batteryRelated = batteryStory.match(/<section class="related"[\s\S]*?<\/section>/)[0];
   assert.match(batteryRelated, /href="\/articles\/2026-11-06-nio-130-million-battery-swaps\/"/);
   assert.match(batteryRelated, /href="\/articles\/2026-10-31-walmart-base-power-texas-home-batteries\/"/);
-  assert.match(batteryRelated, /href="\/articles\/2026-10-26-li-auto-i6-range-test\/"/);
+  assert.match(batteryRelated, /href="\/articles\/2026-11-11-used-ev-battery-health\/"/);
   assert.match(batteryRelated, /href="\/articles\/2026-11-09-bmw-adds-samsung-lg-gen6-cell-suppliers\/"/);
   assert.match(batteryRelated, /href="\/articles\/2026-11-08-bmw-lfp-batteries-neue-klasse\/"/);
   assert.equal((batteryRelated.match(/href="\/articles\//g) || []).length, 5);
