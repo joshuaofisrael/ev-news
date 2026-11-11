@@ -753,6 +753,72 @@
       "webp_sha256": "b1d31cf81c77c8ef6aaae5adc7f7716a6600aa394f528fed4d6e346da76220f4",
       "recorded": "2026-11-11",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "rivian-scaringe-2027-inflection-r2-autonomy-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric SUV charging in a snowy residential driveway, no logos or text, no faces logos or readable text",
+      "source_sha256": "681bc0f521bde03c25c4fa89da5f829d90a734d07a54397d5de9afff8f0555be",
+      "webp_sha256": "ac8b7c36ece38f944f047b8b4bdadde869c61869ffd63a98f221b445a8167786",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "rivian-scaringe-2027-inflection-r2-autonomy-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric SUV charging in a snowy residential driveway, no logos or text, no faces logos or readable text",
+      "source_sha256": "681bc0f521bde03c25c4fa89da5f829d90a734d07a54397d5de9afff8f0555be",
+      "webp_sha256": "087d8e8254ea04de7e5327b1c07b23886d27ddd2da038bf25622f3ab8b2209f1",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "rivian-scaringe-2027-inflection-r2-autonomy-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric SUV charging in a snowy residential driveway, no logos or text, no faces logos or readable text",
+      "source_sha256": "681bc0f521bde03c25c4fa89da5f829d90a734d07a54397d5de9afff8f0555be",
+      "webp_sha256": "013ce35a5ec868d460364916f6a81723ff3dfcc3d0a27de685a60b7756369130",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "unplugged-offers-to-run-cybertruck-production-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Wall of EV chargers in an underground garage with one compact unbadged EV plugged in, no faces logos or readable text",
+      "source_sha256": "31c61e78eb460fd14f0904ab6d57cd3984342b86afbc146aeec989d38563c98e",
+      "webp_sha256": "2be9ff6f30545b2516d14990801baa412ac8fa4ec7e9b021b9147219eaf3aff0",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "unplugged-offers-to-run-cybertruck-production-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Wall of EV chargers in an underground garage with one compact unbadged EV plugged in, no faces logos or readable text",
+      "source_sha256": "31c61e78eb460fd14f0904ab6d57cd3984342b86afbc146aeec989d38563c98e",
+      "webp_sha256": "856a3fa316fe951819773e0626c8e548908aa26bfb22d4b6fb452a2a7c3bb954",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "unplugged-offers-to-run-cybertruck-production-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Wall of EV chargers in an underground garage with one compact unbadged EV plugged in, no faces logos or readable text",
+      "source_sha256": "31c61e78eb460fd14f0904ab6d57cd3984342b86afbc146aeec989d38563c98e",
+      "webp_sha256": "29aa7c1f30fa4699b8cc0f0c428a48eeb8d341732a275025b1605a1cecfbc22c",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }
