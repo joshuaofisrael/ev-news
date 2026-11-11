@@ -1,7 +1,7 @@
 ---
 title: BMW adds Samsung SDI and LG Energy Solution as Gen6 battery cell suppliers
 date: '2026-11-09'
-updatedAt: '2026-11-09'
+updatedAt: '2026-11-11T19:15:00.000Z'
 category: Batteries
 summary: BMW will source Gen6 cells from Samsung SDI in Europe and LG Energy Solution
   in the US from the late 2020s, alongside CATL and EVE Energy.
@@ -76,3 +76,5 @@ BMW keeps its own cell development, production and recycling know-how at three B
 - **Cell Recycling Competence Center, Salching:** a new center that recovers raw materials with BMW's direct recycling process. Encory GmbH will build and run it, and BMW owns the intellectual property.
 
 "Our global partner network with leading cell manufacturers ensures that we have a resilient, flexible and competitive battery cell supply," said Hendrik Lang, BMW's head of purchasing and quality for high-voltage batteries.
+
+BMW has also reported a long-distance test of a new i3: the company said an i3 50 xDrive [crossed Europe from the North Cape to Tarifa on 2 hours 46 minutes of charging](/articles/2026-11-11-bmw-i3-paneuropeana-north-cape-tarifa/).
