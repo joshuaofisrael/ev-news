@@ -819,6 +819,39 @@
       "webp_sha256": "29aa7c1f30fa4699b8cc0f0c428a48eeb8d341732a275025b1605a1cecfbc22c",
       "recorded": "2026-11-11",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "bmw-i3-paneuropeana-north-cape-tarifa-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric hatchback emerging from a misty mountain tunnel, no logos or faces, no faces logos or readable text",
+      "source_sha256": "5dedb5d7d6ed33a61dab33e4b367d5f85987c4fde4ae61d0d4755b6f7e11b3e8",
+      "webp_sha256": "7d54eef7f6188ad5ce82568f5e84a26f55d84e6c8e93c216dbff71f9bc2d28ac",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "bmw-i3-paneuropeana-north-cape-tarifa-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric hatchback emerging from a misty mountain tunnel, no logos or faces, no faces logos or readable text",
+      "source_sha256": "5dedb5d7d6ed33a61dab33e4b367d5f85987c4fde4ae61d0d4755b6f7e11b3e8",
+      "webp_sha256": "dc6f67e33864e4de6206559235b1ccc07b5f09822815c9aba38c0ac5e6693da0",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "bmw-i3-paneuropeana-north-cape-tarifa-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric hatchback emerging from a misty mountain tunnel, no logos or faces, no faces logos or readable text",
+      "source_sha256": "5dedb5d7d6ed33a61dab33e4b367d5f85987c4fde4ae61d0d4755b6f7e11b3e8",
+      "webp_sha256": "b800404ce0575da0432f17e3596a2657d8c6e79e4d968438547e2fcd9c12b87e",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }
