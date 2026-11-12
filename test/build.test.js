@@ -769,11 +769,11 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(story, /href="\/topics\/industry\/" aria-current="page"/);
   const storyRelated = story.match(/<section class="related"[\s\S]*?<\/section>/)[0];
   assert.match(storyRelated, /Related stories/);
-  assert.match(storyRelated, /href="\/articles\/2026-11-09-byd-reaches-19-million-nev-production\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-11-11-unplugged-offers-to-run-cybertruck-production\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-11-12-global-ev-sales-october-2026-europe-bev-up-49-percent\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-11-12-scout-motors-212000-reservations-validation-builds\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-11-12-tesla-semi-first-50-trucks-chicago\/"/);
   assert.match(storyRelated, /href="\/articles\/2026-11-11-rivian-scaringe-2027-inflection-r2-autonomy\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-11-11-electric-truck-classes\/"/);
-  assert.match(storyRelated, /href="\/articles\/2026-11-10-ford-fathom-louisville-test-vehicles\/"/);
+  assert.match(storyRelated, /href="\/articles\/2026-11-11-unplugged-offers-to-run-cybertruck-production\/"/);
   assert.equal((storyRelated.match(/href="\/articles\//g) || []).length, 5);
   assert.doesNotMatch(storyRelated, /volvo-q3-results|byd-camacari-capacity/);
   assert.doesNotMatch(storyRelated, /tesla-q3-results|Joshua|©/);
@@ -785,7 +785,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const batteryStory = read("_site", "articles/2026-10-23-catl-baic-battery-swap/index.html");
   const batteryRelated = batteryStory.match(/<section class="related"[\s\S]*?<\/section>/)[0];
   assert.match(batteryRelated, /href="\/articles\/2026-11-06-nio-130-million-battery-swaps\/"/);
-  assert.match(batteryRelated, /href="\/articles\/2026-10-31-walmart-base-power-texas-home-batteries\/"/);
+  assert.match(batteryRelated, /href="\/articles\/2026-11-12-quantumscape-osprey-all-solid-state-platform\/"/);
   assert.match(batteryRelated, /href="\/articles\/2026-11-11-used-ev-battery-health\/"/);
   assert.match(batteryRelated, /href="\/articles\/2026-11-09-bmw-adds-samsung-lg-gen6-cell-suppliers\/"/);
   assert.match(batteryRelated, /href="\/articles\/2026-11-08-bmw-lfp-batteries-neue-klasse\/"/);
