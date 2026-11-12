@@ -1,0 +1,23 @@
+---
+layout: layouts/page.njk
+title: Topics
+seoTitle: "EV topic hubs · EV News Desk"
+summary: "Browse EV News Desk by beat: cars, batteries, charging, policy, and industry. Each hub lists every matching story, newest first. Sources live on the article."
+updatedAt: 2026-11-12
+permalink: /topics/
+---
+<p>These pages group our reporting by desk. The figures, and the public source for each claim, live on the story.</p>
+<ul class="story-list">
+{% for item in site.categories %}
+  {% set stories = collections.posts | whereCategory(item.name) %}
+  <li>
+    <article class="story">
+      <div class="story-copy">
+        <p class="kicker">{{ stories.length }} {{ "story" if stories.length == 1 else "stories" }}</p>
+        <h2 class="story-title"><a href="{{ ('/topics/' ~ item.slug ~ '/') | url }}">{{ item.name }}</a></h2>
+        <p class="deck">{{ item.hubIntro }}</p>
+      </div>
+    </article>
+  </li>
+{% endfor %}
+</ul>

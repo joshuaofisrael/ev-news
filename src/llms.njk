@@ -14,6 +14,7 @@ Search and AI crawlers may read this site. Published articles list public source
 ## Pages
 
 - [Home]({{ "/" | absoluteUrl }}): Latest stories
+- [Topics]({{ "/topics/" | absoluteUrl }}): Hubs for cars, batteries, charging, policy, and industry
 - [Newsroom dashboard]({{ "/dashboard/" | absoluteUrl }}): Published stories, newest first
 {% for item in site.categories %}
 - [{{ item.name | safe }}]({{ ("/topics/" ~ item.slug ~ "/") | absoluteUrl }}): {{ item.hubIntro | safe }}
