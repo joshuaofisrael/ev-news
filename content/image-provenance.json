@@ -1083,6 +1083,72 @@
       "webp_sha256": "83e279b2f22b63c976f56a60507394ff1bb92dffbd82196af7a922b6bef86737",
       "recorded": "2026-11-12",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "vw-id-tiguan-series-production-emden-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unfinished unbadged EV bodies on a factory conveyor with orange high-voltage cables, workers seen from behind, no faces logos or readable text",
+      "source_sha256": "a21196aaddf0bdd59e8664e3a00188540bce07a7aa3ed59d106d5230246ef1f8",
+      "webp_sha256": "c9bda146229042e0d362a2fdeeebe4882334411e4f2cbf436a9770e3396b909f",
+      "recorded": "2026-11-13",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "vw-id-tiguan-series-production-emden-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unfinished unbadged EV bodies on a factory conveyor with orange high-voltage cables, workers seen from behind, no faces logos or readable text",
+      "source_sha256": "a21196aaddf0bdd59e8664e3a00188540bce07a7aa3ed59d106d5230246ef1f8",
+      "webp_sha256": "6b9a5591cb36d26c4c5085a565d93a1cb515d2283a22546e781ca7815729dffe",
+      "recorded": "2026-11-13",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "vw-id-tiguan-series-production-emden-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unfinished unbadged EV bodies on a factory conveyor with orange high-voltage cables, workers seen from behind, no faces logos or readable text",
+      "source_sha256": "a21196aaddf0bdd59e8664e3a00188540bce07a7aa3ed59d106d5230246ef1f8",
+      "webp_sha256": "055cbf3818fbc3fed59b8b9364d1359ba99864777194939adba6349a78ff2f91",
+      "recorded": "2026-11-13",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "canada-luxury-tax-ev-threshold-150000-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Blank policy binders and a laptop with an abstract chart on a desk overlooking a government building, no faces logos or readable text",
+      "source_sha256": "fcdef59e364e356b936909f51fa6c8aaca62dd7eddbd08d91c09ef60209a7377",
+      "webp_sha256": "a60a70f4107f579d0cbedb7c1de575e9c90f1f64c15e9a1a229607072a4cda68",
+      "recorded": "2026-11-13",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "canada-luxury-tax-ev-threshold-150000-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Blank policy binders and a laptop with an abstract chart on a desk overlooking a government building, no faces logos or readable text",
+      "source_sha256": "fcdef59e364e356b936909f51fa6c8aaca62dd7eddbd08d91c09ef60209a7377",
+      "webp_sha256": "a0b2a9706e4079105df544330eabee437a25a50047aeabe5db1826f0c8d27513",
+      "recorded": "2026-11-13",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "canada-luxury-tax-ev-threshold-150000-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Blank policy binders and a laptop with an abstract chart on a desk overlooking a government building, no faces logos or readable text",
+      "source_sha256": "fcdef59e364e356b936909f51fa6c8aaca62dd7eddbd08d91c09ef60209a7377",
+      "webp_sha256": "fbe30182a9421a9737c3f93b2c657a6ec03b2ecc77755c25a81890104308c39a",
+      "recorded": "2026-11-13",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }

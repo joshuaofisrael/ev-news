@@ -225,7 +225,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(robots, /User-agent: \*\s+Allow: \//);
   assert.doesNotMatch(robots, /disallow|noai|noimageai|ads\.txt/i);
   assert.match(robots, new RegExp(`Sitemap: ${esc(site.url)}/sitemap\\.xml`));
-  const freshNews = publishedPosts().filter((post) => post.news && isFreshNews(post.date));
+  const freshNews = publishedPosts().filter((post) => post.news && isFreshNews(post.dateRaw || post.date));
   if (freshNews.length) {
     assert.match(robots, /Sitemap: https:\/\/evnewsdesk\.com\/news-sitemap\.xml/);
     assert.match(llms, /news-sitemap\.xml/);
@@ -316,7 +316,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
     const loc = `https://evnewsdesk.com/articles/${post.slug}/`;
     assert.equal(sitemap.includes(`<loc>${loc}</loc>`), true, loc);
     const block = news.split("<url>").find((part) => part.includes(`<loc>${loc}</loc>`));
-    const expectNews = post.news && isFreshNews(post.date);
+    const expectNews = post.news && isFreshNews(post.dateRaw || post.date);
     assert.equal(Boolean(block), expectNews, post.slug);
     if (!expectNews) continue;
     assert.match(block, new RegExp(`<news:publication_date>${post.date}T\\d{2}:\\d{2}:\\d{2}Z</news:publication_date>`));
