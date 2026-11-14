@@ -1149,6 +1149,72 @@
       "webp_sha256": "fbe30182a9421a9737c3f93b2c657a6ec03b2ecc77755c25a81890104308c39a",
       "recorded": "2026-11-13",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "zoox-robotaxi-atlanta-employee-rides-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric car on a rainy multilane road at dusk, no faces logos or readable text",
+      "source_sha256": "9072bda3d1d7d5f2ad40885dbf6caa431eb16ed3dffd54478e85f3f20235a8f4",
+      "webp_sha256": "f21d86f25877a22e3b5a6fb0a776493cf9926904ea59e0cea7c7371fd5144384",
+      "recorded": "2026-11-14",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "zoox-robotaxi-atlanta-employee-rides-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric car on a rainy multilane road at dusk, no faces logos or readable text",
+      "source_sha256": "9072bda3d1d7d5f2ad40885dbf6caa431eb16ed3dffd54478e85f3f20235a8f4",
+      "webp_sha256": "1ddd9624dc1f972d1ab801431a5952eea42d9da7b31609c29532429631b23cad",
+      "recorded": "2026-11-14",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "zoox-robotaxi-atlanta-employee-rides-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric car on a rainy multilane road at dusk, no faces logos or readable text",
+      "source_sha256": "9072bda3d1d7d5f2ad40885dbf6caa431eb16ed3dffd54478e85f3f20235a8f4",
+      "webp_sha256": "c934c32daac1b00ffd2978d664dd117be7af0557598928937185fbfbb9e72167",
+      "recorded": "2026-11-14",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "tesla-drops-41990-model-y-awd-us-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric SUV charging in a snowy residential driveway, no faces logos or readable text",
+      "source_sha256": "681bc0f521bde03c25c4fa89da5f829d90a734d07a54397d5de9afff8f0555be",
+      "webp_sha256": "ac8b7c36ece38f944f047b8b4bdadde869c61869ffd63a98f221b445a8167786",
+      "recorded": "2026-11-14",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "tesla-drops-41990-model-y-awd-us-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric SUV charging in a snowy residential driveway, no faces logos or readable text",
+      "source_sha256": "681bc0f521bde03c25c4fa89da5f829d90a734d07a54397d5de9afff8f0555be",
+      "webp_sha256": "087d8e8254ea04de7e5327b1c07b23886d27ddd2da038bf25622f3ab8b2209f1",
+      "recorded": "2026-11-14",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "tesla-drops-41990-model-y-awd-us-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric SUV charging in a snowy residential driveway, no faces logos or readable text",
+      "source_sha256": "681bc0f521bde03c25c4fa89da5f829d90a734d07a54397d5de9afff8f0555be",
+      "webp_sha256": "013ce35a5ec868d460364916f6a81723ff3dfcc3d0a27de685a60b7756369130",
+      "recorded": "2026-11-14",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }
