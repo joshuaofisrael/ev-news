@@ -1446,6 +1446,72 @@
       "webp_sha256": "132357f445bb7fdaaf69a1bd0ae9a12ece7555623265bbb72ee5ebe0a27bbb94",
       "recorded": "2026-11-17",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "gm-energy-pass-electrify-america-plug-and-charge-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Hand inserting a charging connector into a glowing car charge port, no faces, logos or readable text, no faces logos or readable text",
+      "source_sha256": "42e75627326cd245edd22af54503409759a7180b745260ac1ba61187898fc871",
+      "webp_sha256": "fa235d7875dcda9d73a216782bb4de83cd7730c9087da0ba7b87726622bfb03a",
+      "recorded": "2026-11-18",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "gm-energy-pass-electrify-america-plug-and-charge-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Hand inserting a charging connector into a glowing car charge port, no faces, logos or readable text, no faces logos or readable text",
+      "source_sha256": "42e75627326cd245edd22af54503409759a7180b745260ac1ba61187898fc871",
+      "webp_sha256": "e39719a59598d4a8e0843cfa815d896ab371552839c65c462125dbddec56fb2f",
+      "recorded": "2026-11-18",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "gm-energy-pass-electrify-america-plug-and-charge-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Hand inserting a charging connector into a glowing car charge port, no faces, logos or readable text, no faces logos or readable text",
+      "source_sha256": "42e75627326cd245edd22af54503409759a7180b745260ac1ba61187898fc871",
+      "webp_sha256": "3c15daa8f7bc12700ff2eb82cde925b4c14cee81c76e70403cc75b0a90eb919f",
+      "recorded": "2026-11-18",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "rivian-autonomy-early-access-point-to-point-beta-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric crossover on a misty mountain road through pine forest, no logos or readable text, no faces logos or readable text",
+      "source_sha256": "90e3429c2b92d53e5c686689dfbb5ab6781bfeb70030bdce1924be557cdde702",
+      "webp_sha256": "8c95f7a04963c4bb74ca0a7b2165e5f2da658d415fa466012cae4eff14a64c73",
+      "recorded": "2026-11-18",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "rivian-autonomy-early-access-point-to-point-beta-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric crossover on a misty mountain road through pine forest, no logos or readable text, no faces logos or readable text",
+      "source_sha256": "90e3429c2b92d53e5c686689dfbb5ab6781bfeb70030bdce1924be557cdde702",
+      "webp_sha256": "56df3b4034c05bcdef7f66128a68b5788ece3f94d0faf1abe88029ca908f4b49",
+      "recorded": "2026-11-18",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "rivian-autonomy-early-access-point-to-point-beta-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Unbadged electric crossover on a misty mountain road through pine forest, no logos or readable text, no faces logos or readable text",
+      "source_sha256": "90e3429c2b92d53e5c686689dfbb5ab6781bfeb70030bdce1924be557cdde702",
+      "webp_sha256": "94b4a2e32f9205eb9c67b80a012f2174969c6868e877b9050b1eddc02b5d1a27",
+      "recorded": "2026-11-18",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }
