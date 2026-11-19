@@ -1,7 +1,7 @@
 ---
 title: 'Ford is "officially in the battery business": its first Michigan-made LFP cells ship to Fathom prototypes'
-date: '2026-11-19T14:30:00.000Z'
-updatedAt: '2026-11-19T14:30:00.000Z'
+date: '2026-11-19T14:15:00.000Z'
+updatedAt: '2026-11-19T14:15:00.000Z'
 category: Batteries
 summary: Cells from the Marshall plant, built with technology licensed from CATL, are shipping to Louisville for Fathom pickup prototypes. Ford says the plant can make 40 cells a minute once it ramps up.
 description: Cells from the Marshall plant, built with technology licensed from CATL, are shipping to Louisville for Fathom pickup prototypes. Ford says the plant can make 40 cells a minute once it ramps up.

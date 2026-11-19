@@ -1,7 +1,7 @@
 ---
 title: Polestar 4 owners get Vehicle-to-Load, Camping mode and Android 15 in the biggest update yet
-date: '2026-11-19T14:20:00.000Z'
-updatedAt: '2026-11-19T14:20:00.000Z'
+date: '2026-11-19T14:10:00.000Z'
+updatedAt: '2026-11-19T14:10:00.000Z'
 category: Cars
 summary: The free P4.3.0 over-the-air update adds up to 3.3 kW of Vehicle-to-Load power, Camping and Valet modes and an Android phone key. Vehicle-to-Load will not be offered in the US, Canada or South Korea.
 description: The free P4.3.0 over-the-air update adds up to 3.3 kW of Vehicle-to-Load power, Camping and Valet modes and an Android phone key. Vehicle-to-Load will not be offered in the US, Canada or South Korea.
