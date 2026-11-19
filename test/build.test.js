@@ -782,11 +782,10 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.doesNotMatch(carsRelated, /ford-mach-e-trail|chargepoint|catl-baic|europe-september/);
   const batteryStory = read("_site", "articles/2026-10-23-catl-baic-battery-swap/index.html");
   const batteryRelated = batteryStory.match(/<section class="related"[\s\S]*?<\/section>/)[0];
-  assert.match(batteryRelated, /href="\/articles\/2026-11-06-nio-130-million-battery-swaps\/"/);
-  assert.match(batteryRelated, /href="\/articles\/2026-11-12-quantumscape-osprey-all-solid-state-platform\/"/);
-  assert.match(batteryRelated, /href="\/articles\/2026-11-11-used-ev-battery-health\/"/);
-  assert.match(batteryRelated, /href="\/articles\/2026-11-09-bmw-adds-samsung-lg-gen6-cell-suppliers\/"/);
-  assert.match(batteryRelated, /href="\/articles\/2026-11-08-bmw-lfp-batteries-neue-klasse\/"/);
+  // Related stories list the newest Batteries posts; check shape, not a fixed set that ages out as new battery stories publish.
+  const batteryLinks = batteryRelated.match(/href="\/articles\/\d{4}-\d{2}-\d{2}-[^"]+\/"/g) || [];
+  assert.equal(new Set(batteryLinks).size, 5);
+  assert.doesNotMatch(batteryRelated, /2026-10-23-catl-baic-battery-swap/);
   assert.equal((batteryRelated.match(/href="\/articles\//g) || []).length, 5);
   assert.match(batteryRelated, /href="\/topics\/batteries\/"/);
   for (const story of stories) {
