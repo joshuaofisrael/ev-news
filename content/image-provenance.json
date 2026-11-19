@@ -1644,6 +1644,39 @@
       "webp_sha256": "66be8ad68b810535954a010b0b4424e222566da347905cad09c98ee2cd7e2f43",
       "recorded": "2026-11-19",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "tesla-semi-first-texas-megacharger-mesquite-7-sites-short-of-37-hero": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Cluster of unbadged electric vehicles charging under a canopy at a quiet highway rest stop at night, no people, logos or readable text, no faces logos or readable text",
+      "source_sha256": "03dc81960284e41f50c2d17f3e07ae7dad2a577e1c9b8f5dfdc83491a23a6699",
+      "webp_sha256": "ecd7a48c09e3400d0f5c1671a650ed7a7d167a5cfde85df9be0f97a7aa521d40",
+      "recorded": "2026-11-19",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "tesla-semi-first-texas-megacharger-mesquite-7-sites-short-of-37-1": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Cluster of unbadged electric vehicles charging under a canopy at a quiet highway rest stop at night, no people, logos or readable text, no faces logos or readable text",
+      "source_sha256": "03dc81960284e41f50c2d17f3e07ae7dad2a577e1c9b8f5dfdc83491a23a6699",
+      "webp_sha256": "83821e26c130ae3e4898002217da5477007eeec015eb58eca704399f24d1a4d0",
+      "recorded": "2026-11-19",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "tesla-semi-first-texas-megacharger-mesquite-7-sites-short-of-37-2": {
+      "licence": "Original",
+      "creator": "EV News Desk",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Cluster of unbadged electric vehicles charging under a canopy at a quiet highway rest stop at night, no people, logos or readable text, no faces logos or readable text",
+      "source_sha256": "03dc81960284e41f50c2d17f3e07ae7dad2a577e1c9b8f5dfdc83491a23a6699",
+      "webp_sha256": "9f49ad42cd0056c118d6c7ecb6f5507833208174cbbde70ed5a2379ecb173d6e",
+      "recorded": "2026-11-19",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }
