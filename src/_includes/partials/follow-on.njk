@@ -1,0 +1,26 @@
+{% if follow and follow.items and follow.items.length %}
+<section class="follow-on">
+  <h2>{{ follow.heading }}</h2>
+  <ul class="story-list story-list-thumbs">
+    {% for item in follow.items %}
+    <li class="story-card">
+      <article class="story-card-body">
+        {% if item.post.data.hero and item.post.data.hero.src and (item.post.data.hero.src | heroThumbReady) %}
+        <div class="story-thumb-frame">
+          <img class="story-thumb" src="{{ ('/assets/images/thumbs/' ~ (item.post.data.hero.src | heroThumbSrc) ~ '.webp') | url }}" alt="" width="640" height="360" loading="lazy" decoding="async">
+          <p class="follow-photo"><a href="{{ '/image-policy/' | url }}">AI-generated</a></p>
+        </div>
+        {% endif %}
+        <div class="story-card-content">
+          <p class="story-kicker">
+            <span class="follow-kicker">{% if item.role == "next" %}What happened next{% else %}Background{% endif %}</span>
+            <a class="chip" href="{{ ('/topics/' ~ (item.post.data.category | categorySlug) ~ '/') | url }}">{{ item.post.data.category }}</a>
+          </p>
+          <h3 class="story-title"><a href="{{ item.post.url }}">{{ item.post.data.title }}</a></h3>
+        </div>
+      </article>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

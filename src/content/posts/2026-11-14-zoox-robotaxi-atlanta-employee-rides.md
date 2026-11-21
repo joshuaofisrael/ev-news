@@ -1,7 +1,7 @@
 ---
 title: Zoox starts driving its robotaxi in Atlanta, with rides limited to employees for now
 date: '2026-11-14T13:55:00Z'
-updatedAt: '2026-11-14T13:55:00Z'
+updatedAt: '2026-11-21'
 category: Industry/Business
 summary: Amazon-owned Zoox says its purpose-built robotaxi is now on the road in northwest Atlanta. Employees, family and friends ride first, with a public waitlist promised and an early rider programme planned for 2027.
 description: Amazon-owned Zoox says its purpose-built robotaxi is now on the road in northwest Atlanta. Employees, family and friends ride first, with a public waitlist promised and an early rider programme planned for 2027.
@@ -57,3 +57,7 @@ Zoox has been testing self-driving vehicles in Atlanta since spring 2025, accord
 ## Where Atlanta fits
 
 CBS reports that Atlanta joins Austin and Miami among Zoox's newest robotaxi markets, and that the company already offers public rides in Las Vegas and San Francisco. Zoox did not give a date for opening Atlanta rides to the public beyond the 2027 early rider plan.
+
+## What happened next
+
+On 19 November Zoox posted that it was moving into robotaxi testing in Los Angeles. Our report of that announcement is [Zoox's pod-shaped robotaxi is now driving around Los Angeles, but you can't ride it yet](/articles/2026-11-20-zoox-robotaxi-los-angeles-santa-monica-testing-waitlist-next-year/). The company said the first Los Angeles rollout would start in Santa Monica and would stay limited to employees, family and friends, with a public waitlist planned for next year. That post does not change the 2027 Explorers timing CBS reported for Atlanta. An earlier opening, on a different service, is [Tesla's Robotaxi launch in Fort Worth](/articles/2026-11-03-tesla-robotaxi-fort-worth-launch/). Other robotaxi coverage is on the [Cars desk](/topics/cars/).
