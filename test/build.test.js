@@ -308,7 +308,7 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.doesNotMatch(sitemap, /kadena-air-base-byd-vehicle-ban/);
   assert.match(
     sitemap,
-    /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-25-ev-range-cold-weather\/<\/loc>\s*<lastmod>2026-10-27T00:00:00\.000Z<\/lastmod>/,
+    /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-25-ev-range-cold-weather\/<\/loc>\s*<lastmod>2026-11-21T00:00:00\.000Z<\/lastmod>/,
   );
   assert.match(sitemap, /<loc>https:\/\/evnewsdesk\.com\/articles\/2026-10-26-ev-charging-cost\/<\/loc>/);
   for (const post of publishedPosts()) {
@@ -802,6 +802,23 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   assert.match(explainer, /This is not financial, tax, or investment advice/);
   assert.match(explainer, /39\.0 percent/);
   assert.match(explainer, /https:\/\/www\.fueleconomy\.gov\/feg\/coldweather\.shtml/);
+  assert.match(explainer, /21 November 2026/);
+  assert.match(explainer, /href="\/articles\/2026-11-06-vw-id-software-3-9-1-battery-preconditioning\/"/);
+  assert.match(explainer, /href="\/articles\/2026-11-02-ev-charging-levels-explained\/"/);
+  assert.match(explainer, /"dateModified":"2026-11-21T00:00:00\.000Z"/);
+  const atlanta = read("_site", "articles/2026-11-14-zoox-robotaxi-atlanta-employee-rides/index.html");
+  assert.match(atlanta, /What happened next/);
+  assert.match(atlanta, /href="\/articles\/2026-11-20-zoox-robotaxi-los-angeles-santa-monica-testing-waitlist-next-year\/"/);
+  const followBlocks = atlanta.match(/<section class="follow-on">[\s\S]*?<\/section>/g) || [];
+  assert.equal(followBlocks.length, 2);
+  const followLinks = followBlocks[0].match(/href="\/articles\/[^"]+"/g) || [];
+  assert.ok(followLinks.length >= 3 && followLinks.length <= 4, String(followLinks));
+  assert.match(followBlocks[0], /story-thumb/);
+  assert.match(followBlocks[0], /href="\/image-policy\/">AI-generated<\/a>/);
+  const gm = read("_site", "articles/2026-11-18-gm-energy-pass-electrify-america-plug-and-charge/index.html");
+  assert.match(gm, /<h2>Background<\/h2>/);
+  assert.match(gm, /href="\/articles\/2026-11-02-ev-charging-levels-explained\/"/);
+  assert.match(gm, /href="\/articles\/2026-10-26-ev-charging-cost\/"/);
   assert.doesNotMatch(explainer, /AI-generated photograph/);
   const chargingCost = read("_site", "articles/2026-10-26-ev-charging-cost/index.html");
   assert.match(chargingCost, /"@type":"Article"/);

@@ -1,7 +1,7 @@
 ---
 title: GM Energy Pass drivers can now plug in and charge at Electrify America with no app or card
 date: '2026-11-18T13:50:00.000Z'
-updatedAt: '2026-11-18T13:50:00.000Z'
+updatedAt: '2026-11-21'
 category: Charging
 summary: The feature works now on GM EVs with native CCS ports and comes to native NACS models in early 2027. GM says energy starts flowing about 45 seconds after the cable goes in, based on its own testing.
 description: The feature works now on GM EVs with native CCS ports and comes to native NACS models in early 2027. GM says energy starts flowing about 45 seconds after the cable goes in, based on its own testing.
@@ -11,6 +11,7 @@ tags:
 - energy-pass
 - plug-and-charge
 - public-charging
+- dc-fast-charging
 author: EV News Desk
 hero:
   src: gm-energy-pass-electrify-america-plug-and-charge-hero
@@ -52,3 +53,7 @@ GM says this builds on two earlier steps. In January it added Electrify America 
 ## What to check
 
 The feature only covers participating Electrify America stations and drivers who have enrolled in Energy Pass. GM says Charge by App and other charging methods keep working during the rollout. Owners of newer NACS-port models will have to wait until early 2027.
+
+## Background
+
+CCS and NACS, and what separates Level 1, Level 2 and DC fast charging, are set out in [EV charging levels explained](/articles/2026-11-02-ev-charging-levels-explained/). What a home kilowatt-hour costs, which is a different bill from a public fast-charge session, is in [what it costs to charge an electric car at home](/articles/2026-10-26-ev-charging-cost/). A separate count of public DC fast ports, 80,930 on 1 November 2026, is in [this desk's 8 November report](/articles/2026-11-08-us-dc-fast-charging-80930-ports-november-2026/). That port total is not GM's figure of about 60 percent of U.S. DC fast chargers on networks in Energy Pass. The two numbers are not the same measurement. More charging stories are on the [Charging desk](/topics/charging/).

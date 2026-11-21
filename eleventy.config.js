@@ -5,6 +5,7 @@ import { freshNewsPosts, renderNewsSitemap } from "./lib/news-sitemap.js";
 import { absoluteUrl, pathPrefixFromSiteUrl, prefixRootUrls } from "./lib/site-url.js";
 import { buildCrumbs, renderBreadcrumbNav, renderJsonLd } from "./lib/structured-data.js";
 import { figureCaption, imageFilesReady, insertBodyImages } from "./lib/article-images.js";
+import { insertFollowOn, selectFollowOn } from "./lib/follow-on.js";
 import { heroThumbReady, heroThumbSrc } from "./lib/thumbnails.js";
 import { metaDescription } from "./lib/meta-description.js";
 import { presentDashboard, validateDashboard } from "./lib/dashboard.js";
@@ -71,6 +72,10 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("whereCategory", (posts, name) =>
     (posts || []).filter((post) => post.data.category === name && !scheduledLater(post) && !withheldPost(post)),
   );
+  eleventyConfig.addFilter("followOnReads", (posts, currentUrl, limit = 4) =>
+    selectFollowOn(posts, currentUrl, limit),
+  );
+  eleventyConfig.addFilter("insertFollowOn", (html, block) => insertFollowOn(html, block));
   eleventyConfig.addFilter("relatedStories", (posts, category, currentUrl, limit = 5) =>
     (posts || [])
       .filter((post) => post.data.category === category)

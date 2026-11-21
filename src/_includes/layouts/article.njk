@@ -47,8 +47,10 @@ layout: layouts/base.njk
   </figure>
   {% endif %}
   {% include "partials/story-figure.njk" %}
+  {% set follow = collections.posts | followOnReads(page.url, 4) %}
+  {% set followHtml %}{% include "partials/follow-on.njk" %}{% endset %}
   <div class="prose">
-    {{ content | insertBodyImages(images) | safe }}
+    {{ content | insertBodyImages(images) | insertFollowOn(followHtml) | safe }}
   </div>
   {% if tags and tags.length %}
   <section class="tag-block" aria-labelledby="tags-heading">
@@ -92,6 +94,7 @@ layout: layouts/base.njk
     <p>This draft has no sources yet. Add a non-empty sources list before publishing. The production build fails without one.</p>
     {% endif %}
   </section>
+  {{ followHtml | safe }}
   {% set related = collections.posts | relatedStories(category, page.url, 5) %}
   <section class="related" aria-labelledby="related-heading">
     <h2 id="related-heading">Related stories</h2>

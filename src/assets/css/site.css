@@ -915,6 +915,70 @@ main:focus { outline: none; }
 .sources a { overflow-wrap: anywhere; }
 .source-meta { display: block; color: var(--muted); font-size: 0.95rem; }
 
+.follow-on {
+  margin: 1.75rem 0;
+  max-width: 46rem;
+}
+
+.follow-on h2,
+.prose .follow-on h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 0.85rem;
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.follow-on h2::before {
+  content: "";
+  width: 1.15rem;
+  height: 0.38rem;
+  flex: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--link), var(--gold));
+}
+
+.follow-on .story-list,
+.prose .follow-on .story-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.follow-on .story-card { padding: 0.75rem 0.85rem; }
+
+.follow-on .story-title { margin: 0; }
+
+.follow-on .story-title a {
+  font-size: 1.05rem;
+  line-height: 1.35;
+  min-height: 0;
+}
+
+.follow-photo {
+  margin: 0.3rem 0 0;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+}
+
+.follow-photo a {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.follow-kicker {
+  margin-right: 0.55rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .related {
   margin-top: 2rem;
   max-width: 68ch;
