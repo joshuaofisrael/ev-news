@@ -499,14 +499,11 @@ test("production build omits drafts and the sources gate fails closed", { timeou
   const adsenseScript = `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${site.adsenseClient}" crossorigin="anonymous"></script>`;
   const adsenseMeta = `<meta name="google-adsense-account" content="${site.adsenseClient}">`;
   for (const page of [home, about, privacy, contact, thanks]) {
-    assert.match(page, new RegExp(esc(adsenseScript)));
-    assert.match(page, new RegExp(esc(adsenseMeta)));
+    // AdSense detached 21 Nov 2026 until the account is approved (see seo-central/site-seo-rules.md). Do not re-add.
+    assert.doesNotMatch(page, new RegExp(esc(adsenseScript)));
+    assert.doesNotMatch(page, new RegExp(esc(adsenseMeta)));
   }
-  assert.equal(
-    read("_site", "ads.txt").trim(),
-    "google.com, pub-5681559774142917, DIRECT, f08c47fec0942fa0",
-  );
-  assert.equal(read("_site", "ads.txt").trim().split("\n").length, 1);
+  assert.doesNotMatch(read("_site", "ads.txt"), /pub-5681559774142917/);
 
   // GA4 is consent-gated: the hosts are in CSP and the inline loader, and the
   // tag is not a parser-fetched script until the visitor accepts. AdSense stays
